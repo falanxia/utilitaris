@@ -74,7 +74,7 @@ package com.falanxia.utilitaris.display {
 			if(matrix == null) matrix = new Matrix();
 
 			// get ref to object
-			var sourceDO:DisplayObject = source as DisplayObject;
+			var sourceDO:DisplayObject = DisplayObject(source);
 
 			// take not of original matrix and parent
 			var origMatrix:Matrix = sourceDO.transform.matrix;

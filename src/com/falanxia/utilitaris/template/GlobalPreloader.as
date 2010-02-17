@@ -100,7 +100,7 @@ package com.falanxia.utilitaris.template {
 				// main class found
 				// add it to the display list
 				_app = new _mainClass();
-				addChild(_app as DisplayObject);
+				addChild(DisplayObject(_app));
 
 				// send flashvars to main class
 				_app.flashVars = root.loaderInfo.parameters;

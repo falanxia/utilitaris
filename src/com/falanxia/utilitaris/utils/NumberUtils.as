@@ -674,7 +674,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function isPositive(value:Number):Boolean {
-			return(value >= 0) as Boolean;
+			return Boolean(value >= 0);
 		}
 
 

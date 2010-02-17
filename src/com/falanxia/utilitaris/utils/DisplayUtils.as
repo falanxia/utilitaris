@@ -346,9 +346,9 @@ package com.falanxia.utilitaris.utils {
 		 * @return Duplicated {@code MovieClip}
 		 */
 		public static function duplicateMovieClip(source:MovieClip):MovieClip {
-			var targetClass:Class = Object(source).constructor as Class;
+			var targetClass:Class = Class(Object(source).constructor);
 
-			return(new targetClass() as MovieClip);
+			return(MovieClip(new targetClass()));
 		}
 
 
@@ -559,7 +559,7 @@ package com.falanxia.utilitaris.utils {
 				if(child is DisplayObjectContainer) {
 					if(child is MovieClip) MovieClip(child).stop();
 
-					stopAllTimelines(child as DisplayObjectContainer);
+					stopAllTimelines(DisplayObjectContainer(child));
 				}
 			}
 		}

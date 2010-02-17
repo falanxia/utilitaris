@@ -135,7 +135,7 @@ package com.falanxia.utilitaris.utils {
 		public static function clone(source:*):Object {
 			var copier:ByteArray = new ByteArray();
 
-			copier.writeObject(source as Object);
+			copier.writeObject(Object(source));
 			copier.position = 0;
 
 			return copier.readObject();
