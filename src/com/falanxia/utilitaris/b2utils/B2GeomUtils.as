@@ -213,6 +213,8 @@ package com.falanxia.utilitaris.b2utils {
 		 */
 		public function drawRectangleFence(coords:WorldCoords,width:Number,height:Number,wallSize:Number, isSensor:Boolean = false, density:Number = 0, restitution:Number = .1, friction:Number = .1,angularDamping:Number=.5,linearDamping:Number=.5,isBullet:Boolean=false):Vector.<b2Body> {
 
+			if (coords.y >= height) height+=coords.y;
+
 			var x:Number = coords.x;
 			var y:Number = coords.y;
 
@@ -220,12 +222,6 @@ package com.falanxia.utilitaris.b2utils {
 			var w2:WorldRectangleObject = new WorldRectangleObject("wall2", new WorldCoords(x+width-wallSize,y+wallSize),wallSize,height-2*wallSize-y);
 			var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x,height-wallSize),width,wallSize);
 			var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x,y+wallSize),wallSize,height-2*wallSize-y);
-
-			/*	var w1:WorldRectangleObject = new WorldRectangleObject("wall1", new WorldCoords(x,y),width,wallSize);
-				var w2:WorldRectangleObject = new WorldRectangleObject("wall2", new WorldCoords(x+width,y),-wallSize,height-y);
-				var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x,height-wallSize),width,wallSize);
-				var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x+wallSize,y),-wallSize,height-y);
-			*/			
 
 			var v:Vector.<b2Body> = new Vector.<b2Body>;
 			v.push(drawRectangle(w1,isSensor,density,restitution,friction,angularDamping,linearDamping,isBullet));
