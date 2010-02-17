@@ -130,9 +130,6 @@ package com.falanxia.utilitaris.b2utils {
 			sh.isSensor = isSensor;
 			sh.SetAsOrientedBox((rectangle.width / 2) / ratio, (rectangle.height / 2) / ratio, new b2Vec2(0, 0), rc.rotation * pi_deg / ratio);
 
-
-			trace(sh.isSensor);
-
 			var b:b2Body = world.CreateBody(def);
 			b.SetBullet(isBullet);
 			b.CreateShape(sh);
