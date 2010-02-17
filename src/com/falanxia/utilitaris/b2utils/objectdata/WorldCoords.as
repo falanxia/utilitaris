@@ -48,6 +48,8 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 			this.x = x;
 			this.y = y;
 			this.rotation = rotation;
+
+			if(isNaN(this.rotation)) this.rotation = 0;
 		}
 
 

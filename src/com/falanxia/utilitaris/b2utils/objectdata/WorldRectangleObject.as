@@ -17,16 +17,17 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	 */
 	public class WorldRectangleObject extends WorldObject {
 
+
 		public var width:Number;
 		public var height:Number;
 
-		public function WorldRectangleObject(name:String,position:WorldCoords, width:Number, height:Number) {
 
-			super(name,position);
+
+		public function WorldRectangleObject(name:String, position:WorldCoords, width:Number, height:Number) {
+			super(name, position);
 
 			this.width = width;
 			this.height = height;
-
 		}
 
 
@@ -36,7 +37,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		override public function toString():String {
-			return printf("position=(%s), width=%.2f, height=%.2f", position, width, height);
+			return printf("name=%s, position=(%s), width=%.2f, height=%.2f", name, position, width, height);
 		}
 	}
 }

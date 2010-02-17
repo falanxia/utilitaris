@@ -22,12 +22,10 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 
-		public function WorldCircleObject(name:String,position:WorldCoords, radius:Number) {
-
-			super(name,position);
+		public function WorldCircleObject(name:String, position:WorldCoords, radius:Number) {
+			super(name, position);
 
 			this.radius = radius;
-
 		}
 
 
@@ -37,7 +35,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		override public function toString():String {
-			return printf("position=(%s), radius=%.2f", position, radius);
+			return printf("name=%s, position=(%s), radius=%.2f", name, position, radius);
 		}
 	}
 }
