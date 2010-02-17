@@ -62,8 +62,8 @@ package com.falanxia.utilitaris.b2utils {
 		 */
 		public function getBodyAtMouse(mouseX:Number, mouseY:Number,maxCount:int=10,includeStatic:Boolean=false):b2Body {
 
-			var mouseXWorldPhys=mouseX/ratio;
-			var mouseYWorldPhys=mouseY/ratio;
+			var mouseXWorldPhys:Number = mouseX/ratio;
+			var mouseYWorldPhys:Number = mouseY/ratio;
 			var mouseCoords:b2Vec2 = new b2Vec2(mouseXWorldPhys,mouseYWorldPhys);
 
 			var aabb:b2AABB=new b2AABB();
@@ -88,7 +88,7 @@ package com.falanxia.utilitaris.b2utils {
 						break;
 
 					}
-					
+
 				}
 
 			}
