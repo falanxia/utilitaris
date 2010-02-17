@@ -44,7 +44,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function DateUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -238,7 +238,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Test
 		 */
 		public static function formatDate(dateToFormat:Date, formatString:String):String {
-			var out:String = '';
+			var out:String = "";
 			var c:String;
 			var i:int = -1;
 			var l:uint = formatString.length;
@@ -247,114 +247,114 @@ package com.falanxia.utilitaris.utils {
 			while(++i < l) {
 				c = formatString.substr(i, 1);
 
-				if(c == '^') out += formatString.substr(++i, 1);
+				if(c == "^") out += formatString.substr(++i, 1);
 
 				else {
 					switch(c) {
-						case 'd' :
+						case "d" :
 							// Day of the month, 2 digits with leading zeros
 							out += NumberUtils.addLeadingZero(dateToFormat.getDate());
 							break;
 
-						case 'D' :
+						case "D" :
 							// A textual representation of a day, three letters
 							out += getDayAbbrAsString(dateToFormat.getDay());
 							break;
 
-						case 'j' :
+						case "j" :
 							// Day of the month without leading zeros
 							out += dateToFormat.getDate().toString();
 							break;
 
-						case 'l' :
+						case "l" :
 							// A full textual representation of the day of the week
 							out += getDayAsString(dateToFormat.getDay());
 							break;
 
-						case 'N' :
+						case "N" :
 							// ISO-8601 numeric representation of the day of the week
 							t = dateToFormat.getDay();
 							if(t == 0) t = 7;
 							out += t.toString();
 							break;
 
-						case 'S' :
+						case "S" :
 							// English ordinal suffix for the day of the month, 2 characters
 							out += NumberUtils.getOrdinalSuffix(dateToFormat.getDate());
 							break;
 
-						case 'w' :
+						case "w" :
 							// Numeric representation of the day of the week
 							out += dateToFormat.getDay().toString();
 							break;
 
-						case 'z' :
+						case "z" :
 							// The day of the year (starting from 0)
 							out += NumberUtils.addLeadingZero(getDayOfTheYear(dateToFormat)).toString();
 							break;
 
-						case 'W' :
+						case "W" :
 							// ISO-8601 week number of year, weeks starting on Monday
 							out += NumberUtils.addLeadingZero(getWeekOfTheYear(dateToFormat)).toString();
 							break;
 
-						case 'F' :
+						case "F" :
 							// A full textual representation of a month, such as January or March
 							out += getMonthAsString(dateToFormat.getMonth());
 							break;
 
-						case 'm' :
+						case "m" :
 							// Numeric representation of a month, with leading zeros
 							out += NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1);
 							break;
 
-						case 'M' :
+						case "M" :
 							// A short textual representation of a month, three letters
 							out += getMonthAbbrAsString(dateToFormat.getMonth());
 							break;
 
-						case 'n' :
+						case "n" :
 							// Numeric representation of a month, without leading zeros
 							out += (dateToFormat.getMonth() + 1).toString();
 							break;
 
-						case 't' :
+						case "t" :
 							// Number of days in the given month
 							out += getDaysInMonth(dateToFormat.getMonth(), dateToFormat.getFullYear()).toString();
 							break;
 
-						case 'L' :
+						case "L" :
 							// Whether it is a leap year
-							out += (isLeapYear(dateToFormat.getFullYear())) ? '1' : '0';
+							out += (isLeapYear(dateToFormat.getFullYear())) ? "1" : "0";
 							break;
 
-						case 'o' :
-						case 'Y' :
+						case "o" :
+						case "Y" :
 							// A full numeric representation of a year, 4 digits
 							out += dateToFormat.getFullYear().toString();
 							break;
 
-						case 'y' :
+						case "y" :
 							// A two digit representation of a year
 							out += dateToFormat.getFullYear().toString().substr(-2);
 							break;
 
-						case 'a' :
+						case "a" :
 							// Lowercase Ante meridiem and Post meridiem
 							out += getMeridiem(dateToFormat.getHours()).toLowerCase();
 							break;
 
-						case 'A' :
+						case "A" :
 							// Uppercase Ante meridiem and Post meridiem
 							out += getMeridiem(dateToFormat.getHours());
 							break;
 
-						case 'B' :
+						case "B" :
 							// Swatch Internet time
-							out += NumberUtils.format(getInternetTime(dateToFormat), 3, null, '0');
+							out += NumberUtils.format(getInternetTime(dateToFormat), 3, null, "0");
 							break;
 
-						case 'g' :
+						case "g" :
 							// 12-hour format of an hour without leading zeros
 							t = dateToFormat.getHours();
 							if(t == 0) {
@@ -365,12 +365,12 @@ package com.falanxia.utilitaris.utils {
 							out += t.toString();
 							break;
 
-						case 'G' :
+						case "G" :
 							// 24-hour format of an hour without leading zeros
 							out += dateToFormat.getHours().toString();
 							break;
 
-						case 'h' :
+						case "h" :
 							// 12-hour format of an hour with leading zeros
 							t = dateToFormat.getHours() + 1;
 							if(t == 0) {
@@ -381,57 +381,57 @@ package com.falanxia.utilitaris.utils {
 							out += NumberUtils.addLeadingZero(t);
 							break;
 
-						case 'H' :
+						case "H" :
 							// 24-hour format of an hour with leading zeros
 							out += NumberUtils.addLeadingZero(dateToFormat.getHours());
 							break;
 
-						case 'i' :
+						case "i" :
 							// Minutes with leading zeros
 							out += NumberUtils.addLeadingZero(dateToFormat.getMinutes());
 							break;
 
-						case 's' :
+						case "s" :
 							// Seconds, with leading zeros
 							out += NumberUtils.addLeadingZero(dateToFormat.getSeconds());
 							break;
 
-						case 'I' :
+						case "I" :
 							// Whether or not the date is in daylights savings time
-							out += (isDaylightSavings(dateToFormat)) ? '1' : '0';
+							out += (isDaylightSavings(dateToFormat)) ? "1" : "0";
 							break;
 
-						case 'O' :
+						case "O" :
 							// Difference to Greenwich time (GMT/UTC) in hours
 							out += getFormattedDifferenceFromUTC(dateToFormat);
 							break;
 
-						case 'P' :
-							out += getFormattedDifferenceFromUTC(dateToFormat, ':');
+						case "P" :
+							out += getFormattedDifferenceFromUTC(dateToFormat, ":");
 							break;
 
-						case 'e' :
-						case 'T' :
+						case "e" :
+						case "T" :
 							// Timezone identifier
 							out += getTimezone(dateToFormat);
 							break;
 
-						case 'Z' :
+						case "Z" :
 							// Timezone offset (GMT/UTC) in seconds.
 							out += Math.round(getDifferenceFromUTCInSeconds(dateToFormat)).toString();
 							break;
 
-						case 'c' :
+						case "c" :
 							// ISO 8601 date
-							out += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" + NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + getFormattedDifferenceFromUTC(dateToFormat, ':');
+							out += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" + NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + getFormattedDifferenceFromUTC(dateToFormat, ":");
 							break;
 
-						case 'r' :
+						case "r" :
 							// RFC 2822 formatted date
-							out += getDayAbbrAsString(dateToFormat.getDay()) + ', ' + dateToFormat.getDate() + ' ' + getMonthAbbrAsString(dateToFormat.getMonth()) + ' ' + dateToFormat.getFullYear() + ' ' + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ':' + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ':' + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + ' ' + getFormattedDifferenceFromUTC(dateToFormat);
+							out += getDayAbbrAsString(dateToFormat.getDay()) + ", " + dateToFormat.getDate() + " " + getMonthAbbrAsString(dateToFormat.getMonth()) + " " + dateToFormat.getFullYear() + " " + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + " " + getFormattedDifferenceFromUTC(dateToFormat);
 							break;
 
-						case 'U' :
+						case "U" :
 							// Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
 							t = Math.round(dateToFormat.getTime() / 1000);
 							out += t.toString();
@@ -460,9 +460,9 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Test
 		 */
 		public static function iso8601ToDate(iso8601:String):Date {
-			var parts:Array = iso8601.toUpperCase().split('T');
-			var date:Array = parts[0].split('-');
-			var time:Array = (parts.length <= 1) ? [] : parts[1].split(':');
+			var parts:Array = iso8601.toUpperCase().split("T");
+			var date:Array = parts[0].split("-");
+			var time:Array = (parts.length <= 1) ? [] : parts[1].split(":");
 			var year:uint = ObjectUtils.isEmpty(date[0]) ? 0 : Number(date[0]);
 			var month:uint = ObjectUtils.isEmpty(date[1]) ? 0 : Number(date[1] - 1);
 			var day:uint = ObjectUtils.isEmpty(date[2]) ? 1 : Number(date[2]);
@@ -475,12 +475,12 @@ package com.falanxia.utilitaris.utils {
 				var index:int = time[2].length;
 				var temp:Number;
 
-				if(time[2].indexOf('+') > -1) {
-					index = time[2].indexOf('+');
-				} else if(time[2].indexOf('-') > -1) {
-					index = time[2].indexOf('-');
-				} else if(time[2].indexOf('Z') > -1) {
-					index = time[2].indexOf('Z');
+				if(time[2].indexOf("+") > -1) {
+					index = time[2].indexOf("+");
+				} else if(time[2].indexOf("-") > -1) {
+					index = time[2].indexOf("-");
+				} else if(time[2].indexOf("Z") > -1) {
+					index = time[2].indexOf("Z");
 				}
 
 				if(isNaN(index)) {
@@ -494,12 +494,12 @@ package com.falanxia.utilitaris.utils {
 					var userOffset:Number = getDifferenceFromUTCInHours(new Date(year, month, day));
 
 					switch(offset.charAt(0)) {
-						case '+' :
-						case '-' :
+						case "+" :
+						case "-" :
 							hour -= userOffset + Number(offset.slice(0));
 							break;
 
-						case 'Z' :
+						case "Z" :
 							hour -= userOffset;
 							break;
 
@@ -524,7 +524,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function getMonthAsString(month:Number):String {
-			var monthNamesFull:Array = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+			var monthNamesFull:Array = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
 			return monthNamesFull[month];
 		}
@@ -558,7 +558,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function getDayAsString(day:Number):String {
-			var dayNamesFull:Array = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+			var dayNamesFull:Array = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
 
 			return dayNamesFull[day];
 		}
@@ -610,7 +610,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function getMeridiem(hours:Number):String {
-			return (hours < 12) ? 'AM' : 'PM';
+			return (hours < 12) ? "AM" : "PM";
 		}
 
 
@@ -689,7 +689,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return Formatted time difference from UTC
 		 */
 		public static function getFormattedDifferenceFromUTC(date:Date, separator:String = ""):String {
-			var pre:String = (-date.getTimezoneOffset() < 0) ? '-' : '+';
+			var pre:String = (-date.getTimezoneOffset() < 0) ? "-" : "+";
 
 			return pre + NumberUtils.addLeadingZero(Math.floor(getDifferenceFromUTCInHours(date))) + separator + NumberUtils.addLeadingZero(date.getTimezoneOffset() % 60);
 		}
@@ -706,7 +706,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function getTimezone(date:Date):String {
-			var timeZones:Array = new Array('IDLW', 'NT', 'HST', 'AKST', 'PST', 'MST', 'CST', 'EST', 'AST', 'ADT', 'AT', 'WAT', 'GMT', 'CET', 'EET', 'MSK', 'ZP4', 'ZP5', 'ZP6', 'WAST', 'WST', 'JST', 'AEST', 'AEDT', 'NZST');
+			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6", "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
 			var hour:uint = Math.round(12 + -(date.getTimezoneOffset() / 60));
 
 			if(isDaylightSavings(date)) hour--;
@@ -819,7 +819,7 @@ package com.falanxia.utilitaris.utils {
 			var s:Number = Math.floor((sec % 3600) % 60);
 
 			//noinspection NestedConditionalExpressionJS
-			return (h == 0 ? '' : (h < 10 ? '0' + h.toString() + ':' : h.toString() + ':')) + (m < 10 ? '0' + m.toString() : m.toString()) + ':' + (s < 10 ? '0' + s.toString() : s.toString());
+			return (h == 0 ? "" : (h < 10 ? "0" + h.toString() + ":" : h.toString() + ":")) + (m < 10 ? "0" + m.toString() : m.toString()) + ":" + (s < 10 ? "0" + s.toString() : s.toString());
 		}
 	}
 }

@@ -64,7 +64,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		public function toString():String {
-			return printf('x=%.2f, y=%.2f, rotation=%.2f', x, y, rotation);
+			return printf("x=%.2f, y=%.2f, rotation=%.2f", x, y, rotation);
 		}
 	}
 }

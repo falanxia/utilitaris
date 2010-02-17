@@ -171,7 +171,7 @@ package com.falanxia.utilitaris.display {
 			if(isMorphHeightEnabled && config.height != undefined) t.height = config.height;
 
 			t.ease = (config.morphEase == undefined) ? morphEase : config.morphEase;
-			t.roundProps = ['x', 'y', 'width', 'height'];
+			t.roundProps = ["x", "y", "width", "height"];
 			t.onComplete = _onMorphComplete;
 
 			new TweenLite(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);

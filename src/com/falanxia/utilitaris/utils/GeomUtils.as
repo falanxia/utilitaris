@@ -55,7 +55,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function GeomUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 

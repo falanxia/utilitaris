@@ -36,7 +36,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		override public function toString():String {
-			return printf('position=(%s), width=%.2f, height=%.2f', position, width, height);
+			return printf("position=(%s), width=%.2f, height=%.2f", position, width, height);
 		}
 	}
 }

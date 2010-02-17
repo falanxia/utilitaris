@@ -47,7 +47,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function NumberUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -569,7 +569,7 @@ package com.falanxia.utilitaris.utils {
 			var ml:uint = minLength;
 
 			if(thouDelim != null) {
-				var numSplit:Array = num.split('');
+				var numSplit:Array = num.split("");
 				var counter:uint = 3;
 				var i:uint = numSplit.length;
 
@@ -581,14 +581,14 @@ package com.falanxia.utilitaris.utils {
 					}
 				}
 
-				num = numSplit.join('');
+				num = numSplit.join("");
 			}
 
 			if(ml != 0) {
 				if(len < ml) {
 					ml -= len;
 
-					var addChar:String = (fillChar == null) ? '0' : fillChar;
+					var addChar:String = (fillChar == null) ? "0" : fillChar;
 
 					while(ml--)
 						num = addChar + num;
@@ -615,7 +615,7 @@ package com.falanxia.utilitaris.utils {
 			var out:String;
 
 			if(value >= 10 && value <= 20) {
-				out = 'th';
+				out = "th";
 			}
 
 			switch(value % 10) {
@@ -626,23 +626,23 @@ package com.falanxia.utilitaris.utils {
 				case 7 :
 				case 8 :
 				case 9 :
-					out = 'th';
+					out = "th";
 					break;
 
 				case 3 :
-					out = 'rd';
+					out = "rd";
 					break;
 
 				case 2 :
-					out = 'nd';
+					out = "nd";
 					break;
 
 				case 1 :
-					out = 'st';
+					out = "st";
 					break;
 
 				default :
-					out = '';
+					out = "";
 			}
 
 			return out;
@@ -662,7 +662,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function addLeadingZero(value:Number):String {
-			return (value < 10) ? '0' + value : value.toString();
+			return (value < 10) ? "0" + value : value.toString();
 		}
 
 

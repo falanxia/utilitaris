@@ -123,9 +123,9 @@ package com.falanxia.utilitaris.types {
 			var gg:String = this.g.toString(16);
 			var bb:String = this.b.toString(16);
 
-			rr = (rr.length == 1) ? '0' + rr : rr;
-			gg = (gg.length == 1) ? '0' + gg : gg;
-			bb = (bb.length == 1) ? '0' + bb : bb;
+			rr = (rr.length == 1) ? "0" + rr : rr;
+			gg = (gg.length == 1) ? "0" + gg : gg;
+			bb = (bb.length == 1) ? "0" + bb : bb;
 
 			return (rr + gg + bb).toUpperCase();
 		}

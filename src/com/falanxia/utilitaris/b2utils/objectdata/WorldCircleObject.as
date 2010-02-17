@@ -37,7 +37,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		override public function toString():String {
-			return printf('position=(%s), radius=%.2f', position, radius);
+			return printf("position=(%s), radius=%.2f", position, radius);
 		}
 	}
 }

@@ -38,7 +38,7 @@ package com.falanxia.utilitaris.locale {
 
 
 		private static var _dictionaries:Array = [];
-		private static var _currentLanguage:String = '';
+		private static var _currentLanguage:String = "";
 		private static var _currentDictionary:LanguageDictionary;
 
 
@@ -55,7 +55,7 @@ package com.falanxia.utilitaris.locale {
 
 				_dictionaries.push(dictionary);
 
-				if(_currentLanguage == '') language = lang.@lang;
+				if(_currentLanguage == "") language = lang.@lang;
 			}
 		}
 
@@ -72,7 +72,7 @@ package com.falanxia.utilitaris.locale {
 			if(_currentDictionary != null) out = _currentDictionary.getText(id);
 
 			// locale string not found
-			if(out == null) out = '[' + id + ']';
+			if(out == null) out = "[" + id + "]";
 
 			return out;
 		}
@@ -84,7 +84,7 @@ package com.falanxia.utilitaris.locale {
 
 		/**
 		 * Set current language.
-		 * @param value Language (like 'en')
+		 * @param value Language (like "en")
 		 * @throws Error if language not found in currently active dictionaries
 		 */
 		public static function set language(value:String):void {
@@ -95,7 +95,7 @@ package com.falanxia.utilitaris.locale {
 			}
 
 			if(f == null) {
-				throw new Error('Language ' + value + ' not found in currently active dictionaries');
+				throw new Error("Language " + value + " not found in currently active dictionaries");
 			}
 
 			_currentLanguage = value;
@@ -106,7 +106,7 @@ package com.falanxia.utilitaris.locale {
 
 		/**
 		 * Get current language.
-		 * @return Current language (like 'en')
+		 * @return Current language (like "en")
 		 */
 		public static function get language():String {
 			return _currentLanguage;

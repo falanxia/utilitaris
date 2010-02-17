@@ -55,7 +55,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		public function toString():String {
-			return printf('name="%s", position=(%s)', name, position);
+			return printf("name=\"%s\", position=(%s)", name, position);
 		}
 
 	}

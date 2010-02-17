@@ -40,10 +40,10 @@ package com.falanxia.utilitaris.utils {
 	public class NavigateUtils {
 
 
-		public static const WINDOW_SELF:String = '_self';
-		public static const WINDOW_BLANK:String = '_blank';
-		public static const WINDOW_PARENT:String = '_parent';
-		public static const WINDOW_TOP:String = '_top';
+		public static const WINDOW_SELF:String = "_self";
+		public static const WINDOW_BLANK:String = "_blank";
+		public static const WINDOW_PARENT:String = "_parent";
+		public static const WINDOW_TOP:String = "_top";
 
 
 
@@ -53,7 +53,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws Error since the class could not be instantiated
 		 */
 		public function NavigateUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -73,7 +73,7 @@ package com.falanxia.utilitaris.utils {
 			if(r is String) {
 				r = new URLRequest(r);
 			} else if(!(r is URLRequest)) {
-				throw new Error('request');
+				throw new Error("request");
 			}
 
 			//noinspection OverlyComplexBooleanExpressionJS
@@ -95,7 +95,7 @@ package com.falanxia.utilitaris.utils {
 		 * @see <a href="http://google.com/search?q=JavaScript+window.open+documentation">JavaScript documentation for window.open</a>.
 		 */
 		public static function openWindow(url:String, window:String = WINDOW_BLANK, features:String = ""):Boolean {
-			return ExternalInterface.call("function casaOpenWindow(url, windowOrName, features) { return window.open(url, windowOrName, features) != null; }", url, (window == WINDOW_BLANK) ? 'casaWindow' + int(1000 * Math.random()) : window, features);
+			return ExternalInterface.call("function casaOpenWindow(url, windowOrName, features) { return window.open(url, windowOrName, features) != null; }", url, (window == WINDOW_BLANK) ? "casaWindow" + int(1000 * Math.random()) : window, features);
 		}
 	}
 }

@@ -46,9 +46,9 @@ package com.falanxia.utilitaris.locale {
 
 		/**
 		 * Constructor.
-		 * @param lang Language ('en' by default)
+		 * @param lang Language ("en" by default)
 		 */
-		public function LanguageDictionary(lang:String = 'en') {
+		public function LanguageDictionary(lang:String = "en") {
 			_lang = lang;
 			_dictionary = new Dictionary();
 		}
@@ -84,7 +84,7 @@ package com.falanxia.utilitaris.locale {
 		/**
 		 * Get current language.
 		 *
-		 * @return Current language (like 'en')
+		 * @return Current language (like "en")
 		 */
 		public function get lang():String {
 			return _lang;

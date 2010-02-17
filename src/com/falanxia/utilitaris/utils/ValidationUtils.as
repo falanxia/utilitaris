@@ -38,25 +38,25 @@ package com.falanxia.utilitaris.utils {
 
 
 		/** Invalid card */
-		public static const CARD_INVALID:String = 'invalid';
+		public static const CARD_INVALID:String = "invalid";
 
 		/** Visa card */
-		public static const CARD_VISA:String = 'visa';
+		public static const CARD_VISA:String = "visa";
 
 		/** MasterCard card */
-		public static const CARD_MASTERCARD:String = 'mastercard';
+		public static const CARD_MASTERCARD:String = "mastercard";
 
 		/** Discover card */
-		public static const CARD_DISCOVER:String = 'discover';
+		public static const CARD_DISCOVER:String = "discover";
 
 		/** Amex card */
-		public static const CARD_AMEX:String = 'amex';
+		public static const CARD_AMEX:String = "amex";
 
 		/** Diners card */
-		public static const CARD_DINERS:String = 'diners';
+		public static const CARD_DINERS:String = "diners";
 
 		/** Other card */
-		public static const CARD_OTHER:String = 'other';
+		public static const CARD_OTHER:String = "other";
 
 
 
@@ -66,7 +66,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws Error since the class could not be instantiated
 		 */
 		public function ValidationUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 

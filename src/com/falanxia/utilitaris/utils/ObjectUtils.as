@@ -47,7 +47,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws Error since the class could not be instantiated
 		 */
 		public function ObjectUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -152,7 +152,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Test
 		 */
 		public static function inspect(obj:Object, depth:int = 2):String {
-			return _scanObject(obj, depth, '');
+			return _scanObject(obj, depth, "");
 		}
 
 
@@ -216,16 +216,16 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 * @todo Test
 		 */
-		public static function toString(obj:Object = null, delimiter:String = '\n'):String {
+		public static function toString(obj:Object = null, delimiter:String = "\n"):String {
 			var out:String;
 
 			if(obj == null || delimiter == null) {
-				out = '';
+				out = "";
 			}
 			else {
 				var ret:Array = [];
 				for(var s:Object in obj) {
-					ret.push(s + ': ' + obj[s]);
+					ret.push(s + ": " + obj[s]);
 				}
 				out = ret.join(delimiter);
 			}
@@ -336,18 +336,18 @@ package com.falanxia.utilitaris.utils {
 			}
 			else {
 				const classDef:XML = describeType(obj);
-				var str:String = '';
+				var str:String = "";
 
 				for each(var variable:XML in classDef.variable) {
-					str += prefix + variable.@name + ' : ' + _scanObject(obj[variable.@name], depth - 1, prefix + '\t') + '\n';
+					str += prefix + variable.@name + " : " + _scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
 				}
 
 				for(var s:* in obj) {
-					str += prefix + s + ' = ' + _scanObject(obj[s], depth - 1, prefix + '\t') + '\n';
+					str += prefix + s + " = " + _scanObject(obj[s], depth - 1, prefix + "\t") + "\n";
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS
-				out = str == '' ? ((obj != null) ? obj + '' : 'null') : ('[' + classDef.@name + '] {\n' + str + prefix + '}\n');
+				out = str == "" ? ((obj != null) ? obj + "" : "null") : ("[" + classDef.@name + "] {\n" + str + prefix + "}\n");
 			}
 
 			return out;

@@ -76,7 +76,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function DisplayUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -673,11 +673,11 @@ package com.falanxia.utilitaris.utils {
 		public static function traceChildren(container:DisplayObjectContainer, indentLevel:int = 0):void {
 			for(var i:int = 0; i < container.numChildren; i++) {
 				var thisChild:DisplayObject = container.getChildAt(i);
-				var output:String = '';
+				var output:String = "";
 
-				for(var j:int = 0; j < indentLevel; j++) output += '   ';
+				for(var j:int = 0; j < indentLevel; j++) output += "   ";
 
-				output += '+  ' + thisChild.name + ' = ' + thisChild.toString();
+				output += "+  " + thisChild.name + " = " + thisChild.toString();
 
 				trace(output);
 

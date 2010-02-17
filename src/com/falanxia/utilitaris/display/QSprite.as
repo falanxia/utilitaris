@@ -82,7 +82,7 @@ package com.falanxia.utilitaris.display {
 			// Sprite overrides and custom config
 			if(c.embed) {
 				if(!(c.embed is DisplayObject)) {
-					throw new TypeError('Embedded object has to be DisplayObject');
+					throw new TypeError("Embedded object has to be DisplayObject");
 				}
 
 				_embeddedSpr = c.embed;

@@ -44,7 +44,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function EventUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -57,8 +57,8 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function addEventListeners(obj:EventDispatcher, ... params):void {
 			for each(var i:Object in params) {
-				if(i.event == undefined) throw new Error('Event undefined');
-				if(i.method == undefined) throw new Error('Method undefined');
+				if(i.event == undefined) throw new Error("Event undefined");
+				if(i.method == undefined) throw new Error("Method undefined");
 
 				obj.addEventListener(i.event, i.method, false, 0, true);
 			}
@@ -74,8 +74,8 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function removeEventListeners(obj:EventDispatcher, ... params):void {
 			for each(var i:Object in params) {
-				if(i.event == undefined) throw new Error('Event undefined');
-				if(i.method == undefined) throw new Error('Method undefined');
+				if(i.event == undefined) throw new Error("Event undefined");
+				if(i.method == undefined) throw new Error("Method undefined");
 
 				obj.removeEventListener(i.event, i.method);
 			}

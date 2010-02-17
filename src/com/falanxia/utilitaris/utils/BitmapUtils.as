@@ -47,7 +47,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function BitmapUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -64,7 +64,7 @@ package com.falanxia.utilitaris.utils {
 			var o:BitmapData;
 
 			if(source is Bitmap) o = source.bitmapData; else if(source is BitmapData) o = source;
-			else throw new TypeError('Bitmap or BitmapData needed');
+			else throw new TypeError("Bitmap or BitmapData needed");
 
 			return o;
 		}

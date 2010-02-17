@@ -46,7 +46,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws Error since the class could not be instantiated
 		 */
 		public function StringUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -54,14 +54,14 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Generate a random {@code String}.
 		 * @param length {@code String} length (default {@code 10})
-		 * @param ch Chars used (default {@code 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'})
+		 * @param ch Chars used (default {@code "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"})
 		 * @return Random {@code String}
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function randomString(length:uint = 10, ch:String = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'):String {
-			var alphabet:Array = ch.split('');
+		public static function randomString(length:uint = 10, ch:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):String {
+			var alphabet:Array = ch.split("");
 			var alphabetLength:int = alphabet.length;
-			var randomLetters:String = '';
+			var randomLetters:String = "";
 
 			for(var j:uint = 0; j < length; j++) {
 				var r:Number = Math.random() * alphabetLength;
@@ -106,7 +106,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 * @todo Compare with {@code slashUnsafeChars()} method
 		 */
-		public static function addSlashes(value:String, ch:String = '"'):String {
+		public static function addSlashes(value:String, ch:String = "\""):String {
 			var out:String;
 			var c:String = ch;
 
@@ -119,10 +119,10 @@ package com.falanxia.utilitaris.utils {
 				c = slashUnsafeChars(c);
 
 				// build the regular expression that handles the slashing
-				var regex:RegExp = new RegExp('([' + c + '])', 'g');
+				var regex:RegExp = new RegExp("([" + c + "])", "g");
 
 				// add the slashes to the specified characters
-				out = value.replace(regex, '\\$1');
+				out = value.replace(regex, "\\$1");
 			}
 
 			return out;
@@ -137,7 +137,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return {@code String} with slashes removed from all characters
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function stripSlashes(value:String, ch:String = '"'):String {
+		public static function stripSlashes(value:String, ch:String = "\""):String {
 			var out:String;
 			var c:String = ch;
 
@@ -150,10 +150,10 @@ package com.falanxia.utilitaris.utils {
 				c = slashUnsafeChars(c);
 
 				// build the regular expression that removes the slashes
-				var regex:RegExp = new RegExp('\\\\([' + c + '])', 'g');
+				var regex:RegExp = new RegExp("\\\\([" + c + "])", "g");
 
 				// strip the slashes from the specified characters
-				out = value.replace(regex, '$1');
+				out = value.replace(regex, "$1");
 			}
 
 			return out;
@@ -169,7 +169,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function afterFirst(value:String, ch:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var idx:int = value.indexOf(ch);
@@ -193,7 +193,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function afterLast(value:String, ch:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var idx:int = value.lastIndexOf(ch);
@@ -236,7 +236,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function beforeFirst(value:String, ch:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var idx:int = value.indexOf(ch);
@@ -259,7 +259,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function beforeLast(value:String, ch:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var idx:int = value.lastIndexOf(ch);
@@ -283,7 +283,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function between(value:String, start:String, end:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var startIdx:int = value.indexOf(start);
@@ -312,17 +312,17 @@ package com.falanxia.utilitaris.utils {
 		 * apart.
 		 * @param value Input {@code String}
 		 * @param length Maximum length of each block of text
-		 * @param delimiter delimter to end text blocks on, default = {@code '.'}
+		 * @param delimiter delimter to end text blocks on, default = {@code "."}
 		 * @returns Array
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function block(value:String, length:uint, delimiter:String = '.'):Array {
+		public static function block(value:String, length:uint, delimiter:String = "."):Array {
 			var out:Array = [];
 
 			if(!(value == null || !contains(value, delimiter))) {
 				var chrIndex:uint = 0;
 				var strLen:uint = value.length;
-				var replPatt:RegExp = new RegExp('[^' + _escapePattern(delimiter) + ']+$');
+				var replPatt:RegExp = new RegExp("[^" + _escapePattern(delimiter) + "]+$");
 
 				while(chrIndex < strLen) {
 					var subString:String = value.substr(chrIndex, length);
@@ -332,7 +332,7 @@ package com.falanxia.utilitaris.utils {
 						chrIndex += subString.length;
 					}
 
-					subString = subString.replace(replPatt, '');
+					subString = subString.replace(replPatt, "");
 					out.push(subString);
 					chrIndex += subString.length;
 				}
@@ -396,7 +396,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(value != null) {
 				var c:String = _escapePattern(ch);
-				var f:String = (isCaseSensitive) ? 'g' : 'ig';
+				var f:String = (isCaseSensitive) ? "g" : "ig";
 
 				out = value.match(new RegExp(c, f)).length;
 			}
@@ -420,8 +420,8 @@ package com.falanxia.utilitaris.utils {
 			var v:String = value;
 			var t:String = tgt;
 
-			if(v == null) v = '';
-			if(t == null) t = '';
+			if(v == null) v = "";
+			if(t == null) t = "";
 
 			if(v == t) out = 0;
 			else {
@@ -573,7 +573,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function properCase(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var str:String = value.toLowerCase().replace(/\b([^.?;!]+)/, capitalize);
@@ -595,7 +595,7 @@ package com.falanxia.utilitaris.utils {
 		public static function quote(value:String):String {
 			var regx:RegExp = /[\\"\r\n]/g;
 
-			return '"' + value.replace(regx, _quote) + '"';
+			return "\"" + value.replace(regx, _quote) + "\"";
 		}
 
 
@@ -609,13 +609,13 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function remove(value:String, remove:String, isCaseSensitive:Boolean = true):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var rem:String = _escapePattern(remove);
-				var flags:String = (isCaseSensitive) ? 'g' : 'ig';
+				var flags:String = (isCaseSensitive) ? "g" : "ig";
 
-				out = value.replace(new RegExp(rem, flags), '');
+				out = value.replace(new RegExp(rem, flags), "");
 			}
 
 			return out;
@@ -630,12 +630,12 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function removeExtraWhitespace(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				var str:String = trim(value);
 
-				out = str.replace(/\s+/g, ' ');
+				out = str.replace(/\s+/g, " ");
 			}
 
 			return out;
@@ -650,10 +650,10 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function reverse(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
-				out = value.split('').reverse().join('');
+				out = value.split("").reverse().join("");
 			}
 
 			return out;
@@ -668,10 +668,10 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function reverseWords(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
-				out = value.split(/\s+/).reverse().join('');
+				out = value.split(/\s+/).reverse().join("");
 			}
 
 			return out;
@@ -707,10 +707,10 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function stripTags(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
-				out = value.replace(/<\/?[^>]+>/igm, '');
+				out = value.replace(/<\/?[^>]+>/igm, "");
 			}
 
 			return out;
@@ -725,7 +725,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function swapCase(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
 				out = value.replace(/(\w)/, _swapCase);
@@ -743,10 +743,10 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function trim(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
-				out = value.replace(/^\s+|\s+$/g, '');
+				out = value.replace(/^\s+|\s+$/g, "");
 			}
 
 			return out;
@@ -761,10 +761,10 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function trimLeft(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
-				out = value.replace(/^\s+/, '');
+				out = value.replace(/^\s+/, "");
 			}
 
 			return out;
@@ -779,10 +779,10 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function trimRight(value:String):String {
-			var out:String = '';
+			var out:String = "";
 
 			if(value != null) {
-				out = value.replace(/\s+$/, '');
+				out = value.replace(/\s+$/, "");
 			}
 
 			return out;
@@ -812,12 +812,12 @@ package com.falanxia.utilitaris.utils {
 		 * Returns a {@code String} truncated to a specified {@code length} with optional {@code suffix}.
 		 * @param value Input {@code String}
 		 * @param length Length the {@code String} should be shortend to
-		 * @param suffix (optional, default={@code '...'}) {@code String} to append to the end of the truncated {@code String}
+		 * @param suffix (optional, default={@code "..."}) {@code String} to append to the end of the truncated {@code String}
 		 * @returns String {@code String} truncated to a specified {@code length} with optional {@code suffix}
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function truncate(value:String, length:uint, suffix:String = '...'):String {
-			var out:String = '';
+		public static function truncate(value:String, length:uint, suffix:String = "..."):String {
+			var out:String = "";
 			var l:uint = length;
 
 			if(value != null) {
@@ -829,7 +829,7 @@ package com.falanxia.utilitaris.utils {
 					trunc = trunc.substr(0, l);
 
 					if(/[^\s]/.test(value.charAt(l))) {
-						trunc = trimRight(trunc.replace(/\w+$|\s+$/, ''));
+						trunc = trimRight(trunc.replace(/\w+$|\s+$/, ""));
 					}
 
 					trunc += suffix;
@@ -847,7 +847,7 @@ package com.falanxia.utilitaris.utils {
 
 
 		private static function _escapePattern(value:String):String {
-			return value.replace(/(\]|\[|\{|\}|\(|\)|\*|\+|\?|\.|\\)/g, '\\$1');
+			return value.replace(/(\]|\[|\{|\}|\(|\)|\*|\+|\?|\.|\\)/g, "\\$1");
 		}
 
 
@@ -863,24 +863,24 @@ package com.falanxia.utilitaris.utils {
 			var out:String;
 
 			switch(value) {
-				case '\\':
-					out = '\\\\';
+				case "\\":
+					out = "\\\\";
 					break;
 
-				case '\r':
-					out = '\\r';
+				case "\r":
+					out = "\\r";
 					break;
 
-				case '\n':
-					out = '\\n';
+				case "\n":
+					out = "\\n";
 					break;
 
-				case '"':
-					out = '\\"';
+				case "\"":
+					out = "\\";
 					break;
 
 				default:
-					out = '';
+					out = "";
 			}
 
 			return out;

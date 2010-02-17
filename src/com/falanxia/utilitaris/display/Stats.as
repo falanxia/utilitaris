@@ -51,7 +51,7 @@ package com.falanxia.utilitaris.display {
 	public class Stats extends QSprite {
 
 
-		[Embed(source='uni05_53.ttf', fontName='uni0553', mimeType='application/x-font', unicodeRange='U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F')]
+		[Embed(source="uni05_53.ttf", fontName="uni0553", mimeType="application/x-font", unicodeRange="U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F")]
 		private static var _fontUni0553:Class;
 
 		private static const _WIDTH:Number = 80;
@@ -64,7 +64,7 @@ package com.falanxia.utilitaris.display {
 		private var _memGraphBM:Bitmap;
 		private var _msGraphBM:Bitmap;
 
-		private var _textFormat:TextFormat = new TextFormat('uni0553', 8);
+		private var _textFormat:TextFormat = new TextFormat("uni0553", 8);
 		private var _fpsText:QTextField;
 		private var _msText:QTextField;
 		private var _memText:QTextField;
@@ -115,7 +115,7 @@ package com.falanxia.utilitaris.display {
 			if(this.mouseY > this.height * 0.35) stage.frameRate--;
 			else stage.frameRate++;
 
-			_fpsText.text = 'FPS: ' + _fps + '/' + stage.frameRate;
+			_fpsText.text = "FPS: " + _fps + "/" + stage.frameRate;
 		}
 
 
@@ -150,13 +150,13 @@ package com.falanxia.utilitaris.display {
 				_msGraphBD.fillRect(r2, 0x00FF00);
 				_memGraphBD.fillRect(r3, 0x00FFFF);
 
-				_fpsText.text = 'FPS: ' + _fps + '/' + stage.frameRate;
-				_memText.text = 'MEM: ' + _mem;
+				_fpsText.text = "FPS: " + _fps + "/" + stage.frameRate;
+				_memText.text = "MEM: " + _mem;
 
 				_fps = 0;
 			}
 
-			_msText.text = 'MS: ' + (_timer - _ms);
+			_msText.text = "MS: " + (_timer - _ms);
 			_ms = _timer;
 		}
 	}

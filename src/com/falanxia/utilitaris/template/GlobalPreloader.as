@@ -56,7 +56,7 @@ package com.falanxia.utilitaris.template {
 
 		/**
 		 * Constructor.
-		 * @param mainClassName Main Class name (like 'org.vancura.myapp.Main')
+		 * @param mainClassName Main Class name (like "org.vancura.myapp.Main")
 		 */
 		public function GlobalPreloader(mainClassName:String) {
 			_mainClassName = mainClassName;
@@ -94,7 +94,7 @@ package com.falanxia.utilitaris.template {
 			_mainClass = ClassUtils.getClassByName(_mainClassName);
 			if(_mainClass === null) {
 				// main class not found
-				alert('GlobalPreloader: Main class (' + _mainClassName + ') not found.\nThis is critical.');
+				alert("GlobalPreloader: Main class (" + _mainClassName + ") not found.\nThis is critical.");
 			}
 			else {
 				// main class found
@@ -122,7 +122,7 @@ package com.falanxia.utilitaris.template {
 			//noinspection UnusedCatchParameterJS
 			try {
 				// try to display JS alert()
-				ExternalInterface.call('alert', message);
+				ExternalInterface.call("alert", message);
 			}
 			catch(err:Error) {
 				// no ExternalInterface available (e.g. app is displayed in standalone Flash Player)

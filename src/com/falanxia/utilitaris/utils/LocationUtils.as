@@ -46,7 +46,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function LocationUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -61,7 +61,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function isWeb(location:DisplayObject):Boolean {
-			return location.loaderInfo.url.substr(0, 4) == 'http';
+			return location.loaderInfo.url.substr(0, 4) == "http";
 		}
 
 
@@ -98,8 +98,8 @@ package com.falanxia.utilitaris.utils {
 		 * @usageNote Function does not return folder path or file name. The method also treats "www" and sans "www" as the same; if "www" is present method does not return it.
 		 */
 		public static function getDomain(location:DisplayObject):String {
-			var baseUrl:String = location.loaderInfo.url.split('://')[1].split('/')[0];
-			return (baseUrl.substr(0, 4) == 'www.') ? baseUrl.substr(4) : baseUrl;
+			var baseUrl:String = location.loaderInfo.url.split("://")[1].split("/")[0];
+			return (baseUrl.substr(0, 4) == "www.") ? baseUrl.substr(4) : baseUrl;
 		}
 
 
@@ -109,7 +109,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return {@code true} if SWF is running in the Flash Player browser plug-in
 		 */
 		public static function isPlugin():Boolean {
-			return Capabilities.playerType == 'PlugIn' || Capabilities.playerType == 'ActiveX';
+			return Capabilities.playerType == "PlugIn" || Capabilities.playerType == "ActiveX";
 		}
 
 
@@ -119,7 +119,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return {@code true} if SWF is running in the Flash Player version used by the external player or test movie mode
 		 */
 		public static function isIde():Boolean {
-			return Capabilities.playerType == 'External';
+			return Capabilities.playerType == "External";
 		}
 
 
@@ -129,7 +129,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return {@code true} if SWF is running in the Flash StandAlone Player
 		 */
 		public static function isStandAlone():Boolean {
-			return Capabilities.playerType == 'StandAlone';
+			return Capabilities.playerType == "StandAlone";
 		}
 
 
@@ -139,7 +139,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return {@code true} if the runtime environment is an Air application
 		 */
 		public static function isAirApplication():Boolean {
-			return Capabilities.playerType == 'Desktop';
+			return Capabilities.playerType == "Desktop";
 		}
 	}
 }

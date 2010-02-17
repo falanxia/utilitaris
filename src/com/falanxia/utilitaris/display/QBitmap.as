@@ -60,7 +60,7 @@ package com.falanxia.utilitaris.display {
 		 * @throws TypeError if embedded {@code Bitmap} or {@code BitmapData} is invalid
 		 * @example Example code:
 		 *      <code>
-		 *          [Embed(source='bitmap-test.png')] private static var _bitmapTest:Class;
+		 *          [Embed(source="bitmap-test.png")] private static var _bitmapTest:Class;
 		 *		    var myBitmap:QBitmap = new QBitmap({embed:new _bitmapTest(), x:100, y:50, alpha:.5});
 		 *		    addChild(myBitmap);
 		 *      </code>
@@ -86,7 +86,7 @@ package com.falanxia.utilitaris.display {
 					this.bitmapData = c.embed;
 				}
 				else {
-					throw new TypeError('Invalid embed object');
+					throw new TypeError("Invalid embed object");
 				}
 			}
 

@@ -44,7 +44,7 @@ package com.falanxia.utilitaris.utils {
 		 * @throws {@code Error} since the class could not be instantiated
 		 */
 		public function JSUtils() {
-			throw new Error('The class cannot be instantiated');
+			throw new Error("The class cannot be instantiated");
 		}
 
 
@@ -61,8 +61,8 @@ package com.falanxia.utilitaris.utils {
 		 * @throws Error if {@code Error} occured
 		 */
 		public static function callFunction(func:String, arg1:* = null, arg2:* = null, arg3:* = null, arg4:* = null):void {
-			if(func == '') {
-				throw new Error('A valid function argument must be supplied');
+			if(func == "") {
+				throw new Error("A valid function argument must be supplied");
 			}
 
 			// track avea if a type is supplied
@@ -71,15 +71,15 @@ package com.falanxia.utilitaris.utils {
 					ExternalInterface.call(func, arg1, arg2, arg3, arg4);
 				}
 				catch(error:SecurityError) {
-					throw new Error(func + ' Tracking Request Failed. A SecurityError occurred: ' + error.message + '\n');
+					throw new Error(func + " Tracking Request Failed. A SecurityError occurred: " + error.message + "\n");
 				}
 				catch (error:Error) {
-					throw new Error(func + ' Tracking Request Failed. An Error occurred: ' + error.message + '\n');
+					throw new Error(func + " Tracking Request Failed. An Error occurred: " + error.message + "\n");
 				}
 			}
 
 			else {
-				throw new Error(func + ' Tracking Request Failed. External interface is not available for this ' + 'container. If you\'re trying to use it locally, try using it through an HTTP address.');
+				throw new Error(func + " Tracking Request Failed. External interface is not available for this container. If you're trying to use it locally, try using it through an HTTP address.");
 			}
 		}
 	}

@@ -85,8 +85,8 @@ package com.falanxia.utilitaris.display {
 				super(c.width, c.height);
 			}
 			catch(err:Error) {
-				if(c.width == undefined) throw new Error('Video width undefined (' + err.message + ')');
-				if(c.height == undefined) throw new Error('Video height undefined (' + err.message + ')');
+				if(c.width == undefined) throw new Error("Video width undefined (" + err.message + ')');
+				if(c.height == undefined) throw new Error("Video height undefined (" + err.message + ')');
 			}
 
 			// assign parameters

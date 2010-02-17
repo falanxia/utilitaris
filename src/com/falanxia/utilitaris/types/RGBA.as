@@ -161,10 +161,10 @@ package com.falanxia.utilitaris.types {
 			var gg:String = this.g.toString(16);
 			var bb:String = this.b.toString(16);
 
-			aa = (aa.length == 1) ? '0' + aa : aa;
-			rr = (rr.length == 1) ? '0' + rr : rr;
-			gg = (gg.length == 1) ? '0' + gg : gg;
-			bb = (bb.length == 1) ? '0' + bb : bb;
+			aa = (aa.length == 1) ? "0" + aa : aa;
+			rr = (rr.length == 1) ? "0" + rr : rr;
+			gg = (gg.length == 1) ? "0" + gg : gg;
+			bb = (bb.length == 1) ? "0" + bb : bb;
 
 			return (aa + rr + gg + bb).toUpperCase();
 		}
