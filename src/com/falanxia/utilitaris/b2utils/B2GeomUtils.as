@@ -130,6 +130,9 @@ package com.falanxia.utilitaris.b2utils {
 			sh.isSensor = isSensor;
 			sh.SetAsOrientedBox((rectangle.width / 2) / ratio, (rectangle.height / 2) / ratio, new b2Vec2(0, 0), rc.rotation * pi_deg / ratio);
 
+
+			trace(sh.isSensor);
+
 			var b:b2Body = world.CreateBody(def);
 			b.SetBullet(isBullet);
 			b.CreateShape(sh);
@@ -217,6 +220,12 @@ package com.falanxia.utilitaris.b2utils {
 			var w2:WorldRectangleObject = new WorldRectangleObject("wall2", new WorldCoords(x+width-wallSize,y+wallSize),wallSize,height-2*wallSize-y);
 			var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x,height-wallSize),width,wallSize);
 			var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x,y+wallSize),wallSize,height-2*wallSize-y);
+
+			/*	var w1:WorldRectangleObject = new WorldRectangleObject("wall1", new WorldCoords(x,y),width,wallSize);
+				var w2:WorldRectangleObject = new WorldRectangleObject("wall2", new WorldCoords(x+width,y),-wallSize,height-y);
+				var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x,height-wallSize),width,wallSize);
+				var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x+wallSize,y),-wallSize,height-y);
+			*/			
 
 			var v:Vector.<b2Body> = new Vector.<b2Body>;
 			v.push(drawRectangle(w1,isSensor,density,restitution,friction,angularDamping,linearDamping,isBullet));
