@@ -27,11 +27,13 @@ package com.falanxia.utilitaris.b2utils {
 	import Box2D.Collision.Shapes.b2CircleDef;
 	import Box2D.Collision.Shapes.b2PolygonDef;
 	import Box2D.Common.Math.b2Vec2;
+	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 	import Box2D.Dynamics.b2BodyDef;
 	import Box2D.Dynamics.b2World;
 
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCoords;
+	import com.falanxia.utilitaris.b2utils.objectdata.WorldPolygonObject;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldRectangleObject;
 	import com.falanxia.utilitaris.utils.NumberUtils;
 
@@ -187,15 +189,34 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param friction
 		 * @return
 		 */
-		public function drawPolygon(coords:WorldCoords, vertices:Vector.<WorldCoords>, isSensor:Boolean = false, density:Number = 0,
+		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0,
 		                            restitution:Number = .1, friction:Number = .1,angularDamping:Number=.5,linearDamping:Number=.5,isBullet:Boolean = false):b2Body {
 
 			var def:b2BodyDef = new b2BodyDef();
-			def.position.Set(coords.x / ratio, coords.y / ratio);
+			def.position.Set(polygon.position.x / ratio, polygon.position.y / ratio);
 			def.angularDamping = angularDamping;
 			def.linearDamping = linearDamping;
 
+			var sh:b2PolygonDef = new b2PolygonDef();
+
+			var l:int = polygon.vertices.length;
+			sh.vertexCount = l;
+
+
+			for (var i:int = 0;i <l;i++) {
+
+				b2Vec2(sh.vertices[i]).Set(polygon.vertices[i].x/ratio,polygon.vertices[i].y/ratio);
+
+			}
+			sh.isSensor = isSensor;
+			sh.friction = friction;
+			sh.restitution = restitution;
+			sh.density = density;
+
 			var b:b2Body = world.CreateBody(def);
+			b.CreateShape(sh);
+			b.SetBullet(isBullet);
+			b.SetMassFromShapes();
 
 			return b;
 

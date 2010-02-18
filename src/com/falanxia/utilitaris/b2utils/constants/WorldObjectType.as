@@ -41,6 +41,9 @@ package com.falanxia.utilitaris.b2utils.constants {
 		/** Circle world object type */
 		public static const CIRCLE:String = "circler";
 
+		/** Polygon world object type*/
+		public static const POLYGON:String = "polygon";
+
 
 	}
 }
