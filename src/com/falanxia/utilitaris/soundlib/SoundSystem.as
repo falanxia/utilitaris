@@ -58,14 +58,9 @@ package com.falanxia.utilitaris.soundlib {
 		public function setVolume(volume:Number):void {
 
 			soundTransform.volume = volume;
-			soundTransform.
-
-			var sS
 
 		}
 
-
-		public function addSound
 
 
 	}

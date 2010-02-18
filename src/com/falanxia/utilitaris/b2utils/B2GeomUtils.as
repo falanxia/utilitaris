@@ -107,13 +107,24 @@ package com.falanxia.utilitaris.b2utils {
 
 
 		/**
+		 * Ratio used when drawing to b2world
+		 * @return ratio ratio used when drawing to b2world
+		 */
+		public function getRatio():Number {
+
+			return ratio;
+
+		}
+
+
+		/**
 		 * Function creates box in b2world as rectangle (flash) oriented, where x,y defines top-left corner
 		 * @rectangle rectangle defines rectangle to create
 		 * @param isSensor defines if the body is used as sensor (no collision)
 		 * @param density defines density (-> mass) of the body, use 0 for static bodies
 		 * @param restitution defines restitution (bounciness) of the body
 		 * @param friction defines friction of the body
-		 * @return returns reference to the created body in the world
+		 * @return reference returns reference to the created body in the world
 		 */
 		public function drawRectangle(rectangle:WorldRectangleObject, isSensor:Boolean = false, density:Number = 0,
 		                              restitution:Number = 0.1, friction:Number = 0.1,angularDamping:Number = .5, linearDamping:Number = .5,isBullet:Boolean = false):b2Body {
