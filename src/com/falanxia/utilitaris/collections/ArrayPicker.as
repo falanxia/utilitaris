@@ -26,9 +26,7 @@ package com.falanxia.utilitaris.collections {
 	/**
 	 * Array picker class lets you declare array of items you want to use (poolArray) and ensures that item that is
 	 * acutally in use cannot be used again (is moved to reservedArray) until its flagged as unused (returned to
-	 * poolArray)
-	 *
-	 * BEWARE: For better performance and flexibility, ArrayPicker breaks encapsulation in methods getPool() and
+	 * poolArray); BEWARE: For better performance and flexibility, ArrayPicker breaks encapsulation in methods getPool() and
 	 * getReservedItems() - it returns not copy of poolArray/reservedArray, but reference to it.
 	 */
 	public final class ArrayPicker extends Object {
