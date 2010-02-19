@@ -24,6 +24,7 @@
 
 package com.falanxia.utilitaris.b2utils.constants {
 
+
 	/**
 	 * World object type.
 	 *
@@ -34,14 +35,13 @@ package com.falanxia.utilitaris.b2utils.constants {
 	public class WorldObjectType {
 
 
-
 		/** Rectangle world object type */
 		public static const RECTANGLE:String = "rectangle";
 
 		/** Circle world object type */
 		public static const CIRCLE:String = "circler";
 
-		/** Polygon world object type*/
+		/** Polygon world object type */
 		public static const POLYGON:String = "polygon";
 
 
