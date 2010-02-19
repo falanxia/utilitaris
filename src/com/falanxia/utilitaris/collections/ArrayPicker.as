@@ -174,6 +174,18 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
+		 * Gets number of available items (items in pool)
+		 * @return number of avaialable items
+		 */
+		public function getAvailableNumber():int {
+
+			return poolArray.length;
+
+		}
+
+
+
+		/**
 		 * Returns the array of reserved items
 		 * @return array of reserved items
 		 */

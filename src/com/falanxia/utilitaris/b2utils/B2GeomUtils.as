@@ -53,9 +53,9 @@ package com.falanxia.utilitaris.b2utils {
 
 		private static var INSTANCE:B2GeomUtils;
 
-		private var pi:Number;
-		private var pi_deg:Number;
-		private var pi_rad:Number;
+		public var pi:Number;
+		public var pi_deg:Number;
+		public var pi_rad:Number;
 
 		private var world:b2World;
 		private var ratio:Number;
@@ -183,6 +183,7 @@ package com.falanxia.utilitaris.b2utils {
 			b.SetBullet(isBullet);
 			b.CreateShape(sh);
 			b.SetMassFromShapes();
+			b.GetXForm().R.Set(coords.rotation*pi_rad);
 
 			return b;
 
