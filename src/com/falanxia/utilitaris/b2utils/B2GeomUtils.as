@@ -27,7 +27,6 @@ package com.falanxia.utilitaris.b2utils {
 	import Box2D.Collision.Shapes.b2CircleDef;
 	import Box2D.Collision.Shapes.b2PolygonDef;
 	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 	import Box2D.Dynamics.b2BodyDef;
 	import Box2D.Dynamics.b2World;
@@ -35,7 +34,6 @@ package com.falanxia.utilitaris.b2utils {
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCoords;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldPolygonObject;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldRectangleObject;
-	import com.falanxia.utilitaris.utils.NumberUtils;
 
 
 
@@ -117,6 +115,7 @@ package com.falanxia.utilitaris.b2utils {
 		}
 
 
+
 		/**
 		 * Function creates box in b2world as rectangle (flash) oriented, where x,y defines top-left corner
 		 * @rectangle rectangle defines rectangle to create
@@ -127,7 +126,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return reference returns reference to the created body in the world
 		 */
 		public function drawRectangle(rectangle:WorldRectangleObject, isSensor:Boolean = false, density:Number = 0,
-		                              restitution:Number = 0.1, friction:Number = 0.1,angularDamping:Number = .5, linearDamping:Number = .5,isBullet:Boolean = false):b2Body {
+		                              restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
+		                              linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 
 			var rc:WorldCoords = rectangle.position;
 
@@ -165,7 +165,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return
 		 */
 		public function drawCircle(coords:WorldCoords, radius:Number, isSensor:Boolean = false, density:Number = 0,
-		                           restitution:Number = 0.1, friction:Number = 0.1,angularDamping:Number=.5,linearDamping:Number=.5,isBullet:Boolean = false):b2Body {
+		                           restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
+		                           linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(coords.x / ratio, coords.y / ratio);
@@ -177,13 +178,13 @@ package com.falanxia.utilitaris.b2utils {
 			sh.restitution = restitution;
 			sh.friction = friction;
 			sh.isSensor = isSensor;
-			sh.radius = radius/ratio;
+			sh.radius = radius / ratio;
 
 			var b:b2Body = world.CreateBody(def);
 			b.SetBullet(isBullet);
 			b.CreateShape(sh);
 			b.SetMassFromShapes();
-			b.GetXForm().R.Set(coords.rotation*pi_rad);
+			b.GetXForm().R.Set(coords.rotation * pi_rad);
 
 			return b;
 
@@ -202,7 +203,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return
 		 */
 		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0,
-		                            restitution:Number = .1, friction:Number = .1,angularDamping:Number=.5,linearDamping:Number=.5,isBullet:Boolean = false):b2Body {
+		                            restitution:Number = .1, friction:Number = .1, angularDamping:Number = .5,
+		                            linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(polygon.position.x / ratio, polygon.position.y / ratio);
@@ -215,9 +217,9 @@ package com.falanxia.utilitaris.b2utils {
 			sh.vertexCount = l;
 
 
-			for (var i:int = 0;i <l;i++) {
+			for(var i:int = 0; i < l; i++) {
 
-				b2Vec2(sh.vertices[i]).Set(polygon.vertices[i].x/ratio,polygon.vertices[i].y/ratio);
+				b2Vec2(sh.vertices[i]).Set(polygon.vertices[i].x / ratio, polygon.vertices[i].y / ratio);
 
 			}
 			sh.isSensor = isSensor;
@@ -241,23 +243,25 @@ package com.falanxia.utilitaris.b2utils {
 		 * TODO:OPTIMIZE MAYBE, it would be better to create one body with 4 shapes... c'mon dude...
 		 * @return
 		 */
-		public function drawRectangleFence(coords:WorldCoords,width:Number,height:Number,wallSize:Number, isSensor:Boolean = false, density:Number = 0, restitution:Number = .1, friction:Number = .1,angularDamping:Number=.5,linearDamping:Number=.5,isBullet:Boolean=false):Vector.<b2Body> {
+		public function drawRectangleFence(coords:WorldCoords, width:Number, height:Number, wallSize:Number, isSensor:Boolean = false,
+		                                   density:Number = 0, restitution:Number = .1, friction:Number = .1,
+		                                   angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false):Vector.<b2Body> {
 
-			if (coords.y >= height) height+=coords.y;
+			if(coords.y >= height) height += coords.y;
 
 			var x:Number = coords.x;
 			var y:Number = coords.y;
 
-			var w1:WorldRectangleObject = new WorldRectangleObject("wall1", new WorldCoords(x,y),width,wallSize);
-			var w2:WorldRectangleObject = new WorldRectangleObject("wall2", new WorldCoords(x+width-wallSize,y+wallSize),wallSize,height-2*wallSize-y);
-			var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x,height-wallSize),width,wallSize);
-			var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x,y+wallSize),wallSize,height-2*wallSize-y);
+			var w1:WorldRectangleObject = new WorldRectangleObject("wall1", new WorldCoords(x, y), width, wallSize);
+			var w2:WorldRectangleObject = new WorldRectangleObject("wall2", new WorldCoords(x + width - wallSize, y + wallSize), wallSize, height - 2 * wallSize - y);
+			var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x, height - wallSize), width, wallSize);
+			var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x, y + wallSize), wallSize, height - 2 * wallSize - y);
 
 			var v:Vector.<b2Body> = new Vector.<b2Body>;
-			v.push(drawRectangle(w1,isSensor,density,restitution,friction,angularDamping,linearDamping,isBullet));
-			v.push(drawRectangle(w2,isSensor,density,restitution,friction,angularDamping,linearDamping,isBullet));
-			v.push(drawRectangle(w3,isSensor,density,restitution,friction,angularDamping,linearDamping,isBullet));
-			v.push(drawRectangle(w4,isSensor,density,restitution,friction,angularDamping,linearDamping,isBullet));
+			v.push(drawRectangle(w1, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
+			v.push(drawRectangle(w2, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
+			v.push(drawRectangle(w3, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
+			v.push(drawRectangle(w4, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
 
 			return v;
 

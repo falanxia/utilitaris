@@ -18,10 +18,13 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 		public var vertices:Vector.<WorldCoords>;
+
+
+
 		/**
 		 * Constructor.
 		 */
-		public function WorldPolygonObject(name:String, position:WorldCoords,vertices:Vector.<WorldCoords>) {
+		public function WorldPolygonObject(name:String, position:WorldCoords, vertices:Vector.<WorldCoords>) {
 
 			super(name, position);
 
@@ -33,7 +36,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 		override public function toString():String {
 
-			return printf("name=%s, position=(%s), vertices=", name, position,vertices);
+			return printf("name=%s, position=(%s), vertices=", name, position, vertices);
 
 		}
 	}

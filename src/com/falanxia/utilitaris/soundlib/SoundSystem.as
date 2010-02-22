@@ -26,18 +26,22 @@ package com.falanxia.utilitaris.soundlib {
 
 		private var sounds:Vector.<SoundChannel>;
 
+
+
 		/**
 		 * Constructor.
 		 */
 		public function SoundSystem(s:Senf) {
 
-			if (s == null) throw new Error("SoundSystem is sigleton, use getInstance()...");
+			if(s == null) throw new Error("SoundSystem is sigleton, use getInstance()...");
 
 		}
 
+
+
 		public function getInstance():SoundSystem {
 
-			if (INSTANCE == null) {
+			if(INSTANCE == null) {
 
 				INSTANCE = new SoundSystem(new Senf());
 
@@ -47,6 +51,8 @@ package com.falanxia.utilitaris.soundlib {
 
 		}
 
+
+
 		public function init():void {
 
 			this.soundTransform = SoundMixer.soundTransform;
@@ -55,6 +61,8 @@ package com.falanxia.utilitaris.soundlib {
 
 		}
 
+
+
 		public function setVolume(volume:Number):void {
 
 			soundTransform.volume = volume;
@@ -62,9 +70,9 @@ package com.falanxia.utilitaris.soundlib {
 		}
 
 
-
 	}
 
 }
 
-class Senf {}
+class Senf {
+}

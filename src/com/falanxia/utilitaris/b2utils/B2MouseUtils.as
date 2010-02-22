@@ -24,24 +24,30 @@ package com.falanxia.utilitaris.b2utils {
 		private var world:b2World;
 		private var ratio:Number;
 
+
+
 		/**
 		 * Constructor.
 		 */
 		public function B2MouseUtils(s:Senf) {
 
-			if (s==null) throw new Error("B2MouseUtils is singleton, use getInstance()...");
+			if(s == null) throw new Error("B2MouseUtils is singleton, use getInstance()...");
 
 		}
 
+
+
 		public static function getInstance():B2MouseUtils {
 
-			if (INSTANCE==null) INSTANCE = new B2MouseUtils(new Senf());
+			if(INSTANCE == null) INSTANCE = new B2MouseUtils(new Senf());
 
 			return INSTANCE;
 
 		}
 
-		public function init(world:b2World,ratio:Number):void {
+
+
+		public function init(world:b2World, ratio:Number):void {
 
 			this.world = world;
 			this.ratio = ratio;
@@ -60,31 +66,31 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param includeStatic set to true if we want to include static bodies to query.
 		 * @return first b2body found at cursor position
 		 */
-		public function getBodyAtMouse(mouseX:Number, mouseY:Number,maxCount:int=10,includeStatic:Boolean=false):b2Body {
+		public function getBodyAtMouse(mouseX:Number, mouseY:Number, maxCount:int = 10, includeStatic:Boolean = false):b2Body {
 
-			var mouseXWorldPhys:Number = mouseX/ratio;
-			var mouseYWorldPhys:Number = mouseY/ratio;
-			var mouseCoords:b2Vec2 = new b2Vec2(mouseXWorldPhys,mouseYWorldPhys);
+			var mouseXWorldPhys:Number = mouseX / ratio;
+			var mouseYWorldPhys:Number = mouseY / ratio;
+			var mouseCoords:b2Vec2 = new b2Vec2(mouseXWorldPhys, mouseYWorldPhys);
 
-			var aabb:b2AABB=new b2AABB();
-			aabb.lowerBound.Set(mouseXWorldPhys - 0.001,mouseYWorldPhys - 0.001);
-			aabb.upperBound.Set(mouseXWorldPhys + 0.001,mouseYWorldPhys + 0.001);
+			var aabb:b2AABB = new b2AABB();
+			aabb.lowerBound.Set(mouseXWorldPhys - 0.001, mouseYWorldPhys - 0.001);
+			aabb.upperBound.Set(mouseXWorldPhys + 0.001, mouseYWorldPhys + 0.001);
 
 			var shapes:Array = [];
-			var count:int = world.Query(aabb,shapes,maxCount);
+			var count:int = world.Query(aabb, shapes, maxCount);
 			var body:b2Body;
 
 
-			for (var i:int=0; i < count; ++i) {
+			for(var i:int = 0; i < count; ++i) {
 
-				if (shapes[i].GetBody().IsStatic()==false || includeStatic) {
+				if(shapes[i].GetBody().IsStatic() == false || includeStatic) {
 
-					var tShape:b2Shape=shapes[i];
-					var inside:Boolean=tShape.TestPoint(tShape.GetBody().GetXForm(),mouseCoords);
+					var tShape:b2Shape = shapes[i];
+					var inside:Boolean = tShape.TestPoint(tShape.GetBody().GetXForm(), mouseCoords);
 
-					if (inside) {
+					if(inside) {
 
-						body=tShape.GetBody();
+						body = tShape.GetBody();
 						break;
 
 					}
@@ -101,4 +107,5 @@ package com.falanxia.utilitaris.b2utils {
 
 }
 
-class Senf {}
+class Senf {
+}
