@@ -37,9 +37,9 @@ package com.falanxia.utilitaris.locale {
 	public class Locale extends EventDispatcher {
 
 
-		private static var _dictionaries:Array = [];
-		private static var _currentLanguage:String = "";
-		private static var _currentDictionary:LanguageDictionary;
+		private static var dictionaries:Array = [];
+		private static var currentLanguage:String = "";
+		private static var currentDictionary:LanguageDictionary;
 
 
 
@@ -53,9 +53,9 @@ package com.falanxia.utilitaris.locale {
 
 				dictionary.parseXML(lang.text);
 
-				_dictionaries.push(dictionary);
+				dictionaries.push(dictionary);
 
-				if(_currentLanguage == "") language = lang.@lang;
+				if(currentLanguage == "") language = lang.@lang;
 			}
 		}
 
@@ -69,7 +69,7 @@ package com.falanxia.utilitaris.locale {
 		public static function getText(id:String):String {
 			var out:String;
 
-			if(_currentDictionary != null) out = _currentDictionary.getText(id);
+			if(currentDictionary != null) out = currentDictionary.getText(id);
 
 			// locale string not found
 			if(out == null) out = "[" + id + "]";
@@ -90,7 +90,7 @@ package com.falanxia.utilitaris.locale {
 		public static function set language(value:String):void {
 			var f:LanguageDictionary;
 
-			for each(var dictionary:LanguageDictionary in _dictionaries) {
+			for each(var dictionary:LanguageDictionary in dictionaries) {
 				if(dictionary.lang == value) f = dictionary;
 			}
 
@@ -98,8 +98,8 @@ package com.falanxia.utilitaris.locale {
 				throw new Error("Language " + value + " not found in currently active dictionaries");
 			}
 
-			_currentLanguage = value;
-			_currentDictionary = f;
+			currentLanguage = value;
+			currentDictionary = f;
 		}
 
 
@@ -109,7 +109,7 @@ package com.falanxia.utilitaris.locale {
 		 * @return Current language (like "en")
 		 */
 		public static function get language():String {
-			return _currentLanguage;
+			return currentLanguage;
 		}
 	}
 }

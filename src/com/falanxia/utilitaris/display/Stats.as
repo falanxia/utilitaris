@@ -52,27 +52,25 @@ package com.falanxia.utilitaris.display {
 
 
 		[Embed(source="uni05_53.ttf", fontName="uni0553", mimeType="application/x-font", unicodeRange="U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F")]
-		private static var _fontUni0553:Class;
+		public static var fontUni0553:Class;
 
-		private static const _WIDTH:Number = 80;
+		private static const WIDTH:Number = 80;
 
-		private var _fpsGraphBD:BitmapData;
-		private var _memGraphBD:BitmapData;
-		private var _msGraphBD:BitmapData;
-
-		private var _fpsGraphBM:Bitmap;
-		private var _memGraphBM:Bitmap;
-		private var _msGraphBM:Bitmap;
-
-		private var _textFormat:TextFormat = new TextFormat("uni0553", 8);
-		private var _fpsText:QTextField;
-		private var _msText:QTextField;
-		private var _memText:QTextField;
-		private var _fps:int;
-		private var _timer:int;
-		private var _ms:int;
-		private var _msPrev:int = 0;
-		private var _mem:Number = 0;
+		private var fpsGraphBD:BitmapData;
+		private var memGraphBD:BitmapData;
+		private var msGraphBD:BitmapData;
+		private var fpsGraphBM:Bitmap;
+		private var memGraphBM:Bitmap;
+		private var msGraphBM:Bitmap;
+		private var textFormat:TextFormat = new TextFormat("uni0553", 8);
+		private var fpsText:QTextField;
+		private var msText:QTextField;
+		private var memText:QTextField;
+		private var fps:int;
+		private var timer:int;
+		private var ms:int;
+		private var msPrev:int = 0;
+		private var mem:Number = 0;
 
 
 
@@ -85,22 +83,22 @@ package com.falanxia.utilitaris.display {
 			// create parent QSprite
 			super(config, parent);
 
-			_fpsGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
-			_msGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
-			_memGraphBD = new BitmapData(_WIDTH, 50, false, 0x000000);
-			_fpsGraphBM = new QBitmap({bitmapData: _fpsGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
-			_msGraphBM = new QBitmap({bitmapData: _msGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
-			_memGraphBM = new QBitmap({bitmapData: _memGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
-			_fpsText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, width:_WIDTH, height:10, textColor:0xFFFF00});
-			_msText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:_WIDTH, height:10, textColor:0x00FF00});
-			_memText = new QTextField({defaultTextFormat: _textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, width:_WIDTH, height:10, textColor:0x00FFFF});
+			fpsGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
+			msGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
+			memGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
+			fpsGraphBM = new QBitmap({bitmapData: fpsGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
+			msGraphBM = new QBitmap({bitmapData: msGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
+			memGraphBM = new QBitmap({bitmapData: memGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
+			fpsText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, width:WIDTH, height:10, textColor:0xFFFF00});
+			msText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:WIDTH, height:10, textColor:0x00FF00});
+			memText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, width:WIDTH, height:10, textColor:0x00FFFF});
 
-			DisplayUtils.drawRect(this, new Rectangle(0, 0, _WIDTH, 27 + 50), new RGBA(0, 0, 0, 255 * 0.75));
+			DisplayUtils.drawRect(this, new Rectangle(0, 0, WIDTH, 27 + 50), new RGBA(0, 0, 0, 255 * 0.75));
 
-			DisplayUtils.addChildren(this, _fpsGraphBM, _msGraphBM, _memGraphBM, _fpsText, _msText, _memText);
+			DisplayUtils.addChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
 
-			addEventListener(MouseEvent.CLICK, _onMouseClick);
-			addEventListener(Event.ENTER_FRAME, _onEnterFrame);
+			addEventListener(MouseEvent.CLICK, onMouseClick);
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
@@ -111,11 +109,11 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Mouse clicked event listener.
 		 */
-		private function _onMouseClick(e:MouseEvent):void {
+		private function onMouseClick(e:MouseEvent):void {
 			if(this.mouseY > this.height * 0.35) stage.frameRate--;
 			else stage.frameRate++;
 
-			_fpsText.text = "FPS: " + _fps + "/" + stage.frameRate;
+			fpsText.text = "FPS: " + fps + "/" + stage.frameRate;
 		}
 
 
@@ -123,41 +121,41 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Enter frame event listener.
 		 */
-		private function _onEnterFrame(e:Event):void {
-			_timer = getTimer();
-			_fps++;
+		private function onEnterFrame(e:Event):void {
+			timer = getTimer();
+			fps++;
 
-			if(_timer - 1000 > _msPrev) {
-				_msPrev = _timer;
+			if(timer - 1000 > msPrev) {
+				msPrev = timer;
 				//noinspection NestedFunctionCallJS
-				_mem = Number((System.totalMemory / 1048576).toFixed(3));
+				mem = Number((System.totalMemory / 1048576).toFixed(3));
 
-				var f:uint = Math.min(50, 50 / stage.frameRate * _fps);
-				var t:uint = ((_timer - _ms ) >> 1);
+				var f:uint = Math.min(50, 50 / stage.frameRate * fps);
+				var t:uint = ((timer - ms ) >> 1);
 
 				//noinspection NestedFunctionCallJS
-				var m:uint = Math.min(50, Math.sqrt(Math.sqrt(_mem * 5000))) - 2;
+				var m:uint = Math.min(50, Math.sqrt(Math.sqrt(mem * 5000))) - 2;
 
-				_fpsGraphBD.scroll(1, 0);
-				_msGraphBD.scroll(1, 0);
-				_memGraphBD.scroll(1, 0);
+				fpsGraphBD.scroll(1, 0);
+				msGraphBD.scroll(1, 0);
+				memGraphBD.scroll(1, 0);
 
 				var r1:Rectangle = new Rectangle(0, 50 - f, 1, f);
 				var r2:Rectangle = new Rectangle(0, 50 - t, 1, t);
 				var r3:Rectangle = new Rectangle(0, 50 - m, 1, m);
 
-				_fpsGraphBD.fillRect(r1, 0xFFFF00);
-				_msGraphBD.fillRect(r2, 0x00FF00);
-				_memGraphBD.fillRect(r3, 0x00FFFF);
+				fpsGraphBD.fillRect(r1, 0xFFFF00);
+				msGraphBD.fillRect(r2, 0x00FF00);
+				memGraphBD.fillRect(r3, 0x00FFFF);
 
-				_fpsText.text = "FPS: " + _fps + "/" + stage.frameRate;
-				_memText.text = "MEM: " + _mem;
+				fpsText.text = "FPS: " + fps + "/" + stage.frameRate;
+				memText.text = "MEM: " + mem;
 
-				_fps = 0;
+				fps = 0;
 			}
 
-			_msText.text = "MS: " + (_timer - _ms);
-			_ms = _timer;
+			msText.text = "MS: " + (timer - ms);
+			ms = timer;
 		}
 	}
 }

@@ -176,7 +176,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Test
 		 */
 		public static function removeDuplicates(inArray:Array):Array {
-			return inArray.filter(_removeDuplicatesFilter);
+			return inArray.filter(removeDuplicatesFilter);
 		}
 
 
@@ -406,7 +406,7 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function randomize(inArray:Array):Array {
 			var t:Array = [];
-			var r:Array = inArray.sort(_sortRandom, Array.RETURNINDEXEDARRAY);
+			var r:Array = inArray.sort(sortRandom, Array.RETURNINDEXEDARRAY);
 			var i:int = -1;
 
 			while(++i < inArray.length) {
@@ -503,13 +503,13 @@ package com.falanxia.utilitaris.utils {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		protected static function _removeDuplicatesFilter(e:*, i:int, inArray:Array):Boolean {
+		protected static function removeDuplicatesFilter(e:*, i:int, inArray:Array):Boolean {
 			return (i == 0) ? true : inArray.lastIndexOf(e, i - 1) == -1;
 		}
 
 
 
-		protected static function _sortRandom(a:*, b:*):int {
+		protected static function sortRandom(a:*, b:*):int {
 			return RandomUtils.integer(0, 1) ? 1 : -1;
 		}
 	}

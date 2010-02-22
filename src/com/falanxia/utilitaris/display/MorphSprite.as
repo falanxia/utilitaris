@@ -91,8 +91,8 @@ package com.falanxia.utilitaris.display {
 		public var isMorphHeightEnabled:Boolean;
 
 
-		private var _oldCacheAsBitmap:Boolean;
-		private var _initialProperties:Object;
+		private var oldCacheAsBitmap:Boolean;
+		private var initialProperties:Object;
 
 
 
@@ -152,15 +152,15 @@ package com.falanxia.utilitaris.display {
 		 */
 		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function morph(config:Object):void {
-			if(_initialProperties == null) {
-				_initialProperties = new Object();
-				_initialProperties.x = this.x;
-				_initialProperties.y = this.y;
-				_initialProperties.width = this.width;
-				_initialProperties.height = this.height;
+			if(initialProperties == null) {
+				initialProperties = new Object();
+				initialProperties.x = this.x;
+				initialProperties.y = this.y;
+				initialProperties.width = this.width;
+				initialProperties.height = this.height;
 			}
 
-			_oldCacheAsBitmap = this.cacheAsBitmap;
+			oldCacheAsBitmap = this.cacheAsBitmap;
 			this.cacheAsBitmap = false;
 
 			var t:Object = new Object();
@@ -172,7 +172,7 @@ package com.falanxia.utilitaris.display {
 
 			t.ease = (config.morphEase == undefined) ? morphEase : config.morphEase;
 			t.roundProps = ["x", "y", "width", "height"];
-			t.onComplete = _onMorphComplete;
+			t.onComplete = onMorphComplete;
 
 			new TweenLite(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
 		}
@@ -183,8 +183,8 @@ package com.falanxia.utilitaris.display {
 		 * Reset to initial position before morph.
 		 */
 		public function morphReset():void {
-			morph(_initialProperties);
-			_initialProperties = null;
+			morph(initialProperties);
+			initialProperties = null;
 		}
 
 
@@ -218,8 +218,8 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Morphing completed.
 		 */
-		private function _onMorphComplete():void {
-			cacheAsBitmap = _oldCacheAsBitmap;
+		private function onMorphComplete():void {
+			cacheAsBitmap = oldCacheAsBitmap;
 		}
 	}
 }

@@ -322,7 +322,7 @@ package com.falanxia.utilitaris.utils {
 			if(!(value == null || !contains(value, delimiter))) {
 				var chrIndex:uint = 0;
 				var strLen:uint = value.length;
-				var replPatt:RegExp = new RegExp("[^" + _escapePattern(delimiter) + "]+$");
+				var replPatt:RegExp = new RegExp("[^" + escapePattern2(delimiter) + "]+$");
 
 				while(chrIndex < strLen) {
 					var subString:String = value.substr(chrIndex, length);
@@ -353,10 +353,10 @@ package com.falanxia.utilitaris.utils {
 			var out:String = trimLeft(value);
 
 			if(args[0] === true) {
-				out = out.replace(/^.|\b./g, _upperCase);
+				out = out.replace(/^.|\b./g, upperCase2);
 			}
 			else {
-				out = out.replace(/(^\w)/, _upperCase);
+				out = out.replace(/(^\w)/, upperCase2);
 			}
 
 			return out;
@@ -395,7 +395,7 @@ package com.falanxia.utilitaris.utils {
 			var out:uint = 0;
 
 			if(value != null) {
-				var c:String = _escapePattern(ch);
+				var c:String = escapePattern2(ch);
 				var f:String = (isCaseSensitive) ? "g" : "ig";
 
 				out = value.match(new RegExp(c, f)).length;
@@ -450,7 +450,7 @@ package com.falanxia.utilitaris.utils {
 							if(s_i == t_j) cost = 0;
 							else cost = 1;
 
-							d[i][j] = _minimum(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+							d[i][j] = minimum2(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
 						}
 					}
 
@@ -595,7 +595,7 @@ package com.falanxia.utilitaris.utils {
 		public static function quote(value:String):String {
 			var regx:RegExp = /[\\"\r\n]/g;
 
-			return "\"" + value.replace(regx, _quote) + "\"";
+			return "\"" + value.replace(regx, quote2) + "\"";
 		}
 
 
@@ -612,7 +612,7 @@ package com.falanxia.utilitaris.utils {
 			var out:String = "";
 
 			if(value != null) {
-				var rem:String = _escapePattern(remove);
+				var rem:String = escapePattern2(remove);
 				var flags:String = (isCaseSensitive) ? "g" : "ig";
 
 				out = value.replace(new RegExp(rem, flags), "");
@@ -728,7 +728,7 @@ package com.falanxia.utilitaris.utils {
 			var out:String = "";
 
 			if(value != null) {
-				out = value.replace(/(\w)/, _swapCase);
+				out = value.replace(/(\w)/, swapCase2);
 			}
 
 			return out;
@@ -846,20 +846,20 @@ package com.falanxia.utilitaris.utils {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		private static function _escapePattern(value:String):String {
+		private static function escapePattern2(value:String):String {
 			return value.replace(/(\]|\[|\{|\}|\(|\)|\*|\+|\?|\.|\\)/g, "\\$1");
 		}
 
 
 
-		private static function _minimum(a:uint, b:uint, c:uint):uint {
+		private static function minimum2(a:uint, b:uint, c:uint):uint {
 			return Math.min(a, Math.min(b, Math.min(c, a)));
 		}
 
 
 
 		//noinspection JSUnusedLocalSymbols
-		private static function _quote(value:String, ...args):String {
+		private static function quote2(value:String, ...args):String {
 			var out:String;
 
 			switch(value) {
@@ -889,14 +889,14 @@ package com.falanxia.utilitaris.utils {
 
 
 		//noinspection JSUnusedLocalSymbols
-		private static function _upperCase(ch:String, ...args):String {
+		private static function upperCase2(ch:String, ...args):String {
 			return ch.toUpperCase();
 		}
 
 
 
 		//noinspection JSUnusedLocalSymbols
-		private static function _swapCase(ch:String, ...args):String {
+		private static function swapCase2(ch:String, ...args):String {
 			var out:String;
 			var lowChar:String = ch.toLowerCase();
 			var upChar:String = ch.toUpperCase();

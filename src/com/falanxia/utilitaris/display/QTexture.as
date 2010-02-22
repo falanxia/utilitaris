@@ -44,7 +44,7 @@ package com.falanxia.utilitaris.display {
 	public class QTexture {
 
 
-		private var _bmpd:BitmapData;
+		private var bmpd:BitmapData;
 
 
 
@@ -53,7 +53,7 @@ package com.falanxia.utilitaris.display {
 		 * @todo Documentation
 		 */
 		public function QTexture(bmpd:BitmapData) {
-			_bmpd = bmpd;
+			bmpd = bmpd;
 		}
 
 
@@ -69,7 +69,7 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function draw(source:DisplayObject, matrix:Matrix = null, colorTransform:ColorTransform = null, blendMode:String = null,
 		                     clipRect:Rectangle = null, smoothing:Boolean = false):void {
-			_bmpd.draw(source, matrix, colorTransform, blendMode, clipRect, smoothing);
+			bmpd.draw(source, matrix, colorTransform, blendMode, clipRect, smoothing);
 
 			if(matrix == null) matrix = new Matrix();
 
@@ -94,56 +94,56 @@ package com.falanxia.utilitaris.display {
 			sourceDO.transform.matrix = origMatrix;
 
 			var temp:Matrix;
-			if(rect.right > _bmpd.width) {
+			if(rect.right > bmpd.width) {
 				// object extends off bitmap to the right, so draw it again, one screen to the left
 				temp = matrix.clone();
-				temp.tx -= _bmpd.width;
+				temp.tx -= bmpd.width;
 
-				_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+				bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 
-				if(rect.bottom > _bmpd.height) {
+				if(rect.bottom > bmpd.height) {
 					// it may ALSO extend off the top, so draw one screen to the left AND one screen up
-					temp.ty -= _bmpd.height;
-					_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+					temp.ty -= bmpd.height;
+					bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 				}
 				if(rect.top < 0) {
 					// it may ALSO extend off the bottom, so draw one screen to the left AND one screen down
-					temp.ty += _bmpd.height;
-					_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+					temp.ty += bmpd.height;
+					bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 				}
 			}
 
 			if(rect.left < 0) {
 				// object extends off bitmap to the left, so draw it again, one screen to the right
 				temp = matrix.clone();
-				temp.tx += _bmpd.width;
-				_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+				temp.tx += bmpd.width;
+				bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 
-				if(rect.bottom > _bmpd.height) {
+				if(rect.bottom > bmpd.height) {
 					// it may ALSO extend off the top, so draw one screen to the right AND one screen up
-					temp.ty -= _bmpd.height;
-					_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+					temp.ty -= bmpd.height;
+					bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 				}
 				if(rect.top < 0) {
 					// it may ALSO extend off the bottom, so draw one screen to the right AND one screen down
-					temp.ty += _bmpd.height;
-					_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+					temp.ty += bmpd.height;
+					bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 				}
 			}
 
-			if(rect.bottom > _bmpd.height) {
+			if(rect.bottom > bmpd.height) {
 				// object extends off bitmap to the bottom, so draw it again, one screen up
 				// left and right are already taken care of
 				temp = matrix.clone();
-				temp.ty -= _bmpd.height;
-				_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+				temp.ty -= bmpd.height;
+				bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 			}
 			if(rect.top < 0) {
 				// object extends off bitmap to the bottom, so draw it again, one screen up
 				// left and right are already taken care of
 				temp = matrix.clone();
-				temp.ty += _bmpd.height;
-				_bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
+				temp.ty += bmpd.height;
+				bmpd.draw(source, temp, colorTransform, blendMode, clipRect, smoothing);
 			}
 		}
 	}

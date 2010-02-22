@@ -42,7 +42,7 @@ package com.falanxia.utilitaris.display {
 	public class GlobalStage extends Sprite {
 
 
-		private static var _instance:GlobalStage = null;
+		private static var instance:GlobalStage = null;
 
 
 
@@ -61,8 +61,8 @@ package com.falanxia.utilitaris.display {
 		 * @return GlobalStage instance
 		 */
 		public static function getInstance():GlobalStage {
-			if(_instance == null) _instance = new GlobalStage();
-			return _instance;
+			if(instance == null) instance = new GlobalStage();
+			return instance;
 		}
 
 

@@ -40,7 +40,8 @@ package com.falanxia.utilitaris.locale {
 
 
 		private var _lang:String;
-		private var _dictionary:Dictionary;
+
+		private var dictionary:Dictionary;
 
 
 
@@ -50,7 +51,7 @@ package com.falanxia.utilitaris.locale {
 		 */
 		public function LanguageDictionary(lang:String = "en") {
 			_lang = lang;
-			_dictionary = new Dictionary();
+			dictionary = new Dictionary();
 		}
 
 
@@ -61,7 +62,7 @@ package com.falanxia.utilitaris.locale {
 		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
-				_dictionary[String(x.@id)] = StringUtil.trim(x.toString());
+				dictionary[String(x.@id)] = StringUtil.trim(x.toString());
 			}
 		}
 
@@ -73,7 +74,7 @@ package com.falanxia.utilitaris.locale {
 		 * @return Text if found, null if not
 		 */
 		public function getText(id:String):String {
-			return _dictionary[id];
+			return dictionary[id];
 		}
 
 

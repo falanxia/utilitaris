@@ -82,7 +82,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function scale(rect:Rectangle, amount:Percent, snapToPixel:Boolean = true):Rectangle {
-			return _defineRect(rect, rect.width * amount.decimalPercentage, rect.height * amount.decimalPercentage, snapToPixel);
+			return defineRect(rect, rect.width * amount.decimalPercentage, rect.height * amount.decimalPercentage, snapToPixel);
 		}
 
 
@@ -95,7 +95,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function scaleWidth(rect:Rectangle, height:Number, snapToPixel:Boolean = true):Rectangle {
-			return _defineRect(rect, height * widthToHeight(rect), height, snapToPixel);
+			return defineRect(rect, height * widthToHeight(rect), height, snapToPixel);
 		}
 
 
@@ -108,7 +108,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 */
 		public static function scaleHeight(rect:Rectangle, width:Number, snapToPixel:Boolean = true):Rectangle {
-			return _defineRect(rect, width, width * heightToWidth(rect), snapToPixel);
+			return defineRect(rect, width, width * heightToWidth(rect), snapToPixel);
 		}
 
 
@@ -149,7 +149,7 @@ package com.falanxia.utilitaris.utils {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		protected static function _defineRect(size:Rectangle, width:Number, height:Number, snapToPixel:Boolean):Rectangle {
+		protected static function defineRect(size:Rectangle, width:Number, height:Number, snapToPixel:Boolean):Rectangle {
 			var scaled:Rectangle = size.clone();
 
 			scaled.width = snapToPixel ? Math.round(width) : width;

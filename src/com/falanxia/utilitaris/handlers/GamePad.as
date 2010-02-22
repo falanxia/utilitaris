@@ -68,11 +68,12 @@ package com.falanxia.utilitaris.handlers {
 		private var _any:Boolean;
 		private var _x:Number = 0;
 		private var _y:Number = 0;
-		private var _targetX:Number = 0;
-		private var _targetY:Number = 0;
 		private var _angle:Number;
-		private var _rotation:Number;
-		private var _stage:Stage;
+
+		private var targetX:Number = 0;
+		private var targetY:Number = 0;
+		private var rotation:Number;
+		private var stage:Stage;
 
 
 
@@ -84,14 +85,14 @@ package com.falanxia.utilitaris.handlers {
 		 * @param autoStep Autostepping
 		 */
 		public function GamePad(stage:Stage, isCircle:Boolean, ease:Number = 0.2, autoStep:Boolean = true) {
-			_isCircle = isCircle;
-			_ease = ease;
-			_stage = stage;
+			this._isCircle = isCircle;
+			this._ease = ease;
+			this.stage = stage;
 
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, _onKeyDown, false, 0, true);
-			stage.addEventListener(KeyboardEvent.KEY_UP, _onKeyUp, false, 0, true);
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown, false, 0, true);
+			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp, false, 0, true);
 
-			if(autoStep) stage.addEventListener(Event.ENTER_FRAME, _onEnterFrame, false, 0, true);
+			if(autoStep) stage.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
 		}
 
 
@@ -100,9 +101,9 @@ package com.falanxia.utilitaris.handlers {
 		 * Destructor.
 		 */
 		public function destroy():void {
-			_stage.removeEventListener(KeyboardEvent.KEY_DOWN, _onKeyDown);
-			_stage.removeEventListener(KeyboardEvent.KEY_UP, _onKeyUp);
-			_stage.removeEventListener(Event.ENTER_FRAME, _onEnterFrame);
+			stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+			stage.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
@@ -147,8 +148,8 @@ package com.falanxia.utilitaris.handlers {
 		 * Step.
 		 */
 		public function step():void {
-			_x += (_targetX - _x) * _ease;
-			_y += (_targetY - _y) * _ease;
+			_x += (targetX - _x) * _ease;
+			_y += (targetY - _y) * _ease;
 		}
 
 
@@ -362,7 +363,7 @@ package com.falanxia.utilitaris.handlers {
 		/**
 		 * Enter frame event listener.
 		 */
-		private function _onEnterFrame(event:Event):void {
+		private function onEnterFrame(event:Event):void {
 			step();
 		}
 
@@ -371,7 +372,7 @@ package com.falanxia.utilitaris.handlers {
 		/**
 		 * Key down event listener.
 		 */
-		private function _onKeyDown(event:KeyboardEvent):void {
+		private function onKeyDown(event:KeyboardEvent):void {
 			switch(event.keyCode) {
 				case upKey:
 					_up = true;
@@ -402,7 +403,7 @@ package com.falanxia.utilitaris.handlers {
 					break;
 			}
 
-			_updateState();
+			updateState();
 		}
 
 
@@ -410,7 +411,7 @@ package com.falanxia.utilitaris.handlers {
 		/**
 		 * Key up event listener.
 		 */
-		private function _onKeyUp(event:KeyboardEvent):void {
+		private function onKeyUp(event:KeyboardEvent):void {
 			switch(event.keyCode) {
 				case upKey:
 					_up = false;
@@ -441,7 +442,7 @@ package com.falanxia.utilitaris.handlers {
 					break;
 			}
 
-			_updateState();
+			updateState();
 		}
 
 
@@ -449,7 +450,7 @@ package com.falanxia.utilitaris.handlers {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		private function _updateState():void {
+		private function updateState():void {
 			_upLeft = _up && _left;
 			_upRight = _up && _right;
 			_downLeft = _down && _left;
@@ -457,19 +458,19 @@ package com.falanxia.utilitaris.handlers {
 
 			_any = _up || _down || _right || _left;
 
-			if(_up) _targetY = -1; else if(_down) _targetY = 1;
-			else _targetY = 0;
+			if(_up) targetY = -1; else if(_down) targetY = 1;
+			else targetY = 0;
 
-			if(_left) _targetX = -1; else if(_right) _targetX = 1;
-			else _targetX = 0;
+			if(_left) targetX = -1; else if(_right) targetX = 1;
+			else targetX = 0;
 
-			_angle = Math.atan2(_targetX, _targetY);
+			_angle = Math.atan2(targetX, targetY);
 
-			_rotation = _angle * 57.29577951308232;
+			rotation = _angle * 57.29577951308232;
 
 			if(_isCircle && _any) {
-				_targetX = Math.sin(angle);
-				_targetY = Math.cos(angle);
+				targetX = Math.sin(angle);
+				targetY = Math.cos(angle);
 			}
 
 			step();

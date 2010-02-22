@@ -46,11 +46,11 @@ package com.falanxia.utilitaris.template {
 	public class GlobalPreloader extends MovieClip {
 
 
-		protected var _isLoading:Boolean = true;
-		protected var _mainClass:Class;
-		protected var _app:IMain;
-		protected var _mainClassName:String;
-		protected var _progress:Number = 0;
+		protected var isLoading:Boolean = true;
+		protected var mainClass:Class;
+		protected var app:IMain;
+		protected var mainClassName:String;
+		protected var progress:Number = 0;
 
 
 
@@ -59,7 +59,7 @@ package com.falanxia.utilitaris.template {
 		 * @param mainClassName Main Class name (like "org.vancura.myapp.Main")
 		 */
 		public function GlobalPreloader(mainClassName:String) {
-			_mainClassName = mainClassName;
+			this.mainClassName = mainClassName;
 
 			// stop main timeline
 			stop();
@@ -70,9 +70,9 @@ package com.falanxia.utilitaris.template {
 			stage.align = StageAlign.TOP_LEFT;
 
 			// add event listeners
-			this.addEventListener(Event.ENTER_FRAME, _onEnterFrame, false, 0, true);
-			stage.addEventListener(Event.RESIZE, _onStageResize, false, 0, true);
-			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, _onLoadingError, false, 0, true);
+			this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+			stage.addEventListener(Event.RESIZE, onStageResize, false, 0, true);
+			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onLoadingError, false, 0, true);
 		}
 
 
@@ -82,31 +82,31 @@ package com.falanxia.utilitaris.template {
 		 */
 		public function destroy():void {
 			// remove event listeners
-			this.removeEventListener(Event.ENTER_FRAME, _onEnterFrame);
-			stage.removeEventListener(Event.RESIZE, _onStageResize);
-			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, _onLoadingError);
+			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			stage.removeEventListener(Event.RESIZE, onStageResize);
+			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, onLoadingError);
 
 			// jump to next frame
 			// first is occupied by the preloader
 			nextFrame();
 
 			// find and call main class
-			_mainClass = ClassUtils.getClassByName(_mainClassName);
-			if(_mainClass === null) {
+			mainClass = ClassUtils.getClassByName(mainClassName);
+			if(mainClass === null) {
 				// main class not found
-				alert("GlobalPreloader: Main class (" + _mainClassName + ") not found.\nThis is critical.");
+				alert("GlobalPreloader: Main class (" + mainClassName + ") not found.\nThis is critical.");
 			}
 			else {
 				// main class found
 				// add it to the display list
-				_app = new _mainClass();
-				addChild(DisplayObject(_app));
+				app = new mainClass();
+				addChild(DisplayObject(app));
 
 				// send flashvars to main class
-				_app.flashVars = root.loaderInfo.parameters;
+				app.flashVars = root.loaderInfo.parameters;
 
 				// run application
-				_app.start();
+				app.start();
 
 				// the app is running now
 			}
@@ -138,7 +138,7 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * Load error. Happens when the user navigates somewhere else while Flash is not fully loaded yet.
 		 */
-		protected function _onLoadingError(event:IOErrorEvent):void {
+		protected function onLoadingError(event:IOErrorEvent):void {
 			// don't do anything here
 			// app has to silently fail
 		}
@@ -148,7 +148,7 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * Stage resize. Just a placeholder to be overridden by implementations.
 		 */
-		protected function _onStageResize(event:Event = null):void {
+		protected function onStageResize(event:Event = null):void {
 		}
 
 
@@ -156,11 +156,11 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * EnterFrame handler. Update your progress bar here.
 		 */
-		protected function _onEnterFrame(event:Event):void {
-			_progress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
+		protected function onEnterFrame(event:Event):void {
+			progress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
 
-			if(_progress >= 1) {
-				_isLoading = false;
+			if(progress >= 1) {
+				isLoading = false;
 				destroy();
 			}
 		}

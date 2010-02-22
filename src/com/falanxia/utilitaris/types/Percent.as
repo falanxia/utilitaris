@@ -41,7 +41,7 @@ package com.falanxia.utilitaris.types {
 	public final class Percent {
 
 
-		protected var _percent:Number;
+		protected var percent:Number;
 
 
 
@@ -106,7 +106,7 @@ package com.falanxia.utilitaris.types {
 		 * @return Percentage
 		 */
 		public final function get percentage():Number {
-			return 100 * this._percent;
+			return 100 * this.percent;
 		}
 
 
@@ -116,7 +116,7 @@ package com.falanxia.utilitaris.types {
 		 * @param percent Percentage
 		 */
 		public final function set percentage(percent:Number):void {
-			this._percent = percent * 0.01;
+			this.percent = percent * 0.01;
 		}
 
 
@@ -126,7 +126,7 @@ package com.falanxia.utilitaris.types {
 		 * @return Percentage
 		 */
 		public final function get decimalPercentage():Number {
-			return this._percent;
+			return this.percent;
 		}
 
 
@@ -136,7 +136,7 @@ package com.falanxia.utilitaris.types {
 		 * @param percent
 		 */
 		public final function set decimalPercentage(percent:Number):void {
-			this._percent = percent;
+			this.percent = percent;
 		}
 	}
 }

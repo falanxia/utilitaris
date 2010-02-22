@@ -152,7 +152,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Test
 		 */
 		public static function inspect(obj:Object, depth:int = 2):String {
-			return _scanObject(obj, depth, "");
+			return scanObject(obj, depth, "");
 		}
 
 
@@ -328,7 +328,7 @@ package com.falanxia.utilitaris.utils {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		private static function _scanObject(obj:Object, depth:int, prefix:String):String {
+		private static function scanObject(obj:Object, depth:int, prefix:String):String {
 			var out:String;
 
 			if(depth < 1) {
@@ -339,11 +339,11 @@ package com.falanxia.utilitaris.utils {
 				var str:String = "";
 
 				for each(var variable:XML in classDef.variable) {
-					str += prefix + variable.@name + " : " + _scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
+					str += prefix + variable.@name + " : " + scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
 				}
 
 				for(var s:* in obj) {
-					str += prefix + s + " = " + _scanObject(obj[s], depth - 1, prefix + "\t") + "\n";
+					str += prefix + s + " = " + scanObject(obj[s], depth - 1, prefix + "\t") + "\n";
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS

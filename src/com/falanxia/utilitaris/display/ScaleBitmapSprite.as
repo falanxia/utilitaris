@@ -45,10 +45,11 @@ package com.falanxia.utilitaris.display {
 		private var _innerRect:Rectangle;
 		private var _outerRect:Rectangle;
 		private var _bitmapData:BitmapData;
-		private var _outerWidth:Number;
-		private var _outerHeight:Number;
-		private var _minWidth:Number;
-		private var _minHeight:Number;
+
+		private var outerWidth:Number;
+		private var outerHeight:Number;
+		private var minWidth:Number;
+		private var minHeight:Number;
 
 
 
@@ -70,7 +71,7 @@ package com.falanxia.utilitaris.display {
 			_outerRect = outerRect;
 
 			// refresh
-			_refresh();
+			refresh();
 
 			// apply initial sizes if needed
 			if(config != null && config.width != undefined) this.width = config.width;
@@ -85,7 +86,7 @@ package com.falanxia.utilitaris.display {
 		public function draw():void {
 			graphics.clear();
 
-			ScaleBitmap.draw(_bitmapData, graphics, new Rectangle(0, 0, Math.floor(_width + _outerWidth), Math.floor(_height + _outerHeight)), _innerRect, _outerRect);
+			ScaleBitmap.draw(_bitmapData, graphics, new Rectangle(0, 0, Math.floor(_width + outerWidth), Math.floor(_height + outerHeight)), _innerRect, _outerRect);
 		}
 
 
@@ -102,7 +103,7 @@ package com.falanxia.utilitaris.display {
 			if(innerRect != null) _innerRect = innerRect;
 			if(outerRect != null) _outerRect = outerRect;
 
-			_refresh();
+			refresh();
 		}
 
 
@@ -125,7 +126,7 @@ package com.falanxia.utilitaris.display {
 		 * @param value Width
 		 */
 		override public function set width(value:Number):void {
-			_width = Math.max(value, _minWidth);
+			_width = Math.max(value, minWidth);
 
 			draw();
 		}
@@ -147,7 +148,7 @@ package com.falanxia.utilitaris.display {
 		 * @param value Height
 		 */
 		override public function set height(value:Number):void {
-			_height = Math.max(value, _minHeight);
+			_height = Math.max(value, minHeight);
 
 			draw();
 		}
@@ -193,7 +194,7 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function set innerRect(value:Rectangle):void {
 			_innerRect = value;
-			_refresh();
+			refresh();
 		}
 
 
@@ -215,7 +216,7 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function set outerRect(value:Rectangle):void {
 			_outerRect = value;
-			_refresh();
+			refresh();
 		}
 
 
@@ -223,7 +224,7 @@ package com.falanxia.utilitaris.display {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		private function _refresh():void {
+		private function refresh():void {
 			// TODO: What to do when calling refresh AFTER data (bitmapData and innerRect) were nulled?
 
 			if(_innerRect != null && _bitmapData != null) {
@@ -233,20 +234,20 @@ package com.falanxia.utilitaris.display {
 					// outer rectangle is undefined, copy it from inner rectangle
 					_width = _innerRect.width;
 					_height = _innerRect.height;
-					_outerWidth = 0;
-					_outerHeight = 0;
+					outerWidth = 0;
+					outerHeight = 0;
 				}
 				else {
 					// both outer and inner rectangles are defined
 					_width = _outerRect.width;
 					_height = _outerRect.height;
-					_outerWidth = bitmapData.width - _outerRect.width;
-					_outerHeight = bitmapData.height - _outerRect.height;
+					outerWidth = bitmapData.width - _outerRect.width;
+					outerHeight = bitmapData.height - _outerRect.height;
 				}
 
 				// set minimal width and height
-				_minWidth = bitmapData.width - _innerRect.width - _outerWidth;
-				_minHeight = bitmapData.height - _innerRect.height - _outerHeight;
+				minWidth = bitmapData.width - _innerRect.width - outerWidth;
+				minHeight = bitmapData.height - _innerRect.height - outerHeight;
 
 				// initial draw
 				draw();
