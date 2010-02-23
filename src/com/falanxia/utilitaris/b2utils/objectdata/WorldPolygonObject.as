@@ -6,8 +6,6 @@
 package com.falanxia.utilitaris.b2utils.objectdata {
 	import com.falanxia.utilitaris.helpers.printf;
 
-	import flash.geom.Point;
-
 
 
 	/**
@@ -20,7 +18,6 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 		public var vertices:Vector.<WorldCoords>;
-		public var center:Point;
 
 
 
@@ -31,7 +28,6 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 			super(name, position);
 
 			this.vertices = vertices;
-			this.center = new Point(0, 0); // TODO: Add center calculation
 		}
 
 
