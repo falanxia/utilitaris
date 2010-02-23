@@ -142,5 +142,26 @@ package com.falanxia.utilitaris.utils {
 
 			return (angle >= 0) ? angle - (360 * _rotations) : angle + (360 * _rotations);
 		}
+
+
+
+		/**
+		 * Trims the supplied {@code angle} to its 0..360 representation.
+		 * @param angle Angle to trim
+		 * @return Supplied {@code angle} trimmed
+		 * @example
+		 *      <code>
+		 *          var simpAngle:Number = MathUtils.trimAngle(725); // returns 5
+		 *      </code>
+		 * @todo Optimize for faster access (no static)
+		 */
+		public static function trimAngle(angle:Number):Number {
+			var a:Number = angle;
+
+			while(a < 0) a += 360;
+			while(a > 360) a -= 360;
+
+			return a;
+		}
 	}
 }
