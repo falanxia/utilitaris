@@ -39,7 +39,7 @@ package com.falanxia.utilitaris.b2utils.constants {
 		public static const RECTANGLE:String = "rectangle";
 
 		/** Circle world object type */
-		public static const CIRCLE:String = "circler";
+		public static const CIRCLE:String = "circle";
 
 		/** Polygon world object type */
 		public static const POLYGON:String = "polygon";

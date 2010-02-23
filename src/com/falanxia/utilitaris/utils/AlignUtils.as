@@ -71,7 +71,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param displayObject {@code DisplayObject} to align
 		 * @param bounds Area in which to align the {@code DisplayObject}
 		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
-		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code fa;se})
+		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
 		 */
 		public static function alignRight(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true,
 		                                  outside:Boolean = false):void {
