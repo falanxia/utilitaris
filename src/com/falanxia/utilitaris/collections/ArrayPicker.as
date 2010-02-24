@@ -177,7 +177,7 @@ package com.falanxia.utilitaris.collections {
 		 * Gets number of available items (items in pool)
 		 * @return number of avaialable items
 		 */
-		public function getAvailableNumber():int {
+		public function getAvailableCount():int {
 
 			return poolArray.length;
 
