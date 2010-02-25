@@ -125,7 +125,6 @@ package com.falanxia.utilitaris.constants {
 		public static const ENTER:int = 13;
 		public static const EQUALS:int = 187;
 		public static const ESC:int = 27;
-		public static const ESCAPE:int = 27;
 		public static const HELP:int = 47;
 		public static const HOME:int = 36;
 		public static const INSERT:int = 45;
