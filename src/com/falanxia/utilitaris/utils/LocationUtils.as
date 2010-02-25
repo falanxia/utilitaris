@@ -59,6 +59,9 @@ package com.falanxia.utilitaris.utils {
 		/** Undefined browser */
 		public static const BROWSER_UNDEFINED:String = "BrowserUndefined";
 
+		/** Standalone player */
+		public static const STANDALONE_PLAYER:String = "StandalonePlayer";
+
 
 		private static const WINDOW_OPEN_FUNCTION:String = "window.open";
 
@@ -132,7 +135,7 @@ package com.falanxia.utilitaris.utils {
 		 * Determines if the SWF is running in a browser plug-in.
 		 * @return {@code true} if SWF is running in the Flash Player browser plug-in
 		 */
-		public static function isPlugin():Boolean {
+		public static function get isPlugin():Boolean {
 			return Capabilities.playerType == "PlugIn" || Capabilities.playerType == "ActiveX";
 		}
 
@@ -142,7 +145,7 @@ package com.falanxia.utilitaris.utils {
 		 * Determines if the SWF is running in the IDE.
 		 * @return {@code true} if SWF is running in the Flash Player version used by the external player or test movie mode
 		 */
-		public static function isIde():Boolean {
+		public static function get isIDE():Boolean {
 			return Capabilities.playerType == "External";
 		}
 
@@ -152,7 +155,7 @@ package com.falanxia.utilitaris.utils {
 		 * Determines if the SWF is running in the StandAlone player.
 		 * @return {@code true} if SWF is running in the Flash StandAlone Player
 		 */
-		public static function isStandAlone():Boolean {
+		public static function get isStandAlone():Boolean {
 			return Capabilities.playerType == "StandAlone";
 		}
 
@@ -162,7 +165,7 @@ package com.falanxia.utilitaris.utils {
 		 * Determines if the runtime environment is an Air application.
 		 * @return {@code true} if the runtime environment is an Air application
 		 */
-		public static function isAirApplication():Boolean {
+		public static function get isAirApplication():Boolean {
 			return Capabilities.playerType == "Desktop";
 		}
 
@@ -207,33 +210,45 @@ package com.falanxia.utilitaris.utils {
 		 * Return current browser name.
 		 */
 		public static function getBrowserName():String {
-			var browser:String;
+			var out:String;
+			var browserAgent:String;
 
-			// uses external interface to reach out to browser and grab browser useragent info.
-			var browserAgent:String = ExternalInterface.call("function getBrowser(){return navigator.userAgent;}");
-
-			// determines brand of browser using a find index. If not found indexOf returns (-1).
-			if(browserAgent != null && browserAgent.indexOf("Firefox") >= 0) {
-				browser = BROWSER_FIREFOX;
+			if(isStandAlone) {
+				out = STANDALONE_PLAYER;
 			}
 
-			else if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
-				browser = BROWSER_SAFARI;
-			}
+			else if(ExternalInterface.available) {
+				// uses external interface to reach out to browser and grab browser useragent info.
+				browserAgent = ExternalInterface.call("function getBrowser(){return navigator.userAgent;}");
 
-			else if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
-				browser = BROWSER_IE;
-			}
+				// determines brand of browser using a find index. If not found indexOf returns (-1).
+				if(browserAgent != null && browserAgent.indexOf("Firefox") >= 0) {
+					out = BROWSER_FIREFOX;
+				}
 
-			else if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
-				browser = BROWSER_OPERA;
+				else if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
+					out = BROWSER_SAFARI;
+				}
+
+				else if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
+					out = BROWSER_IE;
+				}
+
+				else if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
+					out = BROWSER_OPERA;
+				}
+
+				else {
+					out = BROWSER_UNDEFINED;
+				}
 			}
 
 			else {
-				browser = BROWSER_UNDEFINED;
+				// standalone player
+				out = BROWSER_UNDEFINED;
 			}
 
-			return (browser);
+			return out;
 		}
 	}
 }
