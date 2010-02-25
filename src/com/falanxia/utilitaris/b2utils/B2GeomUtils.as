@@ -31,6 +31,7 @@ package com.falanxia.utilitaris.b2utils {
 	import Box2D.Dynamics.b2BodyDef;
 	import Box2D.Dynamics.b2World;
 
+	import com.falanxia.utilitaris.b2utils.objectdata.WorldCircleObject;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCoords;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldPolygonObject;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldRectangleObject;
@@ -164,12 +165,12 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param friction
 		 * @return
 		 */
-		public function drawCircle(coords:WorldCoords, radius:Number, isSensor:Boolean = false, density:Number = 0,
+		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0,
 		                           restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
 		                           linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 
 			var def:b2BodyDef = new b2BodyDef();
-			def.position.Set(coords.x / ratio, coords.y / ratio);
+			def.position.Set(obj.position.x / ratio, obj.position.y / ratio);
 			def.angularDamping = angularDamping;
 			def.linearDamping = linearDamping;
 
@@ -178,13 +179,13 @@ package com.falanxia.utilitaris.b2utils {
 			sh.restitution = restitution;
 			sh.friction = friction;
 			sh.isSensor = isSensor;
-			sh.radius = radius / ratio;
+			sh.radius = obj.radius / ratio;
 
 			var b:b2Body = world.CreateBody(def);
 			b.SetBullet(isBullet);
 			b.CreateShape(sh);
 			b.SetMassFromShapes();
-			b.GetXForm().R.Set(coords.rotation * pi_rad);
+			b.GetXForm().R.Set(obj.position.rotation * pi_rad);
 
 			return b;
 
