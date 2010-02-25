@@ -24,6 +24,9 @@
 
 package com.falanxia.utilitaris.utils {
 	import flash.display.DisplayObject;
+	import flash.external.ExternalInterface;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	import flash.system.Capabilities;
 
 
@@ -32,11 +35,32 @@ package com.falanxia.utilitaris.utils {
 	 * Location utilities.
 	 *
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
+	 * @author Aron Woost (<a href="http://apdevblog.com">apdevblog.com</a>)
+	 * @author Philipp Kyeck (<a href="http://apdevblog.com">apdevblog.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura (<a href="http://vaclav.vancura.org">vaclav.vancura.org</a>, <a href="http://twitter.com/vancura">@vancura</a>)
 	 * @since 1.0
 	 */
 	public class LocationUtils {
+
+
+		/** Firefox */
+		public static const BROWSER_FIREFOX:String = "BrowserFirefox";
+
+		/** Safari */
+		public static const BROWSER_SAFARI:String = "BrowserSafari";
+
+		/** Internet Explorer */
+		public static const BROWSER_IE:String = "BrowserIE";
+
+		/** Opera */
+		public static const BROWSER_OPERA:String = "BrowserOpera";
+
+		/** Undefined browser */
+		public static const BROWSER_UNDEFINED:String = "BrowserUndefined";
+
+
+		private static const WINDOW_OPEN_FUNCTION:String = "window.open";
 
 
 
@@ -140,6 +164,76 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function isAirApplication():Boolean {
 			return Capabilities.playerType == "Desktop";
+		}
+
+
+
+		/**
+		 * Open a new browser window and prevent browser from blocking it.
+		 * Based on script by Sergey Kovalyov (http://skovalyov.blogspot.com/2007/01/how-to-prevent-pop-up-blocking-in.html)
+		 * Based on script by Jason the Saj (http://thesaj.wordpress.com/2008/02/12/the-nightmare-that-is-_blank-part-ii-help)
+		 * @implementationNote Original: http://apdevblog.com/problems-using-navigatetourl
+		 * @implementationNote You also have to set the {@code wmode} inside your containing html file to {@code "opaque"} and the {@code allowScriptAccess} to {@code "always"}.
+		 * @param url {@code url} to be opened
+		 * @param window Window target
+		 * @param features Additional features for {@code window.open} function
+		 * @author Sergey Kovalyov
+		 * @author Jason the Saj
+		 * @author Aron Woost (<a href="http://apdevblog.com">apdevblog.com</a>)
+		 * @author Philipp Kyeck (<a href="http://apdevblog.com">apdevblog.com</a>)
+		 */
+		public static function openWindow(url:String, window:String = "_blank", features:String = ""):void {
+			var browserName:String = getBrowserName();
+
+			switch(browserName) {
+				case BROWSER_FIREFOX:
+					ExternalInterface.call(WINDOW_OPEN_FUNCTION, url, window, features);
+					break;
+
+				case BROWSER_IE:
+					ExternalInterface.call("function setWMWindow() {window.open('" + url + "');}");
+					break;
+
+				default:
+					// otherwise, use Flash's native 'navigateToURL()' function to pop-window.
+					// this is necessary because Safari 3 no longer works with the above ExternalInterface work-a-round.
+					navigateToURL(new URLRequest(url), window);
+			}
+		}
+
+
+
+		/**
+		 * Return current browser name.
+		 */
+		public static function getBrowserName():String {
+			var browser:String;
+
+			// uses external interface to reach out to browser and grab browser useragent info.
+			var browserAgent:String = ExternalInterface.call("function getBrowser(){return navigator.userAgent;}");
+
+			// determines brand of browser using a find index. If not found indexOf returns (-1).
+			if(browserAgent != null && browserAgent.indexOf("Firefox") >= 0) {
+				browser = BROWSER_FIREFOX;
+			}
+
+			else if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
+				browser = BROWSER_SAFARI;
+			}
+
+			else if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
+				browser = BROWSER_IE;
+			}
+
+			else if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
+				browser = BROWSER_OPERA;
+			}
+
+			else {
+				browser = BROWSER_UNDEFINED;
+			}
+
+			return (browser);
 		}
 	}
 }
