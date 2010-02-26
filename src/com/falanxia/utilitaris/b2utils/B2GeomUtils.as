@@ -45,7 +45,7 @@ package com.falanxia.utilitaris.b2utils {
 	 * CAUTION: use getInstance() to get static acces to nonstatic methods, after that you'll need to call init(),
 	 * pass reference to your b2world and set the pixel_to_meter ratio.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s.
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
 	 * @since
 	 */
 	public class B2GeomUtils {
@@ -165,9 +165,9 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param friction
 		 * @return
 		 */
-		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0,
-		                           restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
-		                           linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
+		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = 0.1,
+		                           friction:Number = 0.1, angularDamping:Number = .5, linearDamping:Number = .5,
+		                           isBullet:Boolean = false):b2Body {
 
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(obj.position.x / ratio, obj.position.y / ratio);

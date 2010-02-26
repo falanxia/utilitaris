@@ -39,7 +39,7 @@ package com.falanxia.utilitaris.handlers {
 	 * @implementationNote Original <a href="http://github.com/iainlobb/Gamepad/blob/master/com/iainlobb/Gamepad.as">http://github.com/iainlobb/Gamepad/blob/master/com/iainlobb/Gamepad.as</a>
 	 * @author Iain Lobb (<a href="http://blog.iainlobb.com">blog.iainlobb.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura (<a href="http://vaclav.vancura.org">vaclav.vancura.org</a>, <a href="http://twitter.com/vancura">@vancura</a>)
+	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @since 1.0
 	 */
 	public class GamePad extends EventDispatcher {

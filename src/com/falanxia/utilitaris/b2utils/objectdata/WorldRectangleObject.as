@@ -10,8 +10,8 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	/**
 	 * World rectangle object.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
-	 * @author Vaclav Vancura (<a href="http://vaclav.vancura.org">vaclav.vancura.org</a>, <a href="http://twitter.com/vancura">@vancura</a>)
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */

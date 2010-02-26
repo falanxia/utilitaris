@@ -35,7 +35,7 @@ package com.falanxia.utilitaris.display {
 	 * @implementationNote Original: <a href="http://www.kirupa.com/forum/showthread.php?p=1939920">http://www.kirupa.com/forum/showthread.php?p=1939920</a>
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura (<a href="http://vaclav.vancura.org">vaclav.vancura.org</a>, <a href="http://twitter.com/vancura">@vancura</a>)
+	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @author Matthew Lloyd (<a href="http://matt-lloyd.co.uk">matt-lloyd.co.uk</a>)
 	 * @since 1.0
 	 */

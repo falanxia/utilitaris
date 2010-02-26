@@ -11,7 +11,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	/**
 	 *
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
 	 * @since
 	 */
 	public class WorldPolygonObject extends WorldObject {

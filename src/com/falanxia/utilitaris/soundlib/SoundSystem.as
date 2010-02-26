@@ -14,7 +14,7 @@ package com.falanxia.utilitaris.soundlib {
 	/**
 	 *
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
 	 * @since
 	 */
 	public class SoundSystem {

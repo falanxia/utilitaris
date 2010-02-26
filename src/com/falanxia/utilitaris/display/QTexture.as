@@ -38,7 +38,7 @@ package com.falanxia.utilitaris.display {
 	 *
 	 * @todo Documentation (original by Bit-101)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura (<a href="http://vaclav.vancura.org">vaclav.vancura.org</a>, <a href="http://twitter.com/vancura">@vancura</a>)
+	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @since 1.1
 	 */
 	public class QTexture {
