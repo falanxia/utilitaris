@@ -68,6 +68,12 @@ package com.falanxia.utilitaris.utils {
 		/** Default padding */
 		public static const DEFAULT_PADDING:Number = 8;
 
+		/** Square 100x100 */
+		public static const SQUARE_100:Rectangle = new Rectangle(0, 0, 100, 100);
+
+		/** Red color */
+		public static const RED:RGBA = new RGBA(255, 0, 0, 255);
+
 
 
 		/**
