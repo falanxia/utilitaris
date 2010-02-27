@@ -71,8 +71,20 @@ package com.falanxia.utilitaris.utils {
 		/** Square 100x100 */
 		public static const SQUARE_100:Rectangle = new Rectangle(0, 0, 100, 100);
 
+		/** Maximum rectangle covering whole Flash Player screen space (so far) */
+		public static const MAX_RECT:Rectangle = new Rectangle(0, 0, 2880, 2880);
+
 		/** Red color */
 		public static const RED:RGBA = new RGBA(255, 0, 0, 255);
+
+		/** White color */
+		public static const WHITE:RGBA = new RGBA(255, 255, 255, 255);
+
+		/** Black color */
+		public static const BLACK:RGBA = new RGBA(0, 0, 0, 255);
+
+		/** Zero point */
+		public static const ZERO:Point = new Point(0, 0);
 
 
 
