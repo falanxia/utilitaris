@@ -38,12 +38,23 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	public class WorldCoords {
 
 
+		/** X position */
 		public var x:Number;
+
+		/** Y position */
 		public var y:Number;
+
+		/** Rotation */
 		public var rotation:Number;
 
 
 
+		/**
+		 * Constructor.
+		 * @param x X position
+		 * @param y Y position
+		 * @param rotation Rotation ({@code 0} by default)
+		 */
 		public function WorldCoords(x:Number, y:Number, rotation:Number = 0) {
 			this.x = x;
 			this.y = y;
@@ -54,6 +65,10 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 
+		/**
+		 * Multiply by {@code n}.
+		 * @param n Multiplier
+		 */
 		public function multiply(n:Number):void {
 			x *= n;
 			y *= n;
