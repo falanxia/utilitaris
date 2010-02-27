@@ -77,6 +77,12 @@ package com.falanxia.utilitaris.utils {
 		/** Red color */
 		public static const RED:RGBA = new RGBA(255, 0, 0, 255);
 
+		/** Green color */
+		public static const GREEN:RGBA = new RGBA(0, 255, 0, 255);
+
+		/** Blue color */
+		public static const BLUE:RGBA = new RGBA(0, 0, 255, 255);
+
 		/** White color */
 		public static const WHITE:RGBA = new RGBA(255, 255, 255, 255);
 
