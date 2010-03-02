@@ -136,6 +136,17 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
+		 * Destroys the MorphSprite instance and frees it for GC
+		 */
+		public override function destroy():void {
+			super.destroy();
+			defaultMorphEase = null;
+			morphEase = null;
+			initialProperties = null;
+		}
+
+
+		/**
 		 * Animate state change.
 		 * Timing is taken from {@code morphDuration}, transition from {@code morphEase}.
 		 * Follows status flags ({@link MorphSprite#isMorphXEnabled}, {@link MorphSprite#isMorphYEnabled}, {@link MorphSprite#isMorphWidthEnabled} and {@link MorphSprite#isMorphHeightEnabled}).

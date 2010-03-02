@@ -68,6 +68,18 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
+		 * Destroys the ArrayPicker and frees it for GC
+		 */
+		public function destroy():void {
+
+			poolArray = null;
+			reservedArray = null;
+
+		}
+
+
+
+		/**
 		 * Returns array of actually unused items
 		 * @return array array of unused items
 		 */
@@ -154,7 +166,7 @@ package com.falanxia.utilitaris.collections {
 
 			}
 
-			return ret
+			return ret;
 
 
 		}
