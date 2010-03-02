@@ -173,7 +173,7 @@ package com.falanxia.utilitaris.utils {
 			}
 
 			if(obj != null) {
-				for(var o:* in obj) {
+				for(var o:String in obj) {
 					i[o] = obj[o];
 				}
 			}
@@ -224,7 +224,7 @@ package com.falanxia.utilitaris.utils {
 			}
 			else {
 				var ret:Array = [];
-				for(var s:Object in obj) {
+				for(var s:String in obj) {
 					ret.push(s + ": " + obj[s]);
 				}
 				out = ret.join(delimiter);
@@ -253,18 +253,6 @@ package com.falanxia.utilitaris.utils {
 			}
 
 			return out;
-		}
-
-
-
-		/**
-		 * Uses the strict equality operator to determine if {@code Object} is {@code undefined}.
-		 * @param obj {@code Object} to determine if {@code undefined}
-		 * @return {@code true} if {@code Object} is {@code undefined}
-		 * @todo Optimize for faster access (no static)
-		 */
-		public static function isUndefined(obj:Object):Boolean {
-			return obj is undefined;
 		}
 
 
@@ -342,7 +330,7 @@ package com.falanxia.utilitaris.utils {
 					str += prefix + variable.@name + " : " + scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
 				}
 
-				for(var s:* in obj) {
+				for(var s:String in obj) {
 					str += prefix + s + " = " + scanObject(obj[s], depth - 1, prefix + "\t") + "\n";
 				}
 
