@@ -43,11 +43,21 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 
+		/**
+		 * Constructor.
+		 * @param name Name
+		 * @param position Position as {@code WorldCoords}
+		 */
 		public function WorldObject(name:String, position:WorldCoords) {
 			this.name = name;
 			this.position = position;
 		}
 
+
+
+		/**
+		 * Destroys the {@code WorldObject} and frees it for GC.
+		 */
 		public function destroy():void {
 			position = null;
 			name = null;
