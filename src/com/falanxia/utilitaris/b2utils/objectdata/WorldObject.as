@@ -48,6 +48,11 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 			this.position = position;
 		}
 
+		public function destroy():void {
+			position = null;
+			name = null;
+		}
+
 
 
 		/**
