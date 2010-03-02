@@ -30,6 +30,13 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 			this.vertices = vertices;
 		}
 
+		override public function destroy():void {
+			for (var i:int = 0;i<vertices.length;i++) {
+				vertices[i] = null;
+			}
+			vertices = null;
+		}
+
 
 
 		override public function toString():String {
