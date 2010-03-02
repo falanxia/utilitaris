@@ -99,10 +99,10 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the QSprite and frees it for GC
+		 * Destroys the {@code QSprite} and frees it for GC.
 		 */
 		public function destroy():void {
-			if (this.getChildIndex(_embeddedSpr)!=-1) removeChild(_embeddedSpr);
+			if(_embeddedSpr != null && this.contains(_embeddedSpr)) this.removeChild(_embeddedSpr);
 			_embeddedSpr = null;
 		}
 

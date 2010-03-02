@@ -23,13 +23,21 @@
  */
 package com.falanxia.utilitaris.collections {
 
+
+
 	/**
 	 * Array picker class lets you declare array of items you want to use (poolArray) and ensures that item that is
 	 * acutally in use cannot be used again (is moved to reservedArray) until its flagged as unused (returned to
 	 * poolArray); BEWARE: For better performance and flexibility, ArrayPicker breaks encapsulation in methods getPool() and
 	 * getReservedItems() - it returns not copy of poolArray/reservedArray, but reference to it.
+	 *
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @since 1.0
 	 */
 	public final class ArrayPicker extends Object {
+
 
 		private var poolArray:Array;
 		private var reservedArray:Array;
@@ -37,231 +45,199 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Initilizes arrays
+		 * Initilizes arrays.
 		 */
 		public function ArrayPicker():void {
-
 			poolArray = [];
 			reservedArray = [];
-
 		}
 
 
 
 		/**
-		 * Sets array of items we want to work with, if poolArray is already set, we rewrite it and empty reservedArray
-		 * @param a array of items
+		 * Sets {@code Array} of items we want to work with, if {@code poolArray} is already set, we rewrite it and empty
+		 * reservedArray.
+		 * @param value {@code Array} of items
 		 */
-		public function init(a:Array):void {
+		public function init(value:Array):void {
+			poolArray = value;
 
-			poolArray = a;
-
-			if(poolArray.length > 0) {
-
-				reservedArray = [];
-
-			}
-
-
+			if(poolArray.length > 0) reservedArray = [];
 		}
 
 
 
 		/**
-		 * Destroys the ArrayPicker and frees it for GC
+		 * Destroys the {@code ArrayPicker} and frees it for GC.
 		 */
 		public function destroy():void {
-
 			poolArray = null;
 			reservedArray = null;
-
 		}
 
 
 
 		/**
-		 * Returns array of actually unused items
-		 * @return array array of unused items
+		 * Returns array of actually unused items.
+		 * @return {@code Array} of unused items
 		 */
 		public function getPool():Array {
-
 			return poolArray;
-
 		}
 
 
 
 		/**
-		 * Grabs item from pool, puts it to reservedItems and returns it
-		 * @param item selected item, null if there is no item in pool left
+		 * Grabs item from pool, puts it to reservedItems and returns it.
+		 * @param value Selected item, {@code null} if there is no item in pool left
 		 */
-		public function getFromPool(item:Object):void {
+		public function getFromPool(value:Object):void {
+			var tmpi:int = poolArray.indexOf(value);
 
-			var tmpi:int = poolArray.indexOf(item);
 			if(tmpi > -1) {
-
 				reservedArray.push(poolArray[tmpi]);
 				poolArray.splice(tmpi, 1);
-
 			}
-
 		}
 
 
 
 		/**
-		 * Gets random item from poolArray, puts it to reservedItems and returns it
-		 * @return random item from poolArray, null if there is no item in pool left
+		 * Gets random item from {@code poolArray}, puts it to {@code reservedItems} and returns it.
+		 * @return Random item from {@code poolArray}, {@code null} if there is no item in pool left
 		 */
 		public function getRandomFromPool():Object {
-
 			var randomi:int = randRange(0, poolArray.length - 1);
 			var ret:Object;
 
 			if(poolArray[randomi] != undefined) {
-
 				ret = poolArray[randomi];
 				reservedArray.push(ret);
 				poolArray.splice(randomi, 1);
-
 			}
 
 			return ret;
-
 		}
 
 
 
 		/**
-		 * Gets first item in poolArray, puts it to reservedItems and returns it
-		 * @return first item in poolArray, null if there is no item in pool left
+		 * Gets first item in {@code poolArray}, puts it to {@code reservedItems} and returns it.
+		 * @return First item in {@code poolArray}, {@code null} if there is no item in pool left
 		 */
 		public function getFirstFromPool():Object {
-
 			var ret:Object;
-			if(poolArray[0] != null) {
 
+			if(poolArray[0] != null) {
 				ret = poolArray[0];
 				reservedArray.push(ret);
 				poolArray.splice(0, 1);
-
 			}
-			return ret;
 
+			return ret;
 		}
 
 
 
 		/**
-		 * Gets last item in poolArray, puts it to reservedItems and returns it
-		 * @return item last item in poolArray, null if there is no item in pool left
+		 * Gets last item in {@code poolArray}, puts it to {@code reservedItems} and returns it.
+		 * @return Last item in {@code poolArray}, {@code null} if there is no item in pool left
 		 */
 		public function getLastFromPool():Object {
-
 			var ret:Object;
-			if(poolArray.length > 0) {
 
+			if(poolArray.length > 0) {
 				ret = poolArray.pop();
 				reservedArray.push(ret);
-
 			}
 
 			return ret;
-
-
 		}
 
 
 
 		/**
-		 * Gets number of items in reservedArray
-		 * @return number of reserved items
+		 * Gets number of items in {@code reservedArray}.
+		 * @return Number of reserved items
 		 */
 		public function getReservedNumber():int {
-
 			return reservedArray.length;
-
 		}
 
 
 
 		/**
-		 * Gets number of available items (items in pool)
-		 * @return number of avaialable items
+		 * Gets number of available items (items in {@code poolArray}).
+		 * @return Number of avaialable items
 		 */
 		public function getAvailableCount():int {
-
 			return poolArray.length;
-
 		}
 
 
 
 		/**
-		 * Returns the array of reserved items
-		 * @return array of reserved items
+		 * Returns the {@code Array} of reserved items
+		 * @return {@code Array} of reserved items
 		 */
 		public function getReservedItems():Array {
-
 			return reservedArray;
-
 		}
 
 
 
 		/**
-		 * Picks selected item from reservedArray and returns it to the pool of unused items
-		 * @param item item we want to return to unused items pool
+		 * Picks selected item from {@code reservedArray} and returns it to the {@code poolArray} of unused items.
+		 * @param item Item we want to return to unused items {@code poolArray}
 		 */
 		public function returnToPool(item:Object):void {
-
 			var tmpi:int = reservedArray.indexOf(item);
-			if(tmpi > -1) {
 
+			if(tmpi > -1) {
 				poolArray.push(reservedArray[tmpi]);
 				reservedArray.splice(tmpi, 1);
-
 			}
-
 		}
 
 
 
 		/**
-		 * Returns all items from reservedItems to poolArray
+		 * Returns all items from {@code reservedItems} to {@code poolArray}.
 		 */
 		public function returnAllToPool():void {
-
 			poolArray = poolArray.concat(reservedArray);
-
 			reservedArray = [];
-
 		}
 
 
 
 		/**
-		 * Checks, if item is reserved
-		 * @param item item to check
-		 * @return true, if item is in reservedArray
+		 * Checks, if item is reserved.
+		 * @param item Item to check
+		 * @return {@code true}, if item is in {@code reservedArray}
 		 */
 		public function isReservered(item:Object):Boolean {
-
 			var tmpi:Number = reservedArray.indexOf(item);
-			if(tmpi > -1) {
-				return true;
-			}
-			return false;
+			var out:Boolean;
 
+			if(tmpi > -1) out = true;
+
+			return out;
 		}
 
 
 
+		/* ★ PRIVATE METHODS ★ */
+
+
+		/**
+		 * Random range.
+		 * @param min
+		 * @param max
+		 * @return Random range
+		 */
 		private function randRange(min:Number, max:Number):Number {
-
-			var randomNum:Number = Math.floor(Math.random() * (max - min + 1)) + min;
-			return randomNum;
-
+			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 	}
 }

@@ -49,7 +49,7 @@ package com.falanxia.utilitaris.display {
 		public static var defaultMorphEase:Function = Elastic.easeOut;
 
 		/** Default {@code width} change flag */
-		public static var deaultfIsChangeWidthEnabled:Boolean = true;
+		public static var deaultIsChangeWidthEnabled:Boolean = true;
 
 		/** Default {@code height} change flag */
 		public static var defaultIsChangeHeightEnabled:Boolean = true;
@@ -125,7 +125,7 @@ package com.falanxia.utilitaris.display {
 			// assign values
 			morphDuration = (c.morphDuration == undefined) ? defaultMorphDuration : c.morphDuration;
 			morphEase = (c.morphEase == undefined) ? defaultMorphEase : c.morphEase;
-			isChangeWidthEnabled = (c.isChangeWidthEnabled == undefined) ? deaultfIsChangeWidthEnabled : c.isChangeWidthEnabled;
+			isChangeWidthEnabled = (c.isChangeWidthEnabled == undefined) ? deaultIsChangeWidthEnabled : c.isChangeWidthEnabled;
 			isChangeHeightEnabled = (c.isChangeHeightEnabled == undefined) ? defaultIsChangeHeightEnabled : c.isChangeHeightEnabled;
 			isMorphXEnabled = (c.isMorphXEnabled == undefined) ? defaultIsMorphXEnabled : c.isMorphXEnabled;
 			isMorphYEnabled = (c.isMorphYEnabled == undefined) ? defaultIsMorphYEnabled : c.isMorphYEnabled;
@@ -136,11 +136,10 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the MorphSprite instance and frees it for GC
+		 * Destroys the {@code MorphSprite} instance and frees it for GC.
 		 */
 		public override function destroy():void {
 			super.destroy();
-			defaultMorphEase = null;
 			morphEase = null;
 			initialProperties = null;
 		}
@@ -161,7 +160,6 @@ package com.falanxia.utilitaris.display {
 		 *      </ul>
 		 * @param config Config {@code Object}
 		 */
-		//noinspection FunctionWithMoreThanThreeNegationsJS
 		public function morph(config:Object):void {
 			if(initialProperties == null) {
 				initialProperties = new Object();
