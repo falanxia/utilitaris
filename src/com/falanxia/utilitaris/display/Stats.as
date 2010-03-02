@@ -119,6 +119,9 @@ package com.falanxia.utilitaris.display {
 			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
 
 			// destroy components
+			fpsGraphBD.dispose();
+			msGraphBD.dispose();
+			memGraphBD.dispose();
 			fpsGraphBM.destroy();
 			msGraphBM.destroy();
 			memGraphBM.destroy();

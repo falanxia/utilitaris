@@ -104,6 +104,9 @@ package com.falanxia.utilitaris.display {
 		 * Placeholder.
 		 */
 		public function destroy():void {
+			this.bitmapData.dispose();
+
+			this.bitmapData = null;
 		}
 
 
