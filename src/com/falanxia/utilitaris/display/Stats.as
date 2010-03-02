@@ -26,7 +26,6 @@ package com.falanxia.utilitaris.display {
 	import com.falanxia.utilitaris.types.RGBA;
 	import com.falanxia.utilitaris.utils.DisplayUtils;
 
-	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.BlendMode;
 	import flash.display.DisplayObjectContainer;
@@ -59,9 +58,9 @@ package com.falanxia.utilitaris.display {
 		private var fpsGraphBD:BitmapData;
 		private var memGraphBD:BitmapData;
 		private var msGraphBD:BitmapData;
-		private var fpsGraphBM:Bitmap;
-		private var memGraphBM:Bitmap;
-		private var msGraphBM:Bitmap;
+		private var fpsGraphBM:QBitmap;
+		private var memGraphBM:QBitmap;
+		private var msGraphBM:QBitmap;
 		private var textFormat:TextFormat = new TextFormat("uni0553", 8);
 		private var fpsText:QTextField;
 		private var msText:QTextField;
@@ -83,6 +82,7 @@ package com.falanxia.utilitaris.display {
 			// create parent QSprite
 			super(config, parent);
 
+			// add components
 			fpsGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
 			msGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
 			memGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
@@ -93,12 +93,38 @@ package com.falanxia.utilitaris.display {
 			msText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:WIDTH, height:10, textColor:0x00FF00});
 			memText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, width:WIDTH, height:10, textColor:0x00FFFF});
 
+			// draw background
 			DisplayUtils.drawRect(this, new Rectangle(0, 0, WIDTH, 27 + 50), new RGBA(0, 0, 0, 255 * 0.75));
 
+			// add to display list
 			DisplayUtils.addChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
 
-			addEventListener(MouseEvent.CLICK, onMouseClick);
-			addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			// add event listeners
+			addEventListener(MouseEvent.CLICK, onMouseClick, false, 0, true);
+			addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+		}
+
+
+
+		/**
+		 * Destroys the {@code QBitmap} instance and frees it for GC.
+		 * Placeholder.
+		 */
+		override public function destroy():void {
+			// remove event listeners
+			removeEventListener(MouseEvent.CLICK, onMouseClick);
+			removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+
+			// remove from display list
+			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
+
+			// destroy components
+			fpsGraphBM.destroy();
+			msGraphBM.destroy();
+			memGraphBM.destroy();
+			fpsText.destroy();
+			msText.destroy();
+			memText.destroy();
 		}
 
 

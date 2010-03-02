@@ -140,6 +140,7 @@ package com.falanxia.utilitaris.display {
 		 */
 		public override function destroy():void {
 			super.destroy();
+
 			morphEase = null;
 			initialProperties = null;
 		}

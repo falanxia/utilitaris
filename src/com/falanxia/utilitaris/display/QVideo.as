@@ -99,6 +99,15 @@ package com.falanxia.utilitaris.display {
 
 
 
+		/**
+		 * Destroys the {@code QVideo} instance and frees it for GC.
+		 * Placeholder.
+		 */
+		public function destroy():void {
+		}
+
+
+
 		/* ★ SETTERS & GETTERS ★ */
 
 

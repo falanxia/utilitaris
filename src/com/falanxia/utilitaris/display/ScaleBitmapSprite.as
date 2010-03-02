@@ -81,6 +81,16 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
+		 * Destroys the {@code ScaleBitmapSprite} instance and frees it for GC.
+		 * Placeholder.
+		 */
+		override public function destroy():void {
+			super.destroy();
+		}
+
+
+
+		/**
 		 * Draw.
 		 */
 		public function draw():void {
