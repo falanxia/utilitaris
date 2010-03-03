@@ -44,11 +44,10 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * Destroys the {@code WorldPolygonObject} and frees it for GC.
 		 */
 		override public function destroy():void {
-			if (vertices==null) return;
-			for (var i:int = 0;i<vertices.length;i++) {
+			if(vertices == null) return;
 
-				vertices[i] = null;
-			}
+			for(var i:int = 0; i < vertices.length; i++) vertices[i] = null;
+
 			vertices = null;
 		}
 

@@ -99,9 +99,13 @@ package com.falanxia.utilitaris.display {
 			// add to display list
 			DisplayUtils.addChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
 
+			// enable doubleclick bitch
+			this.doubleClickEnabled = true;
+
 			// add event listeners
-			addEventListener(MouseEvent.CLICK, onMouseClick, false, 0, true);
-			addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+			this.addEventListener(MouseEvent.CLICK, onMouseClick, false, 0, true);
+			this.addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick, false, 0, true);
+			this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
 		}
 
 
@@ -112,8 +116,9 @@ package com.falanxia.utilitaris.display {
 		 */
 		override public function destroy():void {
 			// remove event listeners
-			removeEventListener(MouseEvent.CLICK, onMouseClick);
-			removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			this.removeEventListener(MouseEvent.CLICK, onMouseClick);
+			this.removeEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
+			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 
 			// remove from display list
 			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
@@ -143,6 +148,16 @@ package com.falanxia.utilitaris.display {
 			else stage.frameRate++;
 
 			fpsText.text = "FPS: " + fps + "/" + stage.frameRate;
+		}
+
+
+
+		/**
+		 * Mouse doubleclicked event listener.
+		 */
+		private function onMouseDoubleclick(e:MouseEvent):void {
+			System.gc();
+			System.gc();
 		}
 
 
