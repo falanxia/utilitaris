@@ -3,6 +3,8 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
+
+
 	import com.falanxia.utilitaris.helpers.printf;
 
 
@@ -18,10 +20,17 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	public class WorldCircleObject extends WorldObject {
 
 
+		/** Radius */
 		public var radius:Number;
 
 
 
+		/**
+		 * Constructor.
+		 * @param name Name
+		 * @param position Position
+		 * @param radius Radius
+		 */
 		public function WorldCircleObject(name:String, position:WorldCoords, radius:Number) {
 			super(name, position);
 

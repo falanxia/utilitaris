@@ -22,12 +22,19 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.collections
-{
+package com.falanxia.utilitaris.collections {
+
+
 	/**
-	 * For internal use in IndexedHashMap only
+	 * IMHOObject.
+	 * For internal use in IndexedHashMap only.
+	 *
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @since 1.0
 	 */
 	internal final class IHMObject {
+
 
 		internal var index:int;
 		internal var name:String;
@@ -35,13 +42,16 @@ package com.falanxia.utilitaris.collections
 
 
 
+		/**
+		 * Constructor.
+		 * @param item Item {@code Object}
+		 * @param name Item name
+		 * @param index Item index
+		 */
 		public function IHMObject(item:Object, name:String, index:int = 0) {
-
 			this.item = item;
 			this.index = index;
 			this.name = name;
-
 		}
-
 	}
 }

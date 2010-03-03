@@ -22,143 +22,134 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.collections
-{
+package com.falanxia.utilitaris.collections {
+
 
 	import flash.utils.Dictionary;
 
 
 
 	/**
+	 * Indexed Hash Map.
 	 *
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @since 1.0
 	 */
 	public final class IndexedHashMap extends Object {
 
-		private var _length:int;
+
 		private var dicto:Dictionary;
 		private var array:Array;
+
+		private var _length:int;
 
 
 
 		/**
-		 * Inits the IndexedHashmap
+		 * Inits the IndexedHashmap.
 		 */
 		public function IndexedHashMap() {
 			super();
 
 			dicto = new Dictionary();
 			array = [];
-
 		}
 
 
 
 		/**
-		 * Adds item to the end of the collection
-		 * @param itemName name identifier
-		 * @param item object
+		 * Adds item to the end of the collection.
+		 * @param name Name identifier
+		 * @param item Object
 		 */
-		public function addItem(itemName:String, item:Object):void {
+		public function addItem(name:String, item:Object):void {
+			var ihm:IHMObject = new IHMObject(item, name);
 
-			var ihm:IHMObject = new IHMObject(item, itemName);
-
-			dicto[itemName] = ihm;
+			dicto[name] = ihm;
 			array.push(ihm);
 			ihm.index = array.length - 1;
 
 			_length++;
-
 		}
 
 
 
 		/**
-		 * Adds item to specified index, if index is out of bounds we add it to the end of the collection
-		 * @param itemName name identifier
-		 * @param item object
-		 * @param i desired item index
+		 * Adds item to specified index, if index is out of bounds we add it to the end of the collection.
+		 * @param name Name identifier
+		 * @param item Object
+		 * @param i Desired item index
 		 */
-		public function addItemAt(itemName:String, item:Object, i:int):void {
+		public function addItemAt(name:String, item:Object, i:int):void {
+			var ihm:IHMObject = new IHMObject(item, name);
 
-			var ihm:IHMObject = new IHMObject(item, itemName);
+			dicto[name] = ihm;
 
-			dicto[itemName] = ihm;
-			var n:int = addToArrayAt(i, ihm);
-			ihm.index = n;
+			ihm.index = addToArrayAt(i, ihm);
 
 			_length++;
-
 		}
 
 
 
 		/**
-		 * Removes item specified object reference
-		 * @param item object reference
-		 * @return Boolean false if object wasnt in collection
+		 * Removes item specified object reference.
+		 * @param item Object reference
+		 * @return Boolean {@code false} if object wasnt in collection
 		 */
 		public function removeItem(item:Object):Boolean {
-
 			var i:int = array.indexOf(item);
 
-			if(i == -1) {
-				return false;
-			}
+			if(i == -1) return false;
 
 			var ihm:IHMObject = array[i];
+
 			dicto[ihm.name] = null;
 			removeFromArrayAt(i);
 
 			_length--;
 
 			return true;
-
 		}
 
 
 
 		/**
-		 * Removes item specified by item name
-		 * @param itemName name of object
-		 * @return Boolean false if object wasnt in collection
+		 * Removes item specified by item name.
+		 * @param name name of object
+		 * @return {@code false} if object wasnt in collection
 		 */
-		public function removeItemByName(itemName:String = null):Boolean {
-
-			var b:Boolean = removeFromArrayAt(array.indexOf(dicto[itemName]));
-			if(b) {
-
-				dicto[itemName] = null;
+		public function removeItemByName(name:String = null):Boolean {
+			if(removeFromArrayAt(array.indexOf(dicto[name]))) {
+				dicto[name] = null;
 				_length--;
 
 				return true;
-
 			}
 
 			return false;
-
 		}
 
 
 
 		/**
-		 * Removes item specified by index in collection
+		 * Removes item specified by index in collection.
 		 * @param i item index
 		 * @return Boolean false if  object wasnt in collection
 		 */
 		public function removeItemAt(i:int):Boolean {
-
-			if(i > array.length - 1) {
-				return false;
-			}
+			if(i > array.length - 1) return false;
 
 			var ihm:IHMObject = array[i];
+
 			dicto[ihm.name] = null;
+
 			removeFromArrayAt(i);
 
 			_length--;
 
 			return true;
-
 		}
 
 

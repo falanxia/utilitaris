@@ -23,6 +23,8 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
+
+
 	import com.falanxia.utilitaris.helpers.printf;
 
 
@@ -38,7 +40,10 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	public class WorldObject {
 
 
+		/** Position */
 		public var position:WorldCoords;
+
+		/** Name */
 		public var name:String;
 
 

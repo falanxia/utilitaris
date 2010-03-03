@@ -3,6 +3,8 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
+
+
 	import com.falanxia.utilitaris.helpers.printf;
 
 
@@ -18,11 +20,21 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	public class WorldRectangleObject extends WorldObject {
 
 
+		/** Width */
 		public var width:Number;
+
+		/** Height */
 		public var height:Number;
 
 
 
+		/**
+		 * Constructor.
+		 * @param name Name
+		 * @param position Position as {@code WorldCoords}
+		 * @param width Width
+		 * @param height Height
+		 */
 		public function WorldRectangleObject(name:String, position:WorldCoords, width:Number, height:Number) {
 			super(name, position);
 

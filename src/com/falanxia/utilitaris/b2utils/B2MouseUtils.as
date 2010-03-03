@@ -12,10 +12,11 @@ package com.falanxia.utilitaris.b2utils {
 
 
 	/**
-	 *
+	 * B2MouseUtils.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
-	 * @since
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @since 1.0
 	 */
 	public class B2MouseUtils {
 
