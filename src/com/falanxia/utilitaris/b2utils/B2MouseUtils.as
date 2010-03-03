@@ -105,6 +105,7 @@ package com.falanxia.utilitaris.b2utils {
 		}
 
 		public function destroy():void {
+			INSTANCE = null;
 			world = null;
 		}
 
