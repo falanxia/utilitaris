@@ -58,7 +58,12 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		override public function toString():String {
-			return printf("name=%s, position=(%s), vertices=", name, position, vertices);
+			var f:String = "";
+
+			for each(var v:WorldCoords in vertices) f += printf("(%s), ", v.toString());
+			f = f.substr(0, f.length - 2);
+
+			return printf("name=%s, position=(%s), vertices=(%s)", name, position, f);
 		}
 	}
 }
