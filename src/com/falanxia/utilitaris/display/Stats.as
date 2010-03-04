@@ -99,13 +99,13 @@ package com.falanxia.utilitaris.display {
 			// add to display list
 			DisplayUtils.addChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
 
-			// enable doubleclick bitch
+			// set visual properties
 			this.doubleClickEnabled = true;
+			this.visible = true;
 
 			// add event listeners
 			this.addEventListener(MouseEvent.CLICK, onMouseClick, false, 0, true);
 			this.addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick, false, 0, true);
-			this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
 		}
 
 
@@ -115,10 +115,12 @@ package com.falanxia.utilitaris.display {
 		 * Placeholder.
 		 */
 		override public function destroy():void {
+			// set visual properties
+			this.visible = false;
+
 			// remove event listeners
 			this.removeEventListener(MouseEvent.CLICK, onMouseClick);
 			this.removeEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
-			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 
 			// remove from display list
 			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
@@ -133,6 +135,22 @@ package com.falanxia.utilitaris.display {
 			fpsText.destroy();
 			msText.destroy();
 			memText.destroy();
+		}
+
+
+
+		/* ★ SETTERS & GETTERS ★ */
+
+
+		/**
+		 * Set visibility.
+		 * @param value {@code true} to make {@code Stats} visible
+		 */
+		override public function set visible(value:Boolean):void {
+			super.visible = value;
+
+			if(value) this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+			else this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
