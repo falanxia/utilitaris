@@ -70,7 +70,7 @@ package com.falanxia.utilitaris.communis {
 					if (path.charAt(0)=="/") {
 						TARGET+=path.substr(1,path.length);
 					} else {
-						TARGET+=path;						
+						TARGET+=path;
 					}
 				}
 
