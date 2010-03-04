@@ -78,6 +78,16 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
+		 * Adds item to poolArray
+		 * @param item Object to be added to pool
+		 */
+		public function addToPool(item:Object):void {
+			if (item == null) return;
+			poolArray.push(item);
+ 		}
+
+
+		/**
 		 * Returns array of actually unused items.
 		 * @return {@code Array} of unused items
 		 */
@@ -184,6 +194,15 @@ package com.falanxia.utilitaris.collections {
 			return reservedArray;
 		}
 
+
+
+		/**
+		 * Returns number of all items, both in pool and reserved array.
+		 * @return int number of all items in arrayPicker instance.
+		 */
+		public function getItemsNum():int {
+			return poolArray.length + reservedArray.length;
+		}
 
 
 		/**

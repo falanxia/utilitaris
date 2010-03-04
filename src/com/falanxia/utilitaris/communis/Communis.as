@@ -177,11 +177,7 @@ package com.falanxia.utilitaris.communis {
 					if (path.charAt(0)=="/") {
 						target+=path.substr(1,path.length);
 					} else {
-<<<<<<< .mine
 						target+=path;
-=======
-						TARGET+=path;
->>>>>>> .r463
 					}
 				}
 
