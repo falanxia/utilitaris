@@ -843,6 +843,19 @@ package com.falanxia.utilitaris.utils {
 
 
 
+		/**
+		 * Repeat
+		 * @param n
+		 * @param str
+		 * @return
+		 * @todo Documentation
+		 */
+		public static function repeat(n:uint, str:String = " "):String {
+			return new Array(n + 1).join(str);
+		}
+
+
+
 		/* ★ PRIVATE METHODS ★ */
 
 
