@@ -59,8 +59,6 @@ package com.falanxia.utilitaris.b2utils {
 
 		/**
 		 * Returns the first b2Body found under the mouse cursor.
-		 * TODO: This actually works only if there is no container offset, we need to finish this to add more
-		 * flexibility... shouldn't be a problem, ia'm just not in a mood at the moment, need to finish poolGame...
 		 * @param mouseX mouseX coord (in pixels)
 		 * @param mouseY mouseY coord (in pixels)
 		 * @param maxCount maximum number of objects (bodies) to querry the world (more than 10 shudn't overleap anyway..)

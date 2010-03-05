@@ -76,7 +76,6 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function hasProperties(obj:Object):Boolean {
 			for each(var prop:Object in obj) return true;
-
 			return false;
 		}
 
