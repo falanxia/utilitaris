@@ -9,6 +9,8 @@ package de.polygonal.ds
 	 *
 	 * The Graph class manages all graph nodes. Each graph node has an array
 	 * of arcs, pointing to different nodes.
+	 *
+
 	 */
 	public class Graph implements Collection
 	{
@@ -17,8 +19,8 @@ package de.polygonal.ds
 	 	 */
 		public var nodes:Array;
 
-		private var _nodeCount:int;
 		private var _maxSize:int;
+		private var _nodeCount:int;
 
 		/**
 		 * Creates an empty graph.

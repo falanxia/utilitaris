@@ -101,16 +101,27 @@ package com.falanxia.utilitaris.collections {
 		 * Grabs item from pool, puts it to reservedItems and returns it.
 		 * @param value Selected item, {@code null} if there is no item in pool left
 		 */
-		public function getFromPool(value:Object):void {
+		public function getFromPool(value:Object):Object {
 			var tmpi:int = poolArray.indexOf(value);
 
 			if(tmpi > -1) {
-				reservedArray.push(poolArray[tmpi]);
+				var o:Object = poolArray[tmpi];
+				reservedArray.push(o);
 				poolArray.splice(tmpi, 1);
+				return o;
 			}
+			return null;
 		}
 
-
+		public function getFromPoolAt(index:int):Object {
+			if (index >= poolArray.length) {
+				return null;
+			}
+			var o:Object = poolArray[index];
+			reservedArray.push(o);
+			poolArray.splice(index, 1);
+			return o;
+		}
 
 		/**
 		 * Gets random item from {@code poolArray}, puts it to {@code reservedItems} and returns it.
