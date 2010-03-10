@@ -23,9 +23,9 @@
  */
 
 package com.falanxia.utilitaris.locale {
-	import flash.utils.Dictionary;
+	import com.falanxia.utilitaris.utils.StringUtils;
 
-	import mx.utils.StringUtil;
+	import flash.utils.Dictionary;
 
 
 
@@ -62,7 +62,7 @@ package com.falanxia.utilitaris.locale {
 		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
-				dictionary[String(x.@id)] = StringUtil.trim(x.toString());
+				dictionary[String(x.@id)] = StringUtils.trim(x.toString());
 			}
 		}
 
