@@ -1,8 +1,4 @@
-﻿/*
- * Copyright (c) 2010 Jakub Schimer @ Falanxia s.r.o.
- */
-
-package Box2D.Collision{
+﻿package Box2D.Collision{
 
 	import Box2D.Common.Math.*;
 	import Box2D.Common.b2internal;

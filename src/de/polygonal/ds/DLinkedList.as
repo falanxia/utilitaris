@@ -1,7 +1,3 @@
-/*
- * Falanxia Bzoonk.
- * Copyright (c) 2010 Falanxia (http://falanxia.com). All rights reserved.
- */
 package de.polygonal.ds
 {
 	import de.polygonal.ds.sort.compare.compareStringCaseInSensitive;

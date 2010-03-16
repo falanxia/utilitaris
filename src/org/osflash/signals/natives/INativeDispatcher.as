@@ -12,12 +12,12 @@ package org.osflash.signals.natives
 		 * The type of event permitted to be dispatched. Corresponds to flash.events.Event.type.
 		 */
 		function get eventType():String;
-		
+
 		/**
 		 * The class of event permitted to be dispatched. Will be flash.events.Event or a subclass.
 		 */
 		function get eventClass():Class;
-		
+
 		/**
 		 * The object considered the source of the dispatched events.
 		 */

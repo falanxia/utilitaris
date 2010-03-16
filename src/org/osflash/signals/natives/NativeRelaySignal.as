@@ -29,7 +29,7 @@ package org.osflash.signals.natives
 			super(target, eventClass || Event);
 			_eventType = eventType;
 		}
-		
+
 		/** @inheritDoc */
 		override public function add(listener:Function, priority:int = 0):void
 		{
@@ -40,7 +40,7 @@ package org.osflash.signals.natives
 			if (prevListenerCount == 0 && listenerBoxes.length == 1)
 				IEventDispatcher(_target).addEventListener(_eventType, dispatch, false, priority);
 		}
-		
+
 		/** @inheritDoc */
 		override public function addOnce(listener:Function, priority:int = 0):void
 		{
@@ -51,7 +51,7 @@ package org.osflash.signals.natives
 			if (prevListenerCount == 0 && listenerBoxes.length == 1)
 				IEventDispatcher(_target).addEventListener(_eventType, dispatch, false, priority);
 		}
-		
+
 		/** @inheritDoc */
 		override public function remove(listener:Function):void
 		{
@@ -60,6 +60,6 @@ package org.osflash.signals.natives
 			if (prevListenerCount == 1 && listenerBoxes.length == 0)
 				IEventDispatcher(_target).removeEventListener(_eventType, dispatch);
 		}
-		
+
 	}
 }

@@ -1,8 +1,4 @@
-﻿/*
- * Copyright (c) 2010 Jakub Schimer @ Falanxia s.r.o.
- */
-
-package Box2D.Dynamics{
+﻿package Box2D.Dynamics{
 
 
 	import Box2D.Common.*;

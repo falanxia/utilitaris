@@ -1,8 +1,3 @@
-/*
- * Falanxia Bzoonk.
- * Copyright (c) 2010 Falanxia (http://falanxia.com). All rights reserved.
- */
-
 package org.osflash.signals
 {
 	import org.osflash.signals.events.IBubbleEventHandler;

@@ -1,24 +1,3 @@
-/**
- * DATA STRUCTURES FOR GAME PROGRAMMERS
- * Copyright (c) 2007 Michael Baczynski, http://www.polygonal.de
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 package de.polygonal.ds
 {
 	import de.polygonal.ds.sort.compare.compareStringCaseInSensitive;
@@ -28,7 +7,7 @@ package de.polygonal.ds
 	import de.polygonal.ds.sort.sLinkedInsertionSort;
 	import de.polygonal.ds.sort.sLinkedInsertionSortCmp;
 	import de.polygonal.ds.sort.sLinkedMergeSort;
-	import de.polygonal.ds.sort.sLinkedMergeSortCmp;	
+	import de.polygonal.ds.sort.sLinkedMergeSortCmp;
 
 	/**
 	 * A singly linked list.
@@ -39,38 +18,38 @@ package de.polygonal.ds
 		public static const MERGE_SORT:int     = 1 << 2;
 		public static const NUMERIC:int        = 1 << 3;
 		public static const DESCENDING:int     = 1 << 4;
-		
+
 		private var _count:int;
-		
+
 		/**
 		 * The head node being referenced. This is the first node in the list.
 		 */
 		public var head:SListNode;
-		
+
 		/**
 		 * The tail node being referenced. This is the last node in the list.
 		 */
 		public var tail:SListNode;
-		
+
 		/**
 		 * Initializes an empty list. You can add initial items by passing
 		 * them as a comma-separated list of values.
-		 * 
+		 *
 		 * @param args A list of comma-separated values to append.
 		 */
 		public function SLinkedList(...args)
 		{
 			head = tail = null;
 			_count = 0;
-			
+
 			if (args.length > 0) append.apply(this, args);
 		}
-		
+
 		/**
 		 * Appends items to the list.
-		 * 
+		 *
 		 * @param args A list of comma-separated values to append.
-		 * 
+		 *
 		 * @return A SListNode object wrapping the data. If multiple values are
 		 *         added, the returned node represents the node that stores the
 		 *         data of the first argument.
@@ -78,7 +57,7 @@ package de.polygonal.ds
 		public function append(...args):SListNode
 		{
 			var k:int = args.length;
-			
+
 			var node:SListNode = new SListNode(args[0]);
 			if (head)
 			{
@@ -87,7 +66,7 @@ package de.polygonal.ds
 			}
 			else
 				head = tail = node;
-			
+
 			if (k > 1)
 			{
 				var t:SListNode = node;
@@ -100,16 +79,16 @@ package de.polygonal.ds
 				_count += k;
 				return t;
 			}
-			
+
 			_count++;
 			return node;
 		}
-		
+
 		/**
 		 * Prepends items to the list.
-		 * 
+		 *
 		 * @param args A list of one or more comma-separated values to prepend.
-		 * 
+		 *
 		 * @return A SListNode object wrapping the data. If multiple values are
 		 *         added, the returned node represents the node that stores the
 		 *         data of the first argument.
@@ -125,7 +104,7 @@ package de.polygonal.ds
 			}
 			else
 				head = tail = node;
-			
+
 			if (k > 1)
 			{
 				var t:SListNode = node;
@@ -138,19 +117,19 @@ package de.polygonal.ds
 				_count += k;
 				return t;
 			}
-			
+
 			_count++;
 			return node;
 		}
-		
+
 		/**
 		 * Inserts an item after a given iterator or appends it if the
 		 * iterator is invalid.
-		 * 
+		 *
 		 * @param itr An iterator object pointing to the node after which the
 		 *            given data is inserted.
 		 * @param obj The data to insert.
-		 * 
+		 *
 		 * @return A singly linked list node wrapping the data.
 		 */
 		public function insertAfter(itr:SListIterator, obj:*):SListNode
@@ -162,7 +141,7 @@ package de.polygonal.ds
 				itr.node.insertAfter(node);
 				if (itr.node == tail)
 					tail = itr.node.next;
-				
+
 				_count++;
 				return node;
 			}
@@ -171,45 +150,45 @@ package de.polygonal.ds
 				return append(obj);
 			}
 		}
-		
+
 		/**
 		* Removes the node the iterator is pointing to while moving the
 		* iterator to the next node.
-		* 
+		*
 		* @param itr An iterator object pointing to the node to remove.
-		* 
+		*
 		* @return True if the removal succeeded, otherwise false.
 		*/
 		public function remove(itr:SListIterator):Boolean
 		{
 			if (itr.list != this || !itr.node) return false;
-			
+
 			var node:SListNode = head;
 			if (itr.node == head)
 			{
 				itr.forth();
-				
+
 				//inline
 				//if (itr.node) itr.node = itr.node.next;
-				
+
 				//todo inline
 				removeHead();
 				return true;
 			}
-			
+
 			while (node.next != itr.node) node = node.next;
 			itr.forth();
 			if (node.next == tail) tail = node;
 			node.next = itr.node;
-			
+
 			_count--;
 			return true;
 		}
-		
+
 		/**
 		 * Removes the head of the list and returns the head's data or null
 		 * if the list is empty.
-		 * 
+		 *
 		 * @return The data which was associated with the removed node.
 		 */
 		public function removeHead():*
@@ -217,28 +196,28 @@ package de.polygonal.ds
 			if (head)
 			{
 				var obj:* = head.data;
-				
+
 				if (head == tail)
 					head = tail = null;
 				else
 				{
 					var node:SListNode = head;
-					
+
 					head = head.next;
 					node.next = null;
 					if (head == null) tail = null;
 				}
 				_count--;
-				
+
 				return obj;
 			}
 			return null;
 		}
-		
+
 		/**
 		 * Removes the tail of the list and returns the tail's data or null
 		 * if the list is empty.
-		 * 
+		 *
 		 * @return The data which was associated with the removed node.
 		 */
 		public function removeTail():*
@@ -246,7 +225,7 @@ package de.polygonal.ds
 			if (tail)
 			{
 				var obj:* = tail.data;
-				
+
 				if (head == tail)
 					head = tail = null;
 				else
@@ -254,35 +233,35 @@ package de.polygonal.ds
 					var node:SListNode = head;
 					while (node.next != tail)
 						node = node.next;
-					
+
 					tail = node;
 					node.next = null;
 				}
 				_count--;
-				
+
 				return obj;
 			}
 			return null;
 		}
-		
+
 		/**
 		 * Merges the current list with all lists specified in the paramaters.
 		 * The list is directly modified to reflect the changes.
 		 * <i>Due to the rearrangement of the node pointers all passed lists
 		 * become invalid and should be discarded</i>.
-		 * 
+		 *
 		 * @see #concat
-		 * 
+		 *
 		 * @param args A list of one or more comma-separated SLinkedList objects.
 		 */
 		public function merge(...args):void
 		{
 			if (args.length == 0) return;
-			
+
 			var a:SLinkedList;
-			
+
 			a = args[0];
-			
+
 			if (a.head)
 			{
 				if (head)
@@ -297,7 +276,7 @@ package de.polygonal.ds
 				}
 				_count += a.size;
 			}
-			
+
 			var k:int = args.length;
 			for (var i:int = 1; i < k; i++)
 			{
@@ -310,16 +289,16 @@ package de.polygonal.ds
 				}
 			}
 		}
-		
+
 		/**
 		 * Concatenates the current list with all lists specified in the
 		 * parameters and returns a new linked list.
 		 * <i>The original list and all passed lists are left unchanged.</i>
-		 * 
+		 *
 		 * @see #merge
-		 * 
+		 *
 		 * @param args A list of one or more comma-separated SLinkedList objects.
-		 * 
+		 *
 		 * @return A copy of the current list which also stores the values from
 		 *         the passed lists.
 		 */
@@ -327,7 +306,7 @@ package de.polygonal.ds
 		{
 			var c:SLinkedList = new SLinkedList();
 			var a:SLinkedList, n:SListNode;
-			
+
 			n = head;
 			while (n)
 			{
@@ -347,12 +326,12 @@ package de.polygonal.ds
 			}
 			return c;
 		}
-		
+
 		/**
 		 * Sorts the list.
-		 * 
+		 *
 		 * The default sorting algorithm is 'mergesort'.
-		 * 
+		 *
 		 * If the LinkedList.INSERTION_SORT flag is used, the list is sorted
 		 * using the insertion sort algorithm instead, which is much faster for
 		 * nearly sorted lists.
@@ -362,11 +341,11 @@ package de.polygonal.ds
 		 * <li>the list is directly modified to reflect the sort order</li>
 		 * <li>multiple elements that have identical values are placed
 		 * consecutively in the sorted array in no particular order</li></ul>
-		 * 
+		 *
 		 * @see http://www.chiark.greenend.org.uk/~sgtatham/algorithms/listsort.html
-		 * 
+		 *
 		 * @param sortOptions
-		 * 
+		 *
 		 * You pass an optional comparison function and/or one or more bitflags
 		 * that determine the behavior of the sort method.<br/>
 		 * Syntax: myList.sort(compareFunction, flags)<br/><br/>
@@ -392,7 +371,7 @@ package de.polygonal.ds
 			{
 				var b:int = 0;
 				var cmp:Function = null;
-				
+
 				var o:* = sortOptions[0];
 				if (o is Function)
 				{
@@ -407,7 +386,7 @@ package de.polygonal.ds
 				else
 				if (o is int)
 					b = o;
-				
+
 				if (Boolean(cmp))
 				{
 					if (b & 2)
@@ -459,16 +438,16 @@ package de.polygonal.ds
 			else
 				head = sLinkedMergeSort(head);
 		}
-		
+
 		/**
 		 * Searches for an item in the list by using strict equality (===) and
 		 * returns an iterator pointing to the node containing the item or null
 		 * if the item was not found.
-		 * 
+		 *
 		 * @param  obj  The item to search for
 		 * @param  from A SListIterator object pointing to the node in the list
 		 *         from which to start searching for the item.
-		 *          
+		 *
 		 * @return A SListIterator object pointing to the node with the found
 		 *         item or null if no item exists matching the input data or the
 		 *         iterator is invalid.
@@ -478,7 +457,7 @@ package de.polygonal.ds
 			if (from != null)
 				if (from.list != null)
 					return null;
-			
+
 			var node:SListNode = (from == null) ? head : from.node;
 			while (node)
 			{
@@ -488,11 +467,11 @@ package de.polygonal.ds
 			}
 			return null;
 		}
-		
+
 		/**
 		 * Adds nodes to and removes nodes from the list.
 		 * This method directly modifies the list without making a copy.
-		 * 
+		 *
 		 * @param start       A SListIterator object pointing to the node where
 		 *                    the insertion or deletion begins. The iterator is
 		 *                    updated so it still points to the original node,
@@ -506,7 +485,7 @@ package de.polygonal.ds
 		 *                    deleted.
 		 * @param args        Specifies the values to insert into the list,
 		 *                    starting at the iterator's node.
-		 * 
+		 *
 		 * @param return      A SListIterator object containing the nodes that
 		 *                    were removed from the original list or null if the
 		 *                    iterator is invalid.
@@ -514,17 +493,17 @@ package de.polygonal.ds
 		public function splice(start:SListIterator, deleteCount:uint = 0xffffffff, ...args):SLinkedList
 		{
 			if (start) if (start.list != this) return null;
-			
+
 			if (start.node)
 			{
 				var s:SListNode = start.node;
 				var t:SListNode = head;
 				while (t.next != s)
 					t = t.next;
-					
+
 				var c:SLinkedList = new SLinkedList();
 				var i:int, k:int;
-				
+
 				if (deleteCount == 0xffffffff)
 				{
 					if (start.node == tail) return c;
@@ -550,7 +529,7 @@ package de.polygonal.ds
 							break;
 					}
 				}
-				
+
 				k = args.length;
 				if (k > 0)
 				{
@@ -589,27 +568,27 @@ package de.polygonal.ds
 				}
 				else
 					start.node = s;
-				
+
 				start.list = c;
 				return c;
 			}
 			return null;
 		}
-		
+
 		/**
 		 * Removes and appends the head node to the tail.
 		 */
 		public function shiftUp():void
 		{
 			var t:SListNode = head;
-			
+
 			if (head.next == tail)
 			{
 				head = tail;
-				
+
 				tail = t;
 				tail.next = null;
-				
+
 				head.next = tail;
 			}
 			else
@@ -620,19 +599,19 @@ package de.polygonal.ds
 				tail = t;
 			}
 		}
-		
+
 		/**
 		 * Removes and prepends the tail node to the head.
 		 */
 		public function popDown():void
 		{
 			var t:SListNode = tail;
-			
+
 			if (head.next == tail)
 			{
 				tail = head;
 				head = t;
-				
+
 				tail.next = null;
 				head.next = tail;
 			}
@@ -641,15 +620,15 @@ package de.polygonal.ds
 				var node:SListNode = head;
 				while (node.next != tail)
 					node = node.next;
-				
+
 				tail = node;
 				tail.next = null;
-				
+
 				t.next = head;
 				head = t;
 			}
 		}
-		
+
 		/**
 		 * Reverses the linked list in place.
 		 */
@@ -663,25 +642,25 @@ package de.polygonal.ds
 				a[i++] = node;
 				node = node.next;
 			}
-			
+
 			a.reverse();
-			
+
 			node = head = a[0];
 			for (i = 1; i < _count ; i++)
 				node = node.next = a[i];
-			
+
 			node.next = null;
 			tail = node;
 			a = null;
 		}
-		
+
 		/**
 		 * Converts the data in the linked list to strings, inserts the given
 		 * separator between the elements, concatenates them, and returns the
 		 * resulting string.
-		 * 
+		 *
 		 * @return A string consisting of the data converted to strings and
-		 *         separated by the specified parameter. 
+		 *         separated by the specified parameter.
 		 */
 		public function join(sep:*):String
 		{
@@ -696,7 +675,7 @@ package de.polygonal.ds
 			s += node.data;
 			return s;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -710,7 +689,7 @@ package de.polygonal.ds
 			}
 			return false;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -718,7 +697,7 @@ package de.polygonal.ds
 		{
 			var node:SListNode = head;
 			head = null;
-			
+
 			var next:SListNode;
 			while (node)
 			{
@@ -728,7 +707,7 @@ package de.polygonal.ds
 			}
 			_count = 0;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -736,17 +715,17 @@ package de.polygonal.ds
 		{
 			return new SListIterator(this, head);
 		}
-		
+
 		/**
 		 * Creates a list iterator object pointing to the first node in the list.
-		 * 
+		 *
 		 * @returns A SListIterator object.
 		 */
 		public function getListIterator():SListIterator
 		{
 			return new SListIterator(this, head);
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -754,7 +733,7 @@ package de.polygonal.ds
 		{
 			return _count;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -762,7 +741,7 @@ package de.polygonal.ds
 		{
 			return _count == 0;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -777,35 +756,35 @@ package de.polygonal.ds
 			}
 			return a;
 		}
-		
+
 		/**
 		 * Prints out a string representing the current object.
-		 * 
+		 *
 		 * @return A string representing the current object.
 		 */
 		public function toString():String
 		{
 			return "[SlinkedList, size=" + size + "]";
 		}
-		
+
 		/**
 		 * Prints out all elements (for debug/demo purposes).
-		 * 
+		 *
 		 * @return A human-readable representation of the structure.
 		 */
 		public function dump():String
 		{
 			if (!head)
 				return "SLinkedList: (empty)";
-			
+
 			var s:String = "SLinkedList: has " + _count + " node" + (_count == 1 ? "" : "s") + "\n|< Head\n";
-			
+
 			var itr:SListIterator = getListIterator();
 			for (; itr.valid(); itr.forth())
 				s += "\t" + itr.data + "\n";
-			
+
 			s += "Tail >|";
-			
+
 			return s;
 		}
 	}

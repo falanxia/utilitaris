@@ -19,7 +19,7 @@ package org.osflash.signals.natives
 		protected var _eventClass:Class;
 		protected var listenerCmds:Array;
 		protected var onceListeners:Dictionary;
-				
+
 		/**
 		 * Creates a NativeSignal instance to dispatch events on behalf of a target object.
 		 * @param	target The object on whose behalf the signal is dispatching events.
@@ -34,35 +34,35 @@ package org.osflash.signals.natives
 			listenerCmds = [];
 			onceListeners = new Dictionary();
 		}
-		
+
 		/** @inheritDoc */
 		public function get eventType():String { return _eventType; }
-		
+
 		/** @inheritDoc */
 		public function get eventClass():Class { return _eventClass; }
-		
+
 		/** @inheritDoc */
 		public function get valueClasses():Array { return [_eventClass]; }
-		
+
 		/** @inheritDoc */
 		public function get numListeners():uint { return listenerCmds.length; }
-		
+
 		/** @inheritDoc */
 		public function get target():IEventDispatcher { return _target; }
-		
+
 		/** @inheritDoc */
 		public function set target(value:IEventDispatcher):void { _target = value; }
-		
+
 		/** @inheritDoc */
 		//TODO: @throws
 		public function add(listener:Function, priority:int = 0):void
 		{
 			if (onceListeners[listener])
 				throw new IllegalOperationError('You cannot addOnce() then add() the same listener without removing the relationship first.');
-		
+
 			registerListener(listener, false, priority);
 		}
-		
+
 		/** @inheritDoc */
 		public function addOnce(listener:Function, priority:int = 0):void
 		{
@@ -70,11 +70,11 @@ package org.osflash.signals.natives
 			if (onceListeners[listener]) return;
 			if (indexOfListener(listener) >= 0 && !onceListeners[listener])
 				throw new IllegalOperationError('You cannot add() then addOnce() the same listener without removing the relationship first.');
-			
+
 			registerListener(listener, true, priority);
 			onceListeners[listener] = true;
 		}
-		
+
 		/** @inheritDoc */
 		public function remove(listener:Function):void
 		{
@@ -83,7 +83,7 @@ package org.osflash.signals.natives
 			_target.removeEventListener(_eventType, listener);
 			delete onceListeners[listener];
 		}
-		
+
 		/** @inheritDoc */
 		public function removeAll():void
 		{
@@ -92,7 +92,7 @@ package org.osflash.signals.natives
 				remove(listenerCmds[i].execute as Function);
 			}
 		}
-		
+
 		/**
 		 * Unlike other signals, NativeSignal does not dispatch null
 		 * because it causes an exception in EventDispatcher.
@@ -102,25 +102,25 @@ package org.osflash.signals.natives
 		{
 			if (!(event is _eventClass))
 				throw new ArgumentError('Event object '+event+' is not an instance of '+_eventClass+'.');
-				
+
 			if (event.type != _eventType)
 				throw new ArgumentError('Event object has incorrect type. Expected <'+_eventType+'> but was <'+event.type+'>.');
 
 			return _target.dispatchEvent(event);
 		}
-		
+
 		protected function registerListener(listener:Function, once:Boolean = false, priority:int = 0):void
 		{
 			// function.length is the number of arguments.
 			if (listener.length != 1)
 				throw new ArgumentError('Listener for native event must declare exactly 1 argument.');
-				
+
 			// Don't add same listener twice.
 			if (indexOfListener(listener) >= 0)
 				return;
-			
+
 			var listenerCmd:Object = { listener:listener };
-			
+
 			if (once)
 			{
 				var signal:NativeSignal = this;
@@ -134,11 +134,11 @@ package org.osflash.signals.natives
 			{
 				listenerCmd.execute = listener;
 			}
-				
+
 			listenerCmds[listenerCmds.length] = listenerCmd;
 			_target.addEventListener(_eventType, listenerCmd.execute, false, priority);
 		}
-		
+
 		protected function indexOfListener(listener:Function):int
 		{
 			for (var i:int = listenerCmds.length; i--; )

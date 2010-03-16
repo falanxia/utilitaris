@@ -1,28 +1,7 @@
-/**
- * DATA STRUCTURES FOR GAME PROGRAMMERS
- * Copyright (c) 2007 Michael Baczynski, http://www.polygonal.de
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-package de.polygonal.ds 
+package de.polygonal.ds
 {
 	import flash.utils.Dictionary;
-	
+
 	/**
 	 * A set is a collection of values, without any particular order and no
 	 * repeated values. The value is its own key.
@@ -31,18 +10,18 @@ package de.polygonal.ds
 	{
 		private var _set:Dictionary = new Dictionary(true);
 		private var _size:int;
-		
+
 		/**
 		 * Creates a new empty set.
 		 */
 		public function Set()
 		{
-			_set = new Dictionary();			
+			_set = new Dictionary();
 		}
-		
+
 		/**
 		 * Reads an item from the set.
-		 * 
+		 *
 		 * @param obj The item to retrieve.
 		 * @return The item matching the obj parameter or null if the item is
 		 *         not part of the set.
@@ -55,7 +34,7 @@ package de.polygonal.ds
 
 		/**
 		 * Writes an item to the set.
-		 * 
+		 *
 		 * @param obj The item to be added to the set.
 		 */
 		public function set(obj:*):void
@@ -63,14 +42,14 @@ package de.polygonal.ds
 			if (obj == null) return;
 			if (obj == undefined) return;
 			if (_set[obj]) return;
-			
+
 			_set[obj] = obj;
 			_size++;
 		}
-		
+
 		/**
 		 * Removes an item from the set.
-		 * 
+		 *
 		 * @param  obj The item to remove
 		 * @return The removed item or null if the item wasn't contained
 		 *         by the set.
@@ -85,7 +64,7 @@ package de.polygonal.ds
 			}
 			return false;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -93,7 +72,7 @@ package de.polygonal.ds
 		{
 			return _set[obj] != undefined;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -102,7 +81,7 @@ package de.polygonal.ds
 			_set = new Dictionary();
 			_size = 0;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -110,7 +89,7 @@ package de.polygonal.ds
 		{
 			return new SetIterator(this);
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -118,7 +97,7 @@ package de.polygonal.ds
 		{
 			return _size;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -126,7 +105,7 @@ package de.polygonal.ds
 		{
 			return _size == 0;
 		}
-		
+
 		/**
 		 * @inheritDoc
 		 */
@@ -136,20 +115,20 @@ package de.polygonal.ds
 			for (var i:* in _set) a[j++] = i;
 			return a;
 		}
-		
+
 		/**
 		 * Prints out a string representing the current object.
-		 * 
+		 *
 		 * @return A string representing the current object.
 		 */
 		public function toString():String
 		{
 			return "[Set, size=" + size + "]";
 		}
-		
+
 		/**
 		 * Prints out all elements (for debug/demo purposes).
-		 * 
+		 *
 		 * @return A human-readable representation of the structure.
 		 */
 		public function dump():String
@@ -171,7 +150,7 @@ internal class SetIterator implements Iterator
 	private var _a:Array;
 	private var _cursor:int;
 	private var _size:int;
-	
+
 	public function SetIterator(s:Set)
 	{
 		_s = s;
@@ -179,17 +158,17 @@ internal class SetIterator implements Iterator
 		_cursor = 0;
 		_size = s.size;
 	}
-	
+
 	public function next():*
 	{
 		return _a[_cursor++];
 	}
-	
+
 	public function hasNext():Boolean
 	{
 		return _cursor < _size;
 	}
-	
+
 	public function start():void
 	{
 		_cursor = 0;
@@ -199,10 +178,10 @@ internal class SetIterator implements Iterator
 	{
 		return _a[_cursor];
 	}
-	
+
 	public function set data(obj:*):void
 	{
 		_s.remove(_a[_cursor]);
 		_s.set(obj);
-	}	
+	}
 }

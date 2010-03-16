@@ -1,8 +1,4 @@
-﻿/*
- * Copyright (c) 2010 Vaclav Vancura (http://vaclav.vancura.org)
- */
-
-package Box2D.Collision.Shapes{
+﻿package Box2D.Collision.Shapes{
 
 
 	import Box2D.Common.Math.*;

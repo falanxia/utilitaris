@@ -1,10 +1,10 @@
-package de.polygonal.ds 
+package de.polygonal.ds
 {
-	public class VectorUtils 
+	public class VectorUtils
 	{
 		public static function merge():void
 		{
-			
+
 		}
 	}
 }
