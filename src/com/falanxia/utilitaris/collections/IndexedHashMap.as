@@ -33,6 +33,7 @@ package com.falanxia.utilitaris.collections {
 	 * Indexed Hash Map.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
@@ -165,36 +166,30 @@ package com.falanxia.utilitaris.collections {
 		 * @return Boolean false if item wasnt found in collection
 		 */
 		public function setItemIndex(targetIndex:int, item:Object = null, itemName:String = null, itemIndex:int = -1):Boolean {
-
 			var o:Object;
 
 			if(item != null) {
-
 				var i:int = array.indexOf(o);
 
-				if(i < 0) {
-					return false;
-				}
+				if(i < 0) return false;
 
 				removeFromArrayAt(i);
 				addToArrayAt(targetIndex, o);
+			}
 
-			} else if(itemName != null) {
-
+			else if(itemName != null) {
 				o = dicto[itemName];
-				var i:int = array.indexOf(o);
+				var j:int = array.indexOf(o);
 
-				if(i < 0) {
-					return false;
-				}
+				if(j < 0) return false;
 
-				removeFromArrayAt(i);
+				removeFromArrayAt(j);
 				addToArrayAt(targetIndex, o);
 
 				return true;
+			}
 
-			} else if(itemIndex > 0) {
-
+			else if(itemIndex > 0) {
 				o = getItemAt(itemIndex);
 				removeFromArrayAt(itemIndex);
 				addToArrayAt(targetIndex, o);
@@ -203,8 +198,6 @@ package com.falanxia.utilitaris.collections {
 			}
 
 			return false;
-
-
 		}
 
 
@@ -214,14 +207,13 @@ package com.falanxia.utilitaris.collections {
 		 * @return Array array containing all items in collection.
 		 */
 		public function getItems():Array {
-
 			var a:Array = new Array();
+
 			for(var i:int; i < array.length; i++) {
 				a.push(array[i].item);
 			}
 
 			return a;
-
 		}
 
 
@@ -232,15 +224,9 @@ package com.falanxia.utilitaris.collections {
 		 * @return Object item specified by index i, null if index is out of bounds
 		 */
 		public function getItemAt(i:int):Object {
-
-			if(i >= array.length) {
-
-				return null;
-
-			}
+			if(i >= array.length) return null;
 
 			return array[i].item;
-
 		}
 
 
@@ -251,13 +237,9 @@ package com.falanxia.utilitaris.collections {
 		 * @return Object item specified by name, null if item wasnt found in collection
 		 */
 		public function getItemByName(s:String):Object {
-
-			if(dicto[s] == null) {
-				return null;
-			}
+			if(dicto[s] == null) return null;
 
 			return dicto[s].item;
-
 		}
 
 
@@ -266,25 +248,20 @@ package com.falanxia.utilitaris.collections {
 		 * @return int number of items in collection
 		 */
 		public function get length():int {
-
 			return _length;
-
 		}
 
 
 
-		/*
-		 CORE FUNCTIONS
-		 */
+		/* ★ PRIVATE METHODS ★ */
+
 
 		private function removeFromArrayAt(index:int):Boolean {
-
-			if(index >= array.length) {
-				return false;
-			}
+			if(index >= array.length) return false;
 
 			var a:Array = [];
-			var i:int
+			var i:int;
+
 			for(i = 0; i < index; i++) {
 				a.push(array[i]);
 			}
@@ -297,13 +274,11 @@ package com.falanxia.utilitaris.collections {
 			array = a;
 
 			return true;
-
 		}
 
 
 
 		private function addToArrayAt(index:int, item:Object):int {
-
 			if(index >= array.length) {
 				array.push(item);
 				return array.length - 1;
@@ -311,6 +286,7 @@ package com.falanxia.utilitaris.collections {
 
 			var a:Array = [];
 			var i:int;
+
 			for(i = 0; i < index; i++) {
 				a.push(array[i]);
 			}
@@ -320,15 +296,11 @@ package com.falanxia.utilitaris.collections {
 			var l:int = array.length;
 			for(i = index; i < l; i++) {
 				a.push(array[i]);
-
 			}
 
 			array = a;
 
 			return index;
-
 		}
-
-
 	}
 }

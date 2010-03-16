@@ -83,9 +83,10 @@ package com.falanxia.utilitaris.collections {
 		 * @param item Object to be added to pool
 		 */
 		public function addToPool(item:Object):void {
-			if (item == null) return;
+			if(item == null) return;
 			poolArray.push(item);
- 		}
+		}
+
 
 
 		/**
@@ -114,8 +115,15 @@ package com.falanxia.utilitaris.collections {
 			return null;
 		}
 
+
+
+		/**
+		 * TODO: Documentation
+		 * @param index
+		 * @return
+		 */
 		public function getFromPoolAt(index:int):Object {
-			if (index >= poolArray.length) {
+			if(index >= poolArray.length) {
 				return null;
 			}
 			var o:Object = poolArray[index];
@@ -123,6 +131,8 @@ package com.falanxia.utilitaris.collections {
 			poolArray.splice(index, 1);
 			return o;
 		}
+
+
 
 		/**
 		 * Gets random item from {@code poolArray}, puts it to {@code reservedItems} and returns it.
@@ -215,6 +225,7 @@ package com.falanxia.utilitaris.collections {
 		public function getItemsNum():int {
 			return poolArray.length + reservedArray.length;
 		}
+
 
 
 		/**

@@ -84,7 +84,6 @@ package com.falanxia.utilitaris.locale {
 
 		/**
 		 * Get current language.
-		 *
 		 * @return Current language (like "en")
 		 */
 		public function get lang():String {

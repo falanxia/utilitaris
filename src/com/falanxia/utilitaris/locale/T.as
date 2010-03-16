@@ -26,7 +26,6 @@ package com.falanxia.utilitaris.locale {
 
 
 
-
 	/**
 	 * A shortcut to Locale::getText(id).
 	 * @param id Locale ID
