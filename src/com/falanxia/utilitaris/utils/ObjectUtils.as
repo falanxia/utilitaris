@@ -151,7 +151,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Test
 		 */
 		public static function inspect(obj:Object, depth:int = 2):String {
-			return scanObject(obj, depth, "");
+			return scanObject(obj, depth, "\t");
 		}
 
 
@@ -224,7 +224,7 @@ package com.falanxia.utilitaris.utils {
 			else {
 				var ret:Array = [];
 				for(var s:String in obj) {
-					ret.push(s + ": " + obj[s]);
+					ret.push(s + ":" + obj[s]);
 				}
 				out = ret.join(delimiter);
 			}
@@ -326,15 +326,15 @@ package com.falanxia.utilitaris.utils {
 				var str:String = "";
 
 				for each(var variable:XML in classDef.variable) {
-					str += prefix + variable.@name + " : " + scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
+					str += prefix + variable.@name + ":" + scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
 				}
 
 				for(var s:String in obj) {
-					str += prefix + s + " = " + scanObject(obj[s], depth - 1, prefix + "\t") + "\n";
+					str += prefix + s + "=" + scanObject(obj[s], depth - 1, prefix + "\t") + "\n";
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS
-				out = str == "" ? ((obj != null) ? obj + "" : "null") : ("[" + classDef.@name + "] {\n" + str + prefix + "}\n");
+				out = str == "" ? ((obj != null) ? obj + "" : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}\n");
 			}
 
 			return out;
