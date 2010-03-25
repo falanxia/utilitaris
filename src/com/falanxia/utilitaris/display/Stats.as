@@ -50,7 +50,7 @@ package com.falanxia.utilitaris.display {
 	public class Stats extends QSprite {
 
 
-		[Embed(source="uni05_53.ttf", fontName="uni0553", mimeType="application/x-font", unicodeRange="U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F")]
+		[Embed(source="uni05_53.ttf", fontName="uni0553", embedAsCFF="false", mimeType="application/x-font", unicodeRange="U+0030-U+0039,U+002E,U+0046,U+0050,U+0053,U+004D,U+004D,U+0045,U+0020,U+003A,U+002F")]
 		public static var fontUni0553:Class;
 
 		private static const WIDTH:Number = 80;
