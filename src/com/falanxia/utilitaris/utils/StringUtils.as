@@ -856,6 +856,23 @@ package com.falanxia.utilitaris.utils {
 
 
 
+		/**
+		 * Convert an {@code Array} to a list.
+		 * @param a Input {@code Array}
+		 * @return List as "item1, item2, item3"
+		 */
+		public static function arrayList(a:Array):String {
+			var out:String = "";
+
+			for each(var i:String in a) {
+				out += i + ", ";
+			}
+
+			return out.substr(0, out.length - 2);
+		}
+
+
+
 		/* ★ PRIVATE METHODS ★ */
 
 

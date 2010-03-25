@@ -129,5 +129,21 @@ package com.falanxia.utilitaris.locale {
 		public static function get language():String {
 			return currentLanguage;
 		}
+
+
+
+		/**
+		 * Get languages list.
+		 * @return Languages list
+		 */
+		public static function get languageList():Array {
+			var out:Array = [];
+
+			for each(var dictionary:LanguageDictionary in dictionaries) {
+				out.push(dictionary.lang);
+			}
+
+			return out;
+		}
 	}
 }
