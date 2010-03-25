@@ -44,11 +44,11 @@ package com.falanxia.utilitaris.locale {
 
 
 		/**
-		 * Parse locale XML.
-		 * @param locales Locales node in the XML
+		 * Parse locale {@code XML}.
+		 * @param locale Locales node in the {@code XML}
 		 */
-		public static function parseXML(locales:XMLList):void {
-			for each(var lang:XML in locales.locale) {
+		public static function parseXML(locale:XMLList):void {
+			for each(var lang:XML in locale.locale) {
 				var dictionary:LanguageDictionary = new LanguageDictionary(lang.@lang);
 
 				dictionary.parseXML(lang.text);
@@ -56,6 +56,24 @@ package com.falanxia.utilitaris.locale {
 				dictionaries.push(dictionary);
 
 				if(currentLanguage == "") language = lang.@lang;
+			}
+		}
+
+
+
+		/**
+		 * Parse locale {@code Object}.
+		 * @param locale Locales node in the {@code Object}
+		 */
+		public static function parseObject(locale:Object):void {
+			for(var lang:String in locale) {
+				var dictionary:LanguageDictionary = new LanguageDictionary(lang);
+
+				dictionary.parseObject(locale[lang]);
+
+				dictionaries.push(dictionary);
+
+				if(currentLanguage == "") language = lang;
 			}
 		}
 

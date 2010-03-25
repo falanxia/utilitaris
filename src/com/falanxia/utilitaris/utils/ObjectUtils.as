@@ -334,7 +334,7 @@ package com.falanxia.utilitaris.utils {
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS
-				out = str == "" ? ((obj != null) ? obj + "" : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}\n");
+				out = str == "" ? ((obj != null) ? obj + "" : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}");
 			}
 
 			return out;
