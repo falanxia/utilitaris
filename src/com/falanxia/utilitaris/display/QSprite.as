@@ -74,8 +74,12 @@ package com.falanxia.utilitaris.display {
 		public function QSprite(config:Object = null, parent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
 			var c:Object;
-			if(config == null) c = new Object();
-			else c = config;
+			if(config == null) {
+				c = new Object();
+			}
+			else {
+				c = config;
+			}
 
 			super();
 
@@ -162,6 +166,16 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function get position():Point {
 			return new Point(this.x, this.y);
+		}
+
+
+
+		/**
+		 * Get current global position as {@code Point}.
+		 * @return Current global position as {@code Point}
+		 */
+		public function get globalPosition():Point {
+			return parent.localToGlobal(new Point(this.x, this.y));
 		}
 
 
