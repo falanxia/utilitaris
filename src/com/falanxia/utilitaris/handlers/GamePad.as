@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.handlers {
-	import com.falanxia.utilitaris.constants.KeyCodes;
+	import com.falanxia.utilitaris.enums.KeyCodes;
 
 	import flash.display.Stage;
 	import flash.events.Event;

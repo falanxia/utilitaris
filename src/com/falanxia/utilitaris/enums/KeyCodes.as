@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.constants {
+package com.falanxia.utilitaris.enums {
 
 
 
