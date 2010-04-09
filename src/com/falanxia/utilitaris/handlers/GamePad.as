@@ -23,13 +23,11 @@
  */
 
 package com.falanxia.utilitaris.handlers {
-	import com.falanxia.utilitaris.enums.KeyCodes;
+	import com.falanxia.utilitaris.enums.*;
 
-	import flash.display.Stage;
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
-	import flash.events.KeyboardEvent;
-	import flash.ui.Keyboard;
+	import flash.display.*;
+	import flash.events.*;
+	import flash.ui.*;
 
 
 
@@ -458,11 +456,29 @@ package com.falanxia.utilitaris.handlers {
 
 			_any = _up || _down || _right || _left;
 
-			if(_up) targetY = -1; else if(_down) targetY = 1;
-			else targetY = 0;
+			if(_up) {
+				targetY = -1;
+			}
+			else {
+				if(_down) {
+					targetY = 1;
+				}
+				else {
+					targetY = 0;
+				}
+			}
 
-			if(_left) targetX = -1; else if(_right) targetX = 1;
-			else targetX = 0;
+			if(_left) {
+				targetX = -1;
+			}
+			else {
+				if(_right) {
+					targetX = 1;
+				}
+				else {
+					targetX = 0;
+				}
+			}
 
 			_angle = Math.atan2(targetX, targetY);
 
