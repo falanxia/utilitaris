@@ -150,8 +150,8 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 * @todo Test
 		 */
-		public static function inspect(obj:Object, depth:int = 2):String {
-			return scanObject(obj, depth, "\t");
+		public static function inspect(obj:Object, depth:int = 2, prefix:String = ""):String {
+			return prefix + scanObject(obj, depth, prefix + "\t");
 		}
 
 
@@ -319,14 +319,14 @@ package com.falanxia.utilitaris.utils {
 			var out:String;
 
 			if(depth < 1) {
-				out = String(obj);
+				out = obj is String ? "\"" + obj + "\"" : String(obj);
 			}
 			else {
 				const classDef:XML = describeType(obj);
 				var str:String = "";
 
 				for each(var variable:XML in classDef.variable) {
-					str += prefix + variable.@name + ":" + scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
+					str += prefix + variable.@name + " = " + scanObject(obj[variable.@name], depth - 1, prefix + "\t") + "\n";
 				}
 
 				for(var s:String in obj) {
@@ -334,7 +334,7 @@ package com.falanxia.utilitaris.utils {
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS
-				out = str == "" ? ((obj != null) ? obj + "" : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}");
+				out = str == "" ? ((obj != null) ? (obj is String ? "\"" + obj + "\"" : obj + "") : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}");
 			}
 
 			return out;
