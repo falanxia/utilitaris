@@ -361,7 +361,7 @@ package com.falanxia.utilitaris.handlers {
 		/**
 		 * Enter frame event listener.
 		 */
-		private function onEnterFrame(event:Event):void {
+		private function onEnterFrame(e:Event):void {
 			step();
 		}
 
@@ -370,8 +370,8 @@ package com.falanxia.utilitaris.handlers {
 		/**
 		 * Key down event listener.
 		 */
-		private function onKeyDown(event:KeyboardEvent):void {
-			switch(event.keyCode) {
+		private function onKeyDown(e:KeyboardEvent):void {
+			switch(e.keyCode) {
 				case upKey:
 					_up = true;
 					break;
@@ -409,8 +409,8 @@ package com.falanxia.utilitaris.handlers {
 		/**
 		 * Key up event listener.
 		 */
-		private function onKeyUp(event:KeyboardEvent):void {
-			switch(event.keyCode) {
+		private function onKeyUp(e:KeyboardEvent):void {
+			switch(e.keyCode) {
 				case upKey:
 					_up = false;
 					break;

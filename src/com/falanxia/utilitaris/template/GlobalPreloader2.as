@@ -184,7 +184,7 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * Load error. Happens when the user navigates somewhere else while Flash is not fully loaded yet.
 		 */
-		protected function onLoadingError(event:IOErrorEvent):void {
+		protected function onLoadingError(e:IOErrorEvent):void {
 			// don't do anything here
 			// app has to silently fail
 		}
@@ -194,7 +194,7 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * Stage resize. Just a placeholder to be overridden by implementations.
 		 */
-		protected function onStageResize(event:Event = null):void {
+		protected function onStageResize(e:Event = null):void {
 		}
 
 
@@ -202,7 +202,7 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * EnterFrame handler. Update your progress bar here.
 		 */
-		protected function onEnterFrame(event:Event):void {
+		protected function onEnterFrame(e:Event):void {
 			progress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
 
 			if(progress >= 1) {
