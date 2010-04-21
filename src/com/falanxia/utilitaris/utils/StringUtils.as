@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
+	import com.falanxia.utilitaris.helpers.*;
 
 
 
@@ -423,7 +424,9 @@ package com.falanxia.utilitaris.utils {
 			if(v == null) v = "";
 			if(t == null) t = "";
 
-			if(v == t) out = 0;
+			if(v == t) {
+				out = 0;
+			}
 			else {
 				var d:Array = [];
 				var cost:uint;
@@ -433,28 +436,35 @@ package com.falanxia.utilitaris.utils {
 
 				if(n == 0) {
 					out = m;
-				} else if(m == 0) {
-					out = n;
 				}
 				else {
-					for(i = 0; i <= n; i++) d[i] = [];
-					for(i = 0; i <= n; i++) d[i][0] = i;
-					for(j = 0; j <= m; j++) d[0][j] = j;
-
-					for(i = 1; i <= n; i++) {
-						var s_i:String = v.charAt(i - 1);
-
-						for(j = 1; j <= m; j++) {
-							var t_j:String = t.charAt(j - 1);
-
-							if(s_i == t_j) cost = 0;
-							else cost = 1;
-
-							d[i][j] = minimum2(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
-						}
+					if(m == 0) {
+						out = n;
 					}
+					else {
+						for(i = 0; i <= n; i++) d[i] = [];
+						for(i = 0; i <= n; i++) d[i][0] = i;
+						for(j = 0; j <= m; j++) d[0][j] = j;
 
-					out = d[n][m];
+						for(i = 1; i <= n; i++) {
+							var s_i:String = v.charAt(i - 1);
+
+							for(j = 1; j <= m; j++) {
+								var t_j:String = t.charAt(j - 1);
+
+								if(s_i == t_j) {
+									cost = 0;
+								}
+								else {
+									cost = 1;
+								}
+
+								d[i][j] = minimum2(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+							}
+						}
+
+						out = d[n][m];
+					}
 				}
 			}
 
@@ -847,7 +857,7 @@ package com.falanxia.utilitaris.utils {
 		 * Repeat
 		 * @param n
 		 * @param str
-		 * @return
+		 * @return TODO
 		 * @todo Documentation
 		 */
 		public static function repeat(n:uint, str:String = " "):String {
@@ -869,6 +879,26 @@ package com.falanxia.utilitaris.utils {
 			}
 
 			return out.substr(0, out.length - 2);
+		}
+
+
+
+		/**
+		 * Convert a counting locale text. Useful when counting singulars vs. plurals.
+		 * Example: {@code Máš %d nepřečtených zpráv\0:Máš %d nepřečtených zpráv\1Máš %d nepřečtenou zprávu\2Máš %d nepřečtené zprávy\3Máš %d nepřečtené zprávy\4Máš %d nepřečtené zprávy}
+		 * @param mask
+		 * @param value
+		 * @return Counter part
+		 */
+		public static function convertCounterString(mask:String, value:uint):String {
+			var out:String = mask;
+
+			for each(var p:String in mask.split(/\|:/)) {
+				var c:String = p.charAt(0);
+				if((c != "?" && uint(c) == Math.abs(value)) || c == "?") out = printf(p.substr(2), value);
+			}
+
+			return out;
 		}
 
 
