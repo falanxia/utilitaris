@@ -89,6 +89,9 @@ package com.falanxia.utilitaris.utils {
 		/** Black color */
 		public static const BLACK:RGBA = new RGBA(0, 0, 0, 255);
 
+		/** Transparent color */
+		public static const TRANSPARENT:RGBA = new RGBA(0, 0, 0, 0);
+
 		/** Zero point */
 		public static const ZERO:Point = new Point(0, 0);
 
