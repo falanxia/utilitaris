@@ -69,6 +69,29 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
+		 * Get a value from a base.
+		 * @param value Base
+		 * @param reversed TODO
+		 * @return Value
+		 */
+		public final function countValue(value:Number, reversed:Boolean = false):Number {
+			return reversed ? (1 - this.decimalPercentage) * value : this.decimalPercentage * value;
+		}
+
+
+
+		/**
+		 * TODO
+		 * @param value TODO
+		 * @param max TODO
+		 */
+		public final function setValue(value:Number, max:Number):void {
+			 this.percentage = 100 / (max / value);
+		}
+
+
+
+		/**
 		 * Get clone.
 		 * @return New percent object with the same value as this percent.
 		 */
