@@ -24,9 +24,9 @@
 
 package com.falanxia.utilitaris.utils {
 	import flash.display.DisplayObject;
+	import flash.utils.describeType;
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
-
 
 
 	/**
@@ -35,6 +35,7 @@ package com.falanxia.utilitaris.utils {
 	 * @author Jackson Dunstan (<a href="http://jacksondunstan.com/articles/512">http://jacksondunstan.com/articles/512</a>)
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
 	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @since 1.0
 	 */
@@ -51,6 +52,22 @@ package com.falanxia.utilitaris.utils {
 			throw new Error("The class cannot be instantiated");
 		}
 
+
+
+		/**
+		 * Checks if class implements an interface.
+		 * @param cls Class we want to check
+		 * @param inf Interface we want to check for
+		 * @return Boolean true if class implements interface, otherwise false
+		 */
+		public static function implementsInterface(checkedClass:Class, checkedInterface:Class):Boolean {
+			var icls:String = getQualifiedClassName(checkedInterface);
+			var arr:XMLList = describeType(checkedClass).factory.implementsInterface;
+			for (var i:int = 0;i<arr.length();i++) {
+				if (String(arr[i].@type) == icls) return true;
+			}
+			return false;
+		}
 
 
 		/**
