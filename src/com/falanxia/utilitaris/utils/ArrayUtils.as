@@ -510,7 +510,7 @@ package com.falanxia.utilitaris.utils {
 
 
 		protected static function sortRandom(a:*, b:*):int {
-			return RandomUtils.integer(0, 1) ? 1 : -1;
+			return RandomUtils.randomInteger(0, 1) ? 1 : -1;
 		}
 	}
 }

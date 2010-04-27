@@ -50,7 +50,7 @@ package com.falanxia.utilitaris.types {
 		 * @param percentage Percent formated at a percentage or an decimal percentage.
 		 * @param isDecimalPercentage Indicates if the parameter <code>percentage</code> is a decimal percentage <code>true</code>, or regular percentage <code>false</code>.
 		 */
-		public final function Percent(percentage:Number = 0, isDecimalPercentage:Boolean = true) {
+		public final function Percent(percentage:Number = 0, isDecimalPercentage:Boolean = false) {
 			if(isDecimalPercentage) this.decimalPercentage = percentage;
 			else this.percentage = percentage;
 		}

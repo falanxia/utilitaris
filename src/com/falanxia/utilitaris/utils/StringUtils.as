@@ -53,29 +53,6 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Generate a random {@code String}.
-		 * @param length {@code String} length (default {@code 10})
-		 * @param ch Chars used (default {@code "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"})
-		 * @return Random {@code String}
-		 * @todo Optimize for faster access (no static)
-		 */
-		public static function randomString(length:uint = 10, ch:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):String {
-			var alphabet:Array = ch.split("");
-			var alphabetLength:int = alphabet.length;
-			var randomLetters:String = "";
-
-			for(var j:uint = 0; j < length; j++) {
-				var r:Number = Math.random() * alphabetLength;
-				var s:int = Math.floor(r);
-				randomLetters += alphabet[s];
-			}
-
-			return randomLetters;
-		}
-
-
-
-		/**
 		 * Slash unsafe characters from the {@code String}.
 		 * @param value Unsafe {@code String}
 		 * @return Safe {@code String}

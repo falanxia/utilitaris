@@ -74,7 +74,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function float(min:Number, max:Number = NaN):Number {
+		public static function randomFloat(min:Number, max:Number = NaN):Number {
 			var a:Number = min;
 			var b:Number = max;
 
@@ -103,13 +103,13 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function integer(min:Number, max:Number = NaN):int {
+		public static function randomInteger(min:Number, max:Number = NaN):int {
 			if(isNaN(max)) {
 				max = min;
 				min = 0;
 			}
 			// Need to use floor instead of bit shift to work properly with negative values:
-			return Math.floor(float(min, max));
+			return Math.floor(randomFloat(min, max));
 		}
 
 
@@ -128,7 +128,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function boolean(chance:Number = 0.5):Boolean {
+		public static function randomBoolean(chance:Number = 0.5):Boolean {
 			return (random() < chance);
 		}
 
@@ -148,7 +148,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function sign(chance:Number = 0.5):int {
+		public static function randomSign(chance:Number = 0.5):int {
 			return (random() < chance) ? 1 : -1;
 		}
 
@@ -168,8 +168,43 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function bit(chance:Number = 0.5):int {
+		public static function randomBit(chance:Number = 0.5):int {
 			return (random() < chance) ? 1 : 0;
+		}
+
+
+
+		/**
+		 * Generate a random {@code String}.
+		 * @param length {@code String} length (default {@code 10})
+		 * @param ch Chars used (default {@code "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"})
+		 * @return Random {@code String}
+		 * @todo Optimize for faster access (no static)
+		 */
+		public static function randomString(length:uint = 10, ch:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):String {
+			var alphabet:Array = ch.split("");
+			var alphabetLength:int = alphabet.length;
+			var randomLetters:String = "";
+
+			for(var j:uint = 0; j < length; j++) {
+				var r:Number = Math.random() * alphabetLength;
+				var s:int = Math.floor(r);
+				randomLetters += alphabet[s];
+			}
+
+			return randomLetters;
+		}
+
+
+
+		/**
+		 * Get random sentence.
+		 * @param maxLength Max chars
+		 * @param minLength Min chars
+		 * @return Random sentence
+		 */
+		public static function randomSentence(maxLength:uint = 50, minLength:uint = 10):String {
+			return randomString(randomInteger(minLength, maxLength), "            abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 		}
 	}
 }
