@@ -43,7 +43,7 @@ package com.falanxia.utilitaris.collections {
 		private var dicto:Dictionary;
 		private var array:Array;
 
-		private var _length:int;
+		private var _length:uint;
 
 
 
@@ -247,7 +247,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * @return int number of items in collection
 		 */
-		public function get length():int {
+		public function get length():uint {
 			return _length;
 		}
 
