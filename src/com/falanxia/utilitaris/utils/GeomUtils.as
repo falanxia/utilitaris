@@ -23,8 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
+	import flash.geom.*;
 
 
 
@@ -65,15 +64,19 @@ package com.falanxia.utilitaris.utils {
 		 * @param point {@code Point} to rotate
 		 * @param centerPoint {@code Point} to rotate this {@code Point} around
 		 * @param angle Angle (in degrees) to rotate this {@code Point}
+		 * @return Rotated {@code Point}
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function rotatePoint(point:Point, centerPoint:Point, angle:Number):void {
+		public static function rotatePoint(point:Point, centerPoint:Point, angle:Number):Point {
+			var out:Point = new Point();
 			var radians:Number = ConversionUtils.degreesToRadians(angle);
 			var baseX:Number = point.x - centerPoint.x;
 			var baseY:Number = point.y - centerPoint.y;
 
-			point.x = (Math.cos(radians) * baseX) - (Math.sin(radians) * baseY) + centerPoint.x;
-			point.y = (Math.sin(radians) * baseX) + (Math.cos(radians) * baseY) + centerPoint.y;
+			out.x = (Math.cos(radians) * baseX) - (Math.sin(radians) * baseY) + centerPoint.x;
+			out.y = (Math.sin(radians) * baseX) + (Math.cos(radians) * baseY) + centerPoint.y;
+
+			return out;
 		}
 
 
@@ -93,42 +96,64 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Calculates the perimeter of a {@code Rectangle}.
-		 * @param rect {@code Rectangle} to determine the perimeter of
+		 * @param value {@code Rectangle} to determine the perimeter of
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function getRectanglePerimeter(rect:Rectangle):Number {
-			return rect.width * 2 + rect.height * 2;
+		public static function getRectanglePerimeter(value:Rectangle):Number {
+			return value.width * 2 + value.height * 2;
+		}
+
+
+
+		/**
+		 * Calculates center {@code Point} of a {@code Rectangle}.
+		 * @param value {@code Rectangle} to determine center {@code Point} of
+		 * @todo Optimize for faster access (no static)
+		 */
+		public static function getRectangleCenter(value:Rectangle):Point {
+			return new Point(value.x + (value.width / 2), value.y + (value.height / 2));
+		}
+
+
+
+		/**
+		 * Reverse a rectangle.
+		 * @param value Source rectangle
+		 * @return Reversed rectangle
+		 */
+		public static function reverseRectangle(value:Rectangle):Rectangle {
+			return new Rectangle(value.left, value.top, -value.width, -value.height);
 		}
 
 
 
 		/**
 		 * Converts the supplied {@code degrees} to {@code radians}.
-		 * @param degrees Degrees to be converted to {@code radians}
+		 * @param value Degrees to be converted to {@code radians}
 		 * @return Supplied {@code degrees} converted to {@code radians}
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function degreesToRadians(degrees:Number):Number {
-			return degrees * PI_OVER_180;
+		public static function degreesToRadians(value:Number):Number {
+			return value * PI_OVER_180;
 		}
 
 
 
 		/**
 		 * Converts the supplied {@code radians} represented as {@code degrees}.
-		 * @param radians Radians to be converted to {@code degrees}
+		 * @param value Radians to be converted to {@code degrees}
 		 * @return {@code Radians} converted to {@code degrees}
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function radiansToDegrees(radians:Number):Number {
-			return radians / PI_OVER_180;
+		public static function radiansToDegrees(value:Number):Number {
+			return value / PI_OVER_180;
 		}
 
 
 
 		/**
 		 * Simplifys the supplied {@code angle} to its simpliest representation.
-		 * @param angle Angle to simplify
+		 * @param value Angle to simplify
 		 * @return Supplied {@code angle} simplified
 		 * @example
 		 *      <code>
@@ -137,17 +162,17 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function simplifyAngle(angle:Number):Number {
-			var _rotations:Number = Math.floor(angle / 360);
+		public static function simplifyAngle(value:Number):Number {
+			var _rotations:Number = Math.floor(value / 360);
 
-			return (angle >= 0) ? angle - (360 * _rotations) : angle + (360 * _rotations);
+			return (value >= 0) ? value - (360 * _rotations) : value + (360 * _rotations);
 		}
 
 
 
 		/**
 		 * Trims the supplied {@code angle} to its 0..360 representation.
-		 * @param angle Angle to trim
+		 * @param value Angle to trim
 		 * @return Supplied {@code angle} trimmed
 		 * @example
 		 *      <code>
@@ -155,13 +180,24 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 * @todo Optimize for faster access (no static)
 		 */
-		public static function trimAngle(angle:Number):Number {
-			var a:Number = angle;
+		public static function trimAngle(value:Number):Number {
+			var a:Number = value;
 
 			while(a < 0) a += 360;
 			while(a > 360) a -= 360;
 
 			return a;
+		}
+
+
+
+		/**
+		 * Rounds {@code x} and {@code y} of a {@code Point}.
+		 * @param value Source {@code Point} to be rounded
+		 * @return Rounded {@code Point}
+		 */
+		public static function roundPoint(value:Point):Point {
+			return new Point(int(value.x), int(value.y));
 		}
 	}
 }
