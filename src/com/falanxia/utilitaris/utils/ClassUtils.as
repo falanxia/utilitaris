@@ -29,6 +29,7 @@ package com.falanxia.utilitaris.utils {
 	import flash.utils.getQualifiedClassName;
 
 
+
 	/**
 	 * Class utilities.
 	 *
@@ -56,18 +57,21 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Checks if class implements an interface.
-		 * @param cls Class we want to check
-		 * @param inf Interface we want to check for
+		 * @param checkedClass Class we want to check
+		 * @param checkedInterface Interface we want to check for
 		 * @return Boolean true if class implements interface, otherwise false
 		 */
 		public static function implementsInterface(checkedClass:Class, checkedInterface:Class):Boolean {
 			var icls:String = getQualifiedClassName(checkedInterface);
 			var arr:XMLList = describeType(checkedClass).factory.implementsInterface;
-			for (var i:int = 0;i<arr.length();i++) {
-				if (String(arr[i].@type) == icls) return true;
+
+			for(var i:int = 0; i < arr.length(); i++) {
+				if(String(arr[i].@type) == icls) return true;
 			}
+
 			return false;
 		}
+
 
 
 		/**
