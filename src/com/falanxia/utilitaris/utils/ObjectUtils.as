@@ -150,7 +150,7 @@ package com.falanxia.utilitaris.utils {
 		 * @todo Optimize for faster access (no static)
 		 * @todo Test
 		 */
-		public static function inspect(obj:Object, depth:int = 10, prefix:String = ""):String {
+		public static function inspect(obj:Object, depth:int = 10, prefix:String = "\t"):String {
 			return prefix + scanObject(obj, depth, prefix + "\t");
 		}
 

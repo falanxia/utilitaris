@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.logger {
+	import com.falanxia.utilitaris.utils.*;
 	import com.nesium.logging.*;
 
 	import de.dev_lab.logging.*;
@@ -92,7 +93,7 @@ package com.falanxia.utilitaris.logger {
 					prefix = "";
 			}
 
-			_trazzle.log(prefix + String(object), 4);
+			_trazzle.log(prefix + StringUtils.trim(String(object)), 4);
 		}
 
 
