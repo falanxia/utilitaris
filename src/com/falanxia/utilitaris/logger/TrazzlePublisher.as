@@ -23,30 +23,38 @@
  */
 
 package com.falanxia.utilitaris.logger {
-	import de.dev_lab.logging.Logger;
-	import de.dev_lab.logging.publisher.IPublisher;
+	import com.nesium.logging.*;
+
+	import de.dev_lab.logging.*;
+	import de.dev_lab.logging.publisher.*;
+
+	import flash.display.*;
 
 
 
 	/**
-	 * The {@code String} publisher outputs the Log to a {@code String}.
+	 * The {@code String} publisher outputs the Log to a Trazzle.
+	 * See more info about Trazzle here: http://www.nesium.com/products/trazzle
 	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
-	public class StringPublisher implements IPublisher {
+	public class TrazzlePublisher implements IPublisher {
 
 
-		private static var dump:String;
+		private static var _trazzle:TrazzleLogger;
 
 
 
 		/**
 		 * Constructor.
 		 */
-		public function StringPublisher() {
-			if(dump == null) dump = new String();
+		public function TrazzlePublisher(stageReference:Stage, appName:String) {
+			if(_trazzle == null) {
+				_trazzle = new TrazzleLogger();
+				_trazzle.setParams(stageReference, appName);
+			}
 		}
 
 
@@ -57,16 +65,43 @@ package com.falanxia.utilitaris.logger {
 		 * @param object Message
 		 */
 		public function publish(logLevel:int, object:*, ...additional):void {
-			dump += getPrefix(logLevel) + "  " + String(object) + "\n";
+			var prefix:String;
+
+			switch(logLevel) {
+				case Logger.DEBUG:
+					prefix = "d ";
+					break;
+
+				case Logger.INFO:
+					prefix = "i ";
+					break;
+
+				case Logger.WARN:
+					prefix = "w ";
+					break;
+
+				case Logger.ERROR:
+					prefix = "e ";
+					break;
+
+				case Logger.FATAL:
+					prefix = "f ";
+					break;
+
+				default:
+					prefix = "";
+			}
+
+			_trazzle.log(prefix + String(object));
 		}
 
 
 
 		/**
-		 * Clears the dump {@code String}.
+		 * Clear.
+		 * Trazzle has no clear method, so it's just a placeholder.
 		 */
 		public function clear():void {
-			dump = "";
 		}
 
 
@@ -80,41 +115,15 @@ package com.falanxia.utilitaris.logger {
 
 
 
-		/**
-		 * Get the dump {@code String}
-		 * @return Dump {@code String}
-		 */
-		public static function toString():String {
-			return dump;
-		}
-
-
-
-		/* ★ PRIVATE METHODS ★ */
+		/* ★ SETTERS & GETTERS ★ */
 
 
 		/**
-		 * Returns a special prefix for trace output.
-		 * @param logLevel Log level
-		 * @return Prefix
+		 * Get Trazzle reference.
+		 * @return Reference to Trazzle
 		 */
-		private function getPrefix(logLevel:int):String {
-			switch(logLevel) {
-				case Logger.INFO :
-					return "★";
-
-				case Logger.WARN :
-					return "☀";
-
-				case Logger.ERROR :
-					return "⚑";
-
-				case Logger.FATAL :
-					return "✖";
-
-				default:
-					return " ";
-			}
+		public static function get trazzle():TrazzleLogger {
+			return _trazzle;
 		}
 	}
 }
