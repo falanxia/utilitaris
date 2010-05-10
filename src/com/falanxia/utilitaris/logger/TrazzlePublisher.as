@@ -92,7 +92,7 @@ package com.falanxia.utilitaris.logger {
 					prefix = "";
 			}
 
-			_trazzle.log(prefix + String(object));
+			_trazzle.log(prefix + String(object), 4);
 		}
 
 
