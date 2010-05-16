@@ -27,29 +27,23 @@ package com.falanxia.utilitaris.enums {
 
 
 	/**
-	 * Alignment.
+	 * Moolean. A special Boolean. YES, NO and TOGGLE.
 	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
-	public class Align {
+	public class Moolean {
 
 
-		/** Left aligned */
-		public static const LEFT:String = "left";
+		/** Yes */
+		public static const YES:String = "yes";
 
-		/** Right aligned */
-		public static const RIGHT:String = "right";
+		/** No */
+		public static const NO:String = "no";
 
-		/** Top aligned */
-		public static const TOP:String = "top";
-
-		/** Bottom aligned */
-		public static const BOTTOM:String = "bottom";
-
-		/** Center aligned */
-		public static const CENTER:String = "center";
+		/** Toggle */
+		public static const TOGGLE:String = "toggle";
 
 
 	}
