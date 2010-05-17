@@ -93,6 +93,8 @@ package com.falanxia.utilitaris.logger {
 					prefix = "";
 			}
 
+			if(object == null) object = "[null]";
+
 			_trazzle.log(prefix + StringUtils.trim(String(object)), 4);
 		}
 
