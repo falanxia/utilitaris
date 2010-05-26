@@ -24,8 +24,7 @@
 
 
 package com.falanxia.utilitaris.display {
-	import flash.display.Sprite;
-	import flash.display.Stage;
+	import flash.display.*;
 
 
 

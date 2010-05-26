@@ -23,12 +23,11 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.falanxia.utilitaris.utils.ObjectUtils;
+	import com.falanxia.utilitaris.utils.*;
 
-	import flash.display.DisplayObjectContainer;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
-	import flash.media.Video;
+	import flash.display.*;
+	import flash.geom.*;
+	import flash.media.*;
 
 
 
@@ -78,8 +77,12 @@ package com.falanxia.utilitaris.display {
 
 			// if config is not defined, prepare it
 			var c:Object;
-			if(config == null) c = new Object();
-			else c = config;
+			if(config == null) {
+				c = new Object();
+			}
+			else {
+				c = config;
+			}
 
 			try {
 				super(c.width, c.height);

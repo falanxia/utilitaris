@@ -111,48 +111,73 @@ package com.falanxia.utilitaris.helpers {
 				}
 			}
 
-			if(isPositionalSubts) replacementValue = rest[matches.length];
-			else replacementValue = rest[0] == null ? undefined : rest[0][varName];
+			if(isPositionalSubts) {
+				replacementValue = rest[matches.length];
+			}
+			else {
+				replacementValue = rest[0] == null ? undefined : rest[0][varName];
+			}
 
 			if(replacementValue == undefined) replacementValue = "";
 			if(replacementValue != undefined) {
 				if(formater == STRING_FORMATTER) match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar); else if(formater == FLOAT_FORMATER) {
-					if(precision) match.replacement = padString(Number(replacementValue).toFixed(int(precision)), paddingNum, paddingChar);
-					else match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar);
-				} else if(formater == INTEGER_FORMATER) match.replacement = padString(int(replacementValue).toString(), paddingNum, paddingChar); else if(formater == OCTAL_FORMATER) match.replacement = "0" + int(replacementValue).toString(8); else if(formater == HEXA_FORMATER) match.replacement = "0x" + int(replacementValue).toString(16); else if(DATES_FORMATERS.indexOf(formater) > -1) {
-					switch(formater) {
-						case DATE_DAY_FORMATTER:
-							match.replacement = replacementValue.date.toString();
-							break;
-						case DATE_FULLYEAR_FORMATTER:
-							match.replacement = replacementValue.fullYear;
-							break;
-						case DATE_YEAR_FORMATTER:
-							match.replacement = replacementValue.fullYear.toString().substr(2, 2);
-							break;
-						case DATE_MONTH_FORMATTER:
-							match.replacement = replacementValue.month + 1;
-							break;
-						case DATE_HOUR24_FORMATTER:
-							match.replacement = replacementValue.hours;
-							break;
-						case DATE_HOUR_FORMATTER:
-							var hours24:Number = replacementValue.hours;
-							match.replacement = (hours24 - 12).toString();
-							break;
-						case DATE_HOUR_AMPM_FORMATTER:
-							match.replacement = (replacementValue.hours >= 12 ? "p.m" : "a.m");
-							break;
-						case DATE_TOLOCALE_FORMATTER:
-							match.replacement = String(replacementValue.toLocaleString());
-							break;
-						case DATE_MINUTES_FORMATTER:
-							match.replacement = replacementValue.minutes;
-							break;
-						case DATE_SECONDS_FORMATTER:
-							match.replacement = replacementValue.seconds;
-							break;
-						default:
+					if(precision) {
+						match.replacement = padString(Number(replacementValue).toFixed(int(precision)), paddingNum, paddingChar);
+					}
+					else {
+						match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar);
+					}
+				} else {
+					if(formater == INTEGER_FORMATER) {
+						match.replacement = padString(int(replacementValue).toString(), paddingNum, paddingChar);
+					}
+					else {
+						if(formater == OCTAL_FORMATER) {
+							match.replacement = "0" + int(replacementValue).toString(8);
+						}
+						else {
+							if(formater == HEXA_FORMATER) {
+								match.replacement = "0x" + int(replacementValue).toString(16);
+							}
+							else {
+								if(DATES_FORMATERS.indexOf(formater) > -1) {
+									switch(formater) {
+										case DATE_DAY_FORMATTER:
+											match.replacement = replacementValue.date.toString();
+											break;
+										case DATE_FULLYEAR_FORMATTER:
+											match.replacement = replacementValue.fullYear;
+											break;
+										case DATE_YEAR_FORMATTER:
+											match.replacement = replacementValue.fullYear.toString().substr(2, 2);
+											break;
+										case DATE_MONTH_FORMATTER:
+											match.replacement = replacementValue.month + 1;
+											break;
+										case DATE_HOUR24_FORMATTER:
+											match.replacement = replacementValue.hours;
+											break;
+										case DATE_HOUR_FORMATTER:
+											var hours24:Number = replacementValue.hours;
+											match.replacement = (hours24 - 12).toString();
+											break;
+										case DATE_HOUR_AMPM_FORMATTER:
+											match.replacement = (replacementValue.hours >= 12 ? "p.m" : "a.m");
+											break;
+										case DATE_TOLOCALE_FORMATTER:
+											match.replacement = String(replacementValue.toLocaleString());
+											break;
+										case DATE_MINUTES_FORMATTER:
+											match.replacement = replacementValue.minutes;
+											break;
+										case DATE_SECONDS_FORMATTER:
+											match.replacement = replacementValue.seconds;
+											break;
+										default:
+									}
+								}
+							}
+						}
 					}
 				}
 

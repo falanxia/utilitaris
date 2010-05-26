@@ -23,9 +23,9 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.Percent;
+	import com.falanxia.utilitaris.types.*;
 
-	import flash.geom.Rectangle;
+	import flash.geom.*;
 
 
 
@@ -146,7 +146,7 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
+		/* ★ PROTECTED METHODS ★ */
 
 
 		protected static function defineRect(size:Rectangle, width:Number, height:Number, snapToPixel:Boolean):Rectangle {

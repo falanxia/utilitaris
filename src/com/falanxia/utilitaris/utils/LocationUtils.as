@@ -23,11 +23,10 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.DisplayObject;
-	import flash.external.ExternalInterface;
-	import flash.net.URLRequest;
-	import flash.net.navigateToURL;
-	import flash.system.Capabilities;
+	import flash.display.*;
+	import flash.external.*;
+	import flash.net.*;
+	import flash.system.*;
 
 
 
@@ -217,35 +216,43 @@ package com.falanxia.utilitaris.utils {
 				out = STANDALONE_PLAYER;
 			}
 
-			else if(ExternalInterface.available) {
-				// uses external interface to reach out to browser and grab browser useragent info.
-				browserAgent = ExternalInterface.call("function getBrowser(){return navigator.userAgent;}");
+			else {
+				if(ExternalInterface.available) {
+					// uses external interface to reach out to browser and grab browser useragent info.
+					browserAgent = ExternalInterface.call("function getBrowser(){return navigator.userAgent;}");
 
-				// determines brand of browser using a find index. If not found indexOf returns (-1).
-				if(browserAgent != null && browserAgent.indexOf("Firefox") >= 0) {
-					out = BROWSER_FIREFOX;
-				}
+					// determines brand of browser using a find index. If not found indexOf returns (-1).
+					if(browserAgent != null && browserAgent.indexOf("Firefox") >= 0) {
+						out = BROWSER_FIREFOX;
+					}
 
-				else if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
-					out = BROWSER_SAFARI;
-				}
+					else {
+						if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
+							out = BROWSER_SAFARI;
+						}
 
-				else if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
-					out = BROWSER_IE;
-				}
+						else {
+							if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
+								out = BROWSER_IE;
+							}
 
-				else if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
-					out = BROWSER_OPERA;
+							else {
+								if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
+									out = BROWSER_OPERA;
+								}
+
+								else {
+									out = BROWSER_UNDEFINED;
+								}
+							}
+						}
+					}
 				}
 
 				else {
+					// standalone player
 					out = BROWSER_UNDEFINED;
 				}
-			}
-
-			else {
-				// standalone player
-				out = BROWSER_UNDEFINED;
 			}
 
 			return out;

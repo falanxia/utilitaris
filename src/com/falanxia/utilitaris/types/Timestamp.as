@@ -24,6 +24,8 @@
 
 package com.falanxia.utilitaris.types {
 
+
+
 	/**
 	 * Timestamp.
 	 *
@@ -45,8 +47,12 @@ package com.falanxia.utilitaris.types {
 		 * @param milliseconds Milliseconds since 1970
 		 */
 		public function Timestamp(milliseconds:Number = 0) {
-			if(milliseconds == 0) _milliseconds = (new Date()).getTime();
-			else _milliseconds = milliseconds;
+			if(milliseconds == 0) {
+				_milliseconds = (new Date()).getTime();
+			}
+			else {
+				_milliseconds = milliseconds;
+			}
 		}
 
 

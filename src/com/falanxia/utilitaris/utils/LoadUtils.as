@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.Percent;
+	import com.falanxia.utilitaris.types.*;
 
 
 

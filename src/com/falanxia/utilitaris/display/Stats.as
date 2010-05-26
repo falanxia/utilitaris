@@ -23,19 +23,15 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.falanxia.utilitaris.types.RGBA;
-	import com.falanxia.utilitaris.utils.DisplayUtils;
+	import com.falanxia.utilitaris.types.*;
+	import com.falanxia.utilitaris.utils.*;
 
-	import flash.display.BitmapData;
-	import flash.display.BlendMode;
-	import flash.display.DisplayObjectContainer;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
-	import flash.geom.Rectangle;
-	import flash.system.System;
-	import flash.text.AntiAliasType;
-	import flash.text.TextFormat;
-	import flash.utils.getTimer;
+	import flash.display.*;
+	import flash.events.*;
+	import flash.geom.*;
+	import flash.system.*;
+	import flash.text.*;
+	import flash.utils.*;
 
 
 
@@ -149,8 +145,12 @@ package com.falanxia.utilitaris.display {
 		override public function set visible(value:Boolean):void {
 			super.visible = value;
 
-			if(value) this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
-			else this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			if(value) {
+				this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+			}
+			else {
+				this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			}
 		}
 
 
@@ -162,8 +162,12 @@ package com.falanxia.utilitaris.display {
 		 * Mouse clicked event listener.
 		 */
 		private function onMouseClick(e:MouseEvent):void {
-			if(this.mouseY > this.height * 0.35) stage.frameRate--;
-			else stage.frameRate++;
+			if(this.mouseY > this.height * 0.35) {
+				stage.frameRate--;
+			}
+			else {
+				stage.frameRate++;
+			}
 
 			fpsText.text = "FPS: " + fps + "/" + stage.frameRate;
 		}

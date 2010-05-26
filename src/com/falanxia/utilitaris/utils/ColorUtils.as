@@ -23,9 +23,9 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.Percent;
+	import com.falanxia.utilitaris.types.*;
 
-	import flash.geom.ColorTransform;
+	import flash.geom.*;
 
 
 
@@ -97,13 +97,16 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Value of adjustment
 		 * @todo Test
 		 */
-		static public function setBrightness(colortransform:ColorTransform, value:Number):void {
+		public static function setBrightness(colortransform:ColorTransform, value:Number):void {
 			var v:Number = value;
 
 			if(value > 1) {
 				v = 1;
-			} else if(value < -1) {
-				v = -1;
+			}
+			else {
+				if(value < -1) {
+					v = -1;
+				}
 			}
 
 			var percent:Number = 1 - Math.abs(v);

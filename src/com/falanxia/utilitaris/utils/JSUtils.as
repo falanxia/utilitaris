@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.external.ExternalInterface;
+	import flash.external.*;
 
 
 

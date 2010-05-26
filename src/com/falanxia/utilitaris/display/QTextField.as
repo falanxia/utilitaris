@@ -23,15 +23,11 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.falanxia.utilitaris.utils.ObjectUtils;
+	import com.falanxia.utilitaris.utils.*;
 
-	import flash.display.DisplayObjectContainer;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
-	import flash.text.AntiAliasType;
-	import flash.text.GridFitType;
-	import flash.text.TextField;
-	import flash.text.TextFieldType;
+	import flash.display.*;
+	import flash.geom.*;
+	import flash.text.*;
 
 
 
@@ -93,8 +89,12 @@ package com.falanxia.utilitaris.display {
 
 			// if config is not defined, prepare it
 			var c:Object;
-			if(config == null) c = new Object();
-			else c = config;
+			if(config == null) {
+				c = new Object();
+			}
+			else {
+				c = config;
+			}
 
 			super();
 

@@ -23,10 +23,10 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.greensock.TweenLite;
-	import com.greensock.easing.Elastic;
+	import com.greensock.*;
+	import com.greensock.easing.*;
 
-	import flash.display.DisplayObjectContainer;
+	import flash.display.*;
 
 
 
@@ -116,8 +116,12 @@ package com.falanxia.utilitaris.display {
 			var c:Object;
 
 			// create config value object
-			if(config == null) c = new Object();
-			else c = config;
+			if(config == null) {
+				c = new Object();
+			}
+			else {
+				c = config;
+			}
 
 			// create parent QSprite
 			super(c, parent);
@@ -144,6 +148,7 @@ package com.falanxia.utilitaris.display {
 			morphEase = null;
 			initialProperties = null;
 		}
+
 
 
 		/**

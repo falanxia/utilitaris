@@ -23,18 +23,11 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
+	import Box2D.Collision.Shapes.*;
+	import Box2D.Common.Math.*;
+	import Box2D.Dynamics.*;
 
-	import Box2D.Collision.Shapes.b2CircleDef;
-	import Box2D.Collision.Shapes.b2PolygonDef;
-	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.b2Body;
-	import Box2D.Dynamics.b2BodyDef;
-	import Box2D.Dynamics.b2World;
-
-	import com.falanxia.utilitaris.b2utils.objectdata.WorldCircleObject;
-	import com.falanxia.utilitaris.b2utils.objectdata.WorldCoords;
-	import com.falanxia.utilitaris.b2utils.objectdata.WorldPolygonObject;
-	import com.falanxia.utilitaris.b2utils.objectdata.WorldRectangleObject;
+	import com.falanxia.utilitaris.b2utils.objectdata.*;
 
 
 
@@ -53,6 +46,8 @@ package com.falanxia.utilitaris.b2utils {
 	 */
 	public class B2GeomUtils {
 
+
+
 		private static var INSTANCE:B2GeomUtils;
 
 		public var pi:Number;
@@ -69,9 +64,7 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param s SingletonEnforcer class, just to make sure it cant be instantiated.
 		 */
 		public function B2GeomUtils(s:Senf) {
-
 			if(s == null) throw new Error("B2GeomUtils is singleton, use getInstance() method...");
-
 		}
 
 
@@ -81,17 +74,17 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return B2GeomUtils singleton instance
 		 */
 		public static function getInstance():B2GeomUtils {
-
 			if(INSTANCE == null) INSTANCE = new B2GeomUtils(new Senf());
-
 			return INSTANCE;
-
 		}
+
+
 
 		public function destroy():void {
 			INSTANCE = null;
 			world = null;
 		}
+
 
 
 		/**
@@ -100,14 +93,12 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param ratio pixel_to_meter ratio
 		 */
 		public function init(world:b2World, ratio:Number):void {
-
 			this.world = world;
 			this.ratio = ratio;
 
 			pi = Math.PI;
 			pi_deg = 180 / pi;
 			pi_rad = pi / 180;
-
 		}
 
 
@@ -117,9 +108,7 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return ratio ratio used when drawing to b2world
 		 */
 		public function getRatio():Number {
-
 			return ratio;
-
 		}
 
 
@@ -136,7 +125,6 @@ package com.falanxia.utilitaris.b2utils {
 		public function drawRectangle(rectangle:WorldRectangleObject, isSensor:Boolean = false, density:Number = 0,
 		                              restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
 		                              linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
-
 			var rc:WorldCoords = rectangle.position;
 
 			var def:b2BodyDef = new b2BodyDef();
@@ -157,7 +145,6 @@ package com.falanxia.utilitaris.b2utils {
 			b.SetMassFromShapes();
 
 			return b;
-
 		}
 
 
@@ -175,7 +162,6 @@ package com.falanxia.utilitaris.b2utils {
 		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = 0.1,
 		                           friction:Number = 0.1, angularDamping:Number = .5, linearDamping:Number = .5,
 		                           isBullet:Boolean = false):b2Body {
-
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(obj.position.x / ratio, obj.position.y / ratio);
 			def.angularDamping = angularDamping;
@@ -195,7 +181,6 @@ package com.falanxia.utilitaris.b2utils {
 			b.GetXForm().R.Set(obj.position.rotation * pi_rad);
 
 			return b;
-
 		}
 
 
@@ -213,7 +198,6 @@ package com.falanxia.utilitaris.b2utils {
 		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0,
 		                            restitution:Number = .1, friction:Number = .1, angularDamping:Number = .5,
 		                            linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
-
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(polygon.position.x / ratio, polygon.position.y / ratio);
 			def.angularDamping = angularDamping;
@@ -224,12 +208,10 @@ package com.falanxia.utilitaris.b2utils {
 			var l:int = polygon.vertices.length;
 			sh.vertexCount = l;
 
-
 			for(var i:int = 0; i < l; i++) {
-
 				b2Vec2(sh.vertices[i]).Set(polygon.vertices[i].x / ratio, polygon.vertices[i].y / ratio);
-
 			}
+
 			sh.isSensor = isSensor;
 			sh.friction = friction;
 			sh.restitution = restitution;
@@ -241,7 +223,6 @@ package com.falanxia.utilitaris.b2utils {
 			b.SetMassFromShapes();
 
 			return b;
-
 		}
 
 
@@ -254,7 +235,6 @@ package com.falanxia.utilitaris.b2utils {
 		public function drawRectangleFence(coords:WorldCoords, width:Number, height:Number, wallSize:Number, isSensor:Boolean = false,
 		                                   density:Number = 0, restitution:Number = .1, friction:Number = .1,
 		                                   angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false):Vector.<b2Body> {
-
 			if(coords.y >= height) height += coords.y;
 
 			var x:Number = coords.x;
@@ -272,11 +252,10 @@ package com.falanxia.utilitaris.b2utils {
 			v.push(drawRectangle(w4, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
 
 			return v;
-
 		}
-
 	}
 }
+
 
 class Senf {
 }

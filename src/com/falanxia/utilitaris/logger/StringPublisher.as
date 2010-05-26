@@ -23,8 +23,8 @@
  */
 
 package com.falanxia.utilitaris.logger {
-	import de.dev_lab.logging.Logger;
-	import de.dev_lab.logging.publisher.IPublisher;
+	import de.dev_lab.logging.*;
+	import de.dev_lab.logging.publisher.*;
 
 
 

@@ -23,19 +23,11 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.RGBA;
+	import com.falanxia.utilitaris.types.*;
 
-	import flash.display.DisplayObject;
-	import flash.display.DisplayObjectContainer;
-	import flash.display.Graphics;
-	import flash.display.MovieClip;
-	import flash.display.Shape;
-	import flash.display.Sprite;
-	import flash.events.Event;
-	import flash.geom.Matrix;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
-	import flash.geom.Transform;
+	import flash.display.*;
+	import flash.events.*;
+	import flash.geom.*;
 
 
 
@@ -179,8 +171,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param angle2 Angle 2
 		 * @param rgba {@code RGBA} color
 		 */
-		public static function drawPie(canvas:Sprite, center:Point, rgba:RGBA, radius:Number = DEFAULT_RADIUS, segments:int = DEFAULT_SEGMENTS,
-		                               angle1:Number = 0, angle2:Number = 360):void {
+		public static function drawPie(canvas:Sprite, center:Point, rgba:RGBA, radius:Number = DEFAULT_RADIUS,
+		                               segments:int = DEFAULT_SEGMENTS, angle1:Number = 0, angle2:Number = 360):void {
 			var segm:Number;
 			var grad:Number;
 			var x1:Number;

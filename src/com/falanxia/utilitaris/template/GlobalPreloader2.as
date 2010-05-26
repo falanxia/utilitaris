@@ -23,15 +23,11 @@
  */
 
 package com.falanxia.utilitaris.template {
-	import com.falanxia.utilitaris.utils.ClassUtils;
+	import com.falanxia.utilitaris.utils.*;
 
-	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
-	import flash.events.Event;
-	import flash.events.IOErrorEvent;
-	import flash.external.ExternalInterface;
+	import flash.display.*;
+	import flash.events.*;
+	import flash.external.*;
 
 
 

@@ -23,11 +23,10 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Collision.Shapes.b2Shape;
-	import Box2D.Collision.b2AABB;
-	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.b2Body;
-	import Box2D.Dynamics.b2World;
+	import Box2D.Collision.Shapes.*;
+	import Box2D.Collision.*;
+	import Box2D.Common.Math.*;
+	import Box2D.Dynamics.*;
 
 
 
@@ -39,6 +38,8 @@ package com.falanxia.utilitaris.b2utils {
 	 * @since 1.0
 	 */
 	public class B2MouseUtils {
+
+
 
 		private static var INSTANCE:B2MouseUtils;
 
@@ -78,6 +79,16 @@ package com.falanxia.utilitaris.b2utils {
 
 
 		/**
+		 * Destructor.
+		 */
+		public function destroy():void {
+			INSTANCE = null;
+			world = null;
+		}
+
+
+
+		/**
 		 * Returns the first b2Body found under the mouse cursor.
 		 * @param mouseX mouseX coord (in pixels)
 		 * @param mouseY mouseY coord (in pixels)
@@ -99,37 +110,24 @@ package com.falanxia.utilitaris.b2utils {
 			var count:int = world.Query(aabb, shapes, maxCount);
 			var body:b2Body;
 
-
 			for(var i:int = 0; i < count; ++i) {
-
 				if(shapes[i].GetBody().IsStatic() == false || includeStatic) {
-
 					var tShape:b2Shape = shapes[i];
 					var inside:Boolean = tShape.TestPoint(tShape.GetBody().GetXForm(), mouseCoords);
 
 					if(inside) {
-
 						body = tShape.GetBody();
 						break;
-
 					}
-
 				}
-
 			}
 
 			return body;
-
 		}
-
-		public function destroy():void {
-			INSTANCE = null;
-			world = null;
-		}
-
 	}
-
 }
+
+
 
 class Senf {
 }

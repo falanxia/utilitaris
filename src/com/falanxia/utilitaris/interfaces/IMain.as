@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.interfaces{
+package com.falanxia.utilitaris.interfaces {
 
 
 

@@ -51,8 +51,12 @@ package com.falanxia.utilitaris.types {
 		 * @param isDecimalPercentage Indicates if the parameter <code>percentage</code> is a decimal percentage <code>true</code>, or regular percentage <code>false</code>.
 		 */
 		public final function Percent(percentage:Number = 0, isDecimalPercentage:Boolean = false) {
-			if(isDecimalPercentage) this.decimalPercentage = percentage;
-			else this.percentage = percentage;
+			if(isDecimalPercentage) {
+				this.decimalPercentage = percentage;
+			}
+			else {
+				this.percentage = percentage;
+			}
 		}
 
 
@@ -86,7 +90,7 @@ package com.falanxia.utilitaris.types {
 		 * @param max TODO
 		 */
 		public final function setValue(value:Number, max:Number):void {
-			 this.percentage = 100 / (max / value);
+			this.percentage = 100 / (max / value);
 		}
 
 

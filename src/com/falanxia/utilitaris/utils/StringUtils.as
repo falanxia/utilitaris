@@ -66,6 +66,7 @@ package com.falanxia.utilitaris.utils {
 
 			for(var i:uint = 0; i < m; ++i) {
 				unsafeChar = "\\-^[]".substr(i, 1);
+
 				if(v.indexOf(unsafeChar) != -1) {
 					v = v.replace(unsafeChar, "\\" + unsafeChar);
 				}
@@ -895,7 +896,6 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		//noinspection JSUnusedLocalSymbols
 		private static function quote2(value:String, ...args):String {
 			var out:String;
 
@@ -925,14 +925,12 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		//noinspection JSUnusedLocalSymbols
 		private static function upperCase2(ch:String, ...args):String {
 			return ch.toUpperCase();
 		}
 
 
 
-		//noinspection JSUnusedLocalSymbols
 		private static function swapCase2(ch:String, ...args):String {
 			var out:String;
 			var lowChar:String = ch.toLowerCase();

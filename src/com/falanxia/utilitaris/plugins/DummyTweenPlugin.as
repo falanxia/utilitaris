@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.plugins {
-	import com.greensock.TweenLite;
+	import com.greensock.*;
 	import com.greensock.plugins.*;
 
 

@@ -23,9 +23,7 @@
  */
 
 package com.falanxia.utilitaris.collections {
-
-
-	import flash.utils.Dictionary;
+	import flash.utils.*;
 
 
 
@@ -177,24 +175,28 @@ package com.falanxia.utilitaris.collections {
 				addToArrayAt(targetIndex, o);
 			}
 
-			else if(itemName != null) {
-				o = dicto[itemName];
-				var j:int = array.indexOf(o);
+			else {
+				if(itemName != null) {
+					o = dicto[itemName];
+					var j:int = array.indexOf(o);
 
-				if(j < 0) return false;
+					if(j < 0) return false;
 
-				removeFromArrayAt(j);
-				addToArrayAt(targetIndex, o);
+					removeFromArrayAt(j);
+					addToArrayAt(targetIndex, o);
 
-				return true;
-			}
+					return true;
+				}
 
-			else if(itemIndex > 0) {
-				o = getItemAt(itemIndex);
-				removeFromArrayAt(itemIndex);
-				addToArrayAt(targetIndex, o);
+				else {
+					if(itemIndex > 0) {
+						o = getItemAt(itemIndex);
+						removeFromArrayAt(itemIndex);
+						addToArrayAt(targetIndex, o);
 
-				return true;
+						return true;
+					}
+				}
 			}
 
 			return false;

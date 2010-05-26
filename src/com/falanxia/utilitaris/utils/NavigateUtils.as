@@ -23,9 +23,8 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.external.ExternalInterface;
-	import flash.net.URLRequest;
-	import flash.net.navigateToURL;
+	import flash.external.*;
+	import flash.net.*;
 
 
 
@@ -72,8 +71,12 @@ package com.falanxia.utilitaris.utils {
 
 			if(r is String) {
 				r = new URLRequest(r);
-			} else if(!(r is URLRequest)) {
-				throw new Error("request");
+			}
+			else {
+				if(!(r is URLRequest
+				    )) {
+					throw new Error("request");
+				}
 			}
 
 			//noinspection OverlyComplexBooleanExpressionJS

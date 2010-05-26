@@ -23,8 +23,8 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.DisplayObject;
-	import flash.geom.Rectangle;
+	import flash.display.*;
+	import flash.geom.*;
 
 
 

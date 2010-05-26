@@ -23,10 +23,8 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.Bitmap;
-	import flash.display.BitmapData;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
+	import flash.display.*;
+	import flash.geom.*;
 
 
 
@@ -63,8 +61,17 @@ package com.falanxia.utilitaris.utils {
 		public static function embed2BD(source:*):BitmapData {
 			var o:BitmapData;
 
-			if(source is Bitmap) o = source.bitmapData; else if(source is BitmapData) o = source;
-			else throw new TypeError("Bitmap or BitmapData needed");
+			if(source is Bitmap) {
+				o = source.bitmapData;
+			}
+			else {
+				if(source is BitmapData) {
+					o = source;
+				}
+				else {
+					throw new TypeError("Bitmap or BitmapData needed");
+				}
+			}
 
 			return o;
 		}

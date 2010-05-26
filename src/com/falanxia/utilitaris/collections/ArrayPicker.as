@@ -272,12 +272,6 @@ package com.falanxia.utilitaris.collections {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		/**
-		 * Random range.
-		 * @param min
-		 * @param max
-		 * @return Random range
-		 */
 		private function randRange(min:Number, max:Number):Number {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}

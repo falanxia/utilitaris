@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.Percent;
+	import com.falanxia.utilitaris.types.*;
 
 
 
@@ -128,16 +128,20 @@ package com.falanxia.utilitaris.utils {
 				out = NaN;
 			}
 
-			else if(val1 == null || val2 == null) {
-				out = (val2 == null) ? val1 : val2;
-			}
-
-			else if(isNaN(val1) || isNaN(val2)) {
-				out = (isNaN(val2)) ? val1 : val2;
-			}
-
 			else {
-				out = Math.max(val1, val2);
+				if(val1 == null || val2 == null) {
+					out = (val2 == null) ? val1 : val2;
+				}
+
+				else {
+					if(isNaN(val1) || isNaN(val2)) {
+						out = (isNaN(val2)) ? val1 : val2;
+					}
+
+					else {
+						out = Math.max(val1, val2);
+					}
+				}
 			}
 
 			return out;
@@ -590,8 +594,9 @@ package com.falanxia.utilitaris.utils {
 
 					var addChar:String = (fillChar == null) ? "0" : fillChar;
 
-					while(ml--)
+					while(ml--) {
 						num = addChar + num;
+					}
 				}
 			}
 

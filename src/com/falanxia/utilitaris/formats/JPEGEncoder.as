@@ -23,10 +23,8 @@
  */
 
 package com.falanxia.utilitaris.formats {
-
-
-	import flash.display.BitmapData;
-	import flash.utils.ByteArray;
+	import flash.display.*;
+	import flash.utils.*;
 
 
 
@@ -35,7 +33,27 @@ package com.falanxia.utilitaris.formats {
 	 * Original by ByteArray (http://www.bytearray.org/?p=775)
 	 */
 	public final class JPEGEncoder {
-		// Static table initialization
+
+
+		private var sf:int;
+		private var byteout:ByteArray;
+		private var bytenew:int = 0;
+		private var bytepos:int = 7;
+
+		private var YTable:Vector.<int> = new Vector.<int>(64, true);
+		private var UVTable:Vector.<int> = new Vector.<int>(64, true);
+		private var outputfDCTQuant:Vector.<int> = new Vector.<int>(64, true);
+		private var fdtbl_Y:Vector.<Number> = new Vector.<Number>(64, true);
+		private var fdtbl_UV:Vector.<Number> = new Vector.<Number>(64, true);
+		private var YDU:Vector.<Number> = new Vector.<Number>(64, true);
+		private var UDU:Vector.<Number> = new Vector.<Number>(64, true);
+		private var VDU:Vector.<Number> = new Vector.<Number>(64, true);
+
+		private const aasf:Vector.<Number> = Vector.<Number>([
+			1.0, 1.387039845, 1.306562965, 1.175875602,
+			1.0, 0.785694958, 0.541196100, 0.275899379
+		]);
+
 		private const ZigZag:Vector.<int> = Vector.<int>([
 			0, 1, 5, 6,14,15,27,28,
 			2, 4, 7,13,16,26,29,42,
@@ -45,17 +63,6 @@ package com.falanxia.utilitaris.formats {
 			20,22,33,38,46,51,55,60,
 			21,34,37,47,50,56,59,61,
 			35,36,48,49,57,58,62,63
-		]);
-		private var YTable:Vector.<int> = new Vector.<int>(64, true);
-		private var UVTable:Vector.<int> = new Vector.<int>(64, true);
-		private var outputfDCTQuant:Vector.<int> = new Vector.<int>(64, true);
-		private var fdtbl_Y:Vector.<Number> = new Vector.<Number>(64, true);
-		private var fdtbl_UV:Vector.<Number> = new Vector.<Number>(64, true);
-		private var sf:int;
-
-		private const aasf:Vector.<Number> = Vector.<Number>([
-			1.0, 1.387039845, 1.306562965, 1.175875602,
-			1.0, 0.785694958, 0.541196100, 0.275899379
 		]);
 
 		private var YQT:Vector.<int> = Vector.<int>([
@@ -80,79 +87,21 @@ package com.falanxia.utilitaris.formats {
 			99, 99, 99, 99, 99, 99, 99, 99
 		]);
 
-
-
-		private function initQuantTables(sf:int):void {
-			var i:int;
-			const I64:int = 64;
-			const I8:int = 8;
-			for(i = 0; i < I64; ++i) {
-				var t:int = int((YQT[i] * sf + 50) * 0.01);
-				if(t < 1) {
-					t = 1;
-				}
-				else {
-					if(t > 255) {
-						t = 255;
-					}
-				}
-				YTable[ZigZag[i]] = t;
-			}
-
-			for(i = 0; i < I64; i++) {
-				var u:int = int((UVQT[i] * sf + 50) * 0.01);
-				if(u < 1) {
-					u = 1;
-				}
-				else {
-					if(u > 255) {
-						u = 255;
-					}
-				}
-				UVTable[ZigZag[i]] = u;
-			}
-			i = 0;
-			for(var row:int = 0; row < I8; ++row) {
-				for(var col:int = 0; col < I8; ++col) {
-					fdtbl_Y[i] = (1 / (YTable [ZigZag[i]] * aasf[row] * aasf[col] * I8));
-					fdtbl_UV[i] = (1 / (UVTable[ZigZag[i]] * aasf[row] * aasf[col] * I8));
-					i++;
-				}
-			}
-		}
-
-
-
 		private var YDC_HT:Vector.<BitString>;
 		private var UVDC_HT:Vector.<BitString>;
 		private var YAC_HT:Vector.<BitString>;
 		private var UVAC_HT:Vector.<BitString>;
-
-
-
-		private function computeHuffmanTbl(nrcodes:Vector.<int>, std_table:Vector.<int>):Vector.<BitString> {
-			var codevalue:int = 0;
-			var pos_in_table:int = 0;
-			var HT:Vector.<BitString> = new Vector.<BitString>(251, true);
-			var bitString:BitString;
-			for(var k:int = 1; k <= 16; ++k) {
-				for(var j:int = 1; j <= nrcodes[k]; ++j) {
-					HT[std_table[pos_in_table]] = bitString = new BitString();
-					bitString.val = codevalue;
-					bitString.len = k;
-					pos_in_table++;
-					codevalue++;
-				}
-				codevalue <<= 1;
-			}
-			return HT;
-		}
-
-
+		private var bitcode:Vector.<BitString> = new Vector.<BitString>(65535, true);
+		private var category:Vector.<int> = new Vector.<int>(65535, true);
+		internal var DU:Vector.<int> = new Vector.<int>(64, true);
 
 		private var std_dc_luminance_nrcodes:Vector.<int> = Vector.<int>([0,0,1,5,1,1,1,1,1,1,0,0,0,0,0,0,0]);
 		private var std_dc_luminance_values:Vector.<int> = Vector.<int>([0,1,2,3,4,5,6,7,8,9,10,11]);
 		private var std_ac_luminance_nrcodes:Vector.<int> = Vector.<int>([0,0,2,1,3,3,2,4,3,5,5,4,4,0,0,1,0x7d]);
+		private var std_dc_chrominance_nrcodes:Vector.<int> = Vector.<int>([0,0,3,1,1,1,1,1,1,1,1,1,0,0,0,0,0]);
+		private var std_dc_chrominance_values:Vector.<int> = Vector.<int>([0,1,2,3,4,5,6,7,8,9,10,11]);
+		private var std_ac_chrominance_nrcodes:Vector.<int> = Vector.<int>([0,0,2,1,2,4,4,3,4,7,5,4,4,0,1,2,0x77]);
+
 		private var std_ac_luminance_values:Vector.<int> = Vector.<int>([0x01,0x02,0x03,0x00,0x04,0x11,0x05,0x12,
 		                                                                 0x21,0x31,0x41,0x06,0x13,0x51,0x61,0x07,
 		                                                                 0x22,0x71,0x14,0x32,0x81,0x91,0xa1,0x08,
@@ -175,9 +124,6 @@ package com.falanxia.utilitaris.formats {
 		                                                                 0xf1,0xf2,0xf3,0xf4,0xf5,0xf6,0xf7,0xf8,
 		                                                                 0xf9,0xfa]);
 
-		private var std_dc_chrominance_nrcodes:Vector.<int> = Vector.<int>([0,0,3,1,1,1,1,1,1,1,1,1,0,0,0,0,0]);
-		private var std_dc_chrominance_values:Vector.<int> = Vector.<int>([0,1,2,3,4,5,6,7,8,9,10,11]);
-		private var std_ac_chrominance_nrcodes:Vector.<int> = Vector.<int>([0,0,2,1,2,4,4,3,4,7,5,4,4,0,1,2,0x77]);
 		private var std_ac_chrominance_values:Vector.<int> = Vector.<int>([0x00,0x01,0x02,0x03,0x11,0x04,0x05,0x21,
 		                                                                   0x31,0x06,0x12,0x41,0x51,0x07,0x61,0x71,
 		                                                                   0x13,0x22,0x32,0x81,0x08,0x14,0x42,0x91,
@@ -203,6 +149,128 @@ package com.falanxia.utilitaris.formats {
 
 
 
+		public function encode(image:BitmapData):ByteArray {
+			// Initialize bit writer
+			byteout = new ByteArray();
+
+			bytenew = 0;
+			bytepos = 7;
+
+			// Add JPEG headers
+			byteout.writeShort(0xFFD8); // SOI
+			writeAPP0();
+			writeDQT();
+			writeSOF0(image.width, image.height);
+			writeDHT();
+			writeSOS();
+
+			// Encode 8x8 macroblocks
+			var DCY:Number = 0;
+			var DCU:Number = 0;
+			var DCV:Number = 0;
+			bytenew = 0;
+			bytepos = 7;
+
+			var width:int = image.width;
+			var height:int = image.height;
+
+			for(var ypos:int = 0; ypos < height; ypos += 8) {
+				for(var xpos:int = 0; xpos < width; xpos += 8) {
+					RGB2YUV(image, xpos, ypos);
+					DCY = processDU(YDU, fdtbl_Y, DCY, YDC_HT, YAC_HT);
+					DCU = processDU(UDU, fdtbl_UV, DCU, UVDC_HT, UVAC_HT);
+					DCV = processDU(VDU, fdtbl_UV, DCV, UVDC_HT, UVAC_HT);
+				}
+			}
+
+			// Do the bit alignment of the EOI marker
+			if(bytepos >= 0) {
+				var fillbits:BitString = new BitString();
+				fillbits.len = bytepos + 1;
+				fillbits.val = (1 << (bytepos + 1)) - 1;
+				writeBits(fillbits);
+			}
+
+			byteout.writeShort(0xFFD9); //EOI
+
+			return byteout;
+		}
+
+
+
+		/* ★ PRIVATE METHODS ★ */
+
+
+		private function initQuantTables(sf:int):void {
+			var i:int;
+			const I64:int = 64;
+			const I8:int = 8;
+
+			for(i = 0; i < I64; ++i) {
+				var t:int = int((YQT[i] * sf + 50) * 0.01);
+
+				if(t < 1) {
+					t = 1;
+				}
+				else {
+					if(t > 255) {
+						t = 255;
+					}
+				}
+
+				YTable[ZigZag[i]] = t;
+			}
+
+			for(i = 0; i < I64; i++) {
+				var u:int = int((UVQT[i] * sf + 50) * 0.01);
+
+				if(u < 1) {
+					u = 1;
+				}
+				else {
+					if(u > 255) {
+						u = 255;
+					}
+				}
+
+				UVTable[ZigZag[i]] = u;
+			}
+
+			i = 0;
+
+			for(var row:int = 0; row < I8; ++row) {
+				for(var col:int = 0; col < I8; ++col) {
+					fdtbl_Y[i] = (1 / (YTable [ZigZag[i]] * aasf[row] * aasf[col] * I8));
+					fdtbl_UV[i] = (1 / (UVTable[ZigZag[i]] * aasf[row] * aasf[col] * I8));
+					i++;
+				}
+			}
+		}
+
+
+
+		private function computeHuffmanTbl(nrcodes:Vector.<int>, std_table:Vector.<int>):Vector.<BitString> {
+			var codevalue:int = 0;
+			var pos_in_table:int = 0;
+			var HT:Vector.<BitString> = new Vector.<BitString>(251, true);
+			var bitString:BitString;
+
+			for(var k:int = 1; k <= 16; ++k) {
+				for(var j:int = 1; j <= nrcodes[k]; ++j) {
+					HT[std_table[pos_in_table]] = bitString = new BitString();
+					bitString.val = codevalue;
+					bitString.len = k;
+					pos_in_table++;
+					codevalue++;
+				}
+				codevalue <<= 1;
+			}
+
+			return HT;
+		}
+
+
+
 		private function initHuffmanTbl():void {
 			YDC_HT = computeHuffmanTbl(std_dc_luminance_nrcodes, std_dc_luminance_values);
 			UVDC_HT = computeHuffmanTbl(std_dc_chrominance_nrcodes, std_dc_chrominance_values);
@@ -212,17 +280,13 @@ package com.falanxia.utilitaris.formats {
 
 
 
-		private var bitcode:Vector.<BitString> = new Vector.<BitString>(65535, true);
-		private var category:Vector.<int> = new Vector.<int>(65535, true);
-
-
-
 		private function initCategoryNumber():void {
 			var nrlower:int = 1;
 			var nrupper:int = 2;
 			var bitString:BitString;
 			const I15:int = 15;
 			var pos:int;
+
 			for(var cat:int = 1; cat <= I15; ++cat) {
 				//Positive numbers
 				for(var nr:int = nrlower; nr < nrupper; ++nr) {
@@ -232,6 +296,7 @@ package com.falanxia.utilitaris.formats {
 					bitString.len = cat;
 					bitString.val = nr;
 				}
+
 				//Negative numbers
 				for(var nrneg:int = -(nrupper - 1); nrneg <= -nrlower; ++nrneg) {
 					pos = int(32767 + nrneg);
@@ -240,18 +305,11 @@ package com.falanxia.utilitaris.formats {
 					bitString.len = cat;
 					bitString.val = nrupper - 1 + nrneg;
 				}
+
 				nrlower <<= 1;
 				nrupper <<= 1;
 			}
 		}
-
-
-
-		// IO functions
-
-		private var byteout:ByteArray;
-		private var bytenew:int = 0;
-		private var bytepos:int = 7;
 
 
 
@@ -280,8 +338,6 @@ package com.falanxia.utilitaris.formats {
 
 
 
-		// DCT & quantization core
-
 		private function fDCTQuant(data:Vector.<Number>, fdtbl:Vector.<Number>):Vector.<int> {
 			/* Pass 1: process rows. */
 			var dataOff:int = 0;
@@ -289,6 +345,7 @@ package com.falanxia.utilitaris.formats {
 			var i:int;
 			const I8:int = 8;
 			const I64:int = 64;
+
 			for(i = 0; i < I8; ++i) {
 				d0 = data[int(dataOff)];
 				d1 = data[int(dataOff + 1)];
@@ -436,6 +493,8 @@ package com.falanxia.utilitaris.formats {
 
 
 		// Chunk writing
+
+
 		private function writeAPP0():void {
 			byteout.writeShort(0xFFE0); // marker
 			byteout.writeShort(16); // length
@@ -498,12 +557,13 @@ package com.falanxia.utilitaris.formats {
 		private function writeDHT():void {
 			byteout.writeShort(0xFFC4); // marker
 			byteout.writeShort(0x01A2); // length
-
 			byteout.writeByte(0); // HTYDCinfo
+
 			var i:int;
 			const I11:int = 11;
 			const I16:int = 16;
 			const I161:int = 161;
+
 			for(i = 0; i < I16; ++i) {
 				byteout.writeByte(std_dc_luminance_nrcodes[int(i + 1)]);
 			}
@@ -562,12 +622,8 @@ package com.falanxia.utilitaris.formats {
 
 
 
-		// Core processing
-		internal var DU:Vector.<int> = new Vector.<int>(64, true);
-
-
-
-		private function processDU(CDU:Vector.<Number>, fdtbl:Vector.<Number>, DC:Number, HTDC:Vector.<BitString>, HTAC:Vector.<BitString>):Number {
+		private function processDU(CDU:Vector.<Number>, fdtbl:Vector.<Number>, DC:Number, HTDC:Vector.<BitString>,
+		                           HTAC:Vector.<BitString>):Number {
 			var EOB:BitString = HTAC[0x00];
 			var M16zeroes:BitString = HTAC[0xF0];
 			var pos:int;
@@ -627,12 +683,6 @@ package com.falanxia.utilitaris.formats {
 
 
 
-		private var YDU:Vector.<Number> = new Vector.<Number>(64, true);
-		private var UDU:Vector.<Number> = new Vector.<Number>(64, true);
-		private var VDU:Vector.<Number> = new Vector.<Number>(64, true);
-
-
-
 		private function RGB2YUV(img:BitmapData, xpos:int, ypos:int):void {
 			var pos:int = 0;
 			const I8:int = 8;
@@ -685,55 +735,9 @@ package com.falanxia.utilitaris.formats {
 			initCategoryNumber();
 			initQuantTables(sf);
 		}
-
-
-
-		public function encode(image:BitmapData):ByteArray {
-			// Initialize bit writer
-			byteout = new ByteArray();
-
-			bytenew = 0;
-			bytepos = 7;
-
-			// Add JPEG headers
-			byteout.writeShort(0xFFD8); // SOI
-			writeAPP0();
-			writeDQT();
-			writeSOF0(image.width, image.height);
-			writeDHT();
-			writeSOS();
-
-			// Encode 8x8 macroblocks
-			var DCY:Number = 0;
-			var DCU:Number = 0;
-			var DCV:Number = 0;
-			bytenew = 0;
-			bytepos = 7;
-
-			var width:int = image.width;
-			var height:int = image.height;
-
-			for(var ypos:int = 0; ypos < height; ypos += 8) {
-				for(var xpos:int = 0; xpos < width; xpos += 8) {
-					RGB2YUV(image, xpos, ypos);
-					DCY = processDU(YDU, fdtbl_Y, DCY, YDC_HT, YAC_HT);
-					DCU = processDU(UDU, fdtbl_UV, DCU, UVDC_HT, UVAC_HT);
-					DCV = processDU(VDU, fdtbl_UV, DCV, UVDC_HT, UVAC_HT);
-				}
-			}
-
-			// Do the bit alignment of the EOI marker
-			if(bytepos >= 0) {
-				var fillbits:BitString = new BitString();
-				fillbits.len = bytepos + 1;
-				fillbits.val = (1 << (bytepos + 1)) - 1;
-				writeBits(fillbits);
-			}
-			byteout.writeShort(0xFFD9); //EOI
-			return byteout;
-		}
 	}
 }
+
 
 final class BitString {
 	public var len:int = 0;

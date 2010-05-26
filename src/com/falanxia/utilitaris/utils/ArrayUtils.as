@@ -500,7 +500,7 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
+		/* ★ PROTECTED METHODS ★ */
 
 
 		protected static function removeDuplicatesFilter(e:*, i:int, inArray:Array):Boolean {
