@@ -56,7 +56,7 @@ package com.falanxia.utilitaris.utils {
 		 * Count the properties in an {@code Object}.
 		 * @param obj {@code Object} to count the properties of
 		 * @return {@code Number} of properties in the specified object. If the specified object is {@code null}, this is {@code 0}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function numProperties(obj:Object):int {
 			var count:int = 0;
@@ -72,7 +72,7 @@ package com.falanxia.utilitaris.utils {
 		 * Check if an {@code Object} has any properties.
 		 * @param obj {@code Object} to check for properties
 		 * @return If the specified {@code Object} has any properties. If the specified {@code Object} is {@code null}, this is {@code false}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function hasProperties(obj:Object):Boolean {
 			for each(var prop:Object in obj) return true;
@@ -86,8 +86,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param obj {@code Object} whose properties should be checked
 		 * @param type Type to check the {@code Object}'s properties against
 		 * @return If all of the properties of the specified {@code Object} are of the specified type
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function isUniformPropertyType(obj:Object, type:Class):Boolean {
 			var out:Boolean = true;
@@ -105,7 +105,7 @@ package com.falanxia.utilitaris.utils {
 		 * Assign properties from params to an {@code Object}.
 		 * @param obj Target {@code Object}
 		 * @param params Source {@code Object}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 * @return Resulting {@code Object}
 		 */
 		public static function assign(obj:Object, params:Object):Object {
@@ -129,7 +129,7 @@ package com.falanxia.utilitaris.utils {
 		 * Clone an {@code Object}.
 		 * @param source Source {@code Object}
 		 * @return Cloned {@code Object}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function clone(source:*):Object {
 			var copier:ByteArray = new ByteArray();
@@ -147,8 +147,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param obj {@code Object} to be scanned
 		 * @param depth Depth of scanning
 		 * @return Scan result
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function inspect(obj:Object, depth:int = 10, prefix:String = "\t"):String {
 			return prefix + scanObject(obj, depth, prefix + "\t");
@@ -161,8 +161,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param obj {@code Object} to copy
 		 * @param into (optional) {@code Object} to copy into. If {@code null}, a new {@code Object} is created
 		 * @return A one-level deep copy of the {@code Object} or null if the argument is {@code null}
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function copy(obj:Object, into:Object = null):Object {
 			var i:Object = into;
@@ -186,8 +186,8 @@ package com.falanxia.utilitaris.utils {
 		 * Convert the {@code Object} to an {@code Array}. Note that the order of the {@code Array} is undefined.
 		 * @param obj {@code Object} to convert
 		 * @return An {@code Array} with all of the properties of the given {@code Object} or {@code null} if the given {@code Object} is {@code null}
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function toArray(obj:Object):Array {
 			var out:Array;
@@ -212,8 +212,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param obj {@code Object} to convert
 		 * @param delimiter (optional) Delimiter of property/value pairs
 		 * @return An {@code String} of all property/value pairs delimited by the given {@code String} or {@code null} if the input {@code Object} or delimiter is {@code null}.
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function toString(obj:Object = null, delimiter:String = "\n"):String {
 			var out:String;
@@ -239,8 +239,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param obj {@code Object} to search in.
 		 * @param member {@code Object} to search for.
 		 * @return {@code true} if {@code Object} was found
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function contains(obj:Object, member:Object):Boolean {
 			var out:Boolean;
@@ -260,7 +260,7 @@ package com.falanxia.utilitaris.utils {
 		 * Uses the strict equality operator to determine if {@code Object} is {@code null}\.
 		 * @param obj {@code Object} to determine if {@code null}.
 		 * @return {@code true} if {@code Object} is {@code null}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isNull(obj:Object):Boolean {
 			return obj === null;
@@ -283,8 +283,8 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(ObjectUtils.isEmpty(testString)); // traces "true"
 		 *          trace(ObjectUtils.isEmpty(testObject)); // traces "true"
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function isEmpty(obj:*):Boolean {
 			var out:Boolean;

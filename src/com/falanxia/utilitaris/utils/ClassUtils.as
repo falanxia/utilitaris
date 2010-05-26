@@ -76,7 +76,7 @@ package com.falanxia.utilitaris.utils {
 		 * Get the {@code Class} of an {@code Object}.
 		 * @param obj {@code DisplayObject} to get the {@code Class} of
 		 * @return {@code Class} of the given {@code DisplayObject} or {@code null} if the class cannot be determined
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getClass(obj:Object):Class {
 			var out:Class;
@@ -101,7 +101,7 @@ package com.falanxia.utilitaris.utils {
 		 * Get a {@code Class} by its fully-qualified name.
 		 * @param className Fully-qualified name of the {@code Class}
 		 * @return {@code Class} with the given name or null if none exists
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getClassByName(className:String):Class {
 			var out:Class;
@@ -125,7 +125,7 @@ package com.falanxia.utilitaris.utils {
 		 * Get the {@code Class} of a {@code DisplayObject}.
 		 * @param obj {@code Object} to get the {@code Class} of
 		 * @return {@code Class} of the given {@code Object} or {@code null} if the class cannot be determined
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getDisplayObjectClass(obj:Object):Class {
 			var out:Class;
@@ -163,7 +163,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var bData:* = ClassUtils.construct(BitmapData, 200, 200);
 		 *          trace(bData is BitmapData, bData.width);
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function construct(type:Class, ...args):* {
 			var out:*;

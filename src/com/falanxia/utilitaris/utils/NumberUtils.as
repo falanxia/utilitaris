@@ -63,7 +63,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.isEqual(3.042, 3, 0)); // traces false
 		 *          trace(NumberUtils.isEqual(3.042, 3, 0.5)); // traces true
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isEqual(val1:Number, val2:Number, precision:Number = 0):Boolean {
 			return Math.abs(val1 - val2) <= Math.abs(precision);
@@ -83,8 +83,8 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.min(5, "CASA")); // traces 5
 		 *          trace(NumberUtils.min(5, 13)); // traces 5
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		//noinspection FunctionWithMultipleReturnPointsJS
 		public static function min(val1:*, val2:*):Number {
@@ -117,8 +117,8 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.max(-5, "CASA")); // traces -5
 		 *          trace(NumberUtils.max(-5, -13)); // traces -5
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function max(val1:*, val2:*):Number {
 			var out:Number;
@@ -158,7 +158,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.isEven(7)); // traces false
 		 *          trace(NumberUtils.isEven(12)); // traces true
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isEven(value:Number):Boolean {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -176,7 +176,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.isOdd(7)); // traces true
 		 *          trace(NumberUtils.isOdd(12)); // traces false
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isOdd(value:Number):Boolean {
 			return !isEven(value);
@@ -193,7 +193,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.isInteger(13)); // traces true
 		 *          trace(NumberUtils.isInteger(1.2345)); // traces false
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isInteger(value:Number):Boolean {
 			return (value % 1) == 0;
@@ -210,8 +210,8 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.isPrime(13)); // traces true
 		 *          trace(NumberUtils.isPrime(4)); // traces false
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function isPrime(value:Number):Boolean {
 			if(value == 1 || value == 2) {
@@ -245,7 +245,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.roundToPlace(3.14159, 2)); // traces 3.14
 		 *          trace(NumberUtils.roundToPlace(3.14159, 3)); // traces 3.142
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function roundDecimalToPlace(value:Number, place:uint):Number {
 			var p:Number = Math.pow(10, place);
@@ -268,7 +268,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(colors[NumberUtils.loopIndex(4, colors.length)]); // traces Green
 		 *          trace(colors[NumberUtils.loopIndex(-6, colors.length)]); // traces Red
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		//noinspection FunctionWithMultipleReturnPointsJS
 		public static function loopIndex(index:int, length:uint):uint {
@@ -299,7 +299,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.isBetween(3, 0, 5)); // traces true
 		 *          trace(NumberUtils.isBetween(7, 0, 5)); // traces false
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isBetween(value:Number, firstValue:Number, secondValue:Number):Boolean {
 			return !(value < Math.min(firstValue, secondValue) || value > Math.max(firstValue, secondValue));
@@ -313,7 +313,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param min Minimum {@code Number} for {@code value} to be
 		 * @param max Maximmum {@code Number} for {@code value} to be
 		 * @return Restricted {@code value}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function confine(value:Number, min:Number, max:Number):Number {
 			//noinspection NestedConditionalExpressionJS
@@ -337,8 +337,8 @@ package com.falanxia.utilitaris.utils {
 		 *          NumberUtils.pad(9, 3, 2); // returns "009.00"
 		 *          NumberUtils.pad(2835.3, 4, 2); // returns "2835.30"
 		 *      </code>
-		 * @todo Test
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Test
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function pad(value:Number, beforePoint:uint, afterPoint:uint = 0):String {
 			// separate the integer from the decimal
@@ -401,7 +401,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param value {@code Number} to round
 		 * @param digits Number of digits to show after the point
 		 * @return Rounded {@code value}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function round(value:Number, digits:int):Number {
 			var d:int = digits;
@@ -417,8 +417,8 @@ package com.falanxia.utilitaris.utils {
 		 * Inserts commas every three digits in the integer of {@code value}.
 		 * @param value {@code Number} to insert commas into
 		 * @return {@code value} as a {@code String} formatted with commas
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function insertCommas(value:Number):String {
 			// convert the value to a string
@@ -461,8 +461,8 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.createStepsBetween(0, 5, 4)); // traces 1,2,3,4
 		 *          trace(NumberUtils.createStepsBetween(1, 3, 3)); // traces 1.5,2,2.5
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function createStepsBetween(begin:Number, end:Number, steps:Number):Array {
 			var s:Number = steps + 1;
@@ -489,7 +489,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(NumberUtils.interpolate(new Percent(0.5), 0, 10)); // traces 5
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function interpolate(amount:Percent, minimum:Number, maximum:Number):Number {
 			return minimum + (maximum - minimum) * amount.decimalPercentage;
@@ -507,7 +507,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.normalize(8, 4, 20).decimalPercentage); // traces 0.25
 		 *      </code>
 		 * @see Percent
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function normalize(value:Number, minimum:Number, maximum:Number):Percent {
 			return new Percent((value - minimum) / (maximum - minimum));
@@ -526,7 +526,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(NumberUtils.map(0.75, 0, 1, 0, 100)); // traces 75
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function map(value:Number, min1:Number, max1:Number, min2:Number, max2:Number):Number {
 			//noinspection OverlyComplexArithmeticExpressionJS
@@ -545,7 +545,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param dest Destination value
 		 * @param n Slowdown factor
 		 * @return Weighted average
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function getWeightedAverage(value:Number, dest:Number, n:Number):Number {
 			return value + (dest - value) / n;
@@ -564,8 +564,8 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(NumberUtils.format(1234567, 8, ",")); // traces 01,234,567
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function format(value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null):String {
 			var num:String = value.toString();
@@ -613,8 +613,8 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(32 + NumberUtils.getOrdinalSuffix(32)); // traces 32nd
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
-		 * @todo Test
+		 * TODO: Optimize for faster access (no static)
+		 * TODO: Test
 		 */
 		public static function getOrdinalSuffix(value:int):String {
 			var out:String;
@@ -664,7 +664,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(NumberUtils.addLeadingZero(7)); // traces 07
 		 *          trace(NumberUtils.addLeadingZero(11)); // traces 11
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function addLeadingZero(value:Number):String {
 			return (value < 10) ? "0" + value : value.toString();
@@ -676,7 +676,7 @@ package com.falanxia.utilitaris.utils {
 		 * Determines whether or not the supplied {@code Number} is positive.
 		 * @param value {@code Number} to evaluate
 		 * @return Whether or not the supplied {@code Number} is positive
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isPositive(value:Number):Boolean {
 			return Boolean(value >= 0);
@@ -688,7 +688,7 @@ package com.falanxia.utilitaris.utils {
 		 * Determines whether or not the supplied {@code Number} is negative.
 		 * @param value {@code Number} to evaluate
 		 * @return Whether or not the supplied {@code Number} is negative
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isNegative(value:Number):Boolean {
 			return !isPositive(value);

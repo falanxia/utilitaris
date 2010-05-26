@@ -235,7 +235,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(DateUtils.formatDate(new Date(), "l ^t^h^e dS ^of F Y h:i:s A"));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function formatDate(dateToFormat:Date, formatString:String):String {
 			var out:String = "";
@@ -457,7 +457,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(DateUtils.iso8601ToDate("1994-11-05T08:15:30-05:00").toString());
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function iso8601ToDate(iso8601:String):Date {
 			var parts:Array = iso8601.toUpperCase().split("T");

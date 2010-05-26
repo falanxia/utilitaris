@@ -65,7 +65,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param source Source {@code DisplayObject}
 		 * @param className Name of the {@code Class} to get
 		 * @return {@code Class} with the given name or {@code null} if it cannot be found
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public function getClassFromLibrary(source:DisplayObject, className:String):Class {
 			var out:Class;
@@ -89,7 +89,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param source Source {@code DisplayObject}
 		 * @param className Name of the clip's {@code Class} (aka. linkage ID)
 		 * @return An instance of the clip with the given name or {@code null} if the {@code Class} cannot be found or the clip cannot be instantiated
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public function getClipFromLibrary(source:DisplayObject, className:String):MovieClip {
 			var out:MovieClip;
@@ -114,7 +114,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param source Source {@code DisplayObject}
 		 * @param className Name of the {@code BitmapData}'s {@code Class} (aka. linkage ID)
 		 * @return An instance of the {@code BitmapData} with the given name or {@code null} if the {@code Class} cannot be found or the {@code BitmapData} cannot be instantiated
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public function getBitmapDataFromLibrary(source:DisplayObject, className:String):BitmapData {
 			var out:BitmapData;

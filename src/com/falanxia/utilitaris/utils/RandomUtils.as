@@ -51,7 +51,7 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Returns a {@code Number} between {@code 0}-{@code 1} exclusive.
 		 * @return {@code Number} between {@code 0}-{@code 1} exclusive.
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function random():Number {
 			return Math.random();
@@ -72,7 +72,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          RandomUtils.float(20,50); // returns a number between 20-50 exclusive
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function randomFloat(min:Number, max:Number = NaN):Number {
 			var a:Number = min;
@@ -101,7 +101,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          RandomUtils.integer(20,50); // returns an integer between 20-49 inclusive
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function randomInteger(min:Number, max:Number = NaN):int {
 			if(isNaN(max)) {
@@ -126,7 +126,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          RandomUtils.boolean(0.8); // returns true or false (80% chance of true)
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function randomBoolean(chance:Number = 0.5):Boolean {
 			return (random() < chance);
@@ -146,7 +146,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          RandomUtils.sign(0.8); // returns 1 or -1 (80% chance of 1)
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function randomSign(chance:Number = 0.5):int {
 			return (random() < chance) ? 1 : -1;
@@ -166,7 +166,7 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          RandomUtils.bit(0.8); // returns 1 or 0 (80% chance of 1)
 		 *      </code>
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function randomBit(chance:Number = 0.5):int {
 			return (random() < chance) ? 1 : 0;
@@ -179,7 +179,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param length {@code String} length (default {@code 10})
 		 * @param ch Chars used (default {@code "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"})
 		 * @return Random {@code String}
-		 * @todo Optimize for faster access (no static)
+		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function randomString(length:uint = 10, ch:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):String {
 			var alphabet:Array = ch.split("");

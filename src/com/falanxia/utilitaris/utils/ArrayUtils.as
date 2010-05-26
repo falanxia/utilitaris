@@ -54,7 +54,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param key Name of the property to match.
 		 * @param match Value to match against
 		 * @return Matched {@code Object}; otherwise {@code null}
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getItemByKey(inArray:Array, key:String, match:*):* {
 			var out:*;
@@ -76,7 +76,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param key Name of the property to match
 		 * @param match Value to match against
 		 * @return All the matched elements
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getItemsByKey(inArray:Array, key:String, match:*):Array {
 			var t:Array = [];
@@ -97,7 +97,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param inArray {@code Array} to search for an element of a specific type
 		 * @param type Type to compare the elements to
 		 * @return All the matched elements
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getItemByType(inArray:Array, type:Class):* {
 			var out:*;
@@ -118,7 +118,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param inArray {@code Array} to search for elements of a specific type
 		 * @param type Type to compare the elements to
 		 * @return All the matched elements
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getItemsByType(inArray:Array, type:Class):Array {
 			var t:Array = [];
@@ -147,7 +147,7 @@ package com.falanxia.utilitaris.utils {
 		 *          ArrayUtils.addItemsAt(alphabet, parts, 1);
 		 *          trace(alphabet);
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function addItemsAt(tarArray:Array, items:Array, index:int = 0x7FFFFFFF):Boolean {
 			var out:Boolean = true;
@@ -173,7 +173,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 4, 4, 4, 5);
 		 *          trace(ArrayUtils.removeDuplicates(numberArray));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function removeDuplicates(inArray:Array):Array {
 			return inArray.filter(removeDuplicatesFilter);
@@ -192,7 +192,7 @@ package com.falanxia.utilitaris.utils {
 		 *          trace("Removed " + ArrayUtils.removeItem(numberArray, 7) + " items.");
 		 *          trace(numberArray);
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function removeItem(tarArray:Array, item:*):uint {
 			var i:int = tarArray.indexOf(item);
@@ -220,7 +220,7 @@ package com.falanxia.utilitaris.utils {
 		 *          ArrayUtils.removeItems(numberArray, new Array(1, 3, 7, 5));
 		 *          trace(numberArray);
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function removeItems(tarArray:Array, items:Array):Boolean {
 			var removed:Boolean = false;
@@ -249,7 +249,7 @@ package com.falanxia.utilitaris.utils {
 		 *          ArrayUtils.retainItems(numberArray, new Array(2, 4));
 		 *          trace(numberArray);
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function retainItems(tarArray:Array, items:Array):Boolean {
 			var removed:Boolean = false;
@@ -277,7 +277,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
 		 *          trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's.");
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function contains(inArray:Array, item:*):uint {
 			var i:int = inArray.indexOf(item, 0);
@@ -303,7 +303,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
 		 *          trace(ArrayUtils.containsAll(numberArray, new Array(1, 3, 5)));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function containsAll(inArray:Array, items:Array):Boolean {
 			var out:Boolean = true;
@@ -328,7 +328,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
 		 *          trace(ArrayUtils.containsAny(numberArray, new Array(9, 3, 6)));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function containsAny(inArray:Array, items:Array):Boolean {
 			var out:Boolean;
@@ -348,7 +348,7 @@ package com.falanxia.utilitaris.utils {
 		 * @param first First {@code Array} to compare to the {@code second}
 		 * @param second Second {@code Array} to compare to the {@code first}
 		 * @return {@code true} if {@code Array}s are the same
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function equals(first:Array, second:Array):Boolean {
 			var out:Boolean = true;
@@ -378,7 +378,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var colorsAlt:Array = new Array("Red", "Blue", "Green", "Violet");
 		 *          trace(ArrayUtils.getIndexOfDifference(color24, colorsAlt)); // traces 3
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getIndexOfDifference(first:Array, second:Array, fromIndex:uint = 0):int {
 			var out:int = -1;
@@ -402,7 +402,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		 *          trace(ArrayUtils.randomize(numberArray));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function randomize(inArray:Array):Array {
 			var t:Array = [];
@@ -427,7 +427,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(2, 3);
 		 *          trace("Total is: " + ArrayUtils.sum(numberArray));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function sum(inArray:Array):Number {
 			var t:Number = 0;
@@ -451,7 +451,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(2, 3, 8, 3);
 		 *          trace("Average is: " + ArrayUtils.average(numberArray));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function average(inArray:Array):Number {
 			var out:Number;
@@ -473,7 +473,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(2, 1, 5, 4, 3);
 		 *          trace("The lowest value is: " + ArrayUtils.getLowestValue(numberArray));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getLowestValue(inArray:Array):Number {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -491,7 +491,7 @@ package com.falanxia.utilitaris.utils {
 		 *          var numberArray:Array = new Array(2, 1, 5, 4, 3);
 		 *          trace("The highest value is: " + ArrayUtils.getHighestValue(numberArray));
 		 *      </code>
-		 * @todo Test
+		 * TODO: Test
 		 */
 		public static function getHighestValue(inArray:Array):Number {
 			//noinspection NonShortCircuitBooleanExpressionJS
