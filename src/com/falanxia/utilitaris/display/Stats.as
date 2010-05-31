@@ -158,9 +158,6 @@ package com.falanxia.utilitaris.display {
 		/* ★ EVENT LISTENERS ★ */
 
 
-		/**
-		 * Mouse clicked event listener.
-		 */
 		private function onMouseClick(e:MouseEvent):void {
 			if(this.mouseY > this.height * 0.35) {
 				stage.frameRate--;
@@ -174,9 +171,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * Mouse doubleclicked event listener.
-		 */
 		private function onMouseDoubleclick(e:MouseEvent):void {
 			System.gc();
 			System.gc();
@@ -184,9 +178,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * Enter frame event listener.
-		 */
 		private function onEnterFrame(e:Event):void {
 			timer = getTimer();
 			fps++;

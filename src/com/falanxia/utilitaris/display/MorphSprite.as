@@ -230,9 +230,6 @@ package com.falanxia.utilitaris.display {
 		/* ★ PRIVATE METHODS ★ */
 
 
-		/**
-		 * Morphing completed.
-		 */
 		private function onMorphComplete():void {
 			cacheAsBitmap = oldCacheAsBitmap;
 		}

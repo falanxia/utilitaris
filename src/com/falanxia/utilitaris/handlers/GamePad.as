@@ -358,18 +358,12 @@ package com.falanxia.utilitaris.handlers {
 		/* ★ EVENT LISTENERS ★ */
 
 
-		/**
-		 * Enter frame event listener.
-		 */
 		private function onEnterFrame(e:Event):void {
 			step();
 		}
 
 
 
-		/**
-		 * Key down event listener.
-		 */
 		private function onKeyDown(e:KeyboardEvent):void {
 			switch(e.keyCode) {
 				case upKey:
@@ -406,9 +400,6 @@ package com.falanxia.utilitaris.handlers {
 
 
 
-		/**
-		 * Key up event listener.
-		 */
 		private function onKeyUp(e:KeyboardEvent):void {
 			switch(e.keyCode) {
 				case upKey:
