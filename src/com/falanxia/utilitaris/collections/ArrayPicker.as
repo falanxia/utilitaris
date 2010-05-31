@@ -32,8 +32,8 @@ package com.falanxia.utilitaris.collections {
 	 * poolArray); BEWARE: For better performance and flexibility, ArrayPicker breaks encapsulation in methods getPool() and
 	 * getReservedItems() - it returns not copy of poolArray/reservedArray, but reference to it.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
-	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
+	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */

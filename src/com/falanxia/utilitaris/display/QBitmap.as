@@ -35,7 +35,7 @@ package com.falanxia.utilitaris.display {
 	 * Quick creation of {@code Bitmap} with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @since 1.0
 	 * @see QSprite
 	 * @see QTextField

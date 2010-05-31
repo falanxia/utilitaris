@@ -34,7 +34,7 @@ package com.falanxia.utilitaris.utils {
 	 * @author Jonnie Hallman / Destroytoday (<a href="http://destroytoday.com">destroytoday.com</a>)
 	 * @author Grant Skinner (<a href="http://gskinner.com">gskinner.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @since 1.0
 	 */
 	public class StringUtils {

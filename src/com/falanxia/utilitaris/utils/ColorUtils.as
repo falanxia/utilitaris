@@ -35,7 +35,7 @@ package com.falanxia.utilitaris.utils {
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
 	 * @author Five3D (<a href="http://five3d.mathieu-badimon.com">five3d.mathieu-badimon.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @since 1.0
 	 * @see RGB
 	 * @see RGBA

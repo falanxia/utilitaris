@@ -33,7 +33,7 @@ package com.falanxia.utilitaris.b2utils {
 	/**
 	 * B2MouseUtils.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. jakub.schimer@falanxia.com
+	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */

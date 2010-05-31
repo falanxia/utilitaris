@@ -31,7 +31,7 @@ package com.falanxia.utilitaris.locale {
 	 * @param id Locale ID
 	 * @return Locale text
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. vaclav@falanxia.com
+	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 */
 	public function T(id:String):String {
 		return Locale.getText(id);
