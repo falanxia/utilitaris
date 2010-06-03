@@ -41,12 +41,27 @@ package com.falanxia.utilitaris.template {
 	public class GlobalPreloader2 extends MovieClip {
 
 
-		protected var isLoading:Boolean = true;
-		protected var isDestroyed:Boolean;
+		private static var _instance:GlobalPreloader2;
+
+		protected var isMainLoading:Boolean = true;
+		protected var isStartDisabled:Boolean = false;
+		protected var isInited:Boolean;
 		protected var mainClass:Class;
-		protected var app:*;
+		protected var main:*;
 		protected var mainClassName:String;
-		protected var progress:Number = 0;
+		protected var completeSize:uint;
+		protected var completeProgress:Number = 0;
+		protected var mainProgress:Number = 0;
+		protected var mainRatio:Number = 0;
+		protected var skinRatio:Number = 0;
+		protected var iconsRatio:Number = 0;
+		protected var soundEventsRatio:Number = 0;
+		protected var soundMusicRatio:Number = 0;
+
+		protected var _skinProgress:Number = 0;
+		protected var _iconsProgress:Number = 0;
+		protected var _soundEventsProgress:Number = 0;
+		protected var _soundMusicProgress:Number = 0;
 
 
 
@@ -54,8 +69,16 @@ package com.falanxia.utilitaris.template {
 		 * Constructor.
 		 * @param mainClassName Main Class name (like "org.vancura.myapp.Main")
 		 */
-		public function GlobalPreloader2(mainClassName:String) {
+		public function GlobalPreloader2(mainClassName:String, disableStart:Boolean = false) {
+			if(instance == null) {
+				_instance = this;
+			}
+			else {
+				throw new Error("Global preloader could be instantiated only once");
+			}
+
 			this.mainClassName = mainClassName;
+			this.isStartDisabled = disableStart;
 
 			// stop main timeline
 			stop();
@@ -76,9 +99,9 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * Destructor.
 		 */
-		public function destroy():void {
-			if(!isDestroyed) {
-				isDestroyed = true;
+		public function initAppMain():void {
+			if(!isInited) {
+				isInited = true;
 
 				// jump to next frame
 				// first is occupied by the preloader
@@ -94,11 +117,11 @@ package com.falanxia.utilitaris.template {
 					// main class found
 					// add it to the display list
 					try {
-						app = new mainClass();
-						addChild(app as DisplayObject);
+						main = new mainClass();
+						addChild(main as DisplayObject);
 
 						// run application
-						app.start();
+						main.start();
 
 						// the app is running now
 					}
@@ -132,11 +155,12 @@ package com.falanxia.utilitaris.template {
 		/**
 		 * Stop all.
 		 */
-		public function stopAll():void {
+		public function stopAll(keepResize:Boolean = false):void {
 			// remove event listeners
 			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-			stage.removeEventListener(Event.RESIZE, onStageResize);
 			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, onLoadingError);
+
+			if(!keepResize) stage.removeEventListener(Event.RESIZE, onStageResize);
 		}
 
 
@@ -150,6 +174,22 @@ package com.falanxia.utilitaris.template {
 		 * @param value Skin loading progress
 		 */
 		public function set skinProgress(value:Number):void {
+			//Logger.error("SKIN = " + value);
+
+			_skinProgress = value;
+		}
+
+
+
+		/**
+		 * Set icons loading progress.
+		 * Called from the application.
+		 * @param value Icons loading progress
+		 */
+		public function set iconsProgress(value:Number):void {
+			//Logger.error("ICONS = " + value);
+
+			_iconsProgress = value;
 		}
 
 
@@ -159,17 +199,33 @@ package com.falanxia.utilitaris.template {
 		 * Called from the application.
 		 * @param value Skin loading progress
 		 */
-		public function set eventsProgress(value:Number):void {
+		public function set soundEventsProgress(value:Number):void {
+			//Logger.error("EVENTS = " + value);
+
+			_soundEventsProgress = value;
 		}
 
 
 
 		/**
-		 * Set skin loading progress.
+		 * Set sound music loading progress.
 		 * Called from the application.
-		 * @param value Skin loading progress
+		 * @param value Sound music loading progress
 		 */
-		public function set musicProgress(value:Number):void {
+		public function set soundMusicProgress(value:Number):void {
+			//Logger.error("SOUND = " + value);
+
+			_soundMusicProgress = value;
+		}
+
+
+
+		/**
+		 * Get instance of the {@code GlobalPreloader2}
+		 * @return Instance of the {@code GlobalPreloader2}
+		 */
+		public static function get instance():GlobalPreloader2 {
+			return _instance;
 		}
 
 
@@ -199,12 +255,24 @@ package com.falanxia.utilitaris.template {
 		 * EnterFrame handler. Update your progress bar here.
 		 */
 		protected function onEnterFrame(e:Event):void {
-			progress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
-
-			if(progress >= 1) {
-				isLoading = false;
-				destroy();
+			if(isStartDisabled) {
+				mainProgress += 0.001;
 			}
+			else {
+				mainProgress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
+
+				if(mainProgress >= 1) {
+					isMainLoading = false;
+					initAppMain();
+				}
+			}
+
+			completeProgress = 0;
+			completeProgress += mainProgress * mainRatio;
+			completeProgress += _skinProgress * skinRatio;
+			completeProgress += _iconsProgress * iconsRatio;
+			completeProgress += _soundEventsProgress * soundEventsRatio;
+			completeProgress += _soundMusicProgress * soundMusicRatio;
 		}
 	}
 }
