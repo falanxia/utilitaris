@@ -104,7 +104,8 @@ package com.falanxia.utilitaris.collections {
 
 			var ihm:IHMObject = array[i];
 
-			dicto[ihm.name] = null;
+			delete dicto[ihm.name];
+
 			removeFromArrayAt(i);
 
 			_length--;
@@ -121,7 +122,7 @@ package com.falanxia.utilitaris.collections {
 		 */
 		public function removeItemByName(name:String = null):Boolean {
 			if(removeFromArrayAt(array.indexOf(dicto[name]))) {
-				dicto[name] = null;
+				delete dicto[name];
 				_length--;
 
 				return true;
@@ -142,7 +143,7 @@ package com.falanxia.utilitaris.collections {
 
 			var ihm:IHMObject = array[i];
 
-			dicto[ihm.name] = null;
+			delete dicto[ihm.name];
 
 			removeFromArrayAt(i);
 
@@ -242,6 +243,23 @@ package com.falanxia.utilitaris.collections {
 			if(dicto[s] == null) return null;
 
 			return dicto[s].item;
+		}
+
+
+
+		/**
+		 * Returns key specified by the item.
+		 * @param item item to look for
+		 * @return Item key
+		 */
+		public function getNameByItem(item:Object):String {
+			var out:String;
+
+			for each(var i:IHMObject in dicto) {
+				if(i.item === item) out = i.name;
+			}
+
+			return out;
 		}
 
 
