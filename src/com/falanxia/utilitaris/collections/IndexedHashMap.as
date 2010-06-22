@@ -95,7 +95,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Removes item specified object reference.
 		 * @param item Object reference
-		 * @return Boolean {@code false} if object wasnt in collection
+		 * @return Boolean {@code false} if object wasn't in collection
 		 */
 		public function removeItem(item:Object):Boolean {
 			var i:int = array.indexOf(item);
@@ -118,7 +118,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Removes item specified by item name.
 		 * @param name name of object
-		 * @return {@code false} if object wasnt in collection
+		 * @return {@code false} if object wasn't in collection
 		 */
 		public function removeItemByName(name:String = null):Boolean {
 			if(removeFromArrayAt(array.indexOf(dicto[name]))) {
@@ -136,7 +136,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Removes item specified by index in collection.
 		 * @param i item index
-		 * @return Boolean false if  object wasnt in collection
+		 * @return Boolean false if  object wasn't in collection
 		 */
 		public function removeItemAt(i:int):Boolean {
 			if(i > array.length - 1) return false;
@@ -162,7 +162,7 @@ package com.falanxia.utilitaris.collections {
 		 * @param item specify if we want reference item by item reference
 		 * @param itemName specify if we want reference item by name
 		 * @param itemIndex specify if we want reference item by index
-		 * @return Boolean false if item wasnt found in collection
+		 * @return Boolean false if item wasn't found in collection
 		 */
 		public function setItemIndex(targetIndex:int, item:Object = null, itemName:String = null, itemIndex:int = -1):Boolean {
 			var o:Object;
@@ -237,7 +237,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Returns item specified by name
 		 * @param s name of item
-		 * @return Object item specified by name, null if item wasnt found in collection
+		 * @return Object item specified by name, null if item wasn't found in collection
 		 */
 		public function getItemByName(s:String):Object {
 			if(dicto[s] == null) return null;
