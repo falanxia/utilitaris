@@ -144,6 +144,8 @@ package com.falanxia.utilitaris.b2utils {
 			b.CreateShape(sh);
 			b.SetMassFromShapes();
 
+			b.SetUserData(rectangle);
+
 			return b;
 		}
 
@@ -179,6 +181,8 @@ package com.falanxia.utilitaris.b2utils {
 			b.CreateShape(sh);
 			b.SetMassFromShapes();
 			b.GetXForm().R.Set(obj.position.rotation * pi_rad);
+
+			b.SetUserData(obj)
 
 			return b;
 		}

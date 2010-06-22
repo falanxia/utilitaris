@@ -80,7 +80,7 @@ package com.falanxia.utilitaris.utils {
 			}
 
 			//noinspection OverlyComplexBooleanExpressionJS
-			if(window == WINDOW_BLANK && ExternalInterface.available && !LocationUtils.isIde() && request._data == null) {
+			if(window == WINDOW_BLANK && ExternalInterface.available && !LocationUtils.isIDE && request._data == null) {
 				if(openWindow(r.url, window)) return
 			}
 
