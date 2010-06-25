@@ -235,7 +235,6 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(DateUtils.formatDate(new Date(), "l ^t^h^e dS ^of F Y h:i:s A"));
 		 *      </code>
-		 * TODO: Test
 		 */
 		public static function formatDate(dateToFormat:Date, formatString:String):String {
 			var out:String = "";
@@ -247,7 +246,9 @@ package com.falanxia.utilitaris.utils {
 			while(++i < l) {
 				c = formatString.substr(i, 1);
 
-				if(c == "^") out += formatString.substr(++i, 1);
+				if(c == "^") {
+					out += formatString.substr(++i, 1);
+				}
 
 				else {
 					switch(c) {
@@ -359,8 +360,11 @@ package com.falanxia.utilitaris.utils {
 							t = dateToFormat.getHours();
 							if(t == 0) {
 								t = 12;
-							} else if(t > 12) {
-								t -= 12;
+							}
+							else {
+								if(t > 12) {
+									t -= 12;
+								}
 							}
 							out += t.toString();
 							break;
@@ -375,8 +379,11 @@ package com.falanxia.utilitaris.utils {
 							t = dateToFormat.getHours() + 1;
 							if(t == 0) {
 								t = 12;
-							} else if(t > 12) {
-								t -= 12;
+							}
+							else {
+								if(t > 12) {
+									t -= 12;
+								}
 							}
 							out += NumberUtils.addLeadingZero(t);
 							break;
@@ -457,7 +464,6 @@ package com.falanxia.utilitaris.utils {
 		 *      <code>
 		 *          trace(DateUtils.iso8601ToDate("1994-11-05T08:15:30-05:00").toString());
 		 *      </code>
-		 * TODO: Test
 		 */
 		public static function iso8601ToDate(iso8601:String):Date {
 			var parts:Array = iso8601.toUpperCase().split("T");
@@ -477,10 +483,16 @@ package com.falanxia.utilitaris.utils {
 
 				if(time[2].indexOf("+") > -1) {
 					index = time[2].indexOf("+");
-				} else if(time[2].indexOf("-") > -1) {
-					index = time[2].indexOf("-");
-				} else if(time[2].indexOf("Z") > -1) {
-					index = time[2].indexOf("Z");
+				}
+				else {
+					if(time[2].indexOf("-") > -1) {
+						index = time[2].indexOf("-");
+					}
+					else {
+						if(time[2].indexOf("Z") > -1) {
+							index = time[2].indexOf("Z");
+						}
+					}
 				}
 
 				if(isNaN(index)) {

@@ -75,7 +75,7 @@ package com.falanxia.utilitaris.types {
 		/**
 		 * Get a value from a base.
 		 * @param value Base
-		 * @param reversed TODO
+		 * @param reversed Reversed counting
 		 * @return Value
 		 */
 		public final function countValue(value:Number, reversed:Boolean = false):Number {
@@ -84,11 +84,6 @@ package com.falanxia.utilitaris.types {
 
 
 
-		/**
-		 * TODO
-		 * @param value TODO
-		 * @param max TODO
-		 */
 		public final function setValue(value:Number, max:Number):void {
 			this.percentage = 100 / (max / value);
 		}

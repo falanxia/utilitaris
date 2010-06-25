@@ -56,7 +56,6 @@ package com.falanxia.utilitaris.utils {
 		 * Slash unsafe characters from the {@code String}.
 		 * @param value Unsafe {@code String}
 		 * @return Safe {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 * TODO: Compare with {@code addSlashes()} method
 		 */
 		protected static function slashUnsafeChars(value:String):String {
@@ -82,7 +81,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value {@code String} to return slashed
 		 * @param ch {@code String} of chars to slash
 		 * @return {@code String} with slashes prepended to all characters
-		 * TODO: Optimize for faster access (no static)
 		 * TODO: Compare with {@code slashUnsafeChars()} method
 		 */
 		public static function addSlashes(value:String, ch:String = "\""):String {
@@ -114,7 +112,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value {@code String} to return stripped of slashes
 		 * @param ch {@code String} of chars to remove slashes from
 		 * @return {@code String} with slashes removed from all characters
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function stripSlashes(value:String, ch:String = "\""):String {
 			var out:String;
@@ -145,7 +142,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param ch Character or sub-string
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function afterFirst(value:String, ch:String):String {
 			var out:String = "";
@@ -169,7 +165,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param ch Character or sub-string
 		 * @return Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function afterLast(value:String, ch:String):String {
 			var out:String = "";
@@ -193,7 +188,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String} that the prefix will be checked against
 		 * @param begin Prefix that will be tested against the {@code String}
 		 * @returns Boolean {@code true} if the input {@code String} begins with the specified prefix
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function beginsWith(value:String, begin:String):Boolean {
 			var out:Boolean;
@@ -212,7 +206,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param ch Character or sub-string
 		 * @returns Everything before the first occurence of the provided character in the {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function beforeFirst(value:String, ch:String):String {
 			var out:String = "";
@@ -235,7 +228,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param ch Character or sub-string
 		 * @returns Everything before the last occurrence of the provided character in the {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function beforeLast(value:String, ch:String):String {
 			var out:String = "";
@@ -259,7 +251,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param start Character or sub-string to use as the start index
 		 * @param end Character or sub-string to use as the end index
 		 * @returns Everything after the first occurance of {@code begin} and before the first occurrence of {@code end} in {@code String}.
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function between(value:String, start:String, end:String):String {
 			var out:String = "";
@@ -293,7 +284,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param length Maximum length of each block of text
 		 * @param delimiter delimter to end text blocks on, default = {@code "."}
 		 * @returns Array
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function block(value:String, length:uint, delimiter:String = "."):Array {
 			var out:Array = [];
@@ -326,7 +316,6 @@ package com.falanxia.utilitaris.utils {
 		 * Capitallizes the first word in a {@code String} or all words.
 		 * @param value Input {@code String}
 		 * @returns Capitallized first word in a {@code String} or all words
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function capitalize(value:String, ...args):String {
 			var out:String = trimLeft(value);
@@ -348,7 +337,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param ch Character or sub-string we are looking for
 		 * @returns {@code true} if the specified {@code String} contains any instances of {@code ch}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function contains(value:String, ch:String):Boolean {
 			var out:Boolean;
@@ -368,7 +356,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param ch Character or sub-string to count
 		 * @param isCaseSensitive (optional, default is {@code true}) A boolean flag to indicate if the search is case sensitive
 		 * @returns Number of times a character or sub-string appears within the {@code String}.
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function countOf(value:String, ch:String, isCaseSensitive:Boolean = true):uint {
 			var out:uint = 0;
@@ -391,7 +378,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param tgt Target {@code String}
 		 * @returns uint Levenshtein distance (editDistance) is a measure of the similarity
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function editDistance(value:String, tgt:String):uint {
 			var out:uint;
@@ -456,7 +442,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value {@code String} that the suffic will be checked against
 		 * @param end Suffix that will be tested against the {@code String}
 		 * @returns {@code true} if the specified {@code String} ends with the specified suffix
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function endsWith(value:String, end:String):Boolean {
 			return value.lastIndexOf(end) == value.length - end.length;
@@ -468,7 +453,6 @@ package com.falanxia.utilitaris.utils {
 		 * Determines whether the specified {@code String} contains text.
 		 * @param value Input {@code String}
 		 * @returns {@code true} if the specified {@code String} contains text
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function hasText(value:String):Boolean {
 			var str:String = removeExtraWhitespace(value);
@@ -481,7 +465,6 @@ package com.falanxia.utilitaris.utils {
 		 * Determines whether the specified {@code String} contains any characters.
 		 * @param value Input {@code String}
 		 * @returns {@code true} if the specified {@code String} contains any characters
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isEmpty(value:String):Boolean {
 			var out:Boolean = true;
@@ -499,7 +482,6 @@ package com.falanxia.utilitaris.utils {
 		 * Determines whether the specified {@code String} is numeric.
 		 * @param value Input {@code String}
 		 * @returns {@code true} if the specified {@code String} is numeric
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function isNumeric(value:String):Boolean {
 			var out:Boolean;
@@ -520,7 +502,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param padChar Character for pad
 		 * @param length Length to pad to
 		 * @returns Padded {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function padLeft(value:String, padChar:String, length:uint):String {
 			var s:String = value;
@@ -540,7 +521,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param padChar Character for pad
 		 * @param length Length to pad to
 		 * @returns Padded {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function padRight(value:String, padChar:String, length:uint):String {
 			var s:String = value;
@@ -558,7 +538,6 @@ package com.falanxia.utilitaris.utils {
 		 * Properly cases the {@code String} in "sentence format".
 		 * @param value Input {@code String}
 		 * @returns Cased {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function properCase(value:String):String {
 			var out:String = "";
@@ -578,7 +557,6 @@ package com.falanxia.utilitaris.utils {
 		 * Escapes all of the characters in a string to create a friendly "quotable" {@code String}.
 		 * @param value {@code String} that will be checked for instances of remove {@code String}
 		 * @returns Escaped {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function quote(value:String):String {
 			var regx:RegExp = /[\\"\r\n]/g;
@@ -594,7 +572,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param remove {@code String} that will be removed from the input {@code String}
 		 * @param isCaseSensitive An optional {@code Boolean} indicating if the replace is case sensitive, default is {@code true}
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function remove(value:String, remove:String, isCaseSensitive:Boolean = true):String {
 			var out:String = "";
@@ -615,7 +592,6 @@ package com.falanxia.utilitaris.utils {
 		 * Removes extraneous whitespace (extra spaces, tabs, line breaks, etc) from the specified {@code String}.
 		 * @param value {@code String} whose extraneous whitespace will be removed
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function removeExtraWhitespace(value:String):String {
 			var out:String = "";
@@ -635,7 +611,6 @@ package com.falanxia.utilitaris.utils {
 		 * Returns the specified {@code String} in reverse character order.
 		 * @param value {@code String} that will be reversed
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function reverse(value:String):String {
 			var out:String = "";
@@ -653,7 +628,6 @@ package com.falanxia.utilitaris.utils {
 		 * Returns the specified {@code String} in reverse word order.
 		 * @param value {@code String} that will be reversed
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function reverseWords(value:String):String {
 			var out:String = "";
@@ -672,7 +646,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value Input {@code String}
 		 * @param tgt Target {@code String}
 		 * @returns Percentage of similiarity, based on editDistance
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function similarity(value:String, tgt:String):Number {
 			var out:Number = 100;
@@ -692,7 +665,6 @@ package com.falanxia.utilitaris.utils {
 		 * Remove's all < and > based tags from a {@code String}.
 		 * @param value Input {@code String}
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function stripTags(value:String):String {
 			var out:String = "";
@@ -710,7 +682,6 @@ package com.falanxia.utilitaris.utils {
 		 * Swaps the casing of a {@code String}.
 		 * @param value Input {@code String}
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function swapCase(value:String):String {
 			var out:String = "";
@@ -728,7 +699,6 @@ package com.falanxia.utilitaris.utils {
 		 * Removes whitespace from the front and the end of the specified {@code String}.
 		 * @param value {@code String} whose beginning and ending whitespace will be removed
 		 * @return Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function trim(value:String):String {
 			var out:String = "";
@@ -746,7 +716,6 @@ package com.falanxia.utilitaris.utils {
 		 * Removes whitespace from the front (left-side) of the specified {@code String}.
 		 * @param value {@code String} whose beginning whitespace will be removed
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function trimLeft(value:String):String {
 			var out:String = "";
@@ -764,7 +733,6 @@ package com.falanxia.utilitaris.utils {
 		 * Removes whitespace from the end (right-side) of the specified {@code String}.
 		 * @param value {@code String} whose ending whitespace will be removed
 		 * @returns Output {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function trimRight(value:String):String {
 			var out:String = "";
@@ -782,7 +750,6 @@ package com.falanxia.utilitaris.utils {
 		 * Determins the number of words in a {@code String}.
 		 * @param value Input {@code String}
 		 * @returns Number of words in a {@code String}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function wordCount(value:String):uint {
 			var out:uint = 0;
@@ -802,7 +769,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param length Length the {@code String} should be shortend to
 		 * @param suffix (optional, default={@code "..."}) {@code String} to append to the end of the truncated {@code String}
 		 * @returns String {@code String} truncated to a specified {@code length} with optional {@code suffix}
-		 * TODO: Optimize for faster access (no static)
 		 */
 		public static function truncate(value:String, length:uint, suffix:String = "..."):String {
 			var out:String = "";
@@ -831,13 +797,6 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		/**
-		 * Repeat
-		 * @param n
-		 * @param str
-		 * @return TODO
-		 * TODO: Documentation
-		 */
 		public static function repeat(n:uint, str:String = " "):String {
 			return new Array(n + 1).join(str);
 		}

@@ -23,10 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Collision.Shapes.*;
-	import Box2D.Common.Math.*;
-	import Box2D.Dynamics.*;
-
 	import com.falanxia.utilitaris.b2utils.objectdata.*;
 
 
@@ -45,7 +41,6 @@ package com.falanxia.utilitaris.b2utils {
 	 * @since 1.0
 	 */
 	public class B2GeomUtils {
-
 
 
 		private static var INSTANCE:B2GeomUtils;
@@ -162,8 +157,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return
 		 */
 		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = 0.1,
-		                           friction:Number = 0.1, angularDamping:Number = .5, linearDamping:Number = .5,
-		                           isBullet:Boolean = false):b2Body {
+		                           friction:Number = 0.1, angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false
+				):b2Body {
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(obj.position.x / ratio, obj.position.y / ratio);
 			def.angularDamping = angularDamping;
@@ -189,19 +184,9 @@ package com.falanxia.utilitaris.b2utils {
 
 
 
-		/**
-		 * TODO
-		 * @param coords
-		 * @param vertices
-		 * @param isSensor
-		 * @param density
-		 * @param restitution
-		 * @param friction
-		 * @return
-		 */
-		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0,
-		                            restitution:Number = .1, friction:Number = .1, angularDamping:Number = .5,
-		                            linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
+		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = .1,
+		                            friction:Number = .1, angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false
+				):b2Body {
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(polygon.position.x / ratio, polygon.position.y / ratio);
 			def.angularDamping = angularDamping;
@@ -232,13 +217,12 @@ package com.falanxia.utilitaris.b2utils {
 
 
 		/**
-		 * TODO error cases, if wallSize > width || height, etc...
-		 * TODO:OPTIMIZE MAYBE, it would be better to create one body with 4 shapes... c'mon dude...
-		 * @return
+		 * TODO: Error cases, if wallSize > width || height, etc...
+		 * TODO: Optimize maybe, it would be better to create one body with 4 shapes... c'mon dude...
 		 */
 		public function drawRectangleFence(coords:WorldCoords, width:Number, height:Number, wallSize:Number, isSensor:Boolean = false,
-		                                   density:Number = 0, restitution:Number = .1, friction:Number = .1,
-		                                   angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false):Vector.<b2Body> {
+		                                   density:Number = 0, restitution:Number = .1, friction:Number = .1, angularDamping:Number = .5,
+		                                   linearDamping:Number = .5, isBullet:Boolean = false):Vector.<b2Body> {
 			if(coords.y >= height) height += coords.y;
 
 			var x:Number = coords.x;

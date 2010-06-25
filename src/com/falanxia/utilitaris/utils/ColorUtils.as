@@ -72,7 +72,6 @@ package com.falanxia.utilitaris.utils {
 		 *          box.transform.colorTransform = ColorUtils.interpolateColor(new ColorTransform(), myColor, new Percent(0.5));
 		 *          this.addChild(box);
 		 *      </code>
-		 * TODO: Test
 		 */
 		public static function interpolateColor(begin:ColorTransform, end:ColorTransform, amount:Percent):ColorTransform {
 			var interpolation:ColorTransform = new ColorTransform();
@@ -95,7 +94,6 @@ package com.falanxia.utilitaris.utils {
 		 * Adjust color24 brightness.
 		 * @param colortransform Color transform matrix as {@code ColorTransform}
 		 * @param value Value of adjustment
-		 * TODO: Test
 		 */
 		public static function setBrightness(colortransform:ColorTransform, value:Number):void {
 			var v:Number = value;

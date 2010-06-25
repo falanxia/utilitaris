@@ -220,12 +220,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param r
-		 * @param g
-		 * @param b
-		 */
 		public function adjustBrightness(r:Number, g:Number = NaN, b:Number = NaN):void {
 			if(isNaN(g)) g = r;
 			if(isNaN(b)) b = r;
@@ -237,10 +231,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param degrees
-		 */
 		public function adjustHue(degrees:Number):void {
 			degrees *= RAD;
 			var cos:Number = Math.cos(degrees);
@@ -254,10 +244,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param degrees
-		 */
 		public function rotateHue(degrees:Number):void {
 			initHue();
 
@@ -268,9 +254,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 */
 		public function luminance2Alpha():void {
 			concat([0, 0, 0, 0, 255,
 			        0, 0, 0, 0, 255,
@@ -280,10 +263,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param amount
-		 */
 		public function adjustAlphaContrast(amount:Number):void {
 			amount += 1;
 			concat([1, 0, 0, 0, 0,
@@ -294,11 +273,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param rgb
-		 * @param amount
-		 */
 		public function colorize(rgb:int, amount:Number = 1):void {
 			var r:Number;
 			var g:Number;
@@ -318,13 +292,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param r
-		 * @param g
-		 * @param b
-		 * @param a
-		 */
 		public function setChannels(r:int = 1, g:int = 2, b:int = 4, a:int = 8):void {
 			var rf:Number = ((((((r & 1) == 1)) ? 1 : 0 + (((r & 2) == 2)) ? 1 : 0) + (((r & 4) == 4)) ? 1 : 0) + (((r & 8) == 8)) ? 1 : 0);
 			if(rf > 0) {
@@ -351,11 +318,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param mat
-		 * @param amount
-		 */
 		public function blend(mat:ColorMatrix, amount:Number):void {
 			var inv_amount:Number = (1 - amount);
 			var i:int = 0;
@@ -368,12 +330,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param r
-		 * @param g
-		 * @param b
-		 */
 		public function average(r:Number = ONETHIRD, g:Number = ONETHIRD, b:Number = ONETHIRD):void {
 			concat([r, g, b, 0, 0,
 			        r, g, b, 0, 0,
@@ -383,11 +339,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param threshold
-		 * @param factor
-		 */
 		public function threshold(threshold:Number, factor:Number = 256):void {
 			concat([(LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
 			        (LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
@@ -397,9 +348,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 */
 		public function desaturate():void {
 			concat([LUMA_R, LUMA_G, LUMA_B, 0, 0,
 			        LUMA_R, LUMA_G, LUMA_B, 0, 0,
@@ -409,10 +357,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param amount
-		 */
 		public function randomize(amount:Number = 1):void {
 			var inv_amount:Number = (1 - amount);
 			var r1:Number = (inv_amount + (amount * (Math.random() - Math.random())));
@@ -436,13 +380,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param red
-		 * @param green
-		 * @param blue
-		 * @param alpha
-		 */
 		public function setMultiplicators(red:Number = 1, green:Number = 1, blue:Number = 1, alpha:Number = 1):void {
 			var mat:Array = new Array(red, 0, 0, 0, 0, 0, green, 0, 0, 0, 0, 0, blue, 0, 0, 0, 0, 0, alpha, 0);
 
@@ -451,13 +388,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param red
-		 * @param green
-		 * @param blue
-		 * @param alpha
-		 */
 		public function clearChannels(red:Boolean = false, green:Boolean = false, blue:Boolean = false, alpha:Boolean = false):void {
 			if(red) {
 				matrix[0] = matrix[1] = matrix[2] = matrix[3] = matrix[4] = 0;
@@ -475,11 +405,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param threshold
-		 * @param factor
-		 */
 		public function thresholdAlpha(threshold:Number, factor:Number = 256):void {
 			concat([1, 0, 0, 0, 0,
 			        0, 1, 0, 0, 0,
@@ -489,9 +414,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 */
 		public function averageRGB2Alpha():void {
 			concat([0, 0, 0, 0, 255,
 			        0, 0, 0, 0, 255,
@@ -501,9 +423,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 */
 		public function invertAlpha():void {
 			concat([1, 0, 0, 0, 0,
 			        0, 1, 0, 0, 0,
@@ -513,12 +432,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param r
-		 * @param g
-		 * @param b
-		 */
 		public function rgb2Alpha(r:Number, g:Number, b:Number):void {
 			concat([0, 0, 0, 0, 255,
 			        0, 0, 0, 0, 255,
@@ -528,10 +441,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param alpha
-		 */
 		public function setAlpha(alpha:Number):void {
 			concat([1, 0, 0, 0, 0,
 			        0, 1, 0, 0, 0,
@@ -541,20 +450,12 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @return
-		 */
 		public function get filter():ColorMatrixFilter {
 			return new ColorMatrixFilter(matrix);
 		}
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param mat
-		 */
 		public function concat(mat:Array):void {
 			var temp:Array = [];
 			var i:int = 0;
@@ -573,63 +474,36 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param degrees
-		 */
 		public function rotateRed(degrees:Number):void {
 			rotateColor(degrees, 2, 1);
 		}
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param degrees
-		 */
 		public function rotateGreen(degrees:Number):void {
 			rotateColor(degrees, 0, 2);
 		}
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param degrees
-		 */
 		public function rotateBlue(degrees:Number):void {
 			rotateColor(degrees, 1, 0);
 		}
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param green
-		 * @param blue
-		 */
 		public function shearRed(green:Number, blue:Number):void {
 			shearColor(0, 1, green, 2, blue);
 		}
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param red
-		 * @param blue
-		 */
 		public function shearGreen(red:Number, blue:Number):void {
 			shearColor(1, 0, red, 2, blue);
 		}
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param red
-		 * @param green
-		 */
 		public function shearBlue(red:Number, green:Number):void {
 			shearColor(2, 0, red, 1, green);
 		}
@@ -638,7 +512,6 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * The values of this method are copied from http://www.nofunc.com/Color_Matrix_Library/
-		 * @param type TODO: Documentation
 		 */
 		public function applyColorDeficiency(type:String):void {
 			switch(type) {
@@ -678,11 +551,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param rgba
-		 * @return
-		 */
 		public function applyMatrix(rgba:uint):uint {
 			var a:Number = ( rgba >>> 24 ) & 0xff;
 			var r:Number = ( rgba >>> 16 ) & 0xff;
@@ -708,10 +576,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param values
-		 */
 		public function transformVector(values:Array):void {
 			if(values.length != 4) return;
 

@@ -117,11 +117,6 @@ package com.falanxia.utilitaris.collections {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param index
-		 * @return
-		 */
 		public function getFromPoolAt(index:int):Object {
 			if(index >= poolArray.length) {
 				return null;

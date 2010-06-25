@@ -47,7 +47,6 @@ package com.falanxia.utilitaris.display {
 		 * @param drawRect Draw {@code Rectangle}
 		 * @param innerRect Inner {@code Rectangle}
 		 * @param outerRect Outer {@code Rectangle}
-		 * TODO: Optimize (no static)
 		 */
 		public static function draw(bitmap:BitmapData, graphics:Graphics, drawRect:Rectangle, innerRect:Rectangle,
 		                            outerRect:Rectangle = null):void {

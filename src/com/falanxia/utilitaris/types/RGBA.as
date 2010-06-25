@@ -77,7 +77,6 @@ package com.falanxia.utilitaris.types {
 		 *          trace("Blue = " + myRGBA.b);
 		 *          trace("Alpha = " + myRGBA.a);
 		 *      </code>
-		 * TODO: Test
 		 */
 		public final function set color32(color:uint):void {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -104,7 +103,6 @@ package com.falanxia.utilitaris.types {
 		 *          var color32:uint = myRGBA.color32;
 		 *          trace(color32);
 		 *      </code>
-		 * TODO: Test
 		 */
 		public final function get color32():uint {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -122,7 +120,6 @@ package com.falanxia.utilitaris.types {
 		 *          var color24:uint = myRGBA.color24;
 		 *          trace(color24);
 		 *      </code>
-		 * TODO: Test
 		 */
 		public final function get color24():uint {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -150,7 +147,6 @@ package com.falanxia.utilitaris.types {
 		 *          var hexColor:String = myRGBA.hexString;
 		 *          trace(hexColor); // traces 80FF00FF
 		 *      </code>
-		 * TODO: Test
 		 */
 		public final function get hexString():String {
 			var aa:String = this.a.toString(16);

@@ -23,8 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Dynamics.*;
-
 	import flash.display.*;
 
 
@@ -48,13 +46,6 @@ package com.falanxia.utilitaris.b2utils {
 
 
 
-		/**
-		 * TODO: Documentation
-		 * @param world
-		 * @param debugDrawContainer
-		 * @param debugScale
-		 * @return
-		 */
 		public static function setDebugDraw(world:b2World, debugDrawContainer:Sprite, debugScale:Number):b2DebugDraw {
 			var debugDraw:b2DebugDraw = new b2DebugDraw();
 
