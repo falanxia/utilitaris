@@ -66,9 +66,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get global {@code Stage} reference.
 		 * @return Global {@code Stage} reference

@@ -60,9 +60,6 @@ package com.falanxia.utilitaris.types {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Sets a 24-bit RGB color24 value.
 		 * @param color 24-bit RGB color24 value.

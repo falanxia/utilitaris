@@ -728,9 +728,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
-
-
 		private function initHue():void {
 			var greenRotation:Number = 39.182655;
 

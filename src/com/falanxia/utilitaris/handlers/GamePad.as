@@ -152,9 +152,6 @@ package com.falanxia.utilitaris.handlers {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get angle.
 		 * @return Angle
@@ -355,9 +352,6 @@ package com.falanxia.utilitaris.handlers {
 
 
 
-		/* ★ EVENT LISTENERS ★ */
-
-
 		private function onEnterFrame(e:Event):void {
 			step();
 		}
@@ -434,9 +428,6 @@ package com.falanxia.utilitaris.handlers {
 			updateState();
 		}
 
-
-
-		/* ★ PRIVATE METHODS ★ */
 
 
 		private function updateState():void {

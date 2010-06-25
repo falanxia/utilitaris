@@ -198,9 +198,6 @@ package com.falanxia.utilitaris.formats {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
-
-
 		private function initQuantTables(sf:int):void {
 			var i:int;
 			const I64:int = 64;
@@ -622,8 +619,8 @@ package com.falanxia.utilitaris.formats {
 
 
 
-		private function processDU(CDU:Vector.<Number>, fdtbl:Vector.<Number>, DC:Number, HTDC:Vector.<BitString>,
-		                           HTAC:Vector.<BitString>):Number {
+		private function processDU(CDU:Vector.<Number>, fdtbl:Vector.<Number>, DC:Number, HTDC:Vector.<BitString>, HTAC:Vector.<BitString>
+				):Number {
 			var EOB:BitString = HTAC[0x00];
 			var M16zeroes:BitString = HTAC[0xF0];
 			var pos:int;

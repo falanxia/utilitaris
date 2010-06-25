@@ -91,9 +91,6 @@ package com.falanxia.utilitaris.locale {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get current language.
 		 * @return Current language (like {@code "en"})

@@ -109,9 +109,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get embedded {@code Sprite}.
 		 * @return Embedded {@code Sprite}

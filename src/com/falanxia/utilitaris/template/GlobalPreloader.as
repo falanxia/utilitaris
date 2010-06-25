@@ -128,9 +128,6 @@ package com.falanxia.utilitaris.template {
 
 
 
-		/* ★ PROTECTED METHODS ★ */
-
-
 		/**
 		 * Load error. Happens when the user navigates somewhere else while Flash is not fully loaded yet.
 		 */

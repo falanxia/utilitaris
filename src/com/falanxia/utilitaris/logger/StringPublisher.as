@@ -90,9 +90,6 @@ package com.falanxia.utilitaris.logger {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
-
-
 		/**
 		 * Returns a special prefix for trace output.
 		 * @param logLevel Log level

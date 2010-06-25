@@ -312,9 +312,6 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
-
-
 		private static function scanObject(obj:Object, depth:int, prefix:String):String {
 			var out:String;
 

@@ -125,9 +125,6 @@ package com.falanxia.utilitaris.types {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get percent expressed as a regular percentage. 37.5% would be expressed as <code>37.5</code>.
 		 * @return Percentage

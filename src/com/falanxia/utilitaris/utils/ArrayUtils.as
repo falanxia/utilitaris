@@ -152,7 +152,9 @@ package com.falanxia.utilitaris.utils {
 		public static function addItemsAt(tarArray:Array, items:Array, index:int = 0x7FFFFFFF):Boolean {
 			var out:Boolean = true;
 
-			if(items.length == 0) out = false;
+			if(items.length == 0) {
+				out = false;
+			}
 			else {
 				var args:Array = items.concat();
 				args.splice(0, 0, index, 0);
@@ -359,7 +361,9 @@ package com.falanxia.utilitaris.utils {
 					if(first[i] != second[i]) out = false;
 				}
 			}
-			else out = false;
+			else {
+				out = false;
+			}
 
 			return out;
 		}
@@ -456,8 +460,12 @@ package com.falanxia.utilitaris.utils {
 		public static function average(inArray:Array):Number {
 			var out:Number;
 
-			if(inArray.length == 0) out = 0;
-			else out = sum(inArray) / inArray.length;
+			if(inArray.length == 0) {
+				out = 0;
+			}
+			else {
+				out = sum(inArray) / inArray.length;
+			}
 
 			return out;
 		}
@@ -498,9 +506,6 @@ package com.falanxia.utilitaris.utils {
 			return inArray[inArray.sort(16 | 8)[inArray.length - 1]];
 		}
 
-
-
-		/* ★ PROTECTED METHODS ★ */
 
 
 		protected static function removeDuplicatesFilter(e:*, i:int, inArray:Array):Boolean {

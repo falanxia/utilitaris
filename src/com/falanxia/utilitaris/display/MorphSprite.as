@@ -204,9 +204,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * If {@code width} change flag is set, directly change {@code width}.
 		 * @param value New {@code width}
@@ -225,9 +222,6 @@ package com.falanxia.utilitaris.display {
 			if(isChangeHeightEnabled) super.height = value;
 		}
 
-
-
-		/* ★ PRIVATE METHODS ★ */
 
 
 		private function onMorphComplete():void {

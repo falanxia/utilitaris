@@ -57,9 +57,6 @@ package com.falanxia.utilitaris.types {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get {@code Date} representation of the timestamp.
 		 * @return {@code Date} representation of the timestamp

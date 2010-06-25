@@ -146,9 +146,6 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		/* ★ PROTECTED METHODS ★ */
-
-
 		protected static function defineRect(size:Rectangle, width:Number, height:Number, snapToPixel:Boolean):Rectangle {
 			var scaled:Rectangle = size.clone();
 

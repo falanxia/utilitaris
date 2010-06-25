@@ -113,9 +113,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Moves to the specified position.
 		 * @param p New position as {@code Point}

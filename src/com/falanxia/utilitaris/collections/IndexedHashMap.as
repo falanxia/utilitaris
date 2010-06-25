@@ -273,9 +273,6 @@ package com.falanxia.utilitaris.collections {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
-
-
 		private function removeFromArrayAt(index:int):Boolean {
 			if(index >= array.length) return false;
 

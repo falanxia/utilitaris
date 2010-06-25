@@ -117,9 +117,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Get width.
 		 * @return Width
@@ -228,9 +225,6 @@ package com.falanxia.utilitaris.display {
 			refresh();
 		}
 
-
-
-		/* ★ PRIVATE METHODS ★ */
 
 
 		private function refresh():void {

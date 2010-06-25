@@ -881,9 +881,6 @@ package com.falanxia.utilitaris.utils {
 
 
 
-		/* ★ PRIVATE METHODS ★ */
-
-
 		private static function escapePattern2(value:String):String {
 			return value.replace(/(\]|\[|\{|\}|\(|\)|\*|\+|\?|\.|\\)/g, "\\$1");
 		}

@@ -165,9 +165,6 @@ package com.falanxia.utilitaris.template {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Set skin loading progress.
 		 * Called from the application.
@@ -228,9 +225,6 @@ package com.falanxia.utilitaris.template {
 			return _instance;
 		}
 
-
-
-		/* ★ PROTECTED METHODS ★ */
 
 
 		/**

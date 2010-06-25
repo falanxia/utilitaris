@@ -135,9 +135,6 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/* ★ SETTERS & GETTERS ★ */
-
-
 		/**
 		 * Set visibility.
 		 * @param value {@code true} to make {@code Stats} visible
@@ -153,9 +150,6 @@ package com.falanxia.utilitaris.display {
 			}
 		}
 
-
-
-		/* ★ EVENT LISTENERS ★ */
 
 
 		private function onMouseClick(e:MouseEvent):void {
