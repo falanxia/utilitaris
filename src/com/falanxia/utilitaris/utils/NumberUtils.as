@@ -377,22 +377,6 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Rounds a {@code Number} to the nearest nth, where {@code digits} is n / 10.
-		 * @param value {@code Number} to round
-		 * @param digits Number of digits to show after the point
-		 * @return Rounded {@code value}
-		 */
-		public static function round(value:Number, digits:int):Number {
-			var d:int = digits;
-
-			d = Math.pow(10, d);
-
-			return Math.round(value * d) / d;
-		}
-
-
-
-		/**
 		 * Inserts commas every three digits in the integer of {@code value}.
 		 * @param value {@code Number} to insert commas into
 		 * @return {@code value} as a {@code String} formatted with commas

@@ -141,6 +141,8 @@ package com.falanxia.utilitaris.enums {
 		public static const TAB:int = 9;
 		public static const TILDE:int = 192;
 		public static const UNDERSCORE:int = 189;
+		public static const LESS_THAN:int = 188;
+		public static const GREATER_THAN:int = 190;
 
 
 	}
