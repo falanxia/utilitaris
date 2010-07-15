@@ -425,7 +425,7 @@ package com.falanxia.utilitaris.utils {
 
 						case "Z" :
 							// Timezone offset (GMT/UTC) in seconds.
-							out += Math.round(getDifferenceFromUTCInSeconds(dateToFormat)).toString();
+							out += int(getDifferenceFromUTCInSeconds(dateToFormat)).toString();
 							break;
 
 						case "c" :
@@ -440,7 +440,7 @@ package com.falanxia.utilitaris.utils {
 
 						case "U" :
 							// Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
-							t = Math.round(dateToFormat.getTime() / 1000);
+							t = int(dateToFormat.getTime() / 1000);
 							out += t.toString();
 							break;
 
@@ -719,7 +719,7 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function getTimezone(date:Date):String {
 			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6", "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
-			var hour:uint = Math.round(12 + -(date.getTimezoneOffset() / 60));
+			var hour:uint = int(12 + -(date.getTimezoneOffset() / 60));
 
 			if(isDaylightSavings(date)) hour--;
 

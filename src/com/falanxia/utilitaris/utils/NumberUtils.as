@@ -237,7 +237,7 @@ package com.falanxia.utilitaris.utils {
 		public static function roundDecimalToPlace(value:Number, place:uint):Number {
 			var p:Number = Math.pow(10, place);
 
-			return Math.round(value * p) / p;
+			return int(value * p) / p;
 		}
 
 

@@ -58,10 +58,10 @@ package com.falanxia.utilitaris.utils {
 		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
 		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
 		 */
-		public static function alignLeft(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true,
-		                                 outside:Boolean = false):void {
+		public static function alignLeft(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false
+				):void {
 			var x:Number = outside ? bounds.left - displayObject.width : bounds.left;
-			displayObject.x = snapToPixel ? Math.round(x) : x;
+			displayObject.x = snapToPixel ? int(x) : x;
 		}
 
 
@@ -73,10 +73,10 @@ package com.falanxia.utilitaris.utils {
 		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
 		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
 		 */
-		public static function alignRight(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true,
-		                                  outside:Boolean = false):void {
+		public static function alignRight(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false
+				):void {
 			var x:Number = outside ? bounds.right : bounds.right - displayObject.width;
-			displayObject.x = snapToPixel ? Math.round(x) : x;
+			displayObject.x = snapToPixel ? int(x) : x;
 		}
 
 
@@ -88,10 +88,10 @@ package com.falanxia.utilitaris.utils {
 		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
 		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
 		 */
-		public static function alignTop(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true,
-		                                outside:Boolean = false):void {
+		public static function alignTop(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false
+				):void {
 			var y:Number = outside ? bounds.top - displayObject.height : bounds.top;
-			displayObject.y = snapToPixel ? Math.round(y) : y;
+			displayObject.y = snapToPixel ? int(y) : y;
 		}
 
 
@@ -106,7 +106,7 @@ package com.falanxia.utilitaris.utils {
 		public static function alignBottom(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true,
 		                                   outside:Boolean = false):void {
 			var y:Number = outside ? bounds.bottom : bounds.bottom - displayObject.height;
-			displayObject.y = snapToPixel ? Math.round(y) : y;
+			displayObject.y = snapToPixel ? int(y) : y;
 		}
 
 
@@ -119,7 +119,7 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function alignCenter(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true):void {
 			var centerX:Number = bounds.width * 0.5 - displayObject.width * 0.5 + bounds.x;
-			displayObject.x = snapToPixel ? Math.round(centerX) : centerX;
+			displayObject.x = snapToPixel ? int(centerX) : centerX;
 		}
 
 
@@ -132,7 +132,7 @@ package com.falanxia.utilitaris.utils {
 		 */
 		public static function alignMiddle(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true):void {
 			var centerY:Number = bounds.height * 0.5 - displayObject.height * 0.5 + bounds.y;
-			displayObject.y = snapToPixel ? Math.round(centerY) : centerY;
+			displayObject.y = snapToPixel ? int(centerY) : centerY;
 		}
 
 
