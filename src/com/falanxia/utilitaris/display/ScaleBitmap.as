@@ -50,6 +50,8 @@ package com.falanxia.utilitaris.display {
 		 */
 		public static function draw(bitmap:BitmapData, graphics:Graphics, drawRect:Rectangle, innerRect:Rectangle,
 		                            outerRect:Rectangle = null):void {
+			if(bitmap == null) return;
+
 			var x:int;
 			var y:int;
 			var ox:Number = 0;
