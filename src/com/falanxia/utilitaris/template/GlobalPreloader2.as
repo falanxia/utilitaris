@@ -41,7 +41,7 @@ package com.falanxia.utilitaris.template {
 	public class GlobalPreloader2 extends MovieClip {
 
 
-		private static var _instance:GlobalPreloader2;
+		protected static var _instance:GlobalPreloader2;
 
 		protected var isMainLoading:Boolean = true;
 		protected var isStartDisabled:Boolean = false;
@@ -52,16 +52,6 @@ package com.falanxia.utilitaris.template {
 		protected var completeSize:uint;
 		protected var completeProgress:Number = 0;
 		protected var mainProgress:Number = 0;
-		protected var mainRatio:Number = 0;
-		protected var skinRatio:Number = 0;
-		protected var iconsRatio:Number = 0;
-		protected var soundEventsRatio:Number = 0;
-		protected var soundMusicRatio:Number = 0;
-
-		protected var _skinProgress:Number = 0;
-		protected var _iconsProgress:Number = 0;
-		protected var _soundEventsProgress:Number = 0;
-		protected var _soundMusicProgress:Number = 0;
 
 
 
@@ -166,58 +156,6 @@ package com.falanxia.utilitaris.template {
 
 
 		/**
-		 * Set skin loading progress.
-		 * Called from the application.
-		 * @param value Skin loading progress
-		 */
-		public function set skinProgress(value:Number):void {
-			//Logger.error("SKIN = " + value);
-
-			_skinProgress = value;
-		}
-
-
-
-		/**
-		 * Set icons loading progress.
-		 * Called from the application.
-		 * @param value Icons loading progress
-		 */
-		public function set iconsProgress(value:Number):void {
-			//Logger.error("ICONS = " + value);
-
-			_iconsProgress = value;
-		}
-
-
-
-		/**
-		 * Set skin loading progress.
-		 * Called from the application.
-		 * @param value Skin loading progress
-		 */
-		public function set soundEventsProgress(value:Number):void {
-			//Logger.error("EVENTS = " + value);
-
-			_soundEventsProgress = value;
-		}
-
-
-
-		/**
-		 * Set sound music loading progress.
-		 * Called from the application.
-		 * @param value Sound music loading progress
-		 */
-		public function set soundMusicProgress(value:Number):void {
-			//Logger.error("SOUND = " + value);
-
-			_soundMusicProgress = value;
-		}
-
-
-
-		/**
 		 * Get instance of the {@code GlobalPreloader2}
 		 * @return Instance of the {@code GlobalPreloader2}
 		 */
@@ -260,13 +198,6 @@ package com.falanxia.utilitaris.template {
 					initAppMain();
 				}
 			}
-
-			completeProgress = 0;
-			completeProgress += mainProgress * mainRatio;
-			completeProgress += _skinProgress * skinRatio;
-			completeProgress += _iconsProgress * iconsRatio;
-			completeProgress += _soundEventsProgress * soundEventsRatio;
-			completeProgress += _soundMusicProgress * soundMusicRatio;
 		}
 	}
 }
