@@ -4,9 +4,9 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.anim {
-
 	import com.falanxia.utilitaris.display.atlasanim.director.IAtlasDirector;
 	import com.falanxia.utilitaris.display.atlasanim.events.AtlasAnimEvent;
+
 	import flash.display.BitmapData;
 
 
@@ -24,6 +24,9 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected var repeat:Boolean;
 		protected var doYoyo:Boolean;
 
+		protected var limitMinFrame:int;
+		protected var limitMaxFrame:int;
+
 
 
 		/**
@@ -34,6 +37,9 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			super(width, height, atlases, atlasesLengths, atlasDirector);
 
 			frame = -1;
+			limitMinFrame = 0;
+			limitMaxFrame = this.maxFrame;
+
 			doPlayForward = true;
 			repeat = true;
 			doYoyo = false;
@@ -53,8 +59,9 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 				this.update();
 			}
 
-			if(frame == 0 && !doPlayForward) frame = maxFrame + 1;
-			if(frame == maxFrame && doPlayForward) frame = -1;
+			if(frame == limitMinFrame && !doPlayForward) frame = limitMaxFrame + 1;
+			if(frame == limitMaxFrame && doPlayForward) frame = limitMinFrame -1;
+			
 			director.registerAnim(this);
 		}
 
@@ -112,6 +119,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		}
 
 
+
 		override public function destroy():void {
 			director.unregisterAnim(this);
 			super.destroy();
@@ -138,13 +146,13 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 		public function getDirection():Boolean {
-			return false;
+			return this.doPlayForward;
 		}
 
 
 
 		public function getRepeat():Boolean {
-			return repeat;
+			return this.repeat;
 		}
 
 
@@ -156,9 +164,24 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 		public function getFrameNum():uint {
-			return maxFrame+1;
+			return maxFrame + 1;
 		}
 
+
+
+		public function setFrameLimit(minFrame:uint,  maxFrame:uint):void {
+			if (minFrame > 0) {
+				this.limitMinFrame = minFrame;
+			} else {
+				this.limitMinFrame = 0;
+			}
+
+			if (maxFrame < this.maxFrame) {
+				this.limitMaxFrame = maxFrame;
+			} else {
+				this.limitMaxFrame = this.maxFrame;
+			}
+		}
 
 
 
@@ -166,8 +189,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			if(this.doPlayForward) {
 				frame++;
 				checkMaxFrame();
-			}
-			else {
+			} else {
 				frame--;
 				checkMinFrame();
 			}
@@ -187,19 +209,18 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 		protected function checkMinFrame():void {
-			if(frame < 0) {
+			if(frame < limitMinFrame) {
 
 				if(!repeat) {
 					this.director.unregisterAnim(this);
-					this.frame = 0;
-				}
-				else {
+					this.frame = limitMinFrame;
+				} else {
 					if(doYoyo) {
 						this.reverse();
-						frame = 1;
+						frame = limitMinFrame + 1;
 					}
 					else {
-						frame = maxFrame;
+						frame = limitMaxFrame;
 					}
 				}
 
@@ -210,19 +231,19 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 		protected function checkMaxFrame():void {
-			if(frame > maxFrame) {
+			if(frame > limitMaxFrame) {
 
 				if(!repeat) {
 					this.director.unregisterAnim(this);
-					this.frame = maxFrame;
+					this.frame = limitMaxFrame;
 				}
 				else {
 					if(doYoyo) {
 						this.reverse();
-						this.frame = maxFrame - 1;
+						this.frame = limitMaxFrame - 1;
 					}
 					else {
-						frame = 0;
+						frame = limitMinFrame;
 					}
 				}
 

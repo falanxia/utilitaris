@@ -75,5 +75,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		function getFrameNum():uint;
 
 
+		function setFrameLimit(minFrame:uint, maxFrame:uint):void;
+
 	}
 }
