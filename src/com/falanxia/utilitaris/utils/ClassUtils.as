@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
+
 	import flash.display.*;
 	import flash.utils.*;
 

@@ -13,7 +13,7 @@ package com.falanxia.utilitaris.antizmrd {
 	 *
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
-	 * @since
+	 * @since 1.0
 	 */
 	public class AntiZmrd extends EventDispatcher {
 
