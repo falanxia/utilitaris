@@ -3,10 +3,9 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
+
 	import flash.display.Stage;
 	import flash.events.Event;
-
-
 
 	/**
 	 *

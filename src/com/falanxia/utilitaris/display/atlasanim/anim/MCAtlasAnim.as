@@ -7,6 +7,8 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	import com.falanxia.utilitaris.display.atlasanim.director.IAtlasDirector;
 	import com.falanxia.utilitaris.display.atlasanim.events.AtlasAnimEvent;
 
+	import de.dev_lab.logging.Logger;
+
 	import flash.display.BitmapData;
 
 
@@ -47,7 +49,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
-		public function update():void {
+		public function update():void {			
 			increaseFrames();
 			this.drawFrame(frame);
 		}
@@ -61,7 +63,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 			if(frame == limitMinFrame && !doPlayForward) frame = limitMaxFrame + 1;
 			if(frame == limitMaxFrame && doPlayForward) frame = limitMinFrame -1;
-			
+
 			director.registerAnim(this);
 		}
 

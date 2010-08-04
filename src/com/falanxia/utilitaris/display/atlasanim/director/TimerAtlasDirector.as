@@ -4,6 +4,8 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
+	import de.dev_lab.logging.Logger;
+
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 
@@ -53,7 +55,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		private function onTimerTick(e:TimerEvent):void {
+		private function onTimerTick(e:TimerEvent):void {		
 			this.updateAnims();
 		}
 
