@@ -22,40 +22,38 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.antizmrd.checkmethods {
-	import com.falanxia.utilitaris.antizmrd.AntiZmrd;
+package com.falanxia.utilitaris.display.atlasanim.interfaces {
 
 
 
 	/**
-	 *
+	 * Atlas director interface.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
-	public class AbstractCheckMethod {
-
-		private var antiZmrd:AntiZmrd;
+	public interface IAtlasDirector {
 
 
-
-		/**
-		 * Constructor.
-		 */
-		public function AbstractCheckMethod(antiZmrd:AntiZmrd) {
-			this.antiZmrd = antiZmrd;
-		}
+		function start():void;
 
 
 
-		public function disableApplication():void {
-			antiZmrd.doDisable();
-		}
+		function stop():void;
 
 
 
-		public function checkFinished():void {
-			antiZmrd.checkFinished();
-		}
+		function registerAnim(atlasAnim:IAtlasAnim):Boolean;
+
+
+
+		function unregisterAnim(atlasAnim:IAtlasAnim):Boolean;
+
+
+
+		function unregisterAll():void;
+
+
 	}
 }

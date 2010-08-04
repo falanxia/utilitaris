@@ -1,23 +1,41 @@
 /*
- * Falanxia BzoonkBar.
- * Copyright (c) 2010 Falanxia (http://falanxia.com). All rights reserved.
+ * Falanxia Utilitaris.
+ *
+ * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 package com.falanxia.utilitaris.display.atlasanim.anim {
-	import com.falanxia.utilitaris.display.atlasanim.director.IAtlasDirector;
-	import com.falanxia.utilitaris.display.atlasanim.events.AtlasAnimEvent;
+	import com.falanxia.utilitaris.display.atlasanim.events.*;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
 
-	import de.dev_lab.logging.Logger;
-
-	import flash.display.BitmapData;
+	import flash.display.*;
 
 
 
 	/**
-	 *
+	 * Atlas animation.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
-	 * @since
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @since 1.0
 	 */
 	public class MCAtlasAnim extends AbstractMultiAtlasAnim implements IAtlasAnim, IMovieClipAnim {
 
@@ -25,17 +43,12 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected var doPlayForward:Boolean;
 		protected var repeat:Boolean;
 		protected var doYoyo:Boolean;
-
 		protected var limitMinFrame:int;
 		protected var limitMaxFrame:int;
 
 
 
-		/**
-		 * Constructor.
-		 */
-		public function MCAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array,
-		                            atlasDirector:IAtlasDirector) {
+		public function MCAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array, atlasDirector:IAtlasDirector) {
 			super(width, height, atlases, atlasesLengths, atlasDirector);
 
 			frame = -1;
@@ -49,7 +62,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
-		public function update():void {			
+		public function update():void {
 			increaseFrames();
 			this.drawFrame(frame);
 		}
@@ -62,7 +75,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			}
 
 			if(frame == limitMinFrame && !doPlayForward) frame = limitMaxFrame + 1;
-			if(frame == limitMaxFrame && doPlayForward) frame = limitMinFrame -1;
+			if(frame == limitMaxFrame && doPlayForward) frame = limitMinFrame - 1;
 
 			director.registerAnim(this);
 		}
@@ -171,16 +184,18 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
-		public function setFrameLimit(minFrame:uint,  maxFrame:uint):void {
-			if (minFrame > 0) {
+		public function setFrameLimit(minFrame:uint, maxFrame:uint):void {
+			if(minFrame > 0) {
 				this.limitMinFrame = minFrame;
-			} else {
+			}
+			else {
 				this.limitMinFrame = 0;
 			}
 
-			if (maxFrame < this.maxFrame) {
+			if(maxFrame < this.maxFrame) {
 				this.limitMaxFrame = maxFrame;
-			} else {
+			}
+			else {
 				this.limitMaxFrame = this.maxFrame;
 			}
 		}
@@ -191,7 +206,8 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			if(this.doPlayForward) {
 				frame++;
 				checkMaxFrame();
-			} else {
+			}
+			else {
 				frame--;
 				checkMinFrame();
 			}
@@ -212,11 +228,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 		protected function checkMinFrame():void {
 			if(frame < limitMinFrame) {
-
-				if(!repeat) {
-					this.director.unregisterAnim(this);
-					this.frame = limitMinFrame;
-				} else {
+				if(repeat) {
 					if(doYoyo) {
 						this.reverse();
 						frame = limitMinFrame + 1;
@@ -224,6 +236,10 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 					else {
 						frame = limitMaxFrame;
 					}
+				}
+				else {
+					this.director.unregisterAnim(this);
+					this.frame = limitMinFrame;
 				}
 
 				dispatchEvent(new AtlasAnimEvent(AtlasAnimEvent.ANIM_FIRST_FRAME));
@@ -234,12 +250,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 		protected function checkMaxFrame():void {
 			if(frame > limitMaxFrame) {
-
-				if(!repeat) {
-					this.director.unregisterAnim(this);
-					this.frame = limitMaxFrame;
-				}
-				else {
+				if(repeat) {
 					if(doYoyo) {
 						this.reverse();
 						this.frame = limitMaxFrame - 1;
@@ -248,12 +259,13 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 						frame = limitMinFrame;
 					}
 				}
+				else {
+					this.director.unregisterAnim(this);
+					this.frame = limitMaxFrame;
+				}
 
 				dispatchEvent(new AtlasAnimEvent(AtlasAnimEvent.ANIM_LAST_FRAME));
 			}
 		}
-
-
 	}
-
 }

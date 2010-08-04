@@ -22,40 +22,86 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.antizmrd.checkmethods {
-	import com.falanxia.utilitaris.antizmrd.AntiZmrd;
+package com.falanxia.utilitaris.display.atlasanim.interfaces {
 
 
 
 	/**
-	 *
+	 * MovieClip animation interface.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
-	public class AbstractCheckMethod {
-
-		private var antiZmrd:AntiZmrd;
+	public interface IMovieClipAnim {
 
 
-
-		/**
-		 * Constructor.
-		 */
-		public function AbstractCheckMethod(antiZmrd:AntiZmrd) {
-			this.antiZmrd = antiZmrd;
-		}
+		function play(dontWaitForDirector:Boolean = false):void;
 
 
 
-		public function disableApplication():void {
-			antiZmrd.doDisable();
-		}
+		function stop():void;
 
 
 
-		public function checkFinished():void {
-			antiZmrd.checkFinished();
-		}
+		function reverse():void;
+
+
+
+		function goto(frame:uint):void;
+
+
+
+		function gotoAndPlay(frame:uint):void;
+
+
+
+		function gotoAndStop(frame:uint):void;
+
+
+
+		function nextFrame():void;
+
+
+
+		function prevFrame():void;
+
+
+
+		function destroy():void;
+
+
+
+		function setDirection(doPlayForward:Boolean):void;
+
+
+
+		function getDirection():Boolean;
+
+
+
+		function getRepeat():Boolean;
+
+
+
+		function setRepeat(repeat:Boolean):void;
+
+
+
+		function setYoyo(doYoyo:Boolean):void;
+
+
+
+		function getYoyo():Boolean;
+
+
+
+		function getFrameNum():uint;
+
+
+
+		function setFrameLimit(minFrame:uint, maxFrame:uint):void;
+
+
 	}
 }
