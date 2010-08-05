@@ -58,8 +58,8 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Get {@code Date} representation of the timestamp.
-		 * @return {@code Date} representation of the timestamp
+		 * Get Date representation of the timestamp.
+		 * @return Date representation of the timestamp
 		 */
 		public function get date():Date {
 			var d:Date = new Date();

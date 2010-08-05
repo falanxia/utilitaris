@@ -43,8 +43,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function RatioUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -53,8 +53,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the ratio of {@code width} to {@code height}.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
+		 * Determines the ratio of width to height.
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
 		 */
 		public static function widthToHeight(rect:Rectangle):Number {
 			return rect.width / rect.height;
@@ -63,8 +63,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the ratio of {@code height} to {@code width}.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
+		 * Determines the ratio of height to width.
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
 		 */
 		public static function heightToWidth(rect:Rectangle):Number {
 			return rect.height / rect.width;
@@ -73,10 +73,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Scales an area's {@code width} and {@code height} while preserving aspect ratio.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
+		 * Scales an area's width and height while preserving aspect ratio.
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
 		 * @param amount Amount you wish to scale by
-		 * @param snapToPixel {@code true} to force the scale to whole pixels, or {@code false} to allow sub-pixels
+		 * @param snapToPixel true to force the scale to whole pixels, or false to allow sub-pixels
 		 */
 		public static function scale(rect:Rectangle, amount:Percent, snapToPixel:Boolean = true):Rectangle {
 			return defineRect(rect, rect.width * amount.decimalPercentage, rect.height * amount.decimalPercentage, snapToPixel);
@@ -85,10 +85,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Scales the {@code width} of an area while preserving aspect ratio.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
+		 * Scales the width of an area while preserving aspect ratio.
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
 		 * @param height Height to scale to
-		 * @param snapToPixel {@code true} to force the scale to whole pixels, or {@code false} to allow sub-pixels
+		 * @param snapToPixel true to force the scale to whole pixels, or false to allow sub-pixels
 		 */
 		public static function scaleWidth(rect:Rectangle, height:Number, snapToPixel:Boolean = true):Rectangle {
 			return defineRect(rect, height * widthToHeight(rect), height, snapToPixel);
@@ -97,10 +97,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Scales the {@code height} of an area while preserving aspect ratio.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
+		 * Scales the height of an area while preserving aspect ratio.
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
 		 * @param width Width to scale to
-		 * @param snapToPixel {@code true} to force the scale to whole pixels, or {@code false} to allow sub-pixels
+		 * @param snapToPixel true to force the scale to whole pixels, or false to allow sub-pixels
 		 */
 		public static function scaleHeight(rect:Rectangle, width:Number, snapToPixel:Boolean = true):Rectangle {
 			return defineRect(rect, width, width * heightToWidth(rect), snapToPixel);
@@ -110,9 +110,9 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Resizes an area to fill the bounding area while preserving aspect ratio.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
-		 * @param bounds Area to fill - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
-		 * @param snapToPixel {@code true} to force the scale to whole pixels, or {@code false} to allow sub-pixels
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
+		 * @param bounds Area to fill - the Rectangle's x and y values are ignored
+		 * @param snapToPixel true to force the scale to whole pixels, or false to allow sub-pixels
 		 */
 		public static function scaleToFill(rect:Rectangle, bounds:Rectangle, snapToPixel:Boolean = true):Rectangle {
 			var scaled:Rectangle = scaleHeight(rect, bounds.width, snapToPixel);
@@ -126,9 +126,9 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Resizes an area to the maximum size of a bounding area without exceeding while preserving aspect ratio.
-		 * @param rect Area's {@code width} and {@code height} expressed as a {@code Rectangle} - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
-		 * @param bounds Area the rectangle needs to fit within - the {@code Rectangle}'s {@code x} and {@code y} values are ignored
-		 * @param snapToPixel {@code true} to force the scale to whole pixels, or {@code false} to allow sub-pixels
+		 * @param rect Area's width and height expressed as a Rectangle - the Rectangle's x and y values are ignored
+		 * @param bounds Area the rectangle needs to fit within - the Rectangle's x and y values are ignored
+		 * @param snapToPixel true to force the scale to whole pixels, or false to allow sub-pixels
 		 */
 		public static function scaleToFit(rect:Rectangle, bounds:Rectangle, snapToPixel:Boolean = true):Rectangle {
 			var scaled:Rectangle = scaleHeight(rect, bounds.width, snapToPixel);

@@ -23,7 +23,6 @@
  */
 
 package com.falanxia.utilitaris.utils {
-
 	import flash.display.*;
 	import flash.utils.*;
 
@@ -45,8 +44,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function ClassUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -74,9 +73,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get the {@code Class} of an {@code Object}.
-		 * @param obj {@code DisplayObject} to get the {@code Class} of
-		 * @return {@code Class} of the given {@code DisplayObject} or {@code null} if the class cannot be determined
+		 * Get the Class of an Object.
+		 * @param obj DisplayObject to get the Class of
+		 * @return Class of the given DisplayObject or null if the class cannot be determined
 		 */
 		public static function getClass(obj:Object):Class {
 			var out:Class;
@@ -98,9 +97,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get a {@code Class} by its fully-qualified name.
-		 * @param className Fully-qualified name of the {@code Class}
-		 * @return {@code Class} with the given name or null if none exists
+		 * Get a Class by its fully-qualified name.
+		 * @param className Fully-qualified name of the Class
+		 * @return Class with the given name or null if none exists
 		 */
 		public static function getClassByName(className:String):Class {
 			var out:Class;
@@ -121,9 +120,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get the {@code Class} of a {@code DisplayObject}.
-		 * @param obj {@code Object} to get the {@code Class} of
-		 * @return {@code Class} of the given {@code Object} or {@code null} if the class cannot be determined
+		 * Get the Class of a DisplayObject.
+		 * @param obj Object to get the Class of
+		 * @return Class of the given Object or null if the class cannot be determined
 		 */
 		public static function getDisplayObjectClass(obj:Object):Class {
 			var out:Class;
@@ -152,10 +151,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Dynamically constructs a {@code Class}.
-		 * @param type {@code Class} to create
+		 * Dynamically constructs a Class.
+		 * @param type Class to create
 		 * @param args Up to ten arguments to the constructor
-		 * @return Dynamically created instance of the {@code Class} specified by {@code type} parameter
+		 * @return Dynamically created instance of the Class specified by type parameter
 		 * @example
 		 *      <code>
 		 *          var bData:* = ClassUtils.construct(BitmapData, 200, 200);

@@ -33,7 +33,7 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Quick TextField.
-	 * Quick creation of {@code TextField} with initial settings.
+	 * Quick creation of TextField with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
@@ -48,27 +48,27 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * All parameters from the {@code config} Object are parsed and applied to the newly created {@code TextField}.
-		 * @usageNote Additionally these set to non-default settings to make common tasks easier (if not overridden by the {@code config} parameter)
+		 * All parameters from the config Object are parsed and applied to the newly created TextField.
+		 * @usageNote Additionally these set to non-default settings to make common tasks easier (if not overridden by the config parameter)
 		 *      <ul>
-		 *          <li>{@code antiAliasType} - set to {@code AntiAliasType.ADVANCED}</li>
-		 *          <li>{@code condenseWhite} - set to {@code true}</li>
-		 *          <li>{@code embedFonts} - set to {@code true}</li>
-		 *          <li>{@code gridFitType} - set to {@code GridFitType.SUBPIXEL}</li>
-		 *          <li>{@code mouseEnabled} - set to {@code false} to prevent scrolling via mouse wheel, don't forget to enable it in case you need to use anchors in text</li>
-		 *          <li>{@code multiline} - set to {@code true}</li>
-		 *          <li>{@code selectable} - set to {@code false}</li>
-		 *          <li>{@code type} - set to {@code TextFieldType.DYNAMIC}</li>
-		 *          <li>{@code wordWrap} - set to {@code true}</li>
+		 *          <li>antiAliasType - set to AntiAliasType.ADVANCED</li>
+		 *          <li>condenseWhite - set to true</li>
+		 *          <li>embedFonts - set to true</li>
+		 *          <li>gridFitType - set to GridFitType.SUBPIXEL</li>
+		 *          <li>mouseEnabled - set to false to prevent scrolling via mouse wheel, don't forget to enable it in case you need to use anchors in text</li>
+		 *          <li>multiline - set to true</li>
+		 *          <li>selectable - set to false</li>
+		 *          <li>type - set to TextFieldType.DYNAMIC</li>
+		 *          <li>wordWrap - set to true</li>
 		 *      </ul>
-		 * @param config Config {@code Object}
-		 * @param parent Parent {@code DisplayObjectContainer}
+		 * @param config Config Object
+		 * @param parent Parent DisplayObjectContainer
 		 * @example Example code:
 		 *      <code>
 		 *		    var myText:QTextField = new QTextField(x:100, y:50, width:300, embedFonts:false, text:'Lorem ipsum dolor sit amet'});
 		 *		    addChild(myText);
 		 *      </code>
-		 * @example Another example directly adding new {@code QTextField} to {@code this} {@code DisplayObjectContainer}:
+		 * @example Another example directly adding new QTextField to this DisplayObjectContainer:
 		 *      <code>
 		 *          var myText:QTextField = new QTextField({}, this);
 		 *      </code>
@@ -109,7 +109,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the {@code QTextField} instance and frees it for GC.
+		 * Destroys the QTextField instance and frees it for GC.
 		 * Placeholder.
 		 */
 		public function destroy():void {
@@ -119,7 +119,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Moves to the specified position.
-		 * @param p New position as {@code Point}
+		 * @param p New position as Point
 		 */
 		public function set position(p:Point):void {
 			this.x = p.x;
@@ -130,7 +130,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Rescales to new size.
-		 * @param rect New size as {@code Rectangle}
+		 * @param rect New size as Rectangle
 		 */
 		public function set size(rect:Rectangle):void {
 			this.width = rect.width;
@@ -141,7 +141,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Set position and size at once to speed up things.
-		 * @param rect Scale {@code Rectangle}
+		 * @param rect Scale Rectangle
 		 */
 		public function set positionAndSize(rect:Rectangle):void {
 			this.x = rect.x;
@@ -153,8 +153,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current position as {@code Point}.
-		 * @return Current position as {@code Point}
+		 * Get current position as Point.
+		 * @return Current position as Point
 		 */
 		public function get position():Point {
 			return new Point(this.x, this.y);
@@ -163,8 +163,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current size as {@code Rectangle}.
-		 * @return Current size as {@code Rectangle}
+		 * Get current size as Rectangle.
+		 * @return Current size as Rectangle
 		 */
 		public function get size():Rectangle {
 			return new Rectangle(0, 0, this.width, this.height);
@@ -173,8 +173,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current position and size as {@code Rectangle}.
-		 * @return Current position and size as {@code Rectangle}
+		 * Get current position and size as Rectangle.
+		 * @return Current position and size as Rectangle
 		 */
 		public function get positionAndSize():Rectangle {
 			return new Rectangle(this.x, this.y, this.width, this.height);

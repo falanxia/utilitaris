@@ -23,14 +23,13 @@
  */
 
 package com.falanxia.utilitaris.display {
-	
 	import flash.display.*;
 	import flash.geom.*;
 
 
 
 	/**
-	 * Scalable {@code Bitmap}.
+	 * Scalable Bitmap.
 	 *
 	 * @author Didier Brun (<a href="http://www.bytearray.org">bytearray.org</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
@@ -43,14 +42,13 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Draw.
-		 * @param bitmap {@code Bitmap} data source
+		 * @param bitmap Bitmap data source
 		 * @param graphics Graphics to draw
-		 * @param drawRect Draw {@code Rectangle}
-		 * @param innerRect Inner {@code Rectangle}
-		 * @param outerRect Outer {@code Rectangle}
+		 * @param drawRect Draw Rectangle
+		 * @param innerRect Inner Rectangle
+		 * @param outerRect Outer Rectangle
 		 */
-		public static function draw(bitmap:BitmapData, graphics:Graphics, drawRect:Rectangle, innerRect:Rectangle,
-		                            outerRect:Rectangle = null):void {
+		public static function draw(bitmap:BitmapData, graphics:Graphics, drawRect:Rectangle, innerRect:Rectangle, outerRect:Rectangle = null):void {
 			if(bitmap == null) return;
 
 			var x:int;
@@ -74,10 +72,14 @@ package com.falanxia.utilitaris.display {
 			var mat:Matrix = new Matrix();
 
 			// pre-calculate widths
-			var widths:Array = [innerRect.left, innerRect.width, sw - innerRect.right];
+			var widths:Array = [
+				innerRect.left, innerRect.width, sw - innerRect.right
+			];
 
 			// pre-calculate heights
-			var heights:Array = [innerRect.top, innerRect.height, sh - innerRect.bottom];
+			var heights:Array = [
+				innerRect.top, innerRect.height, sh - innerRect.bottom
+			];
 
 			// resized part
 			var resize:Point = new Point(drawRect.width - widths[0] - widths[2], drawRect.height - heights[0] - heights[2]);

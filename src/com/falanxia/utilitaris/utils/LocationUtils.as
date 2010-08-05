@@ -68,8 +68,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function LocationUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -79,8 +79,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the SWF is being served on the internet.
-		 * @param location {@code DisplayObject} to get location of
-		 * @return {@code true} if SWF is being served on the internet
+		 * @param location DisplayObject to get location of
+		 * @return true if SWF is being served on the internet
 		 * @example
 		 *      <code>
 		 *          trace(LocationUtils.isWeb(_root));
@@ -93,10 +93,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Detects if {@code MovieClip}'s embed location matches passed domain.
-		 * @param location {@code MovieClip} to compare location of
+		 * Detects if MovieClip's embed location matches passed domain.
+		 * @param location MovieClip to compare location of
 		 * @param domain Web domain
-		 * @return {@code true} if file's embed location matched passed domain
+		 * @return true if file's embed location matched passed domain
 		 * @example Check for domain:
 		 *      <code>
 		 *          trace(LocationUtils.isDomain(_root, "google.com"));
@@ -114,9 +114,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Detects {@code MovieClip}'s domain location.
-		 * @param location {@code MovieClip} to get location of
-		 * @return Full domain (including sub-domains) of {@code MovieClip}'s location
+		 * Detects MovieClip's domain location.
+		 * @param location MovieClip to get location of
+		 * @return Full domain (including sub-domains) of MovieClip's location
 		 * @example
 		 *      <code>
 		 *          trace(LocationUtils.getDomain(_root));
@@ -132,7 +132,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the SWF is running in a browser plug-in.
-		 * @return {@code true} if SWF is running in the Flash Player browser plug-in
+		 * @return true if SWF is running in the Flash Player browser plug-in
 		 */
 		public static function get isPlugin():Boolean {
 			return Capabilities.playerType == "PlugIn" || Capabilities.playerType == "ActiveX";
@@ -142,7 +142,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the SWF is running in the IDE.
-		 * @return {@code true} if SWF is running in the Flash Player version used by the external player or test movie mode
+		 * @return true if SWF is running in the Flash Player version used by the external player or test movie mode
 		 */
 		public static function get isIDE():Boolean {
 			return Capabilities.playerType == "External";
@@ -152,7 +152,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the SWF is running in the StandAlone player.
-		 * @return {@code true} if SWF is running in the Flash StandAlone Player
+		 * @return true if SWF is running in the Flash StandAlone Player
 		 */
 		public static function get isStandAlone():Boolean {
 			return Capabilities.playerType == "StandAlone";
@@ -162,7 +162,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the runtime environment is an Air application.
-		 * @return {@code true} if the runtime environment is an Air application
+		 * @return true if the runtime environment is an Air application
 		 */
 		public static function get isAirApplication():Boolean {
 			return Capabilities.playerType == "Desktop";
@@ -175,10 +175,10 @@ package com.falanxia.utilitaris.utils {
 		 * Based on script by Sergey Kovalyov (http://skovalyov.blogspot.com/2007/01/how-to-prevent-pop-up-blocking-in.html)
 		 * Based on script by Jason the Saj (http://thesaj.wordpress.com/2008/02/12/the-nightmare-that-is-_blank-part-ii-help)
 		 * @implementationNote Original: http://apdevblog.com/problems-using-navigatetourl
-		 * @implementationNote You also have to set the {@code wmode} inside your containing html file to {@code "opaque"} and the {@code allowScriptAccess} to {@code "always"}.
-		 * @param url {@code url} to be opened
+		 * @implementationNote You also have to set the wmode inside your containing html file to "opaque" and the allowScriptAccess to "always".
+		 * @param url url to be opened
 		 * @param window Window target
-		 * @param features Additional features for {@code window.open} function
+		 * @param features Additional features for window.open function
 		 * @author Sergey Kovalyov
 		 * @author Jason the Saj
 		 * @author Aron Woost (<a href="http://apdevblog.com">apdevblog.com</a>)

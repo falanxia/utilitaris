@@ -41,8 +41,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function FunctionUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -61,10 +61,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get a {@code Class} from the clip's library.
-		 * @param source Source {@code DisplayObject}
-		 * @param className Name of the {@code Class} to get
-		 * @return {@code Class} with the given name or {@code null} if it cannot be found
+		 * Get a Class from the clip's library.
+		 * @param source Source DisplayObject
+		 * @param className Name of the Class to get
+		 * @return Class with the given name or null if it cannot be found
 		 */
 		public function getClassFromLibrary(source:DisplayObject, className:String):Class {
 			var out:Class;
@@ -85,9 +85,9 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Get an instance of a clip from the clip's library.
-		 * @param source Source {@code DisplayObject}
-		 * @param className Name of the clip's {@code Class} (aka. linkage ID)
-		 * @return An instance of the clip with the given name or {@code null} if the {@code Class} cannot be found or the clip cannot be instantiated
+		 * @param source Source DisplayObject
+		 * @param className Name of the clip's Class (aka. linkage ID)
+		 * @return An instance of the clip with the given name or null if the Class cannot be found or the clip cannot be instantiated
 		 */
 		public function getClipFromLibrary(source:DisplayObject, className:String):MovieClip {
 			var out:MovieClip;
@@ -108,10 +108,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get an instance of a {@code BitmapData} from the clip's library.
-		 * @param source Source {@code DisplayObject}
-		 * @param className Name of the {@code BitmapData}'s {@code Class} (aka. linkage ID)
-		 * @return An instance of the {@code BitmapData} with the given name or {@code null} if the {@code Class} cannot be found or the {@code BitmapData} cannot be instantiated
+		 * Get an instance of a BitmapData from the clip's library.
+		 * @param source Source DisplayObject
+		 * @param className Name of the BitmapData's Class (aka. linkage ID)
+		 * @return An instance of the BitmapData with the given name or null if the Class cannot be found or the BitmapData cannot be instantiated
 		 */
 		public function getBitmapDataFromLibrary(source:DisplayObject, className:String):BitmapData {
 			var out:BitmapData;

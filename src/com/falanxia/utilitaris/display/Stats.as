@@ -71,8 +71,8 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * @param config Config {@code Object}
-		 * @param parent Parent {@code DisplayObjectContainer}
+		 * @param config Config Object
+		 * @param parent Parent DisplayObjectContainer
 		 */
 		public function Stats(config:Object = null, parent:DisplayObjectContainer = null) {
 			// create parent QSprite
@@ -107,7 +107,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the {@code QBitmap} instance and frees it for GC.
+		 * Destroys the QBitmap instance and frees it for GC.
 		 * Placeholder.
 		 */
 		override public function destroy():void {
@@ -137,7 +137,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Set visibility.
-		 * @param value {@code true} to make {@code Stats} visible
+		 * @param value true to make Stats visible
 		 */
 		override public function set visible(value:Boolean):void {
 			super.visible = value;

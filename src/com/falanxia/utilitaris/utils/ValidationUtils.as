@@ -62,7 +62,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
+		 * Cannot be instantiated, throws an Error.
 		 * @throws Error since the class could not be instantiated
 		 */
 		public function ValidationUtils() {
@@ -72,9 +72,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if {@code String} is a valid email address.
-		 * @param email {@code String} to verify as email
-		 * @return {@code true} if {@code String} is a valid email
+		 * Determines if String is a valid email address.
+		 * @param email String to verify as email
+		 * @return true if String is a valid email
 		 * @see <a href="http://www.regular-expressions.info/email.html">Read more about the regular expression used by this method.</a>
 		 */
 		public static function isEmail(email:String):Boolean {
@@ -85,12 +85,14 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if {@code String} is a valid USA state abbreviation.
-		 * @param state {@code String} to verify as two letter state abbreviation (includes DC)
-		 * @return {@code true} if {@code String} is a state abbreviation
+		 * Determines if String is a valid USA state abbreviation.
+		 * @param state String to verify as two letter state abbreviation (includes DC)
+		 * @return true if String is a state abbreviation
 		 */
 		public static function isUsaStateAbbreviation(state:String):Boolean {
-			var states:Array = new Array('ak', 'al', 'ar', 'az', 'ca', 'co', 'ct', 'dc', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo', 'ms', 'mt', 'nb', 'nc', 'nd', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi', 'wv', 'wy');
+			var states:Array = new Array('ak', 'al', 'ar', 'az', 'ca', 'co', 'ct', 'dc', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi',
+			                             'mn', 'mo', 'ms', 'mt', 'nb', 'nc', 'nd', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va',
+			                             'vt', 'wa', 'wi', 'wv', 'wy');
 			return ArrayUtils.contains(states, state.toLowerCase()) == 1;
 		}
 
@@ -99,7 +101,7 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Determines if credit number card is valid using the Luhn formula.
 		 * @param cardNumber Credit card number
-		 * @return {@code true} if {@code String} is a valid credit card number
+		 * @return true if String is a valid credit card number
 		 */
 		public static function isCreditCard(cardNumber:String):Boolean {
 			var out:Boolean;
@@ -136,7 +138,7 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Determines credit card provider by card number.
 		 * @param cardNumber Credit card number
-		 * @return Name of the provider; values can be {@code "visa"}, {@code "mastercard"}, {@code "discover"}, {@code "amex"}, {@code "diners"}, {@code "other"} or {@code "invalid"}.
+		 * @return Name of the provider; values can be "visa", "mastercard", "discover", "amex", "diners", "other" or "invalid".
 		 */
 		public static function getCreditCardProvider(cardNumber:String):String {
 			var out:String = CARD_INVALID;
@@ -146,16 +148,30 @@ package com.falanxia.utilitaris.utils {
 					out = CARD_VISA;
 				}
 				else {
-					if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 || cardNumber.indexOf('55') == 0 && cardNumber.length == 16) {
+					if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 ||
+					   cardNumber.indexOf('55') == 0 && cardNumber.length == 16) {
 						out = CARD_MASTERCARD;
-					} else if(cardNumber.length == 16 && cardNumber.indexOf('6011') == 0) {
-						out = CARD_DISCOVER;
-					} else if(cardNumber.indexOf('34') == 0 || cardNumber.indexOf('37') == 0 && cardNumber.length == 15) {
-						out = CARD_AMEX;
-					} else if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 || cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 || cardNumber.indexOf('38') == 0 && cardNumber.length == 14) {
-						out = CARD_DINERS;
 					}
-					else out = CARD_OTHER;
+					else {
+						if(cardNumber.length == 16 && cardNumber.indexOf('6011') == 0) {
+							out = CARD_DISCOVER;
+						}
+						else {
+							if(cardNumber.indexOf('34') == 0 || cardNumber.indexOf('37') == 0 && cardNumber.length == 15) {
+								out = CARD_AMEX;
+							}
+							else {
+								if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 ||
+								   cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 ||
+								   cardNumber.indexOf('38') == 0 && cardNumber.length == 14) {
+									out = CARD_DINERS;
+								}
+								else {
+									out = CARD_OTHER;
+								}
+							}
+						}
+					}
 				}
 			}
 

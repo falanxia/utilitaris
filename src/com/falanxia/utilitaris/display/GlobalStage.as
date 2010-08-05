@@ -46,8 +46,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Init global {@code Stage} singleton.
-		 * @param value {@code Stage}
+		 * Init global Stage singleton.
+		 * @param value Stage
 		 */
 		public static function init(value:Stage):void {
 			value.addChild(GlobalStage.getInstance());
@@ -67,8 +67,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get global {@code Stage} reference.
-		 * @return Global {@code Stage} reference
+		 * Get global Stage reference.
+		 * @return Global Stage reference
 		 */
 		public static function get stage():Stage {
 			return getInstance().stage;

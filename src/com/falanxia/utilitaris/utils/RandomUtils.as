@@ -39,8 +39,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function RandomUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -49,8 +49,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns a {@code Number} between {@code 0}-{@code 1} exclusive.
-		 * @return {@code Number} between {@code 0}-{@code 1} exclusive.
+		 * Returns a Number between 0-1 exclusive.
+		 * @return Number between 0-1 exclusive.
 		 */
 		public static function random():Number {
 			return Math.random();
@@ -59,10 +59,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns a float {@code Number} between {@code min}-{@code max} exclusive.
+		 * Returns a float Number between min-max exclusive.
 		 * @param min Minimal value
 		 * @param max Maximal value
-		 * @return Float {@code Number} between {@code min}-{@code max} exclusive.
+		 * @return Float Number between min-max exclusive.
 		 * @example
 		 *      <code>
 		 *          RandomUtils.float(50); // returns a number between 0-50 exclusive
@@ -87,10 +87,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns a {@code int} {@code Number} between {@code min}-{@code max} exclusive.
+		 * Returns a int Number between min-max exclusive.
 		 * @param min Minimal value
 		 * @param max Maximal value
-		 * @return {@code int} {@code Number} between {@code min}-{@code max} exclusive.
+		 * @return int Number between min-max exclusive.
 		 * @example
 		 *      <code>
 		 *          RandomUtils.integer(50); // returns an integer between 0-49 inclusive
@@ -112,9 +112,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns a {@code Boolean}.
-		 * @param chance Chance {@code Number} ({@code 0}-{@code 1})
-		 * @return Float {@code Number} between {@code min}-{@code max} exclusive.
+		 * Returns a Boolean.
+		 * @param chance Chance Number (0-1)
+		 * @return Float Number between min-max exclusive.
 		 * @example
 		 *      <code>
 		 *          RandomUtils.boolean(); // returns true or false (50% chance of true)
@@ -131,9 +131,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns an {@code int}: {@code -1} or {@code 1}.
-		 * @param chance Chance {@code Number} ({@code 0}-{@code 1})
-		 * @return {@code int}: {@code -1} or {@code 1}.
+		 * Returns an int: -1 or 1.
+		 * @param chance Chance Number (0-1)
+		 * @return int: -1 or 1.
 		 * @example
 		 *      <code>
 		 *          RandomUtils.sign(); // returns 1 or -1 (50% chance of 1)
@@ -151,8 +151,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns a random bit.
-		 * @param chance Chance {@code Number} ({@code 0}-{@code 1})
-		 * @return Returns a random bit: {@code 0} or {@code 1}
+		 * @param chance Chance Number (0-1)
+		 * @return Returns a random bit: 0 or 1
 		 * @example
 		 *      <code>
 		 *          RandomUtils.bit(); // returns 1 or 0 (50% chance of 1)
@@ -169,13 +169,12 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Generate a random {@code String}.
-		 * @param length {@code String} length (default {@code 10})
-		 * @param ch Chars used (default {@code "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"})
-		 * @return Random {@code String}
+		 * Generate a random String.
+		 * @param length String length (default 10)
+		 * @param ch Chars used (default "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+		 * @return Random String
 		 */
-		public static function randomString(length:uint = 10, ch:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-				):String {
+		public static function randomString(length:uint = 10, ch:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):String {
 			var alphabet:Array = ch.split("");
 			var alphabetLength:int = alphabet.length;
 			var randomLetters:String = "";

@@ -43,8 +43,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function NumberUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -53,11 +53,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if the two {@code value}s are equal, with the option to define the {@code precision}.
+		 * Determines if the two values are equal, with the option to define the precision.
 		 * @param val1 A value to compare
 		 * @param val2 A value to compare
 		 * @param precision Maximum amount the two values can differ and still be considered equal
-		 * @return {@code true} if the values are equal
+		 * @return true if the values are equal
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.isEqual(3.042, 3, 0)); // traces false
@@ -71,8 +71,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Evaluates {@code val1} and {@code val2} and returns the smaller value. Unlike {@code Math.min} this method
-		 * will return the defined value if the other value is {@code null} or not a {@code Number}.
+		 * Evaluates val1 and val2 and returns the smaller value. Unlike Math.min this method
+		 * will return the defined value if the other value is null or not a Number.
 		 * @param val1 A value to compare
 		 * @param val2 A value to compare
 		 * @return Smallest value, or the value out of the two that is defined and valid
@@ -102,8 +102,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Evaluates {@code val1} and {@code val2} and returns the larger value. Unlike {@code Math.max} this method
-		 * will return the defined value if the other value is {@code null} or not a number.
+		 * Evaluates val1 and val2 and returns the larger value. Unlike Math.max this method
+		 * will return the defined value if the other value is null or not a number.
 		 * @param val1 A value to compare
 		 * @param val2 A value to compare
 		 * @return Largest value, or the value out of the two that is defined and valid
@@ -143,9 +143,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if the {@code Number} is even.
-		 * @param value A {@code Number} to determine if it is divisible by {@code 2}
-		 * @return {@code true} if the {@code Number} is even
+		 * Determines if the Number is even.
+		 * @param value A Number to determine if it is divisible by 2
+		 * @return true if the Number is even
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.isEven(7)); // traces false
@@ -160,9 +160,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if the {@code Number} is odd.
-		 * @param value A {@code Number} to determine if it is not divisible by {@code 2}
-		 * @return {@code true} if the {@code Number} is odd
+		 * Determines if the Number is odd.
+		 * @param value A Number to determine if it is not divisible by 2
+		 * @return true if the Number is odd
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.isOdd(7)); // traces true
@@ -176,9 +176,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if the {@code Number} is an {@code int}.
-		 * @param value A {@code Number} to determine if it contains no decimal values
-		 * @return {@code true} if the {@code Number} is an {@code int}
+		 * Determines if the Number is an int.
+		 * @param value A Number to determine if it contains no decimal values
+		 * @return true if the Number is an int
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.isInteger(13)); // traces true
@@ -192,9 +192,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if the {@code Number} is prime.
-		 * @param value A {@code Number} to determine if it is only divisible by {@code 1} and itself.
-		 * @return {@code true} if the {@code Number} is prime
+		 * Determines if the Number is prime.
+		 * @param value A Number to determine if it is only divisible by 1 and itself.
+		 * @return true if the Number is prime
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.isPrime(13)); // traces true
@@ -224,10 +224,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Rounds a {@code Number}'s decimal value to a specific place.
-		 * @param value {@code Number} to round
+		 * Rounds a Number's decimal value to a specific place.
+		 * @param value Number to round
 		 * @param place Decimal place to round
-		 * @return {@code value} rounded to the defined place
+		 * @return value rounded to the defined place
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.roundToPlace(3.14159, 2)); // traces 3.14
@@ -243,7 +243,7 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if {@code index} is included within the collection length otherwise the index loops to the
+		 * Determines if index is included within the collection length otherwise the index loops to the
 		 * beginning or end of the range and continues.
 		 * @param index Index to loop if needed
 		 * @param length Total elements in the collection
@@ -273,11 +273,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if the {@code Number} is included within a range.
-		 * @param value {@code Number} to determine if it is included in the range
+		 * Determines if the Number is included within a range.
+		 * @param value Number to determine if it is included in the range
 		 * @param firstValue First value of the range
 		 * @param secondValue Second value of the range
-		 * @return {@code true} if the number falls within the range
+		 * @return true if the number falls within the range
 		 * @usageNote Range values do not need to be in order
 		 * @example
 		 *      <code>
@@ -292,11 +292,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Resticts the {@code Number} to the {@code min} and {@code max}.
-		 * @param value {@code Number} to restrict
-		 * @param min Minimum {@code Number} for {@code value} to be
-		 * @param max Maximmum {@code Number} for {@code value} to be
-		 * @return Restricted {@code value}
+		 * Resticts the Number to the min and max.
+		 * @param value Number to restrict
+		 * @param min Minimum Number for value to be
+		 * @param max Maximmum Number for value to be
+		 * @return Restricted value
 		 */
 		public static function confine(value:Number, min:Number, max:Number):Number {
 			return value < min ? min : (value > max ? max : value);
@@ -305,14 +305,14 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Pads the {@code Number} with the set number of digits before and after the point.
-		 * If the number of digits in the integer of {@code value} is less than {@code beforePoint}, the remaining
-		 * digits are filled with zeros. If the number of digits in the decimal of {@code value} is less than
-		 * {@code afterPoint}, the remaning digits are filled with zeros.
-		 * @param value {@code Number} to pad
+		 * Pads the Number with the set number of digits before and after the point.
+		 * If the number of digits in the integer of value is less than beforePoint, the remaining
+		 * digits are filled with zeros. If the number of digits in the decimal of value is less than
+		 * afterPoint, the remaning digits are filled with zeros.
+		 * @param value Number to pad
 		 * @param beforePoint Number of digits to pad before the point
 		 * @param afterPoint Number of digits to pad after the point
-		 * @return {@code value} padded as a {@code String}
+		 * @return value padded as a String
 		 * @example
 		 *      <code>
 		 *          NumberUtils.pad(.824, 0, 5); // returns ".82400"
@@ -377,9 +377,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Inserts commas every three digits in the integer of {@code value}.
-		 * @param value {@code Number} to insert commas into
-		 * @return {@code value} as a {@code String} formatted with commas
+		 * Inserts commas every three digits in the integer of value.
+		 * @param value Number to insert commas into
+		 * @return value as a String formatted with commas
 		 */
 		public static function insertCommas(value:Number):String {
 			// convert the value to a string
@@ -412,11 +412,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Creates evenly spaced numerical increments between two {@code Number}s.
+		 * Creates evenly spaced numerical increments between two Numbers.
 		 * @param begin Starting value
 		 * @param end Ending value
-		 * @param steps {@code Number} of increments between the {@code begin} and {@code end}
-		 * @return {@code Array} composed of the increments between the {@code begin} and {@code end}
+		 * @param steps Number of increments between the begin and end
+		 * @return Array composed of the increments between the begin and end
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.createStepsBetween(0, 5, 4)); // traces 1,2,3,4
@@ -427,7 +427,8 @@ package com.falanxia.utilitaris.utils {
 			var s:Number = steps + 1;
 
 			var i:uint = 0;
-			var stepsBetween:Array = [];
+			var stepsBetween:Array = [
+			];
 			var increment:Number = (end - begin) / s;
 
 			while(++i < s) {
@@ -441,7 +442,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines a value between two specified values.
-		 * @param amount Level of interpolation between the two values. If {@code 0%}, {@code begind} value is returned; if {@code 100%}, {@code end} value is returned
+		 * @param amount Level of interpolation between the two values. If 0%, minimum value is returned; if 100%, maximum value is returned
 		 * @param minimum Lower value
 		 * @param maximum Upper value
 		 * @example
@@ -456,7 +457,7 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines a {@code Percent} of a value in a given range.
+		 * Determines a Percent of a value in a given range.
 		 * @param value Value to be converted
 		 * @param minimum Lower value of the range
 		 * @param maximum Upper value of the range
@@ -473,8 +474,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Maps a {@code Number} from one coordinate space to another.
-		 * @param value {@code Number} from the input coordinate space to map to the output coordinate space
+		 * Maps a Number from one coordinate space to another.
+		 * @param value Number from the input coordinate space to map to the output coordinate space
 		 * @param min1 Starting value of the input coordinate space
 		 * @param max1 Ending value of the input coordinate space
 		 * @param min2 Starting value of the output coordinate space
@@ -492,11 +493,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Low pass filter alogrithm for easing a {@code Number} toward a destination value. Works best for tweening
+		 * Low pass filter alogrithm for easing a Number toward a destination value. Works best for tweening
 		 * values when no definite time duration exists and when the destination value changes.
-		 * If {@code (0.5 < n < 1)}, then the resulting values will overshoot (ping-pong) until they reach the
-		 * destination value. When {@code n} is greater than {@code 1}, as its value increases, the time it takes to
-		 * reach the destination also increases. A pleasing value for {@code n} is {@code 5}.
+		 * If (0.5 < n < 1), then the resulting values will overshoot (ping-pong) until they reach the
+		 * destination value. When n is greater than 1, as its value increases, the time it takes to
+		 * reach the destination also increases. A pleasing value for n is 5.
 		 * @param value Current value
 		 * @param dest Destination value
 		 * @param n Slowdown factor
@@ -509,12 +510,12 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Formats a {@code Number}.
-		 * @param value {@code Number} you wish to format
-		 * @param minLength Minimum length of the {@code Number}
+		 * Formats a Number.
+		 * @param value Number you wish to format
+		 * @param minLength Minimum length of the Number
 		 * @param thouDelim Character used to seperate thousands
-		 * @param fillChar Leading character used to make the {@code Number} the minimum length
-		 * @return Formated {@code Number} as a {@code String}
+		 * @param fillChar Leading character used to make the Number the minimum length
+		 * @return Formated Number as a String
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.format(1234567, 8, ",")); // traces 01,234,567
@@ -560,8 +561,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Finds the English ordinal suffix for the number given.
-		 * @param value {@code Number} to find the ordinal suffix of
-		 * @return Suffix for the {@code Number}, 2 characters
+		 * @param value Number to find the ordinal suffix of
+		 * @return Suffix for the Number, 2 characters
 		 * @example
 		 *      <code>
 		 *          trace(32 + NumberUtils.getOrdinalSuffix(32)); // traces 32nd
@@ -607,9 +608,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Adds a leading zero for {@code Number}s less than ten.
-		 * @param value {@code Number} to add leading zero
-		 * @return {@code Number} as a {@code String}; if the {@code Number} was less than ten the {@code Number} will have a leading zero
+		 * Adds a leading zero for Numbers less than ten.
+		 * @param value Number to add leading zero
+		 * @return Number as a String; if the Number was less than ten the Number will have a leading zero
 		 * @example
 		 *      <code>
 		 *          trace(NumberUtils.addLeadingZero(7)); // traces 07
@@ -623,9 +624,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines whether or not the supplied {@code Number} is positive.
-		 * @param value {@code Number} to evaluate
-		 * @return Whether or not the supplied {@code Number} is positive
+		 * Determines whether or not the supplied Number is positive.
+		 * @param value Number to evaluate
+		 * @return Whether or not the supplied Number is positive
 		 */
 		public static function isPositive(value:Number):Boolean {
 			return Boolean(value >= 0);
@@ -634,9 +635,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines whether or not the supplied {@code Number} is negative.
-		 * @param value {@code Number} to evaluate
-		 * @return Whether or not the supplied {@code Number} is negative
+		 * Determines whether or not the supplied Number is negative.
+		 * @param value Number to evaluate
+		 * @return Whether or not the supplied Number is negative
 		 */
 		public static function isNegative(value:Number):Boolean {
 			return !isPositive(value);

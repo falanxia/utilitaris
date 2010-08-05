@@ -47,7 +47,7 @@ package com.falanxia.utilitaris.locale {
 
 		/**
 		 * Constructor.
-		 * @param lang Language ({@code "en"} by default)
+		 * @param lang Language ("en" by default)
 		 */
 		public function LanguageDictionary(lang:String = "en") {
 			_lang = lang;
@@ -57,8 +57,8 @@ package com.falanxia.utilitaris.locale {
 
 
 		/**
-		 * Parse locale {@code XML}.
-		 * @param list Locale {@code XML}
+		 * Parse locale XML.
+		 * @param list Locale XML
 		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
@@ -69,8 +69,8 @@ package com.falanxia.utilitaris.locale {
 
 
 		/**
-		 * Parse locale {@code Object}.
-		 * @param list Locale {@code Object}
+		 * Parse locale Object.
+		 * @param list Locale Object
 		 */
 		public function parseObject(list:Object):void {
 			for(var id:String in list) {
@@ -93,7 +93,7 @@ package com.falanxia.utilitaris.locale {
 
 		/**
 		 * Get current language.
-		 * @return Current language (like {@code "en"})
+		 * @return Current language (like "en")
 		 */
 		public function get lang():String {
 			return _lang;

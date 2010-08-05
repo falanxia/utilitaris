@@ -50,8 +50,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function GeomUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -60,11 +60,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Rotates a {@code Point} around another {@code Point} by the specified angle.
-		 * @param point {@code Point} to rotate
-		 * @param centerPoint {@code Point} to rotate this {@code Point} around
-		 * @param angle Angle (in degrees) to rotate this {@code Point}
-		 * @return Rotated {@code Point}
+		 * Rotates a Point around another Point by the specified angle.
+		 * @param point Point to rotate
+		 * @param centerPoint Point to rotate this Point around
+		 * @param angle Angle (in degrees) to rotate this Point
+		 * @return Rotated Point
 		 */
 		public static function rotatePoint(point:Point, centerPoint:Point, angle:Number):Point {
 			var out:Point = new Point();
@@ -81,10 +81,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the angle/degree between the first and second {@code Point}s.
-		 * @param first First {@code Point}
-		 * @param second Second {@code Point}
-		 * @return Degree between the two {@code Point}s
+		 * Determines the angle/degree between the first and second Points.
+		 * @param first First Point
+		 * @param second Second Point
+		 * @return Degree between the two Points
 		 */
 		public static function angle(first:Point, second:Point):Number {
 			return Math.atan2(second.y - first.y, second.x - first.x) / (Math.PI / 180);
@@ -93,8 +93,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Calculates the perimeter of a {@code Rectangle}.
-		 * @param value {@code Rectangle} to determine the perimeter of
+		 * Calculates the perimeter of a Rectangle.
+		 * @param value Rectangle to determine the perimeter of
 		 */
 		public static function getRectanglePerimeter(value:Rectangle):Number {
 			return value.width * 2 + value.height * 2;
@@ -103,8 +103,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Calculates center {@code Point} of a {@code Rectangle}.
-		 * @param value {@code Rectangle} to determine center {@code Point} of
+		 * Calculates center Point of a Rectangle.
+		 * @param value Rectangle to determine center Point of
 		 */
 		public static function getRectangleCenter(value:Rectangle):Point {
 			return new Point(value.x + (value.width / 2), value.y + (value.height / 2));
@@ -124,9 +124,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts the supplied {@code degrees} to {@code radians}.
-		 * @param value Degrees to be converted to {@code radians}
-		 * @return Supplied {@code degrees} converted to {@code radians}
+		 * Converts the supplied degrees to radians.
+		 * @param value Degrees to be converted to radians
+		 * @return Supplied degrees converted to radians
 		 */
 		public static function degreesToRadians(value:Number):Number {
 			return value * PI_OVER_180;
@@ -135,9 +135,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts the supplied {@code radians} represented as {@code degrees}.
-		 * @param value Radians to be converted to {@code degrees}
-		 * @return {@code Radians} converted to {@code degrees}
+		 * Converts the supplied radians represented as degrees.
+		 * @param value Radians to be converted to degrees
+		 * @return Radians converted to degrees
 		 */
 		public static function radiansToDegrees(value:Number):Number {
 			return value / PI_OVER_180;
@@ -146,9 +146,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Simplifys the supplied {@code angle} to its simpliest representation.
+		 * Simplifys the supplied angle to its simpliest representation.
 		 * @param value Angle to simplify
-		 * @return Supplied {@code angle} simplified
+		 * @return Supplied angle simplified
 		 * @example
 		 *      <code>
 		 *          var simpAngle:Number = MathUtils.simplifyAngle(725); // returns 5
@@ -164,9 +164,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Trims the supplied {@code angle} to its 0..360 representation.
+		 * Trims the supplied angle to its 0..360 representation.
 		 * @param value Angle to trim
-		 * @return Supplied {@code angle} trimmed
+		 * @return Supplied angle trimmed
 		 * @example
 		 *      <code>
 		 *          var simpAngle:Number = MathUtils.trimAngle(725); // returns 5
@@ -184,9 +184,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Rounds {@code x} and {@code y} of a {@code Point}.
-		 * @param value Source {@code Point} to be rounded
-		 * @return Rounded {@code Point}
+		 * Rounds x and y of a Point.
+		 * @param value Source Point to be rounded
+		 * @return Rounded Point
 		 */
 		public static function roundPoint(value:Point):Point {
 			return new Point(int(value.x), int(value.y));

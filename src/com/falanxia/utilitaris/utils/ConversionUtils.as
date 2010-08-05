@@ -40,8 +40,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function ConversionUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -51,8 +51,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts bits to bytes.
-		 * @param bits {@code Number} of bits
-		 * @return {@code Number} of bytes
+		 * @param bits Number of bits
+		 * @return Number of bytes
 		 */
 		public static function bitsToBytes(bits:Number):Number {
 			return bits >> 3;
@@ -62,8 +62,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts bits to kilobits.
-		 * @param bits {@code Number} of bits
-		 * @return {@code Number} of kilobits
+		 * @param bits Number of bits
+		 * @return Number of kilobits
 		 */
 		public static function bitsToKilobits(bits:Number):Number {
 			return bits >> 10;
@@ -73,8 +73,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts bits to kilobytes.
-		 * @param bits {@code Number} of bits
-		 * @return {@code Number} of kilobits
+		 * @param bits Number of bits
+		 * @return Number of kilobits
 		 */
 		public static function bitsToKilobytes(bits:Number):Number {
 			return bits >> 11;
@@ -84,8 +84,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts bytes to bits.
-		 * @param bytes {@code Number} of bytes
-		 * @return {@code Number} of bits
+		 * @param bytes Number of bytes
+		 * @return Number of bits
 		 */
 		public static function bytesToBits(bytes:Number):Number {
 			return bytes << 3;
@@ -95,8 +95,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts bytes to kilobits.
-		 * @param bytes {@code Number} of bytes
-		 * @return {@code Number} of kilobits
+		 * @param bytes Number of bytes
+		 * @return Number of kilobits
 		 */
 		public static function bytesToKilobits(bytes:Number):Number {
 			return bytes >> 7;
@@ -106,8 +106,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts bytes to kilobytes.
-		 * @param bytes {@code Number} of bytes
-		 * @return {@code Number} of kilobytes
+		 * @param bytes Number of bytes
+		 * @return Number of kilobytes
 		 */
 		public static function bytesToKilobytes(bytes:Number):Number {
 			return bytes >> 10;
@@ -117,8 +117,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts kilobits to bits.
-		 * @param kilobits {@code Number} of kilobits
-		 * @return {@code Number} of bits
+		 * @param kilobits Number of kilobits
+		 * @return Number of bits
 		 */
 		public static function kilobitsToBits(kilobits:Number):Number {
 			return kilobits << 10;
@@ -128,8 +128,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts kilobits to bytes.
-		 * @param kilobits {@code Number} of kilobits
-		 * @return {@code Number} of bytes
+		 * @param kilobits Number of kilobits
+		 * @return Number of bytes
 		 */
 		public static function kilobitsToBytes(kilobits:Number):Number {
 			return kilobits << 7;
@@ -139,8 +139,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts kilobits to kilobytes.
-		 * @param kilobits {@code Number} of kilobits
-		 * @return {@code Number} of kilobytes
+		 * @param kilobits Number of kilobits
+		 * @return Number of kilobytes
 		 */
 		public static function kilobitsToKilobytes(kilobits:Number):Number {
 			return kilobits >> 3;
@@ -150,8 +150,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts kilobytes to bits.
-		 * @param kilobytes {@code Number} of kilobytes
-		 * @return {@code Number} of bits
+		 * @param kilobytes Number of kilobytes
+		 * @return Number of bits
 		 */
 		public static function kilobytesToBits(kilobytes:Number):Number {
 			return kilobytes << 13;
@@ -161,8 +161,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts kilobytes to bytes.
-		 * @param kilobytes {@code Number} of kilobytes
-		 * @return {@code Number} of bytes
+		 * @param kilobytes Number of kilobytes
+		 * @return Number of bytes
 		 */
 		public static function kilobytesToBytes(kilobytes:Number):Number {
 			return kilobytes << 10;
@@ -172,8 +172,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts kilobytes to kilobits.
-		 * @param kilobytes {@code Number} of kilobytes
-		 * @return {@code Number} of kilobits
+		 * @param kilobytes Number of kilobytes
+		 * @return Number of kilobits
 		 */
 		public static function kilobytesToKilobits(kilobytes:Number):Number {
 			return kilobytes << 3;
@@ -183,8 +183,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts milliseconds to seconds.
-		 * @param milliseconds {@code Number} of milliseconds
-		 * @return {@code Number} of seconds
+		 * @param milliseconds Number of milliseconds
+		 * @return Number of seconds
 		 */
 		public static function millisecondsToSeconds(milliseconds:Number):Number {
 			return milliseconds / 1000;
@@ -194,8 +194,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts milliseconds to minutes.
-		 * @param milliseconds {@code Number} of milliseconds
-		 * @return {@code Number} of minutes
+		 * @param milliseconds Number of milliseconds
+		 * @return Number of minutes
 		 */
 		public static function millisecondsToMinutes(milliseconds:Number):Number {
 			return secondsToMinutes(millisecondsToSeconds(milliseconds));
@@ -205,8 +205,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts milliseconds to hours.
-		 * @param milliseconds {@code Number} of milliseconds
-		 * @return {@code Number} of hours
+		 * @param milliseconds Number of milliseconds
+		 * @return Number of hours
 		 */
 		public static function millisecondsToHours(milliseconds:Number):Number {
 			return minutesToHours(millisecondsToMinutes(milliseconds));
@@ -216,8 +216,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts milliseconds to days.
-		 * @param milliseconds {@code Number} of milliseconds
-		 * @return {@code Number} of days
+		 * @param milliseconds Number of milliseconds
+		 * @return Number of days
 		 */
 		public static function millisecondsToDays(milliseconds:Number):Number {
 			return hoursToDays(millisecondsToHours(milliseconds));
@@ -227,8 +227,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts seconds to milliseconds.
-		 * @param seconds {@code Number} of seconds
-		 * @return {@code Number} of milliseconds
+		 * @param seconds Number of seconds
+		 * @return Number of milliseconds
 		 */
 		public static function secondsToMilliseconds(seconds:Number):Number {
 			return seconds * 1000;
@@ -238,8 +238,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts seconds to minutes.
-		 * @param seconds {@code Number} of seconds
-		 * @return {@code Number} of minutes
+		 * @param seconds Number of seconds
+		 * @return Number of minutes
 		 */
 		public static function secondsToMinutes(seconds:Number):Number {
 			return seconds / 60;
@@ -249,8 +249,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts seconds to hours.
-		 * @param seconds {@code Number} of seconds
-		 * @return {@code Number} of hours
+		 * @param seconds Number of seconds
+		 * @return Number of hours
 		 */
 		public static function secondsToHours(seconds:Number):Number {
 			return minutesToHours(secondsToMinutes(seconds));
@@ -260,8 +260,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts seconds to days.
-		 * @param seconds {@code Number} of seconds
-		 * @return {@code Number} of days
+		 * @param seconds Number of seconds
+		 * @return Number of days
 		 */
 		public static function secondsToDays(seconds:Number):Number {
 			return hoursToDays(secondsToHours(seconds));
@@ -271,8 +271,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts minutes to milliseconds.
-		 * @param minutes {@code Number} of minutes
-		 * @return {@code Number} of milliseconds
+		 * @param minutes Number of minutes
+		 * @return Number of milliseconds
 		 */
 		public static function minutesToMilliseconds(minutes:Number):Number {
 			return secondsToMilliseconds(minutesToSeconds(minutes));
@@ -282,8 +282,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts minutes to seconds.
-		 * @param minutes {@code Number} of minutes
-		 * @return {@code Number} of seconds
+		 * @param minutes Number of minutes
+		 * @return Number of seconds
 		 */
 		public static function minutesToSeconds(minutes:Number):Number {
 			return minutes * 60;
@@ -293,8 +293,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts minutes to hours.
-		 * @param minutes {@code Number} of minutes
-		 * @return {@code Number} of hours
+		 * @param minutes Number of minutes
+		 * @return Number of hours
 		 */
 		public static function minutesToHours(minutes:Number):Number {
 			return minutes / 60;
@@ -304,8 +304,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts minutes to days.
-		 * @param minutes {@code Number} of minutes
-		 * @return {@code Number} of days
+		 * @param minutes Number of minutes
+		 * @return Number of days
 		 */
 		public static function minutesToDays(minutes:Number):Number {
 			return hoursToDays(minutesToHours(minutes));
@@ -315,8 +315,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts hours to milliseconds.
-		 * @param hours {@code Number} of hours
-		 * @return {@code Number} of milliseconds
+		 * @param hours Number of hours
+		 * @return Number of milliseconds
 		 */
 		public static function hoursToMilliseconds(hours:Number):Number {
 			return secondsToMilliseconds(hoursToSeconds(hours));
@@ -326,8 +326,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts hours to seconds.
-		 * @param hours {@code Number} of hours
-		 * @return {@code Number} of seconds
+		 * @param hours Number of hours
+		 * @return Number of seconds
 		 */
 		public static function hoursToSeconds(hours:Number):Number {
 			return minutesToSeconds(hoursToMinutes(hours));
@@ -337,8 +337,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts hours to minutes.
-		 * @param hours {@code Number} of hours
-		 * @return {@code Number} of minutes
+		 * @param hours Number of hours
+		 * @return Number of minutes
 		 */
 		public static function hoursToMinutes(hours:Number):Number {
 			return hours * 60;
@@ -348,8 +348,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts hours to days.
-		 * @param hours {@code Number} of hours
-		 * @return {@code Number} of days
+		 * @param hours Number of hours
+		 * @return Number of days
 		 */
 		public static function hoursToDays(hours:Number):Number {
 			return hours / 24;
@@ -359,8 +359,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts days to milliseconds.
-		 * @param days {@code Number} of days
-		 * @return {@code Number} of milliseconds
+		 * @param days Number of days
+		 * @return Number of milliseconds
 		 */
 		public static function daysToMilliseconds(days:Number):Number {
 			return secondsToMilliseconds(daysToSeconds(days));
@@ -370,8 +370,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts days to seconds.
-		 * @param days {@code Number} of days
-		 * @return {@code Number} of seconds
+		 * @param days Number of days
+		 * @return Number of seconds
 		 */
 		public static function daysToSeconds(days:Number):Number {
 			return minutesToSeconds(daysToMinutes(days));
@@ -381,8 +381,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts days to minutes.
-		 * @param days {@code Number} of days
-		 * @return {@code Number} of minutes
+		 * @param days Number of days
+		 * @return Number of minutes
 		 */
 		public static function daysToMinutes(days:Number):Number {
 			return hoursToMinutes(daysToHours(days));
@@ -392,8 +392,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts days to hours.
-		 * @param days {@code Number} of days
-		 * @return {@code Number} of hours
+		 * @param days Number of days
+		 * @return Number of hours
 		 */
 		public static function daysToHours(days:Number):Number {
 			return days * 24;
@@ -403,8 +403,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts degrees to radians.
-		 * @param degrees {@code Number} of degrees
-		 * @return {@code Number} of radians
+		 * @param degrees Number of degrees
+		 * @return Number of radians
 		 */
 		public static function degreesToRadians(degrees:Number):Number {
 			return degrees * (Math.PI / 180);
@@ -414,8 +414,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts radians to degrees.
-		 * @param radians {@code Number} of radians
-		 * @return {@code Number} of degrees
+		 * @param radians Number of radians
+		 * @return Number of degrees
 		 */
 		public static function radiansToDegrees(radians:Number):Number {
 			return radians * (180 / Math.PI);

@@ -41,8 +41,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function BitmapUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -51,12 +51,12 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get {@code BitmapData} from the {@code source}.
-		 * If {@code source} is {@code Bitmap}, it's converted, if it is already {@code BitmapData}, reference is returned.
-		 * Serves as a quick filter for {@code Bitmap} and {@code BitmapData}.
-		 * @param source Source {@code Bitmap} or {@code BitmapData}
-		 * @return {@code source} converted to {@code BitmapData}
-		 * @throws {@code TypeError} if the source is not {@code Bitmap} nor {@code BitmapData}
+		 * Get BitmapData from the source.
+		 * If source is Bitmap, it's converted, if it is already BitmapData, reference is returned.
+		 * Serves as a quick filter for Bitmap and BitmapData.
+		 * @param source Source Bitmap or BitmapData
+		 * @return source converted to BitmapData
+		 * @throws TypeError if the source is not Bitmap nor BitmapData
 		 */
 		public static function embed2BD(source:*):BitmapData {
 			var o:BitmapData;
@@ -79,10 +79,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Crop the {@code BitmapData} {@code source} and return a new {@code BitmapData}.
-		 * @param source Source {@code BitmapData}
-		 * @param dest Crop area as {@code Rectangle}
-		 * @return Cropped {@code source} as {@code BitmapData}
+		 * Crop the BitmapData source and return a new BitmapData.
+		 * @param source Source BitmapData
+		 * @param dest Crop area as Rectangle
+		 * @return Cropped source as BitmapData
 		 */
 		public static function crop(source:BitmapData, dest:Rectangle):BitmapData {
 			var o:BitmapData = new BitmapData(dest.width, dest.height);

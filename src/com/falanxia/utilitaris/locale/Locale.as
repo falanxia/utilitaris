@@ -37,15 +37,16 @@ package com.falanxia.utilitaris.locale {
 	public class Locale extends EventDispatcher {
 
 
-		private static var dictionaries:Array = [];
+		private static var dictionaries:Array = [
+		];
 		private static var currentLanguage:String = "";
 		private static var currentDictionary:LanguageDictionary;
 
 
 
 		/**
-		 * Parse locale {@code XML}.
-		 * @param locale Locales node in the {@code XML}
+		 * Parse locale XML.
+		 * @param locale Locales node in the XML
 		 */
 		public static function parseXML(locale:XMLList):void {
 			for each(var lang:XML in locale.locale) {
@@ -62,8 +63,8 @@ package com.falanxia.utilitaris.locale {
 
 
 		/**
-		 * Parse locale {@code Object}.
-		 * @param locale Locales node in the {@code Object}
+		 * Parse locale Object.
+		 * @param locale Locales node in the Object
 		 */
 		public static function parseObject(locale:Object):void {
 			for(var lang:String in locale) {
@@ -134,7 +135,8 @@ package com.falanxia.utilitaris.locale {
 		 * @return Languages list
 		 */
 		public static function get languageList():Array {
-			var out:Array = [];
+			var out:Array = [
+			];
 
 			for each(var dictionary:LanguageDictionary in dictionaries) {
 				out.push(dictionary.lang);

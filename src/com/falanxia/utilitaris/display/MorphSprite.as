@@ -31,8 +31,8 @@ package com.falanxia.utilitaris.display {
 
 
 	/**
-	 * Morphable {@code Sprite}.
-	 * You can animate position and size of any extending {@code Class}.
+	 * Morphable Sprite.
+	 * You can animate position and size of any extending Class.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
@@ -42,52 +42,52 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/** Default morphing {@code duration} in seconds */
+		/** Default morphing duration in seconds */
 		public static var defaultMorphDuration:Number = 0.75;
 
-		/** Default morphing easing {@code Function} */
+		/** Default morphing easing Function */
 		public static var defaultMorphEase:Function = Elastic.easeOut;
 
-		/** Default {@code width} change flag */
+		/** Default width change flag */
 		public static var deaultIsChangeWidthEnabled:Boolean = true;
 
-		/** Default {@code height} change flag */
+		/** Default height change flag */
 		public static var defaultIsChangeHeightEnabled:Boolean = true;
 
-		/** Default {@code x} morphing flag */
+		/** Default x morphing flag */
 		public static var defaultIsMorphXEnabled:Boolean = true;
 
-		/** Default {@code y} morphing flag */
+		/** Default y morphing flag */
 		public static var defaultIsMorphYEnabled:Boolean = true;
 
-		/** Default {@code width} morphing flag */
+		/** Default width morphing flag */
 		public static var defaultIsMorphWidthEnabled:Boolean = true;
 
-		/** Default {@code height} morphing flag */
+		/** Default height morphing flag */
 		public static var defaultIsMorphHeightEnabled:Boolean = true;
 
-		/** Current morphing {@code duration} in seconds */
+		/** Current morphing duration in seconds */
 		public var morphDuration:Number;
 
-		/** Current morphing easing {@code Function} */
+		/** Current morphing easing Function */
 		public var morphEase:Function;
 
-		/** Current {@code width} change flag */
+		/** Current width change flag */
 		public var isChangeWidthEnabled:Boolean;
 
-		/** Current {@code height} change flag */
+		/** Current height change flag */
 		public var isChangeHeightEnabled:Boolean;
 
-		/** Current {@code x} morphing flag */
+		/** Current x morphing flag */
 		public var isMorphXEnabled:Boolean;
 
-		/** Current {@code y} morphing flag */
+		/** Current y morphing flag */
 		public var isMorphYEnabled:Boolean;
 
-		/** Current {@code width} morphing flag */
+		/** Current width morphing flag */
 		public var isMorphWidthEnabled:Boolean;
 
-		/** Current {@code height} morphing flag */
+		/** Current height morphing flag */
 		public var isMorphHeightEnabled:Boolean;
 
 
@@ -98,19 +98,19 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * @usageNote Possible {@code config} contents:
+		 * @usageNote Possible config contents:
 		 *      <ul>
-		 *          <li>{@code morphDuration} - Morphing {@code duration} in seconds. If not defined, {@link MorphSprite#defaultMorphDuration} used instead.</li>
-		 *          <li>{@code morphEase} - Morphing transition {@code Function}. If not defined, {@link MorphSprite#defaultMorphEase} used instead.</li>
-		 *          <li>{@code isChangeWidthEnabled} - {@code width} change flag. If not defined, {@link MorphSprite#defaultIsChangeWidthEnabled} used instead.</li>
-		 *          <li>{@code isChangeHeightEnabled} - {@code height} change flag. If not defined, {@link MorphSprite#defaultIsChangeHeightEnabled} used instead.</li>
-		 *          <li>{@code isMorphXEnabled} - {@code x} morphing flag. If not defined, {@link MorphSprite#defaultIsMorphXEnabled} used instead.</li>
-		 *          <li>{@code isMorphYEnabled} - {@code y} morphing flag. If not defined, {@link MorphSprite#defaultIsMorphYEnabled} used instead.</li>
-		 *          <li>{@code isMorphWidthEnabled} - {@code width} morphing flag. If not defined, {@link MorphSprite#defaultIsMorphWidthEnabled} used instead.</li>
-		 *          <li>{@code isMorphHeightEnabled} - {@code height} morphing flag. If not defined, {@link MorphSprite#defaultIsMorphHeightEnabled} used instead.</li>
+		 *          <li>morphDuration - Morphing duration in seconds. If not defined, defaultMorphDuration used instead.</li>
+		 *          <li>morphEase - Morphing transition Function. If not defined, defaultMorphEase used instead.</li>
+		 *          <li>isChangeWidthEnabled - width change flag. If not defined, defaultIsChangeWidthEnabled used instead.</li>
+		 *          <li>isChangeHeightEnabled - height change flag. If not defined, defaultIsChangeHeightEnabled used instead.</li>
+		 *          <li>isMorphXEnabled - x morphing flag. If not defined, defaultIsMorphXEnabled used instead.</li>
+		 *          <li>isMorphYEnabled - y morphing flag. If not defined, defaultIsMorphYEnabled used instead.</li>
+		 *          <li>isMorphWidthEnabled - width morphing flag. If not defined, defaultIsMorphWidthEnabled used instead.</li>
+		 *          <li>isMorphHeightEnabled - height morphing flag. If not defined, defaultIsMorphHeightEnabled used instead.</li>
 		 *      </ul>
-		 * @param config Config {@code Object}
-		 * @param parent Parent {@code DisplayObjectContainer}
+		 * @param config Config Object
+		 * @param parent Parent DisplayObjectContainer
 		 */
 		public function MorphSprite(config:Object = null, parent:DisplayObjectContainer = null) {
 			var c:Object;
@@ -140,7 +140,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the {@code MorphSprite} instance and frees it for GC.
+		 * Destroys the MorphSprite instance and frees it for GC.
 		 */
 		public override function destroy():void {
 			super.destroy();
@@ -153,18 +153,18 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Animate state change.
-		 * Timing is taken from {@code morphDuration}, transition from {@code morphEase}.
-		 * Follows status flags ({@link MorphSprite#isMorphXEnabled}, {@link MorphSprite#isMorphYEnabled}, {@link MorphSprite#isMorphWidthEnabled} and {@link MorphSprite#isMorphHeightEnabled}).
+		 * Timing is taken from morphDuration, transition from morphEase.
+		 * Follows status flags (MorphSprite#isMorphXEnabled, MorphSprite#isMorphYEnabled, MorphSprite#isMorphWidthEnabled and MorphSprite#isMorphHeightEnabled).
 		 * @usageNote Possible config contents:
 		 *      <ul>
-		 *          <li>{@code x} - New {@code x} position</li>
-		 *          <li>{@code y} - New {@code y} position</li>
-		 *          <li>{@code width} - New {@code width}</li>
-		 *          <li>{@code height} - New {@code height}</li>
-		 *          <li>{@code morphEase} - easing {@code Function}</li>
-		 *          <li>{@code morphDuration} - {@code duration} in seconds</li>
+		 *          <li>x - New x position</li>
+		 *          <li>y - New y position</li>
+		 *          <li>width - New width</li>
+		 *          <li>height - New height</li>
+		 *          <li>morphEase - easing Function</li>
+		 *          <li>morphDuration - duration in seconds</li>
 		 *      </ul>
-		 * @param config Config {@code Object}
+		 * @param config Config Object
 		 */
 		public function morph(config:Object):void {
 			if(initialProperties == null) {
@@ -186,7 +186,9 @@ package com.falanxia.utilitaris.display {
 			if(isMorphHeightEnabled && config.height != undefined) t.height = config.height;
 
 			t.ease = (config.morphEase == undefined) ? morphEase : config.morphEase;
-			t.roundProps = ["x", "y", "width", "height"];
+			t.roundProps = [
+				"x", "y", "width", "height"
+			];
 			t.onComplete = onMorphComplete;
 
 			new TweenLite(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
@@ -205,8 +207,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * If {@code width} change flag is set, directly change {@code width}.
-		 * @param value New {@code width}
+		 * If width change flag is set, directly change width.
+		 * @param value New width
 		 */
 		override public function set width(value:Number):void {
 			if(isChangeWidthEnabled) super.width = value;
@@ -215,8 +217,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * If {@code height} change flag is set, directly change {@code height}.
-		 * @param value New {@code height}
+		 * If height change flag is set, directly change height.
+		 * @param value New height
 		 */
 		override public function set height(value:Number):void {
 			if(isChangeHeightEnabled) super.height = value;

@@ -40,8 +40,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function EventUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -50,10 +50,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Basically an {@code addEventListener()} for more events at once.
+		 * Basically an addEventListener() for more events at once.
 		 * Just saves few lines of code, nothing special.
-		 * @param obj Target {@code EventDispatcher}
-		 * @param params Multiple {@code Object}s with pairs {{@code event}: ..., {@code method}: ...}
+		 * @param obj Target EventDispatcher
+		 * @param params Multiple Objects with pairs {Event: ..., method: ...}
 		 */
 		public static function addEventListeners(obj:EventDispatcher, ... params):void {
 			for each(var i:Object in params) {
@@ -67,10 +67,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Basically an {@code removeEventListener()} for more events at once.
+		 * Basically an removeEventListener() for more events at once.
 		 * Just saves few lines of code, nothing special.
-		 * @param obj Target {@code EventDispatcher}
-		 * @param params Multiple {@code Object}s with pairs {{@code event}: ..., {@code method}: ...}
+		 * @param obj Target EventDispatcher
+		 * @param params Multiple Objects with pairs {Event: ..., method: ...}
 		 */
 		public static function removeEventListeners(obj:EventDispatcher, ... params):void {
 			for each(var i:Object in params) {

@@ -47,7 +47,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * Constructor.
 		 * @param name Name
 		 * @param position Position as WorldCoords
-		 * @param vertices Vertices as {@code Vector.<WorldCoords>}
+		 * @param vertices Vertices as Vector.<WorldCoords>
 		 */
 		public function WorldPolygonObject(name:String, position:WorldCoords, vertices:Vector.<WorldCoords>) {
 			super(name, position);
@@ -58,7 +58,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 		/**
-		 * Destroys the {@code WorldPolygonObject} and frees it for GC.
+		 * Destroys the WorldPolygonObject and frees it for GC.
 		 */
 		override public function destroy():void {
 			if(vertices == null) return;

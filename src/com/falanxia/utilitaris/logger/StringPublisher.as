@@ -29,7 +29,7 @@ package com.falanxia.utilitaris.logger {
 
 
 	/**
-	 * The {@code String} publisher outputs the Log to a {@code String}.
+	 * The String publisher outputs the Log to a String.
 	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
@@ -52,7 +52,7 @@ package com.falanxia.utilitaris.logger {
 
 
 		/**
-		 * Outputs the message to the {@code String}.
+		 * Outputs the message to the String.
 		 * @param logLevel Log level
 		 * @param object Message
 		 */
@@ -63,7 +63,7 @@ package com.falanxia.utilitaris.logger {
 
 
 		/**
-		 * Clears the dump {@code String}.
+		 * Clears the dump String.
 		 */
 		public function clear():void {
 			dump = "";
@@ -81,8 +81,8 @@ package com.falanxia.utilitaris.logger {
 
 
 		/**
-		 * Get the dump {@code String}
-		 * @return Dump {@code String}
+		 * Get the dump String
+		 * @return Dump String
 		 */
 		public static function toString():String {
 			return dump;

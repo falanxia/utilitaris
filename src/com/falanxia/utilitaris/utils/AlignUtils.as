@@ -42,8 +42,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function AlignUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -52,14 +52,13 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the left side of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
-		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
+		 * Aligns a DisplayObject to the left side of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
+		 * @param outside true to align the DisplayObject to the outside of the bounds, or false to the inside (default false)
 		 */
-		public static function alignLeft(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false
-				):void {
+		public static function alignLeft(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false):void {
 			var x:Number = outside ? bounds.left - displayObject.width : bounds.left;
 			displayObject.x = snapToPixel ? int(x) : x;
 		}
@@ -67,14 +66,13 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the right side of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
-		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
+		 * Aligns a DisplayObject to the right side of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
+		 * @param outside true to align the DisplayObject to the outside of the bounds, or false to the inside (default false)
 		 */
-		public static function alignRight(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false
-				):void {
+		public static function alignRight(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false):void {
 			var x:Number = outside ? bounds.right : bounds.right - displayObject.width;
 			displayObject.x = snapToPixel ? int(x) : x;
 		}
@@ -82,14 +80,13 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the top of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
-		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
+		 * Aligns a DisplayObject to the top of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
+		 * @param outside true to align the DisplayObject to the outside of the bounds, or false to the inside (default false)
 		 */
-		public static function alignTop(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false
-				):void {
+		public static function alignTop(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false):void {
 			var y:Number = outside ? bounds.top - displayObject.height : bounds.top;
 			displayObject.y = snapToPixel ? int(y) : y;
 		}
@@ -97,14 +94,13 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the bottom of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
-		 * @param outside {@code true} to align the {@code DisplayObject} to the outside of the bounds, or {@code false} to the inside (default {@code false})
+		 * Aligns a DisplayObject to the bottom of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
+		 * @param outside true to align the DisplayObject to the outside of the bounds, or false to the inside (default false)
 		 */
-		public static function alignBottom(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true,
-		                                   outside:Boolean = false):void {
+		public static function alignBottom(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true, outside:Boolean = false):void {
 			var y:Number = outside ? bounds.bottom : bounds.bottom - displayObject.height;
 			displayObject.y = snapToPixel ? int(y) : y;
 		}
@@ -112,10 +108,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the horizontal center of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
+		 * Aligns a DisplayObject to the horizontal center of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
 		 */
 		public static function alignCenter(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true):void {
 			var centerX:Number = bounds.width * 0.5 - displayObject.width * 0.5 + bounds.x;
@@ -125,10 +121,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the vertical middle of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
+		 * Aligns a DisplayObject to the vertical middle of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
 		 */
 		public static function alignMiddle(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true):void {
 			var centerY:Number = bounds.height * 0.5 - displayObject.height * 0.5 + bounds.y;
@@ -138,10 +134,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Aligns a {@code DisplayObject} to the horizontal center and vertical middle of the bounding {@code Rectangle}.
-		 * @param displayObject {@code DisplayObject} to align
-		 * @param bounds Area in which to align the {@code DisplayObject}
-		 * @param snapToPixel {@code true} to force the position to whole pixels, or {@code false} to let the {@code DisplayObject} be positioned on sub-pixels (default {@code true})
+		 * Aligns a DisplayObject to the horizontal center and vertical middle of the bounding Rectangle.
+		 * @param displayObject DisplayObject to align
+		 * @param bounds Area in which to align the DisplayObject
+		 * @param snapToPixel true to force the position to whole pixels, or false to let the DisplayObject be positioned on sub-pixels (default true)
 		 */
 		public static function alignCenterMiddle(displayObject:DisplayObject, bounds:Rectangle, snapToPixel:Boolean = true):void {
 			alignCenter(displayObject, bounds, snapToPixel);

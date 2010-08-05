@@ -40,8 +40,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function JSUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -57,8 +57,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param arg3 Argument 3
 		 * @param arg4 Argument 4
 		 * @throws Error if empty function name supplied
-		 * @throws Error if {@code SecurityError} occured
-		 * @throws Error if {@code Error} occured
+		 * @throws Error if SecurityError occured
+		 * @throws Error if Error occured
 		 */
 		public static function callFunction(func:String, arg1:* = null, arg2:* = null, arg3:* = null, arg4:* = null):void {
 			if(func == "") {
@@ -79,7 +79,8 @@ package com.falanxia.utilitaris.utils {
 			}
 
 			else {
-				throw new Error(func + " Tracking Request Failed. External interface is not available for this container. If you're trying to use it locally, try using it through an HTTP address.");
+				throw new Error(func +
+				                " Tracking Request Failed. External interface is not available for this container. If you're trying to use it locally, try using it through an HTTP address.");
 			}
 		}
 	}

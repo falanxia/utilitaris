@@ -49,27 +49,32 @@ package com.falanxia.utilitaris.collections {
 		 * Initilizes arrays.
 		 */
 		public function ArrayPicker():void {
-			poolArray = [];
-			reservedArray = [];
+			poolArray = [
+			];
+			reservedArray = [
+			];
 		}
 
 
 
 		/**
-		 * Sets {@code Array} of items we want to work with, if {@code poolArray} is already set, we rewrite it and empty
+		 * Sets Array of items we want to work with, if poolArray is already set, we rewrite it and empty
 		 * reservedArray.
-		 * @param value {@code Array} of items
+		 * @param value Array of items
 		 */
 		public function init(value:Array):void {
 			poolArray = value;
 
-			if(poolArray.length > 0) reservedArray = [];
+			if(poolArray.length > 0) {
+				reservedArray = [
+				];
+			}
 		}
 
 
 
 		/**
-		 * Destroys the {@code ArrayPicker} and frees it for GC.
+		 * Destroys the ArrayPicker and frees it for GC.
 		 */
 		public function destroy():void {
 			poolArray = null;
@@ -91,7 +96,7 @@ package com.falanxia.utilitaris.collections {
 
 		/**
 		 * Returns array of actually unused items.
-		 * @return {@code Array} of unused items
+		 * @return Array of unused items
 		 */
 		public function getPool():Array {
 			return poolArray;
@@ -101,7 +106,7 @@ package com.falanxia.utilitaris.collections {
 
 		/**
 		 * Grabs item from pool, puts it to reservedItems and returns it.
-		 * @param value Selected item, {@code null} if there is no item in pool left
+		 * @param value Selected item, null if there is no item in pool left
 		 */
 		public function getFromPool(value:Object):Object {
 			var tmpi:int = poolArray.indexOf(value);
@@ -130,8 +135,8 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Gets random item from {@code poolArray}, puts it to {@code reservedItems} and returns it.
-		 * @return Random item from {@code poolArray}, {@code null} if there is no item in pool left
+		 * Gets random item from poolArray, puts it to reservedItems and returns it.
+		 * @return Random item from poolArray, null if there is no item in pool left
 		 */
 		public function getRandomFromPool():Object {
 			var randomi:int = randRange(0, poolArray.length - 1);
@@ -149,8 +154,8 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Gets first item in {@code poolArray}, puts it to {@code reservedItems} and returns it.
-		 * @return First item in {@code poolArray}, {@code null} if there is no item in pool left
+		 * Gets first item in poolArray, puts it to reservedItems and returns it.
+		 * @return First item in poolArray, null if there is no item in pool left
 		 */
 		public function getFirstFromPool():Object {
 			var ret:Object;
@@ -167,8 +172,8 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Gets last item in {@code poolArray}, puts it to {@code reservedItems} and returns it.
-		 * @return Last item in {@code poolArray}, {@code null} if there is no item in pool left
+		 * Gets last item in poolArray, puts it to reservedItems and returns it.
+		 * @return Last item in poolArray, null if there is no item in pool left
 		 */
 		public function getLastFromPool():Object {
 			var ret:Object;
@@ -184,7 +189,7 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Gets number of items in {@code reservedArray}.
+		 * Gets number of items in reservedArray.
 		 * @return Number of reserved items
 		 */
 		public function getReservedNumber():int {
@@ -194,7 +199,7 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Gets number of available items (items in {@code poolArray}).
+		 * Gets number of available items (items in poolArray).
 		 * @return Number of avaialable items
 		 */
 		public function getAvailableCount():int {
@@ -204,8 +209,8 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Returns the {@code Array} of reserved items
-		 * @return {@code Array} of reserved items
+		 * Returns the Array of reserved items
+		 * @return Array of reserved items
 		 */
 		public function getReservedItems():Array {
 			return reservedArray;
@@ -224,8 +229,8 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Picks selected item from {@code reservedArray} and returns it to the {@code poolArray} of unused items.
-		 * @param item Item we want to return to unused items {@code poolArray}
+		 * Picks selected item from reservedArray and returns it to the poolArray of unused items.
+		 * @param item Item we want to return to unused items poolArray
 		 */
 		public function returnToPool(item:Object):void {
 			var tmpi:int = reservedArray.indexOf(item);
@@ -239,11 +244,12 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Returns all items from {@code reservedItems} to {@code poolArray}.
+		 * Returns all items from reservedItems to poolArray.
 		 */
 		public function returnAllToPool():void {
 			poolArray = poolArray.concat(reservedArray);
-			reservedArray = [];
+			reservedArray = [
+			];
 		}
 
 
@@ -251,7 +257,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Checks, if item is reserved.
 		 * @param item Item to check
-		 * @return {@code true}, if item is in {@code reservedArray}
+		 * @return true, if item is in reservedArray
 		 */
 		public function isReservered(item:Object):Boolean {
 			var tmpi:Number = reservedArray.indexOf(item);

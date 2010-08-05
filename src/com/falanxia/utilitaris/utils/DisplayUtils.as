@@ -91,8 +91,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function DisplayUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -101,8 +101,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Clear {@code graphics}.
-		 * Shortcut to {@code canvas.graphics.clear()}.
+		 * Clear graphics.
+		 * Shortcut to canvas.graphics.clear().
 		 * @param canvas Canvas to be cleared
 		 */
 		public static function clear(canvas:Sprite):void {
@@ -113,9 +113,9 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Shortcut to draw a rectangle.
-		 * @param canvas {@code Sprite} to draw on
+		 * @param canvas Sprite to draw on
 		 * @param rect Rectangle
-		 * @param rgba {@code RGBA} color
+		 * @param rgba RGBA color
 		 */
 		public static function drawRect(canvas:Sprite, rect:Rectangle, rgba:RGBA):void {
 			var g:Graphics = canvas.graphics;
@@ -129,10 +129,10 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Shortcut to draw a circle.
-		 * @param canvas {@code Sprite} to draw on
+		 * @param canvas Sprite to draw on
 		 * @param center Center position
 		 * @param radius Radius
-		 * @param rgba {@code RGBA} color
+		 * @param rgba RGBA color
 		 */
 		public static function drawCircle(canvas:Sprite, center:Point, rgba:RGBA, radius:Number = DEFAULT_RADIUS):void {
 			var g:Graphics = canvas.graphics;
@@ -146,10 +146,10 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Shortcut to draw a rounded rectangle.
-		 * @param canvas {@code Sprite} to draw on
+		 * @param canvas Sprite to draw on
 		 * @param rect Rectangle
 		 * @param radius Radius
-		 * @param rgba {@code RGBA} color
+		 * @param rgba RGBA color
 		 */
 		public static function drawRoundRect(canvas:Sprite, rect:Rectangle, rgba:RGBA, radius:Number = DEFAULT_RADIUS):void {
 			var g:Graphics = canvas.graphics;
@@ -163,16 +163,16 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Shortcut to draw a pie.
-		 * @param canvas {@code Sprite} to draw on
+		 * @param canvas Sprite to draw on
 		 * @param center Center position
 		 * @param radius Radius
 		 * @param segments Segments
 		 * @param angle1 Angle 1
 		 * @param angle2 Angle 2
-		 * @param rgba {@code RGBA} color
+		 * @param rgba RGBA color
 		 */
-		public static function drawPie(canvas:Sprite, center:Point, rgba:RGBA, radius:Number = DEFAULT_RADIUS,
-		                               segments:int = DEFAULT_SEGMENTS, angle1:Number = 0, angle2:Number = 360):void {
+		public static function drawPie(canvas:Sprite, center:Point, rgba:RGBA, radius:Number = DEFAULT_RADIUS, segments:int = DEFAULT_SEGMENTS, angle1:Number = 0,
+		                               angle2:Number = 360):void {
 			var segm:Number;
 			var grad:Number;
 			var x1:Number;
@@ -231,9 +231,9 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Shortcut to stroke a rectangle.
-		 * @param canvas {@code Sprite} to draw on
+		 * @param canvas Sprite to draw on
 		 * @param rect Rectangle
-		 * @param rgba {@code RGBA} color
+		 * @param rgba RGBA color
 		 * @param thickness Thickness
 		 */
 		public static function strokeRect(canvas:Sprite, rect:Rectangle, rgba:RGBA, thickness:Number = DEFAULT_THICKNESS):void {
@@ -247,10 +247,10 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Shortcut to draw a line.
-		 * @param canvas {@code Sprite} to draw on
-		 * @param start Start {@code Point}
-		 * @param end End {@code Point}
-		 * @param rgba {@code RGBA} color
+		 * @param canvas Sprite to draw on
+		 * @param start Start Point
+		 * @param end End Point
+		 * @param rgba RGBA color
 		 * @param thickness Thickness
 		 */
 		public static function strokeLine(canvas:Sprite, start:Point, end:Point, rgba:RGBA, thickness:Number = DEFAULT_THICKNESS):void {
@@ -265,9 +265,9 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Draw bounding corners.
-		 * @param canvas {@code Sprite} to draw on
+		 * @param canvas Sprite to draw on
 		 * @param rect Rectangle
-		 * @param rgba {@code RGBA} color
+		 * @param rgba RGBA color
 		 * @param padding Padding
 		 */
 		public static function strokeBounds(canvas:Sprite, rect:Rectangle, rgba:RGBA, padding:Number = DEFAULT_PADDING):void {
@@ -293,8 +293,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Apply a {@code scrollRect} from ({@code 0}, {@code 0}) to ({@code width}, {@code height}).
-		 * @param dispObj {@code DisplayObject} to apply on
+		 * Apply a scrollRect from (0, 0) to (width, height).
+		 * @param dispObj DisplayObject to apply on
 		 */
 		public static function applyNaturalScrollRect(dispObj:DisplayObject):void {
 			dispObj.scrollRect = new Rectangle(0, 0, dispObj.width, dispObj.height);
@@ -304,8 +304,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Wait a given number of frames then call a callback.
-		 * @param numFrames {@code Number} of frames to wait before calling the {@code callback}
-		 * @param callback {@code Function} to call once the given {@code Number} of frames have passed
+		 * @param numFrames Number of frames to wait before calling the callback
+		 * @param callback Function to call once the given Number of frames have passed
 		 */
 		public static function wait(numFrames:uint, callback:Function):void {
 			var nf:uint = numFrames;
@@ -324,9 +324,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Basically an {@code addChild()} for more children at once.
+		 * Basically an addChild() for more children at once.
 		 * Just saves few lines of code, nothing special.
-		 * @param container Target {@code DisplayObjectContainer}
+		 * @param container Target DisplayObjectContainer
 		 * @param children Children to be added
 		 */
 		public static function addChildren(container:DisplayObjectContainer, ... children:Array):void {
@@ -336,9 +336,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Basically an {@code addChild()} for more children at once.
+		 * Basically an addChild() for more children at once.
 		 * Just saves few lines of code, nothing special.
-		 * @param container Target {@code DisplayObjectContainer}
+		 * @param container Target DisplayObjectContainer
 		 * @param children Children to be removed
 		 */
 		public static function removeChildren(container:DisplayObjectContainer, ... children:Array):void {
@@ -350,9 +350,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Remove all children from a {@code container} and {@code leave} the bottom few.
-		 * @param container {@code DisplayObjectContainer} to remove from
-		 * @param leave (optional) {@code Number} of bottom children to leave
+		 * Remove all children from a container and leave the bottom few.
+		 * @param container DisplayObjectContainer to remove from
+		 * @param leave (optional) Number of bottom children to leave
 		 */
 		public static function removeAllChildren(container:DisplayObjectContainer, leave:int = 0):void {
 			while(container.numChildren > leave) container.removeChildAt(leave);
@@ -361,9 +361,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Duplicate a {@code MovieClip}.
-		 * @param source Source {@code MovieClip}
-		 * @return Duplicated {@code MovieClip}
+		 * Duplicate a MovieClip.
+		 * @param source Source MovieClip
+		 * @return Duplicated MovieClip
 		 */
 		public static function duplicateMovieClip(source:MovieClip):MovieClip {
 			var targetClass:Class = Class(Object(source).constructor);
@@ -374,10 +374,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Instantiate a new instance of a certain class of {@code DisplayObject}.
-		 * @param obj {@code DisplayObject} whose {@code Class} a new {@code DisplayObject} should be instantiated of
-		 * @param args Arguments to pass to the {@code DisplayObject}'s constructor
-		 * @return New instance of the given {@code DisplayObject}'s {@code Class}
+		 * Instantiate a new instance of a certain class of DisplayObject.
+		 * @param obj DisplayObject whose Class a new DisplayObject should be instantiated of
+		 * @param args Arguments to pass to the DisplayObject's constructor
+		 * @return New instance of the given DisplayObject's Class
 		 */
 		public static function instantiate(obj:Object, args:Array):DisplayObject {
 			var c:Class = ClassUtils.getDisplayObjectClass(obj);
@@ -388,8 +388,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Check if a {@code DisplayObject} is {@code visible}. This checks all of its parents' visibilities.
-		 * @param obj {@code DisplayObject} to check
+		 * Check if a DisplayObject is visible. This checks all of its parents' visibilities.
+		 * @param obj DisplayObject to check
 		 */
 		public static function isVisible(obj:DisplayObject):Boolean {
 			var out:Boolean = true;
@@ -404,12 +404,13 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get the children of a {@code container} as an {@code Array}.
-		 * @param container {@code DisplayObjectContainer} to get the children of
-		 * @return Children of the given container as an {@code Array}
+		 * Get the children of a container as an Array.
+		 * @param container DisplayObjectContainer to get the children of
+		 * @return Children of the given container as an Array
 		 */
 		public static function getChildren(container:DisplayObjectContainer):Array {
-			var out:Array = [];
+			var out:Array = [
+			];
 			var numChildren:int = container.numChildren;
 
 			for(var i:int = 0; i < numChildren; ++i) {
@@ -422,14 +423,15 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get the parents of a {@code DisplayObject} as an {@code Array}.
-		 * @param obj {@code DisplayObject} whose parents should be retrieved
-		 * @param includeSelf If {@code obj} should be included in the returned {@code Array}
-		 * @param stopAt {@code DisplayObject} to stop getting parents at, passing {@code null} indicates that all parents should be included
-		 * @return {@code Array} of the parents of the given {@code DisplayObject} - this includes all parents unless {@code stopAt} is non-{@code null}. If {@code stopAt} is non-{@code null}, it and its parents will not be included in the returned {@code Array}
+		 * Get the parents of a DisplayObject as an Array.
+		 * @param obj DisplayObject whose parents should be retrieved
+		 * @param includeSelf If obj should be included in the returned Array
+		 * @param stopAt DisplayObject to stop getting parents at, passing null indicates that all parents should be included
+		 * @return Array of the parents of the given DisplayObject - this includes all parents unless stopAt is non-null. If stopAt is non-null, it and its parents will not be included in the returned Array
 		 */
 		public static function getParents(obj:DisplayObject, includeSelf:Boolean = true, stopAt:DisplayObject = null):Array {
-			var out:Array = [];
+			var out:Array = [
+			];
 
 			for(var cur:DisplayObject = includeSelf ? obj : obj.parent; cur != stopAt && cur != null; cur = cur.parent) {
 				out.push(cur);
@@ -442,12 +444,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Filter children by their properties.
-		 * @param container {@code DisplayObjectContainer}
+		 * @param container DisplayObjectContainer
 		 * @param props Properties
-		 * @return {@code Array} of filtered children
+		 * @return Array of filtered children
 		 */
 		public static function filterChildrenByProps(container:DisplayObjectContainer, props:Object):Array {
-			var out:Array = [];
+			var out:Array = [
+			];
 			var child:DisplayObject;
 
 			for(var i:int = 0, l:int = container.numChildren; i < l; i++) {
@@ -487,10 +490,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Count {@code Number} of children with certain property.
+		 * Count Number of children with certain property.
 		 * @param children Children to check
 		 * @param prop Property
-		 * @return {@code Number} of filtered children
+		 * @return Number of filtered children
 		 */
 		public static function sumProps(children:Array, prop:String):Number {
 			var out:Number = 0;
@@ -505,8 +508,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get {@code DisplayObject} original width.
-		 * @param obj {@code DisplayObject}
+		 * Get DisplayObject original width.
+		 * @param obj DisplayObject
 		 * @return Original width
 		 */
 		public static function originalWidth(obj:DisplayObject):Number {
@@ -516,8 +519,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get {@code DisplayObject} original height.
-		 * @param obj {@code DisplayObject}
+		 * Get DisplayObject original height.
+		 * @param obj DisplayObject
 		 * @return Original height
 		 */
 		public static function originalHeight(obj:DisplayObject):Number {
@@ -527,9 +530,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Get distance between two {@code DisplayObjects}
-		 * @param dO1 {@code DisplayObject} 1
-		 * @param dO2 {@code DisplayObject} 2
+		 * Get distance between two DisplayObjects
+		 * @param dO1 DisplayObject 1
+		 * @param dO2 DisplayObject 2
 		 * @return Distance
 		 */
 		public static function relativePos(dO1:DisplayObject, dO2:DisplayObject):Point {
@@ -544,9 +547,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the full bounds of the {@code DisplayObject} regardless of masking elements.
-		 * @param displayObject {@code DisplayObject} to analyze
-		 * @return {@code DisplayObject} dimensions
+		 * Determines the full bounds of the DisplayObject regardless of masking elements.
+		 * @param displayObject DisplayObject to analyze
+		 * @return DisplayObject dimensions
 		 */
 		public static function getFullBounds(displayObject:DisplayObject):Rectangle {
 			var bounds:Rectangle, transform:Transform, toGlobalMatrix:Matrix, currentMatrix:Matrix;
@@ -567,8 +570,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Stops all timelines of the specified {@code DisplayObject} and its children.
-		 * @param displayObject {@code DisplayObject} to loop through
+		 * Stops all timelines of the specified DisplayObject and its children.
+		 * @param displayObject DisplayObject to loop through
 		 */
 		public static function stopAllTimelines(displayObject:DisplayObjectContainer):void {
 			var numChildren:int = displayObject.numChildren;
@@ -587,11 +590,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Brings the {@code DisplayObject} to the front of the display list. The {@code back} parameter can be used to
-		 * pull the {@code DisplayObject} back a few levels from the front.
-		 * @param object {@code DisplayObject} to reorder
-		 * @param back {@code Number} of levels from the front of the display list
-		 * @return New index of the {@code DisplayObject}
+		 * Brings the DisplayObject to the front of the display list. The back parameter can be used to
+		 * pull the DisplayObject back a few levels from the front.
+		 * @param object DisplayObject to reorder
+		 * @param back Number of levels from the front of the display list
+		 * @return New index of the DisplayObject
 		 */
 		public static function bringToFront(object:DisplayObject, back:uint = 0):int {
 			var out:int;
@@ -612,11 +615,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Brings the {@code DisplayObject} forward in the display list. The {@code steps} parameter can be used to jump
+		 * Brings the DisplayObject forward in the display list. The steps parameter can be used to jump
 		 * more than one level.
-		 * @param object {@code DisplayObject} to reorder
-		 * @param steps {@code Number} of levels bring the {@code DisplayObject} forward
-		 * @return New index of the {@code DisplayObject}
+		 * @param object DisplayObject to reorder
+		 * @param steps Number of levels bring the DisplayObject forward
+		 * @return New index of the DisplayObject
 		 */
 		public static function bringForward(object:DisplayObject, steps:uint = 1):int {
 			var out:int;
@@ -637,11 +640,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Sends the {@code DisplayObject} to the back of the display list. The {@code forward} parameter can be used to
-		 * bring the {@code DisplayObject} forward a few levels from the back.
-		 * @param object {@code DisplayObject} to reorder
-		 * @param forward {@code Number} of levels from the back of the display list
-		 * @return New index of the {@code DisplayObject}
+		 * Sends the DisplayObject to the back of the display list. The forward parameter can be used to
+		 * bring the DisplayObject forward a few levels from the back.
+		 * @param object DisplayObject to reorder
+		 * @param forward Number of levels from the back of the display list
+		 * @return New index of the DisplayObject
 		 */
 		public static function sendToBack(object:DisplayObject, forward:uint = 0):int {
 			var out:int;
@@ -661,11 +664,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Sends the {@code DisplayObject} back in the display list. The {@code steps} parameter can be used to jump
+		 * Sends the DisplayObject back in the display list. The steps parameter can be used to jump
 		 * more than one level.
-		 * @param object {@code DisplayObject} to reorder
-		 * @param steps {@code Number} of levels send the {@code DisplayObject} backward
-		 * @return New index of the {@code DisplayObject}
+		 * @param object DisplayObject to reorder
+		 * @param steps Number of levels send the DisplayObject backward
+		 * @return New index of the DisplayObject
 		 */
 		public static function sendBackward(object:DisplayObject, steps:uint = 1):int {
 			var out:int;
@@ -686,9 +689,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * {@code trace()} children of the {@code DisplayObjectContainer}.
-		 * @param container {@code DisplayObjectContainer} to get children of
-		 * @param indentLevel Indetnation level (default {@code 0})
+		 * trace() children of the DisplayObjectContainer.
+		 * @param container DisplayObjectContainer to get children of
+		 * @param indentLevel Indetnation level (default 0)
 		 */
 		public static function traceChildren(container:DisplayObjectContainer, indentLevel:int = 0):void {
 			for(var i:int = 0; i < container.numChildren; i++) {

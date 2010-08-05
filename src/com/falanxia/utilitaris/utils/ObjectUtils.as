@@ -43,7 +43,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
+		 * Cannot be instantiated, throws an Error.
 		 * @throws Error since the class could not be instantiated
 		 */
 		public function ObjectUtils() {
@@ -53,9 +53,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Count the properties in an {@code Object}.
-		 * @param obj {@code Object} to count the properties of
-		 * @return {@code Number} of properties in the specified object. If the specified object is {@code null}, this is {@code 0}
+		 * Count the properties in an Object.
+		 * @param obj Object to count the properties of
+		 * @return Number of properties in the specified object. If the specified object is null, this is 0
 		 */
 		public static function numProperties(obj:Object):int {
 			var count:int = 0;
@@ -68,9 +68,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Check if an {@code Object} has any properties.
-		 * @param obj {@code Object} to check for properties
-		 * @return If the specified {@code Object} has any properties. If the specified {@code Object} is {@code null}, this is {@code false}
+		 * Check if an Object has any properties.
+		 * @param obj Object to check for properties
+		 * @return If the specified Object has any properties. If the specified Object is null, this is false
 		 */
 		public static function hasProperties(obj:Object):Boolean {
 			for each(var prop:Object in obj) return true;
@@ -80,10 +80,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Check if the properties of an {@code Object} are all the same.
-		 * @param obj {@code Object} whose properties should be checked
-		 * @param type Type to check the {@code Object}'s properties against
-		 * @return If all of the properties of the specified {@code Object} are of the specified type
+		 * Check if the properties of an Object are all the same.
+		 * @param obj Object whose properties should be checked
+		 * @param type Type to check the Object's properties against
+		 * @return If all of the properties of the specified Object are of the specified type
 		 */
 		public static function isUniformPropertyType(obj:Object, type:Class):Boolean {
 			var out:Boolean = true;
@@ -98,10 +98,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Assign properties from params to an {@code Object}.
-		 * @param obj Target {@code Object}
-		 * @param params Source {@code Object}
-		 * @return Resulting {@code Object}
+		 * Assign properties from params to an Object.
+		 * @param obj Target Object
+		 * @param params Source Object
+		 * @return Resulting Object
 		 */
 		public static function assign(obj:Object, params:Object):Object {
 			var out:Object = (obj);
@@ -121,9 +121,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Clone an {@code Object}.
-		 * @param source Source {@code Object}
-		 * @return Cloned {@code Object}
+		 * Clone an Object.
+		 * @param source Source Object
+		 * @return Cloned Object
 		 */
 		public static function clone(source:*):Object {
 			var copier:ByteArray = new ByteArray();
@@ -137,8 +137,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Scan an {@code Object}.
-		 * @param obj {@code Object} to be scanned
+		 * Scan an Object.
+		 * @param obj Object to be scanned
 		 * @param depth Depth of scanning
 		 * @return Scan result
 		 */
@@ -149,10 +149,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Copy an {@code Object}.
-		 * @param obj {@code Object} to copy
-		 * @param into (optional) {@code Object} to copy into. If {@code null}, a new {@code Object} is created
-		 * @return A one-level deep copy of the {@code Object} or null if the argument is {@code null}
+		 * Copy an Object.
+		 * @param obj Object to copy
+		 * @param into (optional) Object to copy into. If null, a new Object is created
+		 * @return A one-level deep copy of the Object or null if the argument is null
 		 */
 		public static function copy(obj:Object, into:Object = null):Object {
 			var i:Object = into;
@@ -173,15 +173,16 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Convert the {@code Object} to an {@code Array}. Note that the order of the {@code Array} is undefined.
-		 * @param obj {@code Object} to convert
-		 * @return An {@code Array} with all of the properties of the given {@code Object} or {@code null} if the given {@code Object} is {@code null}
+		 * Convert the Object to an Array. Note that the order of the Array is undefined.
+		 * @param obj Object to convert
+		 * @return An Array with all of the properties of the given Object or null if the given Object is null
 		 */
 		public static function toArray(obj:Object):Array {
 			var out:Array;
 
 			if(obj != null) {
-				var ret:Array = [];
+				var ret:Array = [
+				];
 				for each (var prop:Object in obj) ret.push(prop);
 				out = ret;
 			}
@@ -192,14 +193,14 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Convert an {@code Object} to a {@code String} of form: PROP: VAL&PROP: VAL where:
+		 * Convert an Object to a String of form: PROP: VAL&PROP: VAL where:
 		 * <ul>
 		 *      <li>PROP is a property</li>
 		 *      <li>VAL is its corresponding value & is the specified optional delimiter</li>
 		 * </ul>
-		 * @param obj {@code Object} to convert
+		 * @param obj Object to convert
 		 * @param delimiter (optional) Delimiter of property/value pairs
-		 * @return An {@code String} of all property/value pairs delimited by the given {@code String} or {@code null} if the input {@code Object} or delimiter is {@code null}.
+		 * @return An String of all property/value pairs delimited by the given String or null if the input Object or delimiter is null.
 		 */
 		public static function toString(obj:Object = null, delimiter:String = "\n"):String {
 			var out:String;
@@ -208,7 +209,8 @@ package com.falanxia.utilitaris.utils {
 				out = "";
 			}
 			else {
-				var ret:Array = [];
+				var ret:Array = [
+				];
 				for(var s:String in obj) {
 					ret.push(s + ":" + obj[s]);
 				}
@@ -221,10 +223,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Searches the first level properties of an {@code Object} for a another {@code Object}.
-		 * @param obj {@code Object} to search in.
-		 * @param member {@code Object} to search for.
-		 * @return {@code true} if {@code Object} was found
+		 * Searches the first level properties of an Object for a another Object.
+		 * @param obj Object to search in.
+		 * @param member Object to search for.
+		 * @return true if Object was found
 		 */
 		public static function contains(obj:Object, member:Object):Boolean {
 			var out:Boolean;
@@ -241,9 +243,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Uses the strict equality operator to determine if {@code Object} is {@code null}\.
-		 * @param obj {@code Object} to determine if {@code null}.
-		 * @return {@code true} if {@code Object} is {@code null}
+		 * Uses the strict equality operator to determine if Object is null\.
+		 * @param obj Object to determine if null.
+		 * @return true if Object is null
 		 */
 		public static function isNull(obj:Object):Boolean {
 			return obj === null;
@@ -252,9 +254,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if {@code Object} contains no value(s).
-		 * @param obj {@code Object} to derimine if empty
-		 * @return {@code true} if object is empty
+		 * Determines if Object contains no value(s).
+		 * @param obj Object to derimine if empty
+		 * @return true if object is empty
 		 * @example
 		 *      <code>
 		 *          var testNumber:Number;
@@ -312,7 +314,8 @@ package com.falanxia.utilitaris.utils {
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS
-				out = str == "" ? ((obj != null) ? (obj is String ? "\"" + obj + "\"" : obj + "") : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}");
+				out = str == "" ? ((obj != null) ? (obj is String ? "\"" + obj + "\"" : obj + "") : "null") : ("[" + classDef.@name + "] {\n" + str +
+				                                                                                               (prefix.substr(0, prefix.length - 1)) + "}");
 			}
 
 			return out;

@@ -156,8 +156,8 @@ package com.falanxia.utilitaris.template {
 
 
 		/**
-		 * Get instance of the {@code GlobalPreloader2}
-		 * @return Instance of the {@code GlobalPreloader2}
+		 * Get instance of the GlobalPreloader2
+		 * @return Instance of the GlobalPreloader2
 		 */
 		public static function get instance():GlobalPreloader2 {
 			return _instance;

@@ -86,7 +86,8 @@ package com.falanxia.utilitaris.display {
 			'Tritanopia',
 			'Tritanomaly',
 			'Achromatopsia',
-			'Achromatomaly' ];
+			'Achromatomaly'
+		];
 
 		// RGB to Luminance conversion constants as found on
 		// Charles A. Poynton's colorspace-faq:
@@ -101,10 +102,12 @@ package com.falanxia.utilitaris.display {
 		private static const LUMA_G2:Number = 0.6094;
 		private static const LUMA_B2:Number = 0.0820;
 		private static const ONETHIRD:Number = 1 / 3;
-		private static const IDENTITY:Array = [1,0,0,0,0,
-		                                       0,1,0,0,0,
-		                                       0,0,1,0,0,
-		                                       0,0,0,1,0];
+		private static const IDENTITY:Array = [
+			1,0,0,0,0,
+			0,1,0,0,0,
+			0,0,1,0,0,
+			0,0,0,1,0
+		];
 
 		private static const RAD:Number = Math.PI / 180;
 
@@ -147,8 +150,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Clone {@code ColorMatrix}.
-		 * @return Cloned {@code ColorMatrix}
+		 * Clone ColorMatrix.
+		 * @return Cloned ColorMatrix
 		 */
 		public function clone():ColorMatrix {
 			return new ColorMatrix(matrix);
@@ -160,10 +163,12 @@ package com.falanxia.utilitaris.display {
 		 * Invert.
 		 */
 		public function invert():void {
-			concat([ -1 ,  0,  0, 0, 255,
-			         0 , -1,  0, 0, 255,
-			         0 ,  0, -1, 0, 255,
-			         0,   0,  0, 1,   0]);
+			concat([
+				       -1 ,  0,  0, 0, 255,
+				       0 , -1,  0, 0, 255,
+				       0 ,  0, -1, 0, 255,
+				       0,   0,  0, 1,   0
+			       ]);
 		}
 
 
@@ -189,10 +194,12 @@ package com.falanxia.utilitaris.display {
 			iglum = (sInv * LUMA_G);
 			iblum = (sInv * LUMA_B);
 
-			concat([(irlum + s), iglum, iblum, 0, 0,
-			        irlum, (iglum + s), iblum, 0, 0,
-			        irlum, iglum, (iblum + s), 0, 0,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       (irlum + s), iglum, iblum, 0, 0,
+				       irlum, (iglum + s), iblum, 0, 0,
+				       irlum, iglum, (iblum + s), 0, 0,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -212,10 +219,12 @@ package com.falanxia.utilitaris.display {
 			g += 1;
 			b += 1;
 
-			concat([r, 0, 0, 0, (128 * (1 - r)),
-			        0, g, 0, 0, (128 * (1 - g)),
-			        0, 0, b, 0, (128 * (1 - b)),
-			        0, 0, 0, 1, 0]);
+			concat([
+				       r, 0, 0, 0, (128 * (1 - r)),
+				       0, g, 0, 0, (128 * (1 - g)),
+				       0, 0, b, 0, (128 * (1 - b)),
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -223,10 +232,12 @@ package com.falanxia.utilitaris.display {
 		public function adjustBrightness(r:Number, g:Number = NaN, b:Number = NaN):void {
 			if(isNaN(g)) g = r;
 			if(isNaN(b)) b = r;
-			concat([1, 0, 0, 0, r,
-			        0, 1, 0, 0, g,
-			        0, 0, 1, 0, b,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       1, 0, 0, 0, r,
+				       0, 1, 0, 0, g,
+				       0, 0, 1, 0, b,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -236,10 +247,14 @@ package com.falanxia.utilitaris.display {
 			var cos:Number = Math.cos(degrees);
 			var sin:Number = Math.sin(degrees);
 
-			concat([((LUMA_R + (cos * (1 - LUMA_R))) + (sin * -(LUMA_R))), ((LUMA_G + (cos * -(LUMA_G))) + (sin * -(LUMA_G))), ((LUMA_B + (cos * -(LUMA_B))) + (sin * (1 - LUMA_B))), 0, 0,
-			        ((LUMA_R + (cos * -(LUMA_R))) + (sin * 0.143)), ((LUMA_G + (cos * (1 - LUMA_G))) + (sin * 0.14)), ((LUMA_B + (cos * -(LUMA_B))) + (sin * -0.283)), 0, 0,
-			        ((LUMA_R + (cos * -(LUMA_R))) + (sin * -((1 - LUMA_R)))), ((LUMA_G + (cos * -(LUMA_G))) + (sin * LUMA_G)), ((LUMA_B + (cos * (1 - LUMA_B))) + (sin * LUMA_B)), 0, 0,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       ((LUMA_R + (cos * (1 - LUMA_R))) + (sin * -(LUMA_R))), ((LUMA_G + (cos * -(LUMA_G))) + (sin * -(LUMA_G))),
+				       ((LUMA_B + (cos * -(LUMA_B))) + (sin * (1 - LUMA_B))), 0, 0,
+				       ((LUMA_R + (cos * -(LUMA_R))) + (sin * 0.143)), ((LUMA_G + (cos * (1 - LUMA_G))) + (sin * 0.14)), ((LUMA_B + (cos * -(LUMA_B))) + (sin * -0.283)), 0, 0,
+				       ((LUMA_R + (cos * -(LUMA_R))) + (sin * -((1 - LUMA_R)))), ((LUMA_G + (cos * -(LUMA_G))) + (sin * LUMA_G)),
+				       ((LUMA_B + (cos * (1 - LUMA_B))) + (sin * LUMA_B)), 0, 0,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -255,20 +270,24 @@ package com.falanxia.utilitaris.display {
 
 
 		public function luminance2Alpha():void {
-			concat([0, 0, 0, 0, 255,
-			        0, 0, 0, 0, 255,
-			        0, 0, 0, 0, 255,
-			        LUMA_R, LUMA_G, LUMA_B, 0, 0]);
+			concat([
+				       0, 0, 0, 0, 255,
+				       0, 0, 0, 0, 255,
+				       0, 0, 0, 0, 255,
+				       LUMA_R, LUMA_G, LUMA_B, 0, 0
+			       ]);
 		}
 
 
 
 		public function adjustAlphaContrast(amount:Number):void {
 			amount += 1;
-			concat([1, 0, 0, 0, 0,
-			        0, 1, 0, 0, 0,
-			        0, 0, 1, 0, 0,
-			        0, 0, 0, amount, (128 * (1 - amount))]);
+			concat([
+				       1, 0, 0, 0, 0,
+				       0, 1, 0, 0, 0,
+				       0, 0, 1, 0, 0,
+				       0, 0, 0, amount, (128 * (1 - amount))
+			       ]);
 		}
 
 
@@ -284,10 +303,12 @@ package com.falanxia.utilitaris.display {
 			b = ((rgb & 0xFF) / 0xFF);
 			inv_amount = (1 - amount);
 
-			concat([(inv_amount + ((amount * r) * LUMA_R)), ((amount * r) * LUMA_G), ((amount * r) * LUMA_B), 0, 0,
-			        ((amount * g) * LUMA_R), (inv_amount + ((amount * g) * LUMA_G)), ((amount * g) * LUMA_B), 0, 0,
-			        ((amount * b) * LUMA_R), ((amount * b) * LUMA_G), (inv_amount + ((amount * b) * LUMA_B)), 0, 0,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       (inv_amount + ((amount * r) * LUMA_R)), ((amount * r) * LUMA_G), ((amount * r) * LUMA_B), 0, 0,
+				       ((amount * g) * LUMA_R), (inv_amount + ((amount * g) * LUMA_G)), ((amount * g) * LUMA_B), 0, 0,
+				       ((amount * b) * LUMA_R), ((amount * b) * LUMA_G), (inv_amount + ((amount * b) * LUMA_B)), 0, 0,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -313,7 +334,12 @@ package com.falanxia.utilitaris.display {
 				af = (1 / af);
 			}
 
-			concat([(((r & 1) == 1)) ? rf : 0, (((r & 2) == 2)) ? rf : 0, (((r & 4) == 4)) ? rf : 0, (((r & 8) == 8)) ? rf : 0, 0, (((g & 1) == 1)) ? gf : 0, (((g & 2) == 2)) ? gf : 0, (((g & 4) == 4)) ? gf : 0, (((g & 8) == 8)) ? gf : 0, 0, (((b & 1) == 1)) ? bf : 0, (((b & 2) == 2)) ? bf : 0, (((b & 4) == 4)) ? bf : 0, (((b & 8) == 8)) ? bf : 0, 0, (((a & 1) == 1)) ? af : 0, (((a & 2) == 2)) ? af : 0, (((a & 4) == 4)) ? af : 0, (((a & 8) == 8)) ? af : 0, 0]);
+			concat([
+				       (((r & 1) == 1)) ? rf : 0, (((r & 2) == 2)) ? rf : 0, (((r & 4) == 4)) ? rf : 0, (((r & 8) == 8)) ? rf : 0, 0, (((g & 1) == 1)) ? gf : 0,
+				       (((g & 2) == 2)) ? gf : 0, (((g & 4) == 4)) ? gf : 0, (((g & 8) == 8)) ? gf : 0, 0, (((b & 1) == 1)) ? bf : 0, (((b & 2) == 2)) ? bf : 0,
+				       (((b & 4) == 4)) ? bf : 0, (((b & 8) == 8)) ? bf : 0, 0, (((a & 1) == 1)) ? af : 0, (((a & 2) == 2)) ? af : 0, (((a & 4) == 4)) ? af : 0,
+				       (((a & 8) == 8)) ? af : 0, 0
+			       ]);
 		}
 
 
@@ -331,28 +357,34 @@ package com.falanxia.utilitaris.display {
 
 
 		public function average(r:Number = ONETHIRD, g:Number = ONETHIRD, b:Number = ONETHIRD):void {
-			concat([r, g, b, 0, 0,
-			        r, g, b, 0, 0,
-			        r, g, b, 0, 0,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       r, g, b, 0, 0,
+				       r, g, b, 0, 0,
+				       r, g, b, 0, 0,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
 
 		public function threshold(threshold:Number, factor:Number = 256):void {
-			concat([(LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
-			        (LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
-			        (LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
-			        0, 0, 0, 1, 0]);
+			concat([
+				       (LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
+				       (LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
+				       (LUMA_R * factor), (LUMA_G * factor), (LUMA_B * factor), 0, (-(factor) * threshold),
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
 
 		public function desaturate():void {
-			concat([LUMA_R, LUMA_G, LUMA_B, 0, 0,
-			        LUMA_R, LUMA_G, LUMA_B, 0, 0,
-			        LUMA_R, LUMA_G, LUMA_B, 0, 0,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       LUMA_R, LUMA_G, LUMA_B, 0, 0,
+				       LUMA_R, LUMA_G, LUMA_B, 0, 0,
+				       LUMA_R, LUMA_G, LUMA_B, 0, 0,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -372,10 +404,12 @@ package com.falanxia.utilitaris.display {
 			var b3:Number = (inv_amount + (amount * (Math.random() - Math.random())));
 			var o3:Number = ((amount * 0xFF) * (Math.random() - Math.random()));
 
-			concat([r1, g1, b1, 0, o1,
-			        r2, g2, b2, 0, o2,
-			        r3, g3, b3, 0, o3,
-			        0, 0, 0, 1, 0]);
+			concat([
+				       r1, g1, b1, 0, o1,
+				       r2, g2, b2, 0, o2,
+				       r3, g3, b3, 0, o3,
+				       0, 0, 0, 1, 0
+			       ]);
 		}
 
 
@@ -406,46 +440,56 @@ package com.falanxia.utilitaris.display {
 
 
 		public function thresholdAlpha(threshold:Number, factor:Number = 256):void {
-			concat([1, 0, 0, 0, 0,
-			        0, 1, 0, 0, 0,
-			        0, 0, 1, 0, 0,
-			        0, 0, 0, factor, (-factor * threshold)]);
+			concat([
+				       1, 0, 0, 0, 0,
+				       0, 1, 0, 0, 0,
+				       0, 0, 1, 0, 0,
+				       0, 0, 0, factor, (-factor * threshold)
+			       ]);
 		}
 
 
 
 		public function averageRGB2Alpha():void {
-			concat([0, 0, 0, 0, 255,
-			        0, 0, 0, 0, 255,
-			        0, 0, 0, 0, 255,
-			        ONETHIRD, ONETHIRD, ONETHIRD, 0, 0]);
+			concat([
+				       0, 0, 0, 0, 255,
+				       0, 0, 0, 0, 255,
+				       0, 0, 0, 0, 255,
+				       ONETHIRD, ONETHIRD, ONETHIRD, 0, 0
+			       ]);
 		}
 
 
 
 		public function invertAlpha():void {
-			concat([1, 0, 0, 0, 0,
-			        0, 1, 0, 0, 0,
-			        0, 0, 1, 0, 0,
-			        0, 0, 0, -1, 255]);
+			concat([
+				       1, 0, 0, 0, 0,
+				       0, 1, 0, 0, 0,
+				       0, 0, 1, 0, 0,
+				       0, 0, 0, -1, 255
+			       ]);
 		}
 
 
 
 		public function rgb2Alpha(r:Number, g:Number, b:Number):void {
-			concat([0, 0, 0, 0, 255,
-			        0, 0, 0, 0, 255,
-			        0, 0, 0, 0, 255,
-			        r, g, b, 0, 0]);
+			concat([
+				       0, 0, 0, 0, 255,
+				       0, 0, 0, 0, 255,
+				       0, 0, 0, 0, 255,
+				       r, g, b, 0, 0
+			       ]);
 		}
 
 
 
 		public function setAlpha(alpha:Number):void {
-			concat([1, 0, 0, 0, 0,
-			        0, 1, 0, 0, 0,
-			        0, 0, 1, 0, 0,
-			        0, 0, 0, alpha, 0]);
+			concat([
+				       1, 0, 0, 0, 0,
+				       0, 1, 0, 0, 0,
+				       0, 0, 1, 0, 0,
+				       0, 0, 0, alpha, 0
+			       ]);
 		}
 
 
@@ -457,13 +501,16 @@ package com.falanxia.utilitaris.display {
 
 
 		public function concat(mat:Array):void {
-			var temp:Array = [];
+			var temp:Array = [
+			];
 			var i:int = 0;
 			var x:int, y:int;
 
 			for(y = 0; y < 4; y++) {
 				for(x = 0; x < 5; x++) {
-					temp[ int(i + x) ] = Number(mat[i  ]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) + Number(mat[int(i + 2)]) * Number(matrix[int(x + 10)]) + Number(mat[int(i + 3)]) * Number(matrix[int(x + 15)]) + (x == 4 ? Number(mat[int(i + 4)]) : 0);
+					temp[ int(i + x) ] = Number(mat[i  ]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) +
+					                     Number(mat[int(i + 2)]) * Number(matrix[int(x + 10)]) + Number(mat[int(i + 3)]) * Number(matrix[int(x + 15)]) +
+					                     (x == 4 ? Number(mat[int(i + 4)]) : 0);
 				}
 
 				i += 5;
@@ -516,35 +563,51 @@ package com.falanxia.utilitaris.display {
 		public function applyColorDeficiency(type:String):void {
 			switch(type) {
 				case 'Protanopia':
-					concat([0.567,0.433,0,0,0, 0.558,0.442,0,0,0, 0,0.242,0.758,0,0, 0,0,0,1,0]);
+					concat([
+						       0.567,0.433,0,0,0, 0.558,0.442,0,0,0, 0,0.242,0.758,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Protanomaly':
-					concat([0.817,0.183,0,0,0, 0.333,0.667,0,0,0, 0,0.125,0.875,0,0, 0,0,0,1,0]);
+					concat([
+						       0.817,0.183,0,0,0, 0.333,0.667,0,0,0, 0,0.125,0.875,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Deuteranopia':
-					concat([0.625,0.375,0,0,0, 0.7,0.3,0,0,0, 0,0.3,0.7,0,0, 0,0,0,1,0]);
+					concat([
+						       0.625,0.375,0,0,0, 0.7,0.3,0,0,0, 0,0.3,0.7,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Deuteranomaly':
-					concat([0.8,0.2,0,0,0, 0.258,0.742,0,0,0, 0,0.142,0.858,0,0, 0,0,0,1,0]);
+					concat([
+						       0.8,0.2,0,0,0, 0.258,0.742,0,0,0, 0,0.142,0.858,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Tritanopia':
-					concat([0.95,0.05,0,0,0, 0,0.433,0.567,0,0, 0,0.475,0.525,0,0, 0,0,0,1,0]);
+					concat([
+						       0.95,0.05,0,0,0, 0,0.433,0.567,0,0, 0,0.475,0.525,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Tritanomaly':
-					concat([0.967,0.033,0,0,0, 0,0.733,0.267,0,0, 0,0.183,0.817,0,0, 0,0,0,1,0]);
+					concat([
+						       0.967,0.033,0,0,0, 0,0.733,0.267,0,0, 0,0.183,0.817,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Achromatopsia':
-					concat([0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0,0,0,1,0]);
+					concat([
+						       0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0,0,0,1,0
+					       ]);
 					break;
 
 				case 'Achromatomaly':
-					concat([0.618,0.320,0.062,0,0, 0.163,0.775,0.062,0,0, 0.163,0.320,0.516,0,0, 0,0,0,1,0]);
+					concat([
+						       0.618,0.320,0.062,0,0, 0.163,0.775,0.062,0,0, 0.163,0.320,0.516,0,0, 0,0,0,1,0
+					       ]);
 					break;
 			}
 		}
@@ -601,7 +664,9 @@ package com.falanxia.utilitaris.display {
 				preHue.rotateRed(45);
 				preHue.rotateGreen(- greenRotation);
 
-				var lum:Array = [ LUMA_R2, LUMA_G2, LUMA_B2, 1.0 ];
+				var lum:Array = [
+					LUMA_R2, LUMA_G2, LUMA_B2, 1.0
+				];
 
 				preHue.transformVector(lum);
 

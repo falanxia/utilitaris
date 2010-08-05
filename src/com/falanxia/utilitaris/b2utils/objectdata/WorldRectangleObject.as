@@ -49,7 +49,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		/**
 		 * Constructor.
 		 * @param name Name
-		 * @param position Position as {@code WorldCoords}
+		 * @param position Position as WorldCoords
 		 * @param width Width
 		 * @param height Height
 		 */

@@ -41,8 +41,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function LoadUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -52,7 +52,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Calculates the load speed in bytes per second (Bps).
-		 * @param bytesLoaded {@code Number} of bytes that have loaded between {@code startTime} and {@code elapsedTime}
+		 * @param bytesLoaded Number of bytes that have loaded between startTime and elapsedTime
 		 * @param startTime Time in milliseconds when the load started
 		 * @param elapsedTime Time in milliseconds since the load started or time when load completed
 		 * @return Bytes per second
@@ -66,7 +66,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Calculates the load speed in kilobytes per second (kBps).
-		 * @param bytesLoaded {@code Number} of bytes that have loaded between {@code startTime} and {@code elapsedTime}
+		 * @param bytesLoaded Number of bytes that have loaded between startTime and elapsedTime
 		 * @param startTime Time in milliseconds when the load started
 		 * @param elapsedTime Time in milliseconds since the load started or time when load completed
 		 * @return Kilobytes per second
@@ -80,16 +80,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Calculates the percent the video has buffered.
-		 * @param bytesLoaded {@code Number} of bytes that have loaded between {@code startTime} and {@code elapsedTime}
-		 * @param bytesTotal {@code Number} of bytes total to be loaded
+		 * @param bytesLoaded Number of bytes that have loaded between startTime and elapsedTime
+		 * @param bytesTotal Number of bytes total to be loaded
 		 * @param startTime Time in milliseconds when the load started
 		 * @param elapsedTime Current time in milliseconds or time when load completed
 		 * @param lengthInMilliseconds Total duration/length of the video in milliseconds
-		 * @return {@code Percent} buffered
+		 * @return Percent buffered
 		 * @see Percent
 		 */
-		public static function calculateBufferPercent(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint,
-		                                              lengthInMilliseconds:uint):Percent {
+		public static function calculateBufferPercent(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint, lengthInMilliseconds:uint):Percent {
 			var totalWait:Number = bytesTotal / (bytesLoaded / (elapsedTime - startTime)) - lengthInMilliseconds;
 			var millisecondsRemaining:uint = calculateMillisecondsUntilBuffered(bytesLoaded, bytesTotal, startTime, elapsedTime, lengthInMilliseconds);
 
@@ -101,15 +100,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Calculates the remaining time until the video is buffered.
-		 * @param bytesLoaded {@code Number} of bytes that have loaded between {@code startTime} and {@code elapsedTime}.
-		 * @param bytesTotal {@code Number} of bytes total to be loaded
+		 * @param bytesLoaded Number of bytes that have loaded between startTime and elapsedTime.
+		 * @param bytesTotal Number of bytes total to be loaded
 		 * @param startTime Time in milliseconds when the load started
 		 * @param elapsedTime Current time in milliseconds or time when load completed
 		 * @param lengthInMilliseconds Total duration/length of the video in milliseconds
 		 * @return Amount millisecond that remain before the video is buffered
 		 */
-		public static function calculateMillisecondsUntilBuffered(bytesLoaded:uint, bytesTotal:uint, startTime:uint,
-		                                                          elapsedTime:uint, lengthInMilliseconds:uint):uint {
+		public static function calculateMillisecondsUntilBuffered(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint, lengthInMilliseconds:uint):uint {
 			return Math.max(Math.ceil((bytesTotal - bytesLoaded) / (bytesLoaded / (elapsedTime - startTime))) - lengthInMilliseconds, 0);
 		}
 	}

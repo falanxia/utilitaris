@@ -51,10 +51,10 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Constructor.
-		 * @param r {@code uint} from {@code 0} to {@code 255} representing the red color24 value.
-		 * @param g {@code uint} from {@code 0} to {@code 255} representing the green color24 value.
-		 * @param b {@code uint} from {@code 0} to {@code 255} representing the blue color24 value.
-		 * @param a {@code uint} from {@code 0} to {@code 255} representing the alpha value. Default is {@code 255}
+		 * @param r uint from 0 to 255 representing the red color24 value.
+		 * @param g uint from 0 to 255 representing the green color24 value.
+		 * @param b uint from 0 to 255 representing the blue color24 value.
+		 * @param a uint from 0 to 255 representing the alpha value. Default is 255
 		 */
 		public final function RGBA(r:uint = 0, g:uint = 0, b:uint = 0, a:uint = 255) {
 			this.r = r;
@@ -96,7 +96,7 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Converts to a 32-bit RGBA color24 value.
-		 * @return Hexidecimal color24 as a {@code String}
+		 * @return Hexidecimal color24 as a String
 		 * @example
 		 *      <code>
 		 *          var myRGBA:RGBA = new RGBA(128, 255, 0, 255);
@@ -113,7 +113,7 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Converts to a 24-bit RGB color24 value.
-		 * @return Hexidecimal color24 as a {@code String}
+		 * @return Hexidecimal color24 as a String
 		 * @example
 		 *      <code>
 		 *          var myRGBA:RGBA = new RGBA(128, 255, 0, 255);
@@ -129,8 +129,8 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Get {@code alpha} as float {@code Number} (0..1)
-		 * @return {@code alpha} as float {@code Number} (0..1)
+		 * Get alpha as float Number (0..1)
+		 * @return alpha as float Number (0..1)
 		 */
 		public final function get af():Number {
 			return 1 / (255 / this.a);
@@ -139,8 +139,8 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Get a hexidecimal {@code String} representation.
-		 * @return Hexidecimal color24 as a {@code String}
+		 * Get a hexidecimal String representation.
+		 * @return Hexidecimal color24 as a String
 		 * @example
 		 *      <code>
 		 *          var myRGBA:RGBA = new RGBA(128, 0, 255, 255);

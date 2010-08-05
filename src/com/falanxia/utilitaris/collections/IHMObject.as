@@ -44,7 +44,7 @@ package com.falanxia.utilitaris.collections {
 
 		/**
 		 * Constructor.
-		 * @param item Item {@code Object}
+		 * @param item Item Object
 		 * @param name Item name
 		 * @param index Item index
 		 */

@@ -46,8 +46,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function ColorUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -59,7 +59,7 @@ package com.falanxia.utilitaris.utils {
 		 * Interpolates (tints) between two colors.
 		 * @param begin Start color24
 		 * @param end End color24
-		 * @param amount Level of interpolation between {@code begin} and {@code end} colors
+		 * @param amount Level of interpolation between begin and end colors
 		 * @return New interpolated color24
 		 * @example
 		 *      <code>
@@ -92,7 +92,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Adjust color24 brightness.
-		 * @param colortransform Color transform matrix as {@code ColorTransform}
+		 * @param colortransform Color transform matrix as ColorTransform
 		 * @param value Value of adjustment
 		 */
 		public static function setBrightness(colortransform:ColorTransform, value:Number):void {

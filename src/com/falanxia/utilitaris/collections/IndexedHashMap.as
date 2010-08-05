@@ -52,7 +52,8 @@ package com.falanxia.utilitaris.collections {
 			super();
 
 			dicto = new Dictionary();
-			array = [];
+			array = [
+			];
 		}
 
 
@@ -95,7 +96,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Removes item specified object reference.
 		 * @param item Object reference
-		 * @return Boolean {@code false} if object wasn't in collection
+		 * @return Boolean false if object wasn't in collection
 		 */
 		public function removeItem(item:Object):Boolean {
 			var i:int = array.indexOf(item);
@@ -118,7 +119,7 @@ package com.falanxia.utilitaris.collections {
 		/**
 		 * Removes item specified by item name.
 		 * @param name name of object
-		 * @return {@code false} if object wasn't in collection
+		 * @return false if object wasn't in collection
 		 */
 		public function removeItemByName(name:String = null):Boolean {
 			if(removeFromArrayAt(array.indexOf(dicto[name]))) {
@@ -276,7 +277,8 @@ package com.falanxia.utilitaris.collections {
 		private function removeFromArrayAt(index:int):Boolean {
 			if(index >= array.length) return false;
 
-			var a:Array = [];
+			var a:Array = [
+			];
 			var i:int;
 
 			for(i = 0; i < index; i++) {
@@ -301,7 +303,8 @@ package com.falanxia.utilitaris.collections {
 				return array.length - 1;
 			}
 
-			var a:Array = [];
+			var a:Array = [
+			];
 			var i:int;
 
 			for(i = 0; i < index; i++) {

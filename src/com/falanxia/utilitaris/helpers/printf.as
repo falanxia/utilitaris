@@ -27,7 +27,7 @@ package com.falanxia.utilitaris.helpers {
 
 	/**
 	 * Creates a string with variable substitutions. Very similiar to printf, specially python's printf
-	 * @param raw The {@code String} to be substituted
+	 * @param raw The String to be substituted
 	 * @param rest The objects to be substitued, can be positional or by properties inside the object (in wich case only one object can be passed)
 	 * @return Formated and substitued String
 	 * @example
@@ -71,7 +71,8 @@ package com.falanxia.utilitaris.helpers {
 			return "";
 		}
 
-		var matches:Array = [];
+		var matches:Array = [
+		];
 		var result:Object = SUBS_RE.exec(raw);
 		var match:Match;
 		var runs:int = 0;
@@ -120,60 +121,66 @@ package com.falanxia.utilitaris.helpers {
 
 			if(replacementValue == undefined) replacementValue = "";
 			if(replacementValue != undefined) {
-				if(formater == STRING_FORMATTER) match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar); else if(formater == FLOAT_FORMATER) {
-					if(precision) {
-						match.replacement = padString(Number(replacementValue).toFixed(int(precision)), paddingNum, paddingChar);
-					}
-					else {
-						match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar);
-					}
-				} else {
-					if(formater == INTEGER_FORMATER) {
-						match.replacement = padString(int(replacementValue).toString(), paddingNum, paddingChar);
-					}
-					else {
-						if(formater == OCTAL_FORMATER) {
-							match.replacement = "0" + int(replacementValue).toString(8);
+				if(formater == STRING_FORMATTER) {
+					match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar);
+				}
+				else {
+					if(formater == FLOAT_FORMATER) {
+						if(precision) {
+							match.replacement = padString(Number(replacementValue).toFixed(int(precision)), paddingNum, paddingChar);
 						}
 						else {
-							if(formater == HEXA_FORMATER) {
-								match.replacement = "0x" + int(replacementValue).toString(16);
+							match.replacement = padString(replacementValue.toString(), paddingNum, paddingChar);
+						}
+					}
+					else {
+						if(formater == INTEGER_FORMATER) {
+							match.replacement = padString(int(replacementValue).toString(), paddingNum, paddingChar);
+						}
+						else {
+							if(formater == OCTAL_FORMATER) {
+								match.replacement = "0" + int(replacementValue).toString(8);
 							}
 							else {
-								if(DATES_FORMATERS.indexOf(formater) > -1) {
-									switch(formater) {
-										case DATE_DAY_FORMATTER:
-											match.replacement = replacementValue.date.toString();
-											break;
-										case DATE_FULLYEAR_FORMATTER:
-											match.replacement = replacementValue.fullYear;
-											break;
-										case DATE_YEAR_FORMATTER:
-											match.replacement = replacementValue.fullYear.toString().substr(2, 2);
-											break;
-										case DATE_MONTH_FORMATTER:
-											match.replacement = replacementValue.month + 1;
-											break;
-										case DATE_HOUR24_FORMATTER:
-											match.replacement = replacementValue.hours;
-											break;
-										case DATE_HOUR_FORMATTER:
-											var hours24:Number = replacementValue.hours;
-											match.replacement = (hours24 - 12).toString();
-											break;
-										case DATE_HOUR_AMPM_FORMATTER:
-											match.replacement = (replacementValue.hours >= 12 ? "p.m" : "a.m");
-											break;
-										case DATE_TOLOCALE_FORMATTER:
-											match.replacement = String(replacementValue.toLocaleString());
-											break;
-										case DATE_MINUTES_FORMATTER:
-											match.replacement = replacementValue.minutes;
-											break;
-										case DATE_SECONDS_FORMATTER:
-											match.replacement = replacementValue.seconds;
-											break;
-										default:
+								if(formater == HEXA_FORMATER) {
+									match.replacement = "0x" + int(replacementValue).toString(16);
+								}
+								else {
+									if(DATES_FORMATERS.indexOf(formater) > -1) {
+										switch(formater) {
+											case DATE_DAY_FORMATTER:
+												match.replacement = replacementValue.date.toString();
+												break;
+											case DATE_FULLYEAR_FORMATTER:
+												match.replacement = replacementValue.fullYear;
+												break;
+											case DATE_YEAR_FORMATTER:
+												match.replacement = replacementValue.fullYear.toString().substr(2, 2);
+												break;
+											case DATE_MONTH_FORMATTER:
+												match.replacement = replacementValue.month + 1;
+												break;
+											case DATE_HOUR24_FORMATTER:
+												match.replacement = replacementValue.hours;
+												break;
+											case DATE_HOUR_FORMATTER:
+												var hours24:Number = replacementValue.hours;
+												match.replacement = (hours24 - 12).toString();
+												break;
+											case DATE_HOUR_AMPM_FORMATTER:
+												match.replacement = (replacementValue.hours >= 12 ? "p.m" : "a.m");
+												break;
+											case DATE_TOLOCALE_FORMATTER:
+												match.replacement = String(replacementValue.toLocaleString());
+												break;
+											case DATE_MINUTES_FORMATTER:
+												match.replacement = replacementValue.minutes;
+												break;
+											case DATE_SECONDS_FORMATTER:
+												match.replacement = replacementValue.seconds;
+												break;
+											default:
+										}
 									}
 								}
 							}
@@ -194,7 +201,8 @@ package com.falanxia.utilitaris.helpers {
 
 		if(matches.length == 0) return raw;
 
-		var buffer:Array = [];
+		var buffer:Array = [
+		];
 		var lastMatch:Match;
 		var previous:String = raw.substr(0, matches[0].startIndex);
 
@@ -288,11 +296,16 @@ function padString(str:String, paddingNum:int, paddingChar:String = " "):String 
 	if(paddingChar == null) return str;
 
 	var i:int;
-	var buf:Array = [];
+	var buf:Array = [
+	];
 	for(i = 0; i < Math.abs(paddingNum) - str.length; i++) buf.push(paddingChar);
 
-	if(paddingNum < 0) buf.unshift(str);
-	else buf.push(str);
+	if(paddingNum < 0) {
+		buf.unshift(str);
+	}
+	else {
+		buf.push(str);
+	}
 
 	return buf.join("");
 }

@@ -39,8 +39,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function ArrayUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -49,11 +49,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns the first element that matches {@code match} for the property {@code key}.
-		 * @param inArray {@code Array} to search for an element with a {@code key} that matches {@code match}
+		 * Returns the first element that matches match for the property key.
+		 * @param inArray Array to search for an element with a key that matches match
 		 * @param key Name of the property to match.
 		 * @param match Value to match against
-		 * @return Matched {@code Object}; otherwise {@code null}
+		 * @return Matched Object; otherwise null
 		 */
 		public static function getItemByKey(inArray:Array, key:String, match:*):* {
 			var out:*;
@@ -70,14 +70,15 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Returns every element that matches {@code match} for the property {@code key}.
-		 * @param inArray {@code Array} to search for object with {@code key} that matches {@code match}
+		 * Returns every element that matches match for the property key.
+		 * @param inArray Array to search for object with key that matches match
 		 * @param key Name of the property to match
 		 * @param match Value to match against
 		 * @return All the matched elements
 		 */
 		public static function getItemsByKey(inArray:Array, key:String, match:*):Array {
-			var t:Array = [];
+			var t:Array = [
+			];
 
 			for each(var item:* in inArray) {
 				if(item[key] == match) {
@@ -92,7 +93,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns the first element that is compatible with a specific data type, class, or interface.
-		 * @param inArray {@code Array} to search for an element of a specific type
+		 * @param inArray Array to search for an element of a specific type
 		 * @param type Type to compare the elements to
 		 * @return All the matched elements
 		 */
@@ -112,12 +113,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns every element that is compatible with a specific data type, class, or interface
-		 * @param inArray {@code Array} to search for elements of a specific type
+		 * @param inArray Array to search for elements of a specific type
 		 * @param type Type to compare the elements to
 		 * @return All the matched elements
 		 */
 		public static function getItemsByType(inArray:Array, type:Class):Array {
-			var t:Array = [];
+			var t:Array = [
+			];
 
 			for each(var item:* in inArray) {
 				if(item is type) {
@@ -131,11 +133,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Modifies original {@code Array} by adding all the elements from another {@code Array} at a specified position.
-		 * @param tarArray {@code Array} to add elements to
-		 * @param items {@code Array} of elements to add
+		 * Modifies original Array by adding all the elements from another Array at a specified position.
+		 * @param tarArray Array to add elements to
+		 * @param items Array of elements to add
 		 * @param index Position where the elements should be added
-		 * @return {@code true} if the {@code Array} was changed as a result of the call
+		 * @return true if the Array was changed as a result of the call
 		 * @example
 		 *      <code>
 		 *          var alphabet:Array = new Array("a", "d", "e");
@@ -162,9 +164,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Creates new {@code Array} composed of only the non-identical elements of passed {@code Array}.
-		 * @param inArray {@code Array} to remove equivalent items
-		 * @return New {@code Array} composed of only unique elements
+		 * Creates new Array composed of only the non-identical elements of passed Array.
+		 * @param inArray Array to remove equivalent items
+		 * @return New Array composed of only unique elements
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 4, 4, 4, 5);
@@ -178,10 +180,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Modifies original {@code Array} by removing all items that are identical to the specified item.
-		 * @param tarArray {@code Array} to remove passed {@code item}
+		 * Modifies original Array by removing all items that are identical to the specified item.
+		 * @param tarArray Array to remove passed item
 		 * @param item Element to remove
-		 * @return Amount of removed elements that matched {@code item}, if none found returns {@code 0}
+		 * @return Amount of removed elements that matched item, if none found returns 0
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
@@ -205,10 +207,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Removes only the specified items in an {@code Array}.
-		 * @param tarArray {@code Array} to remove specified items from
-		 * @param items {@code Array} of elements to remove
-		 * @return {@code true} if the {@code Array} was changed as a result of the call
+		 * Removes only the specified items in an Array.
+		 * @param tarArray Array to remove specified items from
+		 * @param items Array of elements to remove
+		 * @return true if the Array was changed as a result of the call
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
@@ -233,10 +235,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Retains only the specified items in an {@code Array}.
-		 * @param tarArray {@code Array} to remove non specified items from
-		 * @param items {@code Array} of elements to keep
-		 * @return {@code true} if the {@code Array} was changed as a result of the call
+		 * Retains only the specified items in an Array.
+		 * @param tarArray Array to remove non specified items from
+		 * @param items Array of elements to keep
+		 * @return true if the Array was changed as a result of the call
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
@@ -261,10 +263,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Finds out how many instances of {@code item} {@code Array} contains.
-		 * @param inArray {@code Array} to search for {@code item} in
-		 * @param item {@code Object} to find
-		 * @return Amount of {@code item}'s found; if none were found returns {@code 0}
+		 * Finds out how many instances of item Array contains.
+		 * @param inArray Array to search for item in
+		 * @param item Object to find
+		 * @return Amount of item's found; if none were found returns 0
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
@@ -286,10 +288,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if {@code Array} contains all items.
-		 * @param inArray {@code Array} to search for {@code items} in
-		 * @param items {@code Array} of elements to search for
-		 * @return {@code true} if {@code inArray} contains all elements of {@code items}
+		 * Determines if Array contains all items.
+		 * @param inArray Array to search for items in
+		 * @param items Array of elements to search for
+		 * @return true if inArray contains all elements of items
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
@@ -310,10 +312,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if {@code Array} {@code inArray} contains any element of {@code Array} {@code items}.
-		 * @param inArray {@code Array} to search for {@code items} in
-		 * @param items {@code Array} of elements to search for
-		 * @return {@code true} if {@code inArray} contains any element of {@code items}
+		 * Determines if Array inArray contains any element of Array items.
+		 * @param inArray Array to search for items in
+		 * @param items Array of elements to search for
+		 * @return true if inArray contains any element of items
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
@@ -334,10 +336,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if two {@code Array}s contain the same {@code Object}s at the same index.
-		 * @param first First {@code Array} to compare to the {@code second}
-		 * @param second Second {@code Array} to compare to the {@code first}
-		 * @return {@code true} if {@code Array}s are the same
+		 * Determines if two Arrays contain the same Objects at the same index.
+		 * @param first First Array to compare to the second
+		 * @param second Second Array to compare to the first
+		 * @return true if Arrays are the same
 		 */
 		public static function equals(first:Array, second:Array):Boolean {
 			var out:Boolean = true;
@@ -358,11 +360,11 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Compares two {@code Array}s and finds the first index where they differ.
-		 * @param first First {@code Array} to compare to the {@code second}
-		 * @param second Second {@code Array} to compare to the {@code first}
-		 * @param fromIndex Location in the {@code Array}s from which to start searching for a difference
-		 * @return First position/index where the {@code Array}s differ; if {@code Array}s are identical returns {@code -1}
+		 * Compares two Arrays and finds the first index where they differ.
+		 * @param first First Array to compare to the second
+		 * @param second Second Array to compare to the first
+		 * @param fromIndex Location in the Arrays from which to start searching for a difference
+		 * @return First position/index where the Arrays differ; if Arrays are identical returns -1
 		 * @example
 		 *      <code>
 		 *          var color24:Array = new Array("Red", "Blue", "Green", "Indigo", "Violet");
@@ -384,9 +386,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Creates new {@code Array} composed of passed {@code Array}'s items in a random order.
-		 * @param inArray {@code Array} to create copy of, and randomize
-		 * @return New {@code Array} composed of passed {@code Array}'s items in a random order
+		 * Creates new Array composed of passed Array's items in a random order.
+		 * @param inArray Array to create copy of, and randomize
+		 * @return New Array composed of passed Array's items in a random order
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -394,7 +396,8 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function randomize(inArray:Array):Array {
-			var t:Array = [];
+			var t:Array = [
+			];
 			var r:Array = inArray.sort(sortRandom, Array.RETURNINDEXEDARRAY);
 			var i:int = -1;
 
@@ -408,9 +411,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Adds all items in {@code inArray} and returns the value.
-		 * @param inArray {@code Array} composed only of numbers
-		 * @return Total of all numbers in {@code inArray} added
+		 * Adds all items in inArray and returns the value.
+		 * @param inArray Array composed only of numbers
+		 * @return Total of all numbers in inArray added
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(2, 3);
@@ -431,9 +434,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Averages the values in {@code inArray}.
-		 * @param inArray {@code Array} composed only of numbers
-		 * @return Average of all numbers in the {@code inArray}
+		 * Averages the values in inArray.
+		 * @param inArray Array composed only of numbers
+		 * @return Average of all numbers in the inArray
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(2, 3, 8, 3);
@@ -456,9 +459,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Finds the lowest value in {@code inArray}.
-		 * @param inArray {@code Array} composed only of numbers
-		 * @return Lowest value in {@code inArray}
+		 * Finds the lowest value in inArray.
+		 * @param inArray Array composed only of numbers
+		 * @return Lowest value in inArray
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(2, 1, 5, 4, 3);
@@ -473,9 +476,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Finds the highest value in {@code inArray}.
-		 * @param inArray {@code Array} composed only of numbers
-		 * @return Highest value in {@code inArray}
+		 * Finds the highest value in inArray.
+		 * @param inArray Array composed only of numbers
+		 * @return Highest value in inArray
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(2, 1, 5, 4, 3);

@@ -34,7 +34,7 @@ package com.falanxia.utilitaris.logger {
 
 
 	/**
-	 * The {@code String} publisher outputs the Log to a Trazzle.
+	 * The String publisher outputs the Log to a Trazzle.
 	 * See more info about Trazzle here: http://www.nesium.com/products/trazzle
 	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
@@ -61,7 +61,7 @@ package com.falanxia.utilitaris.logger {
 
 
 		/**
-		 * Outputs the message to the {@code String}.
+		 * Outputs the message to the String.
 		 * @param logLevel Log level
 		 * @param object Message
 		 */

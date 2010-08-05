@@ -40,8 +40,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Constructor.
-		 * Cannot be instantiated, throws an {@code Error}.
-		 * @throws {@code Error} since the class could not be instantiated
+		 * Cannot be instantiated, throws an Error.
+		 * @throws Error since the class could not be instantiated
 		 */
 		public function DateUtils() {
 			throw new Error("The class cannot be instantiated");
@@ -50,7 +50,7 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Formats a {@code Date} object for display. Acts almost identically to the PHP {@code date()} function.
+		 * Formats a Date object for display. Acts almost identically to the PHP date() function.
 		 * <table border="1">
 		 *      <tr>
 		 *          <th style="width:150px;">Format character</th>
@@ -228,9 +228,9 @@ package com.falanxia.utilitaris.utils {
 		 *          <td>Example: 1171479314</td>
 		 *      </tr>
 		 *  </table>
-		 * @param dateToFormat {@code Date} object you wish to format
-		 * @param formatString Format of the outputted date {@code String}. See the format characters options above.
-		 * @usageNote You can prevent a recognized character in the format string from being expanded by escaping it with a preceding {@code ^}.
+		 * @param dateToFormat Date object you wish to format
+		 * @param formatString Format of the outputted date String. See the format characters options above.
+		 * @usageNote You can prevent a recognized character in the format string from being expanded by escaping it with a preceding ^.
 		 * @example
 		 *      <code>
 		 *          trace(DateUtils.formatDate(new Date(), "l ^t^h^e dS ^of F Y h:i:s A"));
@@ -430,12 +430,18 @@ package com.falanxia.utilitaris.utils {
 
 						case "c" :
 							// ISO 8601 date
-							out += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" + NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + getFormattedDifferenceFromUTC(dateToFormat, ":");
+							out += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" +
+							       NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" +
+							       NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) +
+							       getFormattedDifferenceFromUTC(dateToFormat, ":");
 							break;
 
 						case "r" :
 							// RFC 2822 formatted date
-							out += getDayAbbrAsString(dateToFormat.getDay()) + ", " + dateToFormat.getDate() + " " + getMonthAbbrAsString(dateToFormat.getMonth()) + " " + dateToFormat.getFullYear() + " " + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + " " + getFormattedDifferenceFromUTC(dateToFormat);
+							out += getDayAbbrAsString(dateToFormat.getDay()) + ", " + dateToFormat.getDate() + " " + getMonthAbbrAsString(dateToFormat.getMonth()) + " " +
+							       dateToFormat.getFullYear() + " " + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" +
+							       NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + " " +
+							       getFormattedDifferenceFromUTC(dateToFormat);
 							break;
 
 						case "U" :
@@ -456,9 +462,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts W3C ISO 8601 date {@code String} into a {@code Date} object.
-		 * @param iso8601 Valid ISO 8601 formatted {@code String}
-		 * @return {@code Date} object of the specified date and time of the ISO 8601 {@code String} in universal time
+		 * Converts W3C ISO 8601 date String into a Date object.
+		 * @param iso8601 Valid ISO 8601 formatted String
+		 * @return Date object of the specified date and time of the ISO 8601 String in universal time
 		 * @see <a href="http://www.w3.org/TR/NOTE-datetime">W3C ISO 8601 specification</a>
 		 * @example
 		 *      <code>
@@ -468,7 +474,8 @@ package com.falanxia.utilitaris.utils {
 		public static function iso8601ToDate(iso8601:String):Date {
 			var parts:Array = iso8601.toUpperCase().split("T");
 			var date:Array = parts[0].split("-");
-			var time:Array = (parts.length <= 1) ? [] : parts[1].split(":");
+			var time:Array = (parts.length <= 1) ? [
+			] : parts[1].split(":");
 			var year:uint = ObjectUtils.isEmpty(date[0]) ? 0 : Number(date[0]);
 			var month:uint = ObjectUtils.isEmpty(date[1]) ? 0 : Number(date[1] - 1);
 			var day:uint = ObjectUtils.isEmpty(date[2]) ? 1 : Number(date[2]);
@@ -526,8 +533,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts the month {@code Number} into the full month name.
-		 * @param month Month {@code Number} ({@code 0} for January, {@code 1} for February, and so on)
+		 * Converts the month Number into the full month name.
+		 * @param month Month Number (0 for January, 1 for February, and so on)
 		 * @return Full textual representation of a month, such as January or March
 		 * @example
 		 *      <code>
@@ -544,8 +551,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts the month {@code Number} into the month abbreviation.
-		 * @param month Month {@code Number} ({@code 0} for January, {@code 1} for February, and so on)
+		 * Converts the month Number into the month abbreviation.
+		 * @param month Month Number (0 for January, 1 for February, and so on)
 		 * @return Short textual representation of a month, three letters
 		 * @example
 		 *      <code>
@@ -560,8 +567,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts the day of the week {@code Number} into the full day name.
-		 * @param day {@code int} representing the day of the week ({@code 0} for Sunday, {@code 1} for Monday, and so on)
+		 * Converts the day of the week Number into the full day name.
+		 * @param day int representing the day of the week (0 for Sunday, 1 for Monday, and so on)
 		 * @return Full textual representation of the day of the week
 		 * @example
 		 *      <code>
@@ -578,8 +585,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Converts the day of the week {@code Number} into the day abbreviation.
-		 * @param day {@code int} representing the day of the week ({@code 0} for Sunday, {@code 1} for Monday, and so on)
+		 * Converts the day of the week Number into the day abbreviation.
+		 * @param day int representing the day of the week (0 for Sunday, 1 for Monday, and so on)
 		 * @return Textual representation of a day, three letters
 		 * @example
 		 *      <code>
@@ -594,10 +601,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Finds the {@code Number} of days in the given month.
+		 * Finds the Number of days in the given month.
 		 * @param year Full year
-		 * @param month Month {@code Number} ({@code 0} for January, {@code 1} for February, and so on)
-		 * @return {@code Number} of days in the month; {@code 28} through {@code 31}
+		 * @param month Month Number (0 for January, 1 for February, and so on)
+		 * @return Number of days in the month; 28 through 31
 		 * @example
 		 *      <code>
 		 *          var myDate:Date = new Date(2000, 0, 1);
@@ -614,8 +621,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if time is Ante meridiem or Post meridiem.
-		 * @param hours Hour to find the meridiem of (an {@code int} from {@code 0} to {@code 23})
-		 * @return Either {@code "AM"} or {@code "PM"}
+		 * @param hours Hour to find the meridiem of (an int from 0 to 23)
+		 * @return Either "AM" or "PM"
 		 * @example
 		 *      <code>
 		 *          trace(getMeridiem(17)); // Traces PM
@@ -628,10 +635,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the difference between two {@code Date}s.
-		 * @param startDate Starting {@code Date}
-		 * @param endDate Ending {@code Date}
-		 * @return Difference in milliseconds between the two {@code Date}s
+		 * Determines the difference between two Dates.
+		 * @param startDate Starting Date
+		 * @param endDate Ending Date
+		 * @return Difference in milliseconds between the two Dates
 		 * @example
 		 *      <code>
 		 *          trace(ConversionUtil.millisecondsToDays(getTimeBetween(new Date(2007, 0, 1), new Date(2007, 0, 11)))); // Traces 10
@@ -644,10 +651,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the time remaining until a certain {@code Date}.
-		 * @param startDate Starting {@code Date}
-		 * @param endDate Ending {@code Date}
-		 * @return {@code Object} with the properties {@code days}, {@code hours}, {@code minutes}, {@code seconds} and {@code milliseconds} defined as {@code Number}s
+		 * Determines the time remaining until a certain Date.
+		 * @param startDate Starting Date
+		 * @param endDate Ending Date
+		 * @return Object with the properties days, hours, minutes, seconds and milliseconds defined as Numbers
 		 * @example
 		 *      <code>
 		 *          var countdown:Object = getCountdownUntil(new Date(2006, 11, 31, 21, 36), new Date(2007, 0, 1));
@@ -674,7 +681,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines the difference to coordinated universal time (UTC) in seconds.
-		 * @param date {@code Date} object to find the time zone offset of
+		 * @param date Date object to find the time zone offset of
 		 * @return Difference in seconds from UTC
 		 */
 		public static function getDifferenceFromUTCInSeconds(date:Date):int {
@@ -685,7 +692,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines the difference to coordinated universal time (UTC) in hours.
-		 * @param date {@code Date} object to find the time zone offset of
+		 * @param date Date object to find the time zone offset of
 		 * @return Difference in hours from UTC
 		 */
 		public static function getDifferenceFromUTCInHours(date:Date):int {
@@ -696,7 +703,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Formats the difference to coordinated undefined time (UTC).
-		 * @param date {@code Date} object to find the time zone offset of
+		 * @param date Date object to find the time zone offset of
 		 * @param separator Character(s) that separates the hours from minutes
 		 * @return Formatted time difference from UTC
 		 */
@@ -709,8 +716,8 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines the time zone of the user from a {@code Date} object.
-		 * @param date {@code Date} object to find the time zone of
+		 * Determines the time zone of the user from a Date object.
+		 * @param date Date object to find the time zone of
 		 * @return Time zone abbreviation
 		 * @example
 		 *      <code>
@@ -718,7 +725,8 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function getTimezone(date:Date):String {
-			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6", "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
+			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6",
+			                                "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
 			var hour:uint = int(12 + -(date.getTimezoneOffset() / 60));
 
 			if(isDaylightSavings(date)) hour--;
@@ -731,7 +739,7 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Determines if year is a leap year or a common year.
 		 * @param year Full year
-		 * @return {@code true} if year is a leap year
+		 * @return true if year is a leap year
 		 * @example
 		 *      <code>
 		 *          var myDate:Date = new Date(2000, 0, 1);
@@ -745,9 +753,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if or not the {@code Date} is in daylight saving time.
-		 * @param date {@code Date} to find if it is during daylight savings time
-		 * @return {@code true} if daylight savings time
+		 * Determines if or not the Date is in daylight saving time.
+		 * @param date Date to find if it is during daylight savings time
+		 * @return true if daylight savings time
 		 */
 		public static function isDaylightSavings(date:Date):Boolean {
 			var out:Boolean;
@@ -767,7 +775,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts current time into Swatch internet time or beats.
-		 * @param date {@code Date} object to convert
+		 * @param date Date object to convert
 		 * @return Time in beats (0 to 999)
 		 */
 		public static function getInternetTime(date:Date):Number {
@@ -779,9 +787,9 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Gets the current day out of the total days in the year (starting from {@code 0}).
-		 * @param date {@code Date} object to find the current day of the year from
-		 * @return Current day of the year ({@code 0}-{@code 364} or {@code 0}-{@code 365} on a leap year).
+		 * Gets the current day out of the total days in the year (starting from 0).
+		 * @param date Date object to find the current day of the year from
+		 * @return Current day of the year (0-364 or 0-365 on a leap year).
 		 */
 		public static function getDayOfTheYear(date:Date):uint {
 			var firstDay:Date = new Date(date.getFullYear(), 0, 1);
@@ -809,10 +817,10 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Determines if two {@code Date}s are the same time.
-		 * @param first {@code Date} to compare to {@code second}
-		 * @param second {@code Date} to compare to {@code first}
-		 * @return {@code true} if {@code Date}s are the same
+		 * Determines if two Dates are the same time.
+		 * @param first Date to compare to second
+		 * @param second Date to compare to first
+		 * @return true if Dates are the same
 		 */
 		public static function equals(first:Date, second:Date):Boolean {
 			return first.valueOf() == second.valueOf();
@@ -831,7 +839,8 @@ package com.falanxia.utilitaris.utils {
 			var s:Number = Math.floor((sec % 3600) % 60);
 
 			//noinspection NestedConditionalExpressionJS
-			return (h == 0 ? "" : (h < 10 ? "0" + h.toString() + ":" : h.toString() + ":")) + (m < 10 ? "0" + m.toString() : m.toString()) + ":" + (s < 10 ? "0" + s.toString() : s.toString());
+			return (h == 0 ? "" : (h < 10 ? "0" + h.toString() + ":" : h.toString() + ":")) + (m < 10 ? "0" + m.toString() : m.toString()) + ":" +
+			       (s < 10 ? "0" + s.toString() : s.toString());
 		}
 	}
 }

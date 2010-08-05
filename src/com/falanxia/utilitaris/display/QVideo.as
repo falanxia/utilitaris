@@ -33,7 +33,7 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Quick Video.
-	 * Quick creation of {@code Video} with initial settings.
+	 * Quick creation of Video with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
@@ -48,22 +48,22 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * All parameters from the {@code config} Object are parsed and applied to the newly created {@code Video}.
-		 * @usageNote Additionally these set to non-default settings to make common tasks easier (if not overridden by the {@code config} parameter)
+		 * All parameters from the config Object are parsed and applied to the newly created Video.
+		 * @usageNote Additionally these set to non-default settings to make common tasks easier (if not overridden by the config parameter)
 		 *      <ul>
-		 *          <li>{@code deblocking} - set to 5</li>
-		 *          <li>{@code smoothing} - set to {@code true}</li>
+		 *          <li>deblocking - set to 5</li>
+		 *          <li>smoothing - set to true</li>
 		 *      </ul>
-		 * @param width {@code Video} width
-		 * @param height {@code Video} height
-		 * @param config Config {@code Object}
-		 * @param parent Parent {@code DisplayObjectContainer}
+		 * @param width Video width
+		 * @param height Video height
+		 * @param config Config Object
+		 * @param parent Parent DisplayObjectContainer
 		 * @example Example code:
 		 *      <code>
 		 *		    var myVideo:QVideo = new QVideo(400, 300, {x:100, y:50});
 		 *		    addChild(myVideo);
 		 *      </code>
-		 * @example Another example directly adding new QVideo to {@code this} {@code DisplayObjectContainer}:
+		 * @example Another example directly adding new QVideo to this DisplayObjectContainer:
 		 *      <code>
 		 *          var myVideo:QVideo = new QVideo(400, 300, {}, this);
 		 *      </code>
@@ -103,7 +103,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the {@code QVideo} instance and frees it for GC.
+		 * Destroys the QVideo instance and frees it for GC.
 		 * Placeholder.
 		 */
 		public function destroy():void {
@@ -113,7 +113,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Moves to the specified position.
-		 * @param p New position as {@code Point}
+		 * @param p New position as Point
 		 */
 		public function set position(p:Point):void {
 			this.x = p.x;
@@ -124,7 +124,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Rescales to new size.
-		 * @param rect New size as {@code Rectangle}
+		 * @param rect New size as Rectangle
 		 */
 		public function set size(rect:Rectangle):void {
 			this.width = rect.width;
@@ -135,7 +135,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Set position and size at once to speed up things.
-		 * @param rect Scale {@code Rectangle}
+		 * @param rect Scale Rectangle
 		 */
 		public function set positionAndSize(rect:Rectangle):void {
 			this.x = rect.x;
@@ -147,8 +147,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current position as {@code Point}.
-		 * @return Current position as {@code Point}
+		 * Get current position as Point.
+		 * @return Current position as Point
 		 */
 		public function get position():Point {
 			return new Point(this.x, this.y);
@@ -157,8 +157,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current size as {@code Rectangle}.
-		 * @return Current size as {@code Rectangle}
+		 * Get current size as Rectangle.
+		 * @return Current size as Rectangle
 		 */
 		public function get size():Rectangle {
 			return new Rectangle(0, 0, this.width, this.height);
@@ -167,8 +167,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current position and size as {@code Rectangle}.
-		 * @return Current position and size as {@code Rectangle}
+		 * Get current position and size as Rectangle.
+		 * @return Current position and size as Rectangle
 		 */
 		public function get positionAndSize():Rectangle {
 			return new Rectangle(this.x, this.y, this.width, this.height);

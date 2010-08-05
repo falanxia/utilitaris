@@ -29,7 +29,7 @@ package com.falanxia.utilitaris.display {
 
 
 	/**
-	 * Scalable {@code Bitmap} - {@code Sprite} container.
+	 * Scalable Bitmap - Sprite container.
 	 *
 	 * @author Didier Brun (<a href="http://www.bytearray.org">bytearray.org</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
@@ -54,14 +54,14 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * @param bitmapData Source {@code BitmapData}
-		 * @param innerRect Inner {@code Rectangle}
-		 * @param outerRect Outer {@code Rectangle}
-		 * @param config Config {@code Object}
-		 * @param parent Parent {@code DisplayObjectContainer}
+		 * @param bitmapData Source BitmapData
+		 * @param innerRect Inner Rectangle
+		 * @param outerRect Outer Rectangle
+		 * @param config Config Object
+		 * @param parent Parent DisplayObjectContainer
 		 */
-		function ScaleBitmapSprite(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null,
-		                           config:Object = null, parent:DisplayObjectContainer = null) {
+		function ScaleBitmapSprite(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null, config:Object = null, parent:DisplayObjectContainer = null
+				) {
 			super(config, parent);
 
 			// store parameters
@@ -80,7 +80,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the {@code ScaleBitmapSprite} instance and frees it for GC.
+		 * Destroys the ScaleBitmapSprite instance and frees it for GC.
 		 * Placeholder.
 		 */
 		override public function destroy():void {
@@ -102,10 +102,10 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Set all data at once to speed things up.
-		 * If you don't need a certain parameter, just use {@code null} instead.
-		 * @param bitmapData New {@code BitmapData} (use {@code null} if you don't want to set it)
-		 * @param innerRect New inner {@code Rectangle} (use {@code null} if you don't want to set it)
-		 * @param outerRect New outer {@code Rectangle} (use {@code null} if you don't want to set it)
+		 * If you don't need a certain parameter, just use null instead.
+		 * @param bitmapData New BitmapData (use null if you don't want to set it)
+		 * @param innerRect New inner Rectangle (use null if you don't want to set it)
+		 * @param outerRect New outer Rectangle (use null if you don't want to set it)
 		 */
 		public function setData(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null):void {
 			if(bitmapData != null) _bitmapData = bitmapData;
@@ -162,8 +162,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get {@code BitmapData}
-		 * @return {@code BitmapData}
+		 * Get BitmapData
+		 * @return BitmapData
 		 */
 		public function get bitmapData():BitmapData {
 			return _bitmapData;
@@ -172,8 +172,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Set {@code BitmapData}
-		 * @param value {@code BitmapData}
+		 * Set BitmapData
+		 * @param value BitmapData
 		 */
 		public function set bitmapData(value:BitmapData):void {
 			_bitmapData = value;
@@ -184,8 +184,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get inner {@code Rectangle}.
-		 * @return Inner {@code Rectangle}
+		 * Get inner Rectangle.
+		 * @return Inner Rectangle
 		 */
 		public function get innerRect():Rectangle {
 			return _innerRect;
@@ -194,9 +194,9 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Set inner {@code Rectangle}.
-		 * Calls {@code refresh()} to recount data (slows down, so if you need to setup more things at once, use {@code setData()} instead.
-		 * @param value Inner {@code Rectangle}
+		 * Set inner Rectangle.
+		 * Calls refresh() to recount data (slows down, so if you need to setup more things at once, use setData() instead.
+		 * @param value Inner Rectangle
 		 */
 		public function set innerRect(value:Rectangle):void {
 			_innerRect = value;
@@ -206,8 +206,8 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get inner {@code Rectangle}.
-		 * @return Inner {@code Rectangle}
+		 * Get inner Rectangle.
+		 * @return Inner Rectangle
 		 */
 		public function get outerRect():Rectangle {
 			return _outerRect;
@@ -216,9 +216,9 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Set outer {@code Rectangle}.
-		 * Calls {@code refresh()} to recount data (slows down, so if you need to setup more things at once, use {@code setData()} instead.
-		 * @param value Outer {@code Rectangle}
+		 * Set outer Rectangle.
+		 * Calls refresh() to recount data (slows down, so if you need to setup more things at once, use setData() instead.
+		 * @param value Outer Rectangle
 		 */
 		public function set outerRect(value:Rectangle):void {
 			_outerRect = value;

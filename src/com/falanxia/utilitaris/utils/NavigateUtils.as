@@ -58,12 +58,12 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * Simlifies {@code navigateToURL} by allowing you to either use a {@code String} or an {@code URLRequest}
+		 * Simlifies navigateToURL by allowing you to either use a String or an URLRequest
 		 * reference to the URL. This method also helps prevent pop-up blocking by trying to use
-		 * {@link NavigateUtils#openWindow} before calling {@code navigateToURL}.
-		 * @param request A {@code String} or an {@code URLRequest} reference to the URL you wish to open/navigate to
-		 * @param window Browser window or HTML frame in which to display the URL indicated by the {@code request} parameter
-		 * @throws ArguementTypeError if you pass a value type other than a {@code String} or {@code URLRequest} to parameter {@code request}.
+		 * openWindow() before calling navigateToURL.
+		 * @param request A String or an URLRequest reference to the URL you wish to open/navigate to
+		 * @param window Browser window or HTML frame in which to display the URL indicated by the request parameter
+		 * @throws ArguementTypeError if you pass a value type other than a String or URLRequest to parameter request.
 		 */
 		//noinspection FunctionWithMultipleReturnPointsJS
 		public static function openUrl(request:*, window:String = WINDOW_SELF):void {
@@ -90,15 +90,16 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
-		 * A Flash wrapper for JavaScript {@code window.open}.
+		 * A Flash wrapper for JavaScript window.open.
 		 * @param url Specifies the URL you wish to open/navigate to
-		 * @param window Browser window or HTML frame in which to display the URL indicated by the {@code url} parameter
+		 * @param window Browser window or HTML frame in which to display the URL indicated by the url parameter
 		 * @param features Defines the various window features to be included
-		 * @return {@code true} if the window was successfully created
+		 * @return true if the window was successfully created
 		 * @see <a href="http://google.com/search?q=JavaScript+window.open+documentation">JavaScript documentation for window.open</a>.
 		 */
 		public static function openWindow(url:String, window:String = WINDOW_BLANK, features:String = ""):Boolean {
-			return ExternalInterface.call("function casaOpenWindow(url, windowOrName, features) { return window.open(url, windowOrName, features) != null; }", url, (window == WINDOW_BLANK) ? "casaWindow" + int(1000 * Math.random()) : window, features);
+			return ExternalInterface.call("function casaOpenWindow(url, windowOrName, features) { return window.open(url, windowOrName, features) != null; }", url,
+			                              (window == WINDOW_BLANK) ? "casaWindow" + int(1000 * Math.random()) : window, features);
 		}
 	}
 }
