@@ -100,7 +100,7 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 
 
 
-		function setFrameLimit(minFrame:uint, maxFrame:uint):void;
+		function setFrameLimit(minFrame:uint, maxFrame:uint, jumpToFrame:Boolean = false):void;
 
 
 	}

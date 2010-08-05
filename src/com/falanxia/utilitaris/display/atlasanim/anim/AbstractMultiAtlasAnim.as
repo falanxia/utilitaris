@@ -73,7 +73,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			canvas = null;
 			canvasBD.dispose();
 			canvasBD = null;
-			director = null;
+			director = null;			
 			atlases = null;
 			atlasesLengths = null;
 		}
