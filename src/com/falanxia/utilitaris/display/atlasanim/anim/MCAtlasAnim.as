@@ -26,8 +26,6 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	import com.falanxia.utilitaris.display.atlasanim.events.*;
 	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
 
-	import de.dev_lab.logging.Logger;
-
 	import flash.display.*;
 
 
@@ -201,7 +199,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 				this.limitMaxFrame = this.maxFrame;
 			}
 
-			if (jumpToFrame) frame = minFrame;
+			if(jumpToFrame) frame = minFrame;
 		}
 
 
