@@ -39,7 +39,6 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	 */
 	public class AbstractMultiAtlasAnim extends Sprite {
 
-
 		protected var canvas:Bitmap;
 		protected var canvasBD:BitmapData;
 		protected var director:IAtlasDirector;
@@ -49,8 +48,6 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected var atlasesLengths:Array;
 		protected var frame:int;
 		protected var maxFrame:uint;
-
-
 
 		public function AbstractMultiAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array, atlasDirector:IAtlasDirector) {
 			this.frameWidth = width;
@@ -92,6 +89,10 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected function drawFrame(frameNum:uint):void {
 			var atlas:BitmapData = atlases[0];
 
+			this.canvasBD.lock();
+
+			//FIXME Too complex, cud be simplified
+
 			var n:int = atlasesLengths[0];
 			var i:int;
 
@@ -109,11 +110,12 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 				n = frameNum;
 			}
 
-
 			var y:Number = int(n * frameWidth / atlas.width);
 			var x:Number = n - y * (atlas.width / frameWidth);
 
 			canvasBD.copyPixels(atlas, new Rectangle(x * frameWidth, y * frameHeight, frameWidth, frameHeight), new Point(0, 0));
+
+			this.canvasBD.unlock();
 
 			/*
 			 canvasBD.setPixels(new Rectangle(0, 0, frameWidth, frameHeight),
