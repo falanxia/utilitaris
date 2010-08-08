@@ -39,11 +39,14 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	 */
 	public class MCAtlasAnim extends AbstractMultiAtlasAnim implements IAtlasAnim, IMovieClipAnim {
 
+
 		protected var doPlayForward:Boolean;
 		protected var repeat:Boolean;
 		protected var doYoyo:Boolean;
 		protected var limitMinFrame:int;
 		protected var limitMaxFrame:int;
+
+
 
 		public function MCAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array, atlasDirector:IAtlasDirector) {
 			super(width, height, atlases, atlasesLengths, atlasDirector);

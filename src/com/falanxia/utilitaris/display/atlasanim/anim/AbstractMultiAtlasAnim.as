@@ -39,6 +39,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	 */
 	public class AbstractMultiAtlasAnim extends Sprite {
 
+
 		protected var canvas:Bitmap;
 		protected var canvasBD:BitmapData;
 		protected var director:IAtlasDirector;
@@ -48,6 +49,8 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected var atlasesLengths:Array;
 		protected var frame:int;
 		protected var maxFrame:uint;
+
+
 
 		public function AbstractMultiAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array, atlasDirector:IAtlasDirector) {
 			this.frameWidth = width;
