@@ -25,6 +25,8 @@
 package com.falanxia.utilitaris.display.atlasanim.director {
 	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
 
+	import flash.utils.getTimer;
+
 
 
 	/**
@@ -94,9 +96,15 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 		protected function updateAnims():void {
+			// FIXME: Remove me after testing
+			var t:Number = getTimer();
+
 			for(var i:int; i < activeAtlasAnimsCount; i++) {
 				activeAtlasAnims[i].update();
 			}
+
+			// FIXME: Remove me after testing
+			trace(getTimer() - t);
 		}
 	}
 }
