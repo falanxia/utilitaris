@@ -82,6 +82,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 		protected function init():void {
 			canvasBD = new BitmapData(frameWidth, frameHeight, true, 0x00000000);
+			//canvasBD = new BitmapData(frameWidth, frameHeight, false, 0xff0000);
 			canvas = new Bitmap(canvasBD);
 
 			addChild(canvas);
@@ -92,7 +93,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected function drawFrame(frameNum:uint):void {
 			var atlas:BitmapData = atlases[0];
 
-			this.canvasBD.lock();
+			//this.canvasBD.lock();
 
 			//FIXME Too complex, cud be simplified
 
@@ -118,7 +119,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 			canvasBD.copyPixels(atlas, new Rectangle(x * frameWidth, y * frameHeight, frameWidth, frameHeight), new Point(0, 0));
 
-			this.canvasBD.unlock();
+			//this.canvasBD.unlock();
 
 			/*
 			 canvasBD.setPixels(new Rectangle(0, 0, frameWidth, frameHeight),
