@@ -24,13 +24,17 @@
 
 package com.falanxia.utilitaris.antizmrd.helpers {
 
+
+
 	/**
-	 *
+	 * DateCheckVO.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public class DateCheckVO {
+
 
 		//0-n
 		private var _year:Number;
@@ -47,9 +51,6 @@ package com.falanxia.utilitaris.antizmrd.helpers {
 
 
 
-		/**
-		 * Constructor.
-		 */
 		public function DateCheckVO(year:Number, month:Number, day:Number, hour:Number = 0, minute:Number = 0, second:Number = 0) {
 			this._year = year;
 			this._month = month - 1;
@@ -130,7 +131,5 @@ package com.falanxia.utilitaris.antizmrd.helpers {
 		public function set second(value:Number):void {
 			_second = value;
 		}
-
 	}
-
 }

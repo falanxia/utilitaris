@@ -23,20 +23,20 @@
  */
 
 package com.falanxia.utilitaris.antizmrd.disablemethods {
-	import flash.display.Sprite;
-	import flash.display.Stage;
-	import flash.text.TextField;
-	import flash.text.TextFormat;
+	import flash.display.*;
+	import flash.text.*;
 
 
 
 	/**
-	 *
+	 * SimpleMessageDisable.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public class SimpleMessageDisable implements IDisableMethod {
+
 
 		private var stage:Stage;
 		private var message:String;
@@ -49,9 +49,6 @@ package com.falanxia.utilitaris.antizmrd.disablemethods {
 
 
 
-		/**
-		 * Constructor.
-		 */
 		public function SimpleMessageDisable(stage:Stage, message:String, messageTextFormat:TextFormat, disablerColor:uint = 0, disablerAlpha:Number = 0.9) {
 			this.stage = stage;
 			this.message = message;
@@ -89,7 +86,5 @@ package com.falanxia.utilitaris.antizmrd.disablemethods {
 			message = null;
 			textFormat = null;
 		}
-
 	}
-
 }

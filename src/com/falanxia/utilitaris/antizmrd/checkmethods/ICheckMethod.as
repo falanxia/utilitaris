@@ -24,19 +24,24 @@
 
 package com.falanxia.utilitaris.antizmrd.checkmethods {
 
+
+
 	/**
-	 *
+	 * CheckMethod interface.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public interface ICheckMethod {
+
 
 		function doCheck():void;
 
 
 
 		function destroy():void;
+
 
 	}
 }

@@ -24,13 +24,17 @@
 
 package com.falanxia.utilitaris.antizmrd.disablemethods {
 
+
+
 	/**
-	 *
+	 * DisableMethod interface.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public interface IDisableMethod {
+
 
 		function doDisable():void;
 
@@ -38,6 +42,6 @@ package com.falanxia.utilitaris.antizmrd.disablemethods {
 
 		function destroy():void;
 
-	}
 
+	}
 }

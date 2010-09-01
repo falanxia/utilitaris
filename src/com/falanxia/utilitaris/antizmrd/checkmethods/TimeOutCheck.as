@@ -23,27 +23,28 @@
  */
 
 package com.falanxia.utilitaris.antizmrd.checkmethods {
-	import com.falanxia.utilitaris.antizmrd.AntiZmrd;
+	import com.falanxia.utilitaris.antizmrd.*;
 
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
+	import flash.events.*;
+	import flash.utils.*;
 
 
 
 	/**
+	 * TimeOutCheck.
+	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public class TimeOutCheck extends AbstractCheckMethod implements ICheckMethod {
+
 
 		private var disableTime:Number;
 		private var disableTimer:Timer;
 
 
 
-		/**
-		 * Constructor.
-		 */
 		public function TimeOutCheck(antiZmrd:AntiZmrd, disableTime:Number) {
 			super(antiZmrd);
 			this.disableTime = disableTime;
@@ -69,8 +70,5 @@ package com.falanxia.utilitaris.antizmrd.checkmethods {
 			disableTimer.removeEventListener(TimerEvent.TIMER_COMPLETE, onTimerComplete);
 			disableApplication();
 		}
-
-
 	}
-
 }

@@ -23,26 +23,25 @@
  */
 
 package com.falanxia.utilitaris.antizmrd.checkmethods {
-	import com.falanxia.utilitaris.antizmrd.AntiZmrd;
-	import com.falanxia.utilitaris.antizmrd.helpers.DateCheckVO;
+	import com.falanxia.utilitaris.antizmrd.*;
+	import com.falanxia.utilitaris.antizmrd.helpers.*;
 
 
 
 	/**
-	 *
+	 * ClientDataCheck.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public class ClientDateCheck extends AbstractCheckMethod implements ICheckMethod {
+
 
 		private var dateCheckVO:DateCheckVO;
 
 
 
-		/**
-		 * Constructor.
-		 */
 		public function ClientDateCheck(antiZmrd:AntiZmrd, dateCheckVO:DateCheckVO) {
 			super(antiZmrd);
 			this.dateCheckVO = dateCheckVO;
@@ -68,7 +67,5 @@ package com.falanxia.utilitaris.antizmrd.checkmethods {
 		public function destroy():void {
 			dateCheckVO = null;
 		}
-
 	}
-
 }

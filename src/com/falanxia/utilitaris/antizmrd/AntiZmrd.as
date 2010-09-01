@@ -23,18 +23,18 @@
  */
 
 package com.falanxia.utilitaris.antizmrd {
-	import com.falanxia.utilitaris.antizmrd.checkmethods.ICheckMethod;
-	import com.falanxia.utilitaris.antizmrd.disablemethods.IDisableMethod;
+	import com.falanxia.utilitaris.antizmrd.checkmethods.*;
+	import com.falanxia.utilitaris.antizmrd.disablemethods.*;
 
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
+	import flash.events.*;
 
 
 
 	/**
-	 *
+	 * AntiZmrd.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
 	public class AntiZmrd extends EventDispatcher {
@@ -83,6 +83,5 @@ package com.falanxia.utilitaris.antizmrd {
 			checkMethod.destroy();
 			disableMethod.destroy();
 		}
-
 	}
 }
