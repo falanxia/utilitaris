@@ -46,7 +46,6 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 		public function TimerAtlasDirector(refreshRate:Number) {
 			super();
-
 			timer = new Timer(refreshRate);
 		}
 

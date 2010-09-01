@@ -25,6 +25,8 @@
 package com.falanxia.utilitaris.display.atlasanim.director {
 	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
 
+	import flash.utils.getTimer;
+
 
 
 	/**
@@ -93,7 +95,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		protected function updateAnims():void {
+		protected function updateAnims():void {			
 			for(var i:int; i < activeAtlasAnimsCount; i++) {
 				activeAtlasAnims[i].update();
 			}
