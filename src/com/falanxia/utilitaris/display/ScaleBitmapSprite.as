@@ -71,10 +71,6 @@ package com.falanxia.utilitaris.display {
 
 			// refresh
 			refresh();
-
-			// apply initial sizes if needed
-			if(config != null && config.width != undefined) this.width = config.width;
-			if(config != null && config.height != undefined) this.height = config.height;
 		}
 
 
