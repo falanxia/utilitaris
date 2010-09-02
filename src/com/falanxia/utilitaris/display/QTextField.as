@@ -88,13 +88,7 @@ package com.falanxia.utilitaris.display {
 			};
 
 			// if config is not defined, prepare it
-			var c:Object;
-			if(config == null) {
-				c = new Object();
-			}
-			else {
-				c = config;
-			}
+			var c:Object = config == null ? new Object() : config;
 
 			super();
 
@@ -104,6 +98,10 @@ package com.falanxia.utilitaris.display {
 
 			// add child if requested
 			if(parent != null) parent.addChild(this);
+
+			// set position and size if needed
+			if(c.size != null) this.size = c.size;
+			if(c.position != null) this.position = c.position;
 		}
 
 

@@ -113,15 +113,8 @@ package com.falanxia.utilitaris.display {
 		 * @param parent Parent DisplayObjectContainer
 		 */
 		public function MorphSprite(config:Object = null, parent:DisplayObjectContainer = null) {
-			var c:Object;
-
-			// create config value object
-			if(config == null) {
-				c = new Object();
-			}
-			else {
-				c = config;
-			}
+			// if config is not defined, prepare it
+			var c:Object = config == null ? new Object() : config;
 
 			// create parent QSprite
 			super(c, parent);

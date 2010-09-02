@@ -85,9 +85,9 @@ package com.falanxia.utilitaris.display {
 			fpsGraphBM = new QBitmap({bitmapData: fpsGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 			msGraphBM = new QBitmap({bitmapData: msGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 			memGraphBM = new QBitmap({bitmapData: memGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
-			fpsText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, width:WIDTH, height:10, textColor:0xFFFF00});
-			msText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, width:WIDTH, height:10, textColor:0x00FF00});
-			memText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, width:WIDTH, height:10, textColor:0x00FFFF});
+			fpsText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, size:new Rectangle(0, 0, WIDTH, 10), textColor:0xFFFF00});
+			msText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, size:new Rectangle(0, 0, WIDTH, 10), textColor:0x00FF00});
+			memText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, size:new Rectangle(WIDTH, 10), textColor:0x00FFFF});
 
 			// draw background
 			DisplayUtils.drawRect(this, new Rectangle(0, 0, WIDTH, 27 + 50), new RGBA(0, 0, 0, 255 * 0.75));
