@@ -22,59 +22,19 @@
  * THE SOFTWARE.
  */
 
-// ColorMatrix Class v2.1
-//
-// released under MIT License (X11)
-// http://www.opensource.org/licenses/mit-license.php
-//
-// Author: Mario Klingemann
-// http://www.quasimondo.com
-
-// Changes in v1.1:
-// Changed the RGB to luminance constants
-// Added colorize() method
-
-// Changes in v1.2:
-// Added clone()
-// Added randomize()
-// Added blend()
-// Added "filter" property
-
-// Changes in v1.3:
-// Added invertAlpha()
-// Added thresholdAlpha()
-
-// Changes in v1.4:
-// Added luminance2Alpha()
-
-//Changes in v1.5
-// Added rotateX();
-// Added rotateY();
-// Added rotateZ();
-// Added shearZ();
-
-//changes in v2.0
-// AS3 optimizations
-// Added setMultiplicators()
-// Added clearChannels()
-// Added rotateHue()
-// Added transformVector()
-// Added applyMatrix()
-// Added rotateRed()
-// Added rotateGreen()
-// Added rotateBlue()
-// Added shearRed()
-// Added shearGreen()
-// Added shearBlue()
-
-//changes in v2.1
-// Added applyColorDeficiency()
 
 package com.falanxia.utilitaris.display {
 	import flash.filters.*;
 
 
 
+	/**
+	 * ColorMatrix class 2.1
+	 * Original: Mario Klingemann (http://www.quasimondo.com)
+	 * Released under MIT License (X11) (http://www.opensource.org/licenses/mit-license.php)
+	 * @author Mario Klingemann (<a href="http://www.quasimondo.com">www.quasimondo.com</a>)
+	 * @since 1.0
+	 */
 	public class ColorMatrix {
 
 
@@ -298,9 +258,15 @@ package com.falanxia.utilitaris.display {
 			var b:Number;
 			var inv_amount:Number;
 
+			//noinspection NonShortCircuitBooleanExpressionJS
 			r = (((rgb >> 16) & 0xFF) / 0xFF);
+
+			//noinspection NonShortCircuitBooleanExpressionJS
 			g = (((rgb >> 8) & 0xFF) / 0xFF);
+
+			//noinspection NonShortCircuitBooleanExpressionJS
 			b = ((rgb & 0xFF) / 0xFF);
+
 			inv_amount = (1 - amount);
 
 			concat([
@@ -314,26 +280,31 @@ package com.falanxia.utilitaris.display {
 
 
 		public function setChannels(r:int = 1, g:int = 2, b:int = 4, a:int = 8):void {
+			//noinspection NestedConditionalExpressionJS,NonShortCircuitBooleanExpressionJS
 			var rf:Number = ((((((r & 1) == 1)) ? 1 : 0 + (((r & 2) == 2)) ? 1 : 0) + (((r & 4) == 4)) ? 1 : 0) + (((r & 8) == 8)) ? 1 : 0);
 			if(rf > 0) {
 				rf = (1 / rf);
 			}
 
+			//noinspection NestedConditionalExpressionJS,NonShortCircuitBooleanExpressionJS
 			var gf:Number = ((((((g & 1) == 1)) ? 1 : 0 + (((g & 2) == 2)) ? 1 : 0) + (((g & 4) == 4)) ? 1 : 0) + (((g & 8) == 8)) ? 1 : 0);
 			if(gf > 0) {
 				gf = (1 / gf);
 			}
 
+			//noinspection NestedConditionalExpressionJS,NonShortCircuitBooleanExpressionJS
 			var bf:Number = ((((((b & 1) == 1)) ? 1 : 0 + (((b & 2) == 2)) ? 1 : 0) + (((b & 4) == 4)) ? 1 : 0) + (((b & 8) == 8)) ? 1 : 0);
 			if(bf > 0) {
 				bf = (1 / bf);
 			}
 
+			//noinspection NestedConditionalExpressionJS,NonShortCircuitBooleanExpressionJS
 			var af:Number = ((((((a & 1) == 1)) ? 1 : 0 + (((a & 2) == 2)) ? 1 : 0) + (((a & 4) == 4)) ? 1 : 0) + (((a & 8) == 8)) ? 1 : 0);
 			if(af > 0) {
 				af = (1 / af);
 			}
 
+			//noinspection NonShortCircuitBooleanExpressionJS
 			concat([
 				       (((r & 1) == 1)) ? rf : 0, (((r & 2) == 2)) ? rf : 0, (((r & 4) == 4)) ? rf : 0, (((r & 8) == 8)) ? rf : 0, 0, (((g & 1) == 1)) ? gf : 0,
 				       (((g & 2) == 2)) ? gf : 0, (((g & 4) == 4)) ? gf : 0, (((g & 8) == 8)) ? gf : 0, 0, (((b & 1) == 1)) ? bf : 0, (((b & 2) == 2)) ? bf : 0,
@@ -508,7 +479,8 @@ package com.falanxia.utilitaris.display {
 
 			for(y = 0; y < 4; y++) {
 				for(x = 0; x < 5; x++) {
-					temp[ int(i + x) ] = Number(mat[i  ]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) +
+					//noinspection OverlyComplexArithmeticExpressionJS
+					temp[ int(i + x) ] = Number(mat[i]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) +
 					                     Number(mat[int(i + 2)]) * Number(matrix[int(x + 10)]) + Number(mat[int(i + 3)]) * Number(matrix[int(x + 15)]) +
 					                     (x == 4 ? Number(mat[int(i + 4)]) : 0);
 				}
@@ -617,14 +589,28 @@ package com.falanxia.utilitaris.display {
 
 
 		public function applyMatrix(rgba:uint):uint {
+			//noinspection NonShortCircuitBooleanExpressionJS
 			var a:Number = ( rgba >>> 24 ) & 0xff;
+
+			//noinspection NonShortCircuitBooleanExpressionJS
 			var r:Number = ( rgba >>> 16 ) & 0xff;
+
+			//noinspection NonShortCircuitBooleanExpressionJS
 			var g:Number = ( rgba >>> 8 ) & 0xff;
+
+			//noinspection NonShortCircuitBooleanExpressionJS
 			var b:Number = rgba & 0xff;
 
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var r2:int = 0.5 + r * matrix[0] + g * matrix[1] + b * matrix[2] + a * matrix[3] + matrix[4];
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var g2:int = 0.5 + r * matrix[5] + g * matrix[6] + b * matrix[7] + a * matrix[8] + matrix[9];
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var b2:int = 0.5 + r * matrix[10] + g * matrix[11] + b * matrix[12] + a * matrix[13] + matrix[14];
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var a2:int = 0.5 + r * matrix[15] + g * matrix[16] + b * matrix[17] + a * matrix[18] + matrix[19];
 
 			if(a2 < 0) a2 = 0;
@@ -636,6 +622,7 @@ package com.falanxia.utilitaris.display {
 			if(b2 < 0) b2 = 0;
 			if(b2 > 255) b2 = 255;
 
+			//noinspection NonShortCircuitBooleanExpressionJS
 			return a2 << 24 | r2 << 16 | g2 << 8 | b2;
 		}
 
@@ -644,9 +631,16 @@ package com.falanxia.utilitaris.display {
 		public function transformVector(values:Array):void {
 			if(values.length != 4) return;
 
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var r:Number = values[0] * matrix[0] + values[1] * matrix[1] + values[2] * matrix[2] + values[3] * matrix[3] + matrix[4];
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var g:Number = values[0] * matrix[5] + values[1] * matrix[6] + values[2] * matrix[7] + values[3] * matrix[8] + matrix[9];
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var b:Number = values[0] * matrix[10] + values[1] * matrix[11] + values[2] * matrix[12] + values[3] * matrix[13] + matrix[14];
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var a:Number = values[0] * matrix[15] + values[1] * matrix[16] + values[2] * matrix[17] + values[3] * matrix[18] + matrix[19];
 
 			values[0] = r;
