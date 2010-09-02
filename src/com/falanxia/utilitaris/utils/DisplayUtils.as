@@ -311,7 +311,6 @@ package com.falanxia.utilitaris.utils {
 			var nf:uint = numFrames;
 			var obj:Shape = new Shape();
 
-			// TODO: Optimize me
 			obj.addEventListener(Event.ENTER_FRAME, function(ev:Event):void {
 				nf--;
 				if(nf == 0) {

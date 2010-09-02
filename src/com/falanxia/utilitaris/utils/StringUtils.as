@@ -56,7 +56,6 @@ package com.falanxia.utilitaris.utils {
 		 * Slash unsafe characters from the String.
 		 * @param value Unsafe String
 		 * @return Safe String
-		 * TODO: Compare with addSlashes() method
 		 */
 		protected static function slashUnsafeChars(value:String):String {
 			var unsafeChar:String;
@@ -81,7 +80,6 @@ package com.falanxia.utilitaris.utils {
 		 * @param value String to return slashed
 		 * @param ch String of chars to slash
 		 * @return String with slashes prepended to all characters
-		 * TODO: Compare with slashUnsafeChars() method
 		 */
 		public static function addSlashes(value:String, ch:String = "\""):String {
 			var out:String;

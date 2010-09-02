@@ -23,10 +23,10 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Collision.Shapes.*;
-	import Box2D.Collision.*;
-	import Box2D.Common.Math.*;
-	import Box2D.Dynamics.*;
+
+
+
+
 
 
 
@@ -38,7 +38,6 @@ package com.falanxia.utilitaris.b2utils {
 	 * @since 1.0
 	 */
 	public class B2MouseUtils {
-
 
 
 		private static var INSTANCE:B2MouseUtils;
@@ -106,12 +105,13 @@ package com.falanxia.utilitaris.b2utils {
 			aabb.lowerBound.Set(mouseXWorldPhys - 0.001, mouseYWorldPhys - 0.001);
 			aabb.upperBound.Set(mouseXWorldPhys + 0.001, mouseYWorldPhys + 0.001);
 
-			var shapes:Array = [];
+			var shapes:Array = [
+			];
 			var count:int = world.Query(aabb, shapes, maxCount);
 			var body:b2Body;
 
 			for(var i:int = 0; i < count; ++i) {
-				if(shapes[i].GetBody().IsStatic() == false || includeStatic) {
+				if(!shapes[i].GetBody().IsStatic() || includeStatic) {
 					var tShape:b2Shape = shapes[i];
 					var inside:Boolean = tShape.TestPoint(tShape.GetBody().GetXForm(), mouseCoords);
 
@@ -126,7 +126,6 @@ package com.falanxia.utilitaris.b2utils {
 		}
 	}
 }
-
 
 
 class Senf {

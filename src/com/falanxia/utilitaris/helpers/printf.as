@@ -104,7 +104,7 @@ package com.falanxia.utilitaris.helpers {
 				}
 				else {
 					paddingNum = int(padding.substr(-1, 1));
-					paddingChar = padding.substr(-2, 1)
+					paddingChar = padding.substr(-2, 1);
 					if(paddingChar != "0") {
 						paddingNum *= int(paddingChar);
 						paddingChar = " "

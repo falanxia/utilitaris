@@ -609,6 +609,8 @@ package com.falanxia.utilitaris.display {
 						       0.618,0.320,0.062,0,0, 0.163,0.775,0.062,0,0, 0.163,0.320,0.516,0,0, 0,0,0,1,0
 					       ]);
 					break;
+
+				default:
 			}
 		}
 

@@ -117,9 +117,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param friction defines friction of the body
 		 * @return reference returns reference to the created body in the world
 		 */
-		public function drawRectangle(rectangle:WorldRectangleObject, isSensor:Boolean = false, density:Number = 0,
-		                              restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
-		                              linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
+		public function drawRectangle(rectangle:WorldRectangleObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = 0.1, friction:Number = 0.1,
+		                              angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 			var rc:WorldCoords = rectangle.position;
 
 			var def:b2BodyDef = new b2BodyDef();
@@ -156,9 +155,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param friction
 		 * @return
 		 */
-		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = 0.1,
-		                           friction:Number = 0.1, angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false
-				):b2Body {
+		public function drawCircle(obj:WorldCircleObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = 0.1, friction:Number = 0.1, angularDamping:Number = .5,
+		                           linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(obj.position.x / ratio, obj.position.y / ratio);
 			def.angularDamping = angularDamping;
@@ -177,16 +175,15 @@ package com.falanxia.utilitaris.b2utils {
 			b.SetMassFromShapes();
 			b.GetXForm().R.Set(obj.position.rotation * pi_rad);
 
-			b.SetUserData(obj)
+			b.SetUserData(obj);
 
 			return b;
 		}
 
 
 
-		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = .1,
-		                            friction:Number = .1, angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false
-				):b2Body {
+		public function drawPolygon(polygon:WorldPolygonObject, isSensor:Boolean = false, density:Number = 0, restitution:Number = .1, friction:Number = .1,
+		                            angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false):b2Body {
 			var def:b2BodyDef = new b2BodyDef();
 			def.position.Set(polygon.position.x / ratio, polygon.position.y / ratio);
 			def.angularDamping = angularDamping;
@@ -220,9 +217,8 @@ package com.falanxia.utilitaris.b2utils {
 		 * TODO: Error cases, if wallSize > width || height, etc...
 		 * TODO: Optimize maybe, it would be better to create one body with 4 shapes... c'mon dude...
 		 */
-		public function drawRectangleFence(coords:WorldCoords, width:Number, height:Number, wallSize:Number, isSensor:Boolean = false,
-		                                   density:Number = 0, restitution:Number = .1, friction:Number = .1, angularDamping:Number = .5,
-		                                   linearDamping:Number = .5, isBullet:Boolean = false):Vector.<b2Body> {
+		public function drawRectangleFence(coords:WorldCoords, width:Number, height:Number, wallSize:Number, isSensor:Boolean = false, density:Number = 0, restitution:Number = .1,
+		                                   friction:Number = .1, angularDamping:Number = .5, linearDamping:Number = .5, isBullet:Boolean = false):Vector.<b2Body> {
 			if(coords.y >= height) height += coords.y;
 
 			var x:Number = coords.x;
