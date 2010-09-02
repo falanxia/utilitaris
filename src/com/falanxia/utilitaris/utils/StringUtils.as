@@ -843,6 +843,59 @@ package com.falanxia.utilitaris.utils {
 
 
 
+		/**
+		 * Convert seconds to a humanized String.
+		 * @param seconds Seconds
+		 * @return Humanized String
+		 */
+		public static function humanizeTime(seconds:uint, formatSeconds:String = "|:?=%d seconds|:1=jednu second", formatMinutes:String = "|:?=%d minutes|:1=%d minute",
+		                                    formatHours:String = "|:?=%d hours|:1=%d hour", formatDays:String = "|:?=%d days|:1=%d day"):String {
+			var days:int = int(seconds / 86400);
+			var hours:int = int((seconds - days * 86400) / 3600);
+			var minutes:int = int(((seconds - days * 86400) - hours * 3600) / 60);
+			var secondsTrimmed:int = seconds - (days * 86400) - (hours * 3600) - (minutes * 60);
+			var out:String;
+
+			if(out == null && seconds < 60) {
+				// less than a minute
+				out = StringUtils.convertCounterString(formatSeconds, seconds);
+			}
+
+			if(out == null && seconds < 60 * 60) {
+				// minute to one hour
+				if(seconds % 60 == 0) {
+					out = StringUtils.convertCounterString(formatMinutes, minutes);
+				}
+				else {
+					out = StringUtils.convertCounterString(formatMinutes, minutes) + ", " + StringUtils.convertCounterString(formatSeconds, secondsTrimmed);
+				}
+			}
+
+			if(out == null && seconds < 60 * 60 * 24) {
+				// hour to a day
+				if(minutes % 60 == 0) {
+					out = StringUtils.convertCounterString(formatHours, hours);
+				}
+				else {
+					out = StringUtils.convertCounterString(formatHours, hours) + ", " + StringUtils.convertCounterString(formatMinutes, minutes);
+				}
+			}
+
+			if(out == null) {
+				// days
+				if(hours % 24 == 0) {
+					out = StringUtils.convertCounterString(formatDays, days);
+				}
+				else {
+					out = StringUtils.convertCounterString(formatDays, days) + ", " + StringUtils.convertCounterString(formatHours, hours);
+				}
+			}
+
+			return out;
+		}
+
+
+
 		private static function escapePattern2(value:String):String {
 			return value.replace(/(\]|\[|\{|\}|\(|\)|\*|\+|\?|\.|\\)/g, "\\$1");
 		}
