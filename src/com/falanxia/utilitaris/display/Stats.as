@@ -61,6 +61,7 @@ package com.falanxia.utilitaris.display {
 		private var fpsText:QTextField;
 		private var msText:QTextField;
 		private var memText:QTextField;
+		private var runtimeText:QTextField;
 		private var fps:int;
 		private var timer:int;
 		private var ms:int;
@@ -82,26 +83,30 @@ package com.falanxia.utilitaris.display {
 			fpsGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
 			msGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
 			memGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
+
 			fpsGraphBM = new QBitmap({bitmapData: fpsGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 			msGraphBM = new QBitmap({bitmapData: msGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 			memGraphBM = new QBitmap({bitmapData: memGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
-			fpsText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, size:new Rectangle(0, 0, WIDTH, 10), textColor:0xFFFF00});
-			msText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, size:new Rectangle(0, 0, WIDTH, 10), textColor:0x00FF00});
-			memText = new QTextField({defaultTextFormat: textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, size:new Rectangle(WIDTH, 10), textColor:0x00FFFF});
+
+			fpsText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, size:new Rectangle(0, 0, WIDTH, 10), textColor:0xFFFF00});
+			msText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, size:new Rectangle(0, 0, WIDTH, 10), textColor:0x00FF00});
+			memText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, size:new Rectangle(0, 0, WIDTH, 10), textColor:0x00FFFF});
+			runtimeText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:75, size:new Rectangle(0, 0, WIDTH, 10), textColor:0xF0F0F0});
 
 			// draw background
-			DisplayUtils.drawRect(this, new Rectangle(0, 0, WIDTH, 27 + 50), new RGBA(0, 0, 0, 255 * 0.75));
+			DisplayUtils.drawRect(this, new Rectangle(0, 0, WIDTH, 27 + 63), new RGBA(0, 0, 0, 255 * 0.75));
 
 			// add to display list
-			DisplayUtils.addChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
+			DisplayUtils.addChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText, runtimeText);
 
 			// set visual properties
 			this.doubleClickEnabled = true;
-			this.visible = true;
 
 			// add event listeners
 			this.addEventListener(MouseEvent.CLICK, onMouseClick, false, 0, true);
 			this.addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick, false, 0, true);
+			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage, false, 0, true);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage, false, 0, true);
 		}
 
 
@@ -117,9 +122,11 @@ package com.falanxia.utilitaris.display {
 			// remove event listeners
 			this.removeEventListener(MouseEvent.CLICK, onMouseClick);
 			this.removeEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
+			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this.removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 
 			// remove from display list
-			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText);
+			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText, runtimeText);
 
 			// destroy components
 			fpsGraphBD.dispose();
@@ -135,19 +142,14 @@ package com.falanxia.utilitaris.display {
 
 
 
-		/**
-		 * Set visibility.
-		 * @param value true to make Stats visible
-		 */
-		override public function set visible(value:Boolean):void {
-			super.visible = value;
+		private function onAddedToStage(e:Event):void {
+			this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+		}
 
-			if(value) {
-				this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
-			}
-			else {
-				this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-			}
+
+
+		private function onRemovedFromStage(e:Event):void {
+			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
@@ -178,13 +180,10 @@ package com.falanxia.utilitaris.display {
 
 			if(timer - 1000 > msPrev) {
 				msPrev = timer;
-				//noinspection NestedFunctionCallJS
 				mem = Number((System.totalMemory / 1048576).toFixed(3));
 
 				var f:uint = Math.min(50, 50 / stage.frameRate * fps);
 				var t:uint = ((timer - ms ) >> 1);
-
-				//noinspection NestedFunctionCallJS
 				var m:uint = Math.min(50, Math.sqrt(Math.sqrt(mem * 5000))) - 2;
 
 				fpsGraphBD.scroll(1, 0);
@@ -201,11 +200,13 @@ package com.falanxia.utilitaris.display {
 
 				fpsText.text = "FPS: " + fps + "/" + stage.frameRate;
 				memText.text = "MEM: " + mem;
+				runtimeText.text = String(int(getTimer() / 1000)) + " S"; // TODO: Humanize
 
 				fps = 0;
 			}
 
 			msText.text = "MS: " + (timer - ms);
+
 			ms = timer;
 		}
 	}
