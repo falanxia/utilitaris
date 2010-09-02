@@ -207,6 +207,46 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
+		 * Morph X position.
+		 * @param value New X position
+		 */
+		public function set morphX(value:Number):void {
+			morph({x:value});
+		}
+
+
+
+		/**
+		 * Morph Y position.
+		 * @param value New Y position
+		 */
+		public function set morphY(value:Number):void {
+			morph({y:value});
+		}
+
+
+
+		/**
+		 * Morph width.
+		 * @param value New width
+		 */
+		public function set morphWidth(value:Number):void {
+			morph({width:value});
+		}
+
+
+
+		/**
+		 * Morph height.
+		 * @param value New height
+		 */
+		public function set morphHeight(value:Number):void {
+			morph({height:value});
+		}
+
+
+
+		/**
 		 * If width change flag is set, directly change width.
 		 * @param value New width
 		 */
