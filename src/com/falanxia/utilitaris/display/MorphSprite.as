@@ -23,10 +23,10 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.greensock.*;
-	import com.greensock.easing.*;
+	import com.greensock.TweenMax;
+	import com.greensock.easing.Elastic;
 
-	import flash.display.*;
+	import flash.display.DisplayObjectContainer;
 
 
 
@@ -184,7 +184,7 @@ package com.falanxia.utilitaris.display {
 			];
 			t.onComplete = onMorphComplete;
 
-			new TweenLite(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
+			new TweenMax(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
 		}
 
 

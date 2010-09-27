@@ -23,8 +23,8 @@
  */
 
 package com.falanxia.utilitaris.plugins {
-	import com.greensock.*;
-	import com.greensock.plugins.*;
+	import com.greensock.TweenLite;
+	import com.greensock.plugins.TweenPlugin;
 
 
 
@@ -50,7 +50,9 @@ package com.falanxia.utilitaris.plugins {
 		public function DummyTweenPlugin() {
 			super();
 			this.propName = "dummy";
-			this.overwriteProps = ["dummy"];
+			this.overwriteProps = [
+				"dummy"
+			];
 		}
 
 
