@@ -23,6 +23,8 @@
  */
 
 package com.falanxia.utilitaris.logger {
+	import com.falanxia.utilitaris.types.Timestamp;
+
 	import de.dev_lab.logging.*;
 	import de.dev_lab.logging.publisher.*;
 
@@ -37,16 +39,17 @@ package com.falanxia.utilitaris.logger {
 	 */
 	public class StringPublisher implements IPublisher {
 
-
 		private static var dump:String;
-
-
+		private var logTimestamp:Boolean;
+		private var timestamp:Timestamp;
 
 		/**
 		 * Constructor.
 		 */
-		public function StringPublisher() {
+		public function StringPublisher(logTimestamp:Boolean = false) {
 			if(dump == null) dump = new String();
+			this.logTimestamp = logTimestamp;
+			timestamp = new Timestamp();
 		}
 
 
@@ -57,7 +60,11 @@ package com.falanxia.utilitaris.logger {
 		 * @param object Message
 		 */
 		public function publish(logLevel:int, object:*, ...additional):void {
-			dump += getPrefix(logLevel) + "  " + String(object) + "\n";
+			if(logTimestamp) {
+				dump += new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + String(object) + "\n";
+			} else {
+				dump += getPrefix(logLevel) + "  " + String(object) + "\n";
+			}
 		}
 
 
@@ -76,6 +83,7 @@ package com.falanxia.utilitaris.logger {
 		 */
 		public function destroy():void {
 			clear();
+			timestamp = null;
 		}
 
 
@@ -86,6 +94,18 @@ package com.falanxia.utilitaris.logger {
 		 */
 		public static function toString():String {
 			return dump;
+		}
+
+
+
+		public function getLogTimestamp():Boolean {
+			return logTimestamp;
+		}
+
+
+
+		public function setLogTimestamp(logTimestamp:Boolean):void {
+			this.logTimestamp = logTimestamp;
 		}
 
 

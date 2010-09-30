@@ -43,10 +43,7 @@ package com.falanxia.utilitaris.logger {
 	 */
 	public class TrazzlePublisher implements IPublisher {
 
-
 		private static var _trazzle:TrazzleLogger;
-
-
 
 		/**
 		 * Constructor.

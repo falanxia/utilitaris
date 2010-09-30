@@ -38,11 +38,8 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	 */
 	public class AbstractAtlasDirector {
 
-
 		protected var activeAtlasAnims:Vector.<IAtlasAnim>;
 		protected var activeAtlasAnimsCount:uint;
-
-
 
 		public function AbstractAtlasDirector() {
 			activeAtlasAnims = new Vector.<IAtlasAnim>();
@@ -95,7 +92,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		protected function updateAnims():void {			
+		protected function updateAnims():void {
 			for(var i:int; i < activeAtlasAnimsCount; i++) {
 				activeAtlasAnims[i].update();
 			}

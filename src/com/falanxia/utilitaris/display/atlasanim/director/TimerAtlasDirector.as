@@ -25,6 +25,8 @@
 package com.falanxia.utilitaris.display.atlasanim.director {
 	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
 
+	import de.dev_lab.logging.Logger;
+
 	import flash.events.*;
 	import flash.utils.*;
 
@@ -75,7 +77,11 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 		private function onTimerTick(e:TimerEvent):void {
+//			var t:Number = getTimer();
 			this.updateAnims();
+//			Logger.fatal("anim update:" + String(getTimer() - t) + ", animNum="+this.activeAtlasAnimsCount);
 		}
+
+
 	}
 }

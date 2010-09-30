@@ -93,8 +93,6 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected function drawFrame(frameNum:uint):void {
 			var atlas:BitmapData = atlases[0];
 
-			//this.canvasBD.lock();
-
 			//FIXME Too complex, cud be simplified
 
 			var n:int = atlasesLengths[0];
@@ -109,8 +107,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			if(i > 0) {
 				n -= frameNum;
 				n = atlasesLengths[i] - n;
-			}
-			else {
+			} else {
 				n = frameNum;
 			}
 
