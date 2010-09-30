@@ -23,10 +23,13 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.anim {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
 
-	import flash.display.*;
-	import flash.geom.*;
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.Sprite;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
 
 
 
@@ -52,7 +55,8 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
-		public function AbstractMultiAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array, atlasDirector:IAtlasDirector) {
+		public function AbstractMultiAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array,
+		                                       atlasDirector:IAtlasDirector) {
 			this.frameWidth = width;
 			this.frameHeight = height;
 			this.atlases = atlases;
@@ -107,7 +111,8 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			if(i > 0) {
 				n -= frameNum;
 				n = atlasesLengths[i] - n;
-			} else {
+			}
+			else {
 				n = frameNum;
 			}
 

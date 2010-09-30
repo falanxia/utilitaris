@@ -23,13 +23,13 @@
  */
 
 package com.falanxia.utilitaris.logger {
-	import com.falanxia.utilitaris.utils.*;
-	import com.nesium.logging.*;
+	import com.falanxia.utilitaris.utils.StringUtils;
+	import com.nesium.logging.TrazzleLogger;
 
-	import de.dev_lab.logging.*;
-	import de.dev_lab.logging.publisher.*;
+	import de.dev_lab.logging.Logger;
+	import de.dev_lab.logging.publisher.IPublisher;
 
-	import flash.display.*;
+	import flash.display.Stage;
 
 
 
@@ -43,11 +43,11 @@ package com.falanxia.utilitaris.logger {
 	 */
 	public class TrazzlePublisher implements IPublisher {
 
+
 		private static var _trazzle:TrazzleLogger;
 
-		/**
-		 * Constructor.
-		 */
+
+
 		public function TrazzlePublisher(stageReference:Stage, appName:String) {
 			if(_trazzle == null) {
 				_trazzle = new TrazzleLogger();

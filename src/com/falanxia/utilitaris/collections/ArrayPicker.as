@@ -51,11 +51,10 @@ package com.falanxia.utilitaris.collections {
 		public function ArrayPicker():void {
 			poolArray = [
 			];
+
 			reservedArray = [
 			];
 		}
-
-		
 
 
 

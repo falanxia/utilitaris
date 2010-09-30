@@ -23,9 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
-
-	import flash.utils.getTimer;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasAnim;
 
 
 
@@ -38,8 +36,11 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	 */
 	public class AbstractAtlasDirector {
 
+
 		protected var activeAtlasAnims:Vector.<IAtlasAnim>;
 		protected var activeAtlasAnimsCount:uint;
+
+
 
 		public function AbstractAtlasDirector() {
 			activeAtlasAnims = new Vector.<IAtlasAnim>();

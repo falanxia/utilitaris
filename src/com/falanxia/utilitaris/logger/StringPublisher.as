@@ -25,8 +25,8 @@
 package com.falanxia.utilitaris.logger {
 	import com.falanxia.utilitaris.types.Timestamp;
 
-	import de.dev_lab.logging.*;
-	import de.dev_lab.logging.publisher.*;
+	import de.dev_lab.logging.Logger;
+	import de.dev_lab.logging.publisher.IPublisher;
 
 
 
@@ -39,13 +39,14 @@ package com.falanxia.utilitaris.logger {
 	 */
 	public class StringPublisher implements IPublisher {
 
+
 		private static var dump:String;
+
 		private var logTimestamp:Boolean;
 		private var timestamp:Timestamp;
 
-		/**
-		 * Constructor.
-		 */
+
+
 		public function StringPublisher(logTimestamp:Boolean = false) {
 			if(dump == null) dump = new String();
 			this.logTimestamp = logTimestamp;
@@ -62,7 +63,8 @@ package com.falanxia.utilitaris.logger {
 		public function publish(logLevel:int, object:*, ...additional):void {
 			if(logTimestamp) {
 				dump += new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + String(object) + "\n";
-			} else {
+			}
+			else {
 				dump += getPrefix(logLevel) + "  " + String(object) + "\n";
 			}
 		}
