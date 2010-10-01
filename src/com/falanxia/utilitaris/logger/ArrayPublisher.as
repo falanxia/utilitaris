@@ -32,25 +32,26 @@ package com.falanxia.utilitaris.logger {
 
 
 	/**
-	 * The String publisher outputs the Log to a String.
+	 * The Array publisher outputs the Log to an Array of Strings.
 	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
-	public class StringPublisher implements IPublisher {
+	public class ArrayPublisher implements IPublisher {
 
 
-		private static var dump:String;
+		private static var dump:Array;
 
 		private var logTimestamp:Boolean;
 		private var timestamp:Timestamp;
 
 
 
-		public function StringPublisher(logTimestamp:Boolean = false) {
+		public function ArrayPublisher(logTimestamp:Boolean = false) {
 			if(dump == null) {
-				dump = new String();
+				dump = [
+				];
 			}
 
 			this.logTimestamp = logTimestamp;
@@ -67,10 +68,10 @@ package com.falanxia.utilitaris.logger {
 		 */
 		public function publish(logLevel:int, object:*, ...additional):void {
 			if(logTimestamp) {
-				dump += new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- ")) + "\n";
+				dump[dump.length] = new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
 			}
 			else {
-				dump += getPrefix(logLevel) + "  " + String(object) + "\n";
+				dump[dump.length] = getPrefix(logLevel) + "  " + String(object);
 			}
 		}
 
@@ -80,7 +81,8 @@ package com.falanxia.utilitaris.logger {
 		 * Clears the dump String.
 		 */
 		public function clear():void {
-			dump = "";
+			dump = [
+			];
 		}
 
 
@@ -96,10 +98,10 @@ package com.falanxia.utilitaris.logger {
 
 
 		/**
-		 * Get the dump String
-		 * @return Dump String
+		 * Get the dump as Array of Strings
+		 * @return Dump Array of Strings
 		 */
-		public static function getDump():String {
+		public static function getDump():Array {
 			return dump;
 		}
 
