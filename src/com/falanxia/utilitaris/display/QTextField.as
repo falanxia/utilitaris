@@ -80,7 +80,7 @@ package com.falanxia.utilitaris.display {
 				condenseWhite:true,
 				embedFonts:true,
 				gridFitType:GridFitType.SUBPIXEL,
-				mouseEnabled:false,
+				mouseEnabled:true,
 				multiline:true,
 				selectable:false,
 				type:TextFieldType.DYNAMIC,
