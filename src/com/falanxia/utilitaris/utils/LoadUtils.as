@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.*;
+	import com.falanxia.utilitaris.types.Percent;
 
 
 
@@ -88,7 +88,8 @@ package com.falanxia.utilitaris.utils {
 		 * @return Percent buffered
 		 * @see Percent
 		 */
-		public static function calculateBufferPercent(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint, lengthInMilliseconds:uint):Percent {
+		public static function calculateBufferPercent(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint, lengthInMilliseconds:uint
+				):Percent {
 			var totalWait:Number = bytesTotal / (bytesLoaded / (elapsedTime - startTime)) - lengthInMilliseconds;
 			var millisecondsRemaining:uint = calculateMillisecondsUntilBuffered(bytesLoaded, bytesTotal, startTime, elapsedTime, lengthInMilliseconds);
 
@@ -107,7 +108,8 @@ package com.falanxia.utilitaris.utils {
 		 * @param lengthInMilliseconds Total duration/length of the video in milliseconds
 		 * @return Amount millisecond that remain before the video is buffered
 		 */
-		public static function calculateMillisecondsUntilBuffered(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint, lengthInMilliseconds:uint):uint {
+		public static function calculateMillisecondsUntilBuffered(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint,
+		                                                          lengthInMilliseconds:uint):uint {
 			return Math.max(Math.ceil((bytesTotal - bytesLoaded) / (bytesLoaded / (elapsedTime - startTime))) - lengthInMilliseconds, 0);
 		}
 	}

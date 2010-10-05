@@ -23,8 +23,10 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.*;
-	import flash.geom.*;
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
 
 
 

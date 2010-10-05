@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.helpers.*;
+	import com.falanxia.utilitaris.helpers.printf;
 
 
 
@@ -848,8 +848,9 @@ package com.falanxia.utilitaris.utils {
 		 * @param seconds Seconds
 		 * @return Humanized String
 		 */
-		public static function humanizeTime(seconds:uint, formatSeconds:String = "|:?=%d seconds|:1=jednu second", formatMinutes:String = "|:?=%d minutes|:1=%d minute",
-		                                    formatHours:String = "|:?=%d hours|:1=%d hour", formatDays:String = "|:?=%d days|:1=%d day"):String {
+		public static function humanizeTime(seconds:uint, formatSeconds:String = "|:?=%d seconds|:1=jednu second",
+		                                    formatMinutes:String = "|:?=%d minutes|:1=%d minute", formatHours:String = "|:?=%d hours|:1=%d hour",
+		                                    formatDays:String = "|:?=%d days|:1=%d day"):String {
 			var days:int = int(seconds / 86400);
 			var hours:int = int((seconds - days * 86400) / 3600);
 			var minutes:int = int(((seconds - days * 86400) - hours * 3600) / 60);

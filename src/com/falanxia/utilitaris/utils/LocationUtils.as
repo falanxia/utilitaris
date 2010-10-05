@@ -23,10 +23,11 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.*;
-	import flash.external.*;
-	import flash.net.*;
-	import flash.system.*;
+	import flash.display.DisplayObject;
+	import flash.external.ExternalInterface;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
+	import flash.system.Capabilities;
 
 
 

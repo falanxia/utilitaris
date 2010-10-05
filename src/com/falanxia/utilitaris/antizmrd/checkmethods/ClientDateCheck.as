@@ -23,8 +23,8 @@
  */
 
 package com.falanxia.utilitaris.antizmrd.checkmethods {
-	import com.falanxia.utilitaris.antizmrd.*;
-	import com.falanxia.utilitaris.antizmrd.helpers.*;
+	import com.falanxia.utilitaris.antizmrd.AntiZmrd;
+	import com.falanxia.utilitaris.antizmrd.helpers.DateCheckVO;
 
 
 

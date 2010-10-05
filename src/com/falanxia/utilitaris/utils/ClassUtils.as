@@ -23,8 +23,10 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.*;
-	import flash.utils.*;
+	import flash.display.DisplayObject;
+	import flash.utils.describeType;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
 
 
 

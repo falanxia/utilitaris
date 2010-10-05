@@ -23,11 +23,15 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.falanxia.utilitaris.utils.*;
+	import com.falanxia.utilitaris.utils.ObjectUtils;
 
-	import flash.display.*;
-	import flash.geom.*;
-	import flash.text.*;
+	import flash.display.DisplayObjectContainer;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import flash.text.AntiAliasType;
+	import flash.text.GridFitType;
+	import flash.text.TextField;
+	import flash.text.TextFieldType;
 
 
 

@@ -23,8 +23,10 @@
  */
 
 package com.falanxia.utilitaris.antizmrd.disablemethods {
-	import flash.display.*;
-	import flash.text.*;
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 
 
 
@@ -49,7 +51,8 @@ package com.falanxia.utilitaris.antizmrd.disablemethods {
 
 
 
-		public function SimpleMessageDisable(stage:Stage, message:String, messageTextFormat:TextFormat, disablerColor:uint = 0, disablerAlpha:Number = 0.9) {
+		public function SimpleMessageDisable(stage:Stage, message:String, messageTextFormat:TextFormat, disablerColor:uint = 0,
+		                                     disablerAlpha:Number = 0.9) {
 			this.stage = stage;
 			this.message = message;
 			this.disablerColor = disablerColor;

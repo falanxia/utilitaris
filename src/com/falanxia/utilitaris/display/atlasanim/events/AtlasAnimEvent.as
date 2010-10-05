@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.events {
-	import flash.events.*;
+	import flash.events.Event;
 
 
 

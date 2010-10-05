@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
 
 
 

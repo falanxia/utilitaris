@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import flash.display.*;
+	import flash.display.Sprite;
 
 
 

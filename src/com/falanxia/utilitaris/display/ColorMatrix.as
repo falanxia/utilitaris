@@ -24,7 +24,7 @@
 
 
 package com.falanxia.utilitaris.display {
-	import flash.filters.*;
+	import flash.filters.ColorMatrixFilter;
 
 
 
@@ -210,7 +210,8 @@ package com.falanxia.utilitaris.display {
 			concat([
 				       ((LUMA_R + (cos * (1 - LUMA_R))) + (sin * -(LUMA_R))), ((LUMA_G + (cos * -(LUMA_G))) + (sin * -(LUMA_G))),
 				       ((LUMA_B + (cos * -(LUMA_B))) + (sin * (1 - LUMA_B))), 0, 0,
-				       ((LUMA_R + (cos * -(LUMA_R))) + (sin * 0.143)), ((LUMA_G + (cos * (1 - LUMA_G))) + (sin * 0.14)), ((LUMA_B + (cos * -(LUMA_B))) + (sin * -0.283)), 0, 0,
+				       ((LUMA_R + (cos * -(LUMA_R))) + (sin * 0.143)), ((LUMA_G + (cos * (1 - LUMA_G))) + (sin * 0.14)),
+				       ((LUMA_B + (cos * -(LUMA_B))) + (sin * -0.283)), 0, 0,
 				       ((LUMA_R + (cos * -(LUMA_R))) + (sin * -((1 - LUMA_R)))), ((LUMA_G + (cos * -(LUMA_G))) + (sin * LUMA_G)),
 				       ((LUMA_B + (cos * (1 - LUMA_B))) + (sin * LUMA_B)), 0, 0,
 				       0, 0, 0, 1, 0
@@ -306,9 +307,12 @@ package com.falanxia.utilitaris.display {
 
 			//noinspection NonShortCircuitBooleanExpressionJS
 			concat([
-				       (((r & 1) == 1)) ? rf : 0, (((r & 2) == 2)) ? rf : 0, (((r & 4) == 4)) ? rf : 0, (((r & 8) == 8)) ? rf : 0, 0, (((g & 1) == 1)) ? gf : 0,
-				       (((g & 2) == 2)) ? gf : 0, (((g & 4) == 4)) ? gf : 0, (((g & 8) == 8)) ? gf : 0, 0, (((b & 1) == 1)) ? bf : 0, (((b & 2) == 2)) ? bf : 0,
-				       (((b & 4) == 4)) ? bf : 0, (((b & 8) == 8)) ? bf : 0, 0, (((a & 1) == 1)) ? af : 0, (((a & 2) == 2)) ? af : 0, (((a & 4) == 4)) ? af : 0,
+				       (((r & 1) == 1)) ? rf : 0, (((r & 2) == 2)) ? rf : 0, (((r & 4) == 4)) ? rf : 0, (((r & 8) == 8)) ? rf : 0, 0,
+				       (((g & 1) == 1)) ? gf : 0,
+				       (((g & 2) == 2)) ? gf : 0, (((g & 4) == 4)) ? gf : 0, (((g & 8) == 8)) ? gf : 0, 0, (((b & 1) == 1)) ? bf : 0,
+				       (((b & 2) == 2)) ? bf : 0,
+				       (((b & 4) == 4)) ? bf : 0, (((b & 8) == 8)) ? bf : 0, 0, (((a & 1) == 1)) ? af : 0, (((a & 2) == 2)) ? af : 0,
+				       (((a & 4) == 4)) ? af : 0,
 				       (((a & 8) == 8)) ? af : 0, 0
 			       ]);
 		}
@@ -480,9 +484,7 @@ package com.falanxia.utilitaris.display {
 			for(y = 0; y < 4; y++) {
 				for(x = 0; x < 5; x++) {
 					//noinspection OverlyComplexArithmeticExpressionJS
-					temp[ int(i + x) ] = Number(mat[i]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) +
-					                     Number(mat[int(i + 2)]) * Number(matrix[int(x + 10)]) + Number(mat[int(i + 3)]) * Number(matrix[int(x + 15)]) +
-					                     (x == 4 ? Number(mat[int(i + 4)]) : 0);
+					temp[ int(i + x) ] = Number(mat[i]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) + Number(mat[int(i + 2)]) * Number(matrix[int(x + 10)]) + Number(mat[int(i + 3)]) * Number(matrix[int(x + 15)]) + (x == 4 ? Number(mat[int(i + 4)]) : 0);
 				}
 
 				i += 5;

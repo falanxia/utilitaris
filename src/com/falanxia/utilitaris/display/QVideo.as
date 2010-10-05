@@ -23,11 +23,12 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.falanxia.utilitaris.utils.*;
+	import com.falanxia.utilitaris.utils.ObjectUtils;
 
-	import flash.display.*;
-	import flash.geom.*;
-	import flash.media.*;
+	import flash.display.DisplayObjectContainer;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import flash.media.Video;
 
 
 

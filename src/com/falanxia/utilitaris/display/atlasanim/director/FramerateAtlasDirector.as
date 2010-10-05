@@ -23,10 +23,10 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
 
-	import flash.display.*;
-	import flash.events.*;
+	import flash.display.Stage;
+	import flash.events.Event;
 
 
 

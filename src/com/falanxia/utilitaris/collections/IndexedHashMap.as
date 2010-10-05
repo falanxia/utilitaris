@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.collections {
-	import flash.utils.*;
+	import flash.utils.Dictionary;
 
 
 

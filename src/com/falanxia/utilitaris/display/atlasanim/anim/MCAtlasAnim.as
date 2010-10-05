@@ -23,10 +23,12 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.anim {
-	import com.falanxia.utilitaris.display.atlasanim.events.*;
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.*;
+	import com.falanxia.utilitaris.display.atlasanim.events.AtlasAnimEvent;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasAnim;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
+	import com.falanxia.utilitaris.display.atlasanim.interfaces.IMovieClipAnim;
 
-	import flash.display.*;
+	import flash.display.BitmapData;
 
 
 

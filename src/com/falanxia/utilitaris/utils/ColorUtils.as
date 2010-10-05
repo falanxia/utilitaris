@@ -23,9 +23,9 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import com.falanxia.utilitaris.types.*;
+	import com.falanxia.utilitaris.types.Percent;
 
-	import flash.geom.*;
+	import flash.geom.ColorTransform;
 
 
 

@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.events.*;
+	import flash.events.EventDispatcher;
 
 
 

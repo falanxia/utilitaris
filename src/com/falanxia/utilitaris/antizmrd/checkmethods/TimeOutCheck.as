@@ -23,10 +23,10 @@
  */
 
 package com.falanxia.utilitaris.antizmrd.checkmethods {
-	import com.falanxia.utilitaris.antizmrd.*;
+	import com.falanxia.utilitaris.antizmrd.AntiZmrd;
 
-	import flash.events.*;
-	import flash.utils.*;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 
 
 

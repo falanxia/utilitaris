@@ -23,10 +23,11 @@
  */
 
 package com.falanxia.utilitaris.antizmrd {
-	import com.falanxia.utilitaris.antizmrd.checkmethods.*;
-	import com.falanxia.utilitaris.antizmrd.disablemethods.*;
+	import com.falanxia.utilitaris.antizmrd.checkmethods.ICheckMethod;
+	import com.falanxia.utilitaris.antizmrd.disablemethods.IDisableMethod;
 
-	import flash.events.*;
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
 
 
 
@@ -38,6 +39,7 @@ package com.falanxia.utilitaris.antizmrd {
 	 * @since 1.0
 	 */
 	public class AntiZmrd extends EventDispatcher {
+
 
 		private var checkMethod:ICheckMethod;
 		private var disableMethod:IDisableMethod;

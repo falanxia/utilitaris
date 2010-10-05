@@ -23,7 +23,9 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.display.*;
+	import flash.display.BitmapData;
+	import flash.display.DisplayObject;
+	import flash.display.MovieClip;
 
 
 

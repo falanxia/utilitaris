@@ -23,9 +23,9 @@
  */
 
 package com.falanxia.utilitaris.locale {
-	import com.falanxia.utilitaris.utils.*;
+	import com.falanxia.utilitaris.utils.StringUtils;
 
-	import flash.utils.*;
+	import flash.utils.Dictionary;
 
 
 

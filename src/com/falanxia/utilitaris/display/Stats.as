@@ -23,15 +23,20 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import com.falanxia.utilitaris.types.*;
-	import com.falanxia.utilitaris.utils.*;
+	import com.falanxia.utilitaris.types.RGBA;
+	import com.falanxia.utilitaris.utils.DisplayUtils;
+	import com.falanxia.utilitaris.utils.StringUtils;
 
-	import flash.display.*;
-	import flash.events.*;
-	import flash.geom.*;
-	import flash.system.*;
-	import flash.text.*;
-	import flash.utils.*;
+	import flash.display.BitmapData;
+	import flash.display.BlendMode;
+	import flash.display.DisplayObjectContainer;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.geom.Rectangle;
+	import flash.system.System;
+	import flash.text.AntiAliasType;
+	import flash.text.TextFormat;
+	import flash.utils.getTimer;
 
 
 

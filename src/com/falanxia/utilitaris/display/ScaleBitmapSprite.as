@@ -23,8 +23,9 @@
  */
 
 package com.falanxia.utilitaris.display {
-	import flash.display.*;
-	import flash.geom.*;
+	import flash.display.BitmapData;
+	import flash.display.DisplayObjectContainer;
+	import flash.geom.Rectangle;
 
 
 
@@ -60,8 +61,8 @@ package com.falanxia.utilitaris.display {
 		 * @param config Config Object
 		 * @param parent Parent DisplayObjectContainer
 		 */
-		function ScaleBitmapSprite(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null, config:Object = null, parent:DisplayObjectContainer = null
-				) {
+		function ScaleBitmapSprite(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null, config:Object = null,
+		                           parent:DisplayObjectContainer = null) {
 			super(config, parent);
 
 			// store parameters

@@ -23,8 +23,9 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.external.*;
-	import flash.net.*;
+	import flash.external.ExternalInterface;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 
 
 
@@ -98,8 +99,7 @@ package com.falanxia.utilitaris.utils {
 		 * @see <a href="http://google.com/search?q=JavaScript+window.open+documentation">JavaScript documentation for window.open</a>.
 		 */
 		public static function openWindow(url:String, window:String = WINDOW_BLANK, features:String = ""):Boolean {
-			return ExternalInterface.call("function casaOpenWindow(url, windowOrName, features) { return window.open(url, windowOrName, features) != null; }", url,
-			                              (window == WINDOW_BLANK) ? "casaWindow" + int(1000 * Math.random()) : window, features);
+			return ExternalInterface.call("function casaOpenWindow(url, windowOrName, features) { return window.open(url, windowOrName, features) != null; }", url, (window == WINDOW_BLANK) ? "casaWindow" + int(1000 * Math.random()) : window, features);
 		}
 	}
 }

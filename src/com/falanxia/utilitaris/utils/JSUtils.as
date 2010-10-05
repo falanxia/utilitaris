@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.utils {
-	import flash.external.*;
+	import flash.external.ExternalInterface;
 
 
 
@@ -79,8 +79,7 @@ package com.falanxia.utilitaris.utils {
 			}
 
 			else {
-				throw new Error(func +
-				                " Tracking Request Failed. External interface is not available for this container. If you're trying to use it locally, try using it through an HTTP address.");
+				throw new Error(func + " Tracking Request Failed. External interface is not available for this container. If you're trying to use it locally, try using it through an HTTP address.");
 			}
 		}
 	}
