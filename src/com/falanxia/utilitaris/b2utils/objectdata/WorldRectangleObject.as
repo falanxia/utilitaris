@@ -23,7 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
-	import com.falanxia.utilitaris.helpers.printf;
 
 
 
@@ -67,7 +66,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		override public function toString():String {
-			return printf("name=%s, position=(%s), width=%.2f, height=%.2f", name, position, width, height);
+			return "name='" + name + "', position=(" + position.toString() + "), width=" + width + ", height=" + height;
 		}
 	}
 }

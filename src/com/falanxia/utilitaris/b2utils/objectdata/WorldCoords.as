@@ -23,7 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
-	import com.falanxia.utilitaris.helpers.printf;
 
 
 
@@ -81,7 +80,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		public function toString():String {
-			return printf("x=%.2f, y=%.2f, rotation=%.2f", x, y, rotation);
+			return "x=" + x + ", y=" + y + ", rotation=" + rotation;
 		}
 	}
 }

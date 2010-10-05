@@ -23,7 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
-	import com.falanxia.utilitaris.helpers.printf;
 
 
 
@@ -77,10 +76,10 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		override public function toString():String {
 			var f:String = "";
 
-			for each(var v:WorldCoords in vertices) f += printf("(%s), ", v.toString());
+			for each(var v:WorldCoords in vertices) f += "(" + v.toString() + "), ";
 			f = f.substr(0, f.length - 2);
 
-			return printf("name=%s, position=(%s), vertices=(%s)", name, position, f);
+			return "name='" + name + "', position=(" + position.toString() + "), vertices=(" + f + ")";
 		}
 	}
 }

@@ -23,7 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils.objectdata {
-	import com.falanxia.utilitaris.helpers.printf;
 
 
 
@@ -73,7 +72,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 		 * @return Dump
 		 */
 		public function toString():String {
-			return printf("name=%s, position=(%s)", name, position);
+			return "name='" + name + "', position=(" + position.toString() + ")";
 		}
 	}
 }
