@@ -75,9 +75,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 		private function onTimerTick(e:TimerEvent):void {
-			//			var t:Number = getTimer();
 			this.updateAnims();
-			//			Logger.fatal("anim update:" + String(getTimer() - t) + ", animNum="+this.activeAtlasAnimsCount);
 		}
 	}
 }
