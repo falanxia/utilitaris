@@ -71,7 +71,7 @@ package com.falanxia.utilitaris.logger {
 				dump[dump.length] = new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
 			}
 			else {
-				dump[dump.length] = getPrefix(logLevel) + "  " + String(object);
+				dump[dump.length] = getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
 			}
 		}
 
