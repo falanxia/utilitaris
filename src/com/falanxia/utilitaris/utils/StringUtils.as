@@ -844,6 +844,17 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
+		 * Convert bytes to a String ("X B" or "X kB")
+		 * @param value Bytes count
+		 * @return Result String
+		 */
+		public static function convertBytesString(value:uint):String {
+			return (value <= 8192 ? (value.toString() + " B") : (ConversionUtils.bytesToKilobytes(value).toString() + " kB"));
+		}
+
+
+
+		/**
 		 * Convert seconds to a humanized String.
 		 * @param seconds Seconds
 		 * @return Humanized String
@@ -859,36 +870,36 @@ package com.falanxia.utilitaris.utils {
 
 			if(out == null && seconds < 60) {
 				// less than a minute
-				out = StringUtils.convertCounterString(formatSeconds, seconds);
+				out = convertCounterString(formatSeconds, seconds);
 			}
 
 			if(out == null && seconds < 60 * 60) {
 				// minute to one hour
 				if(seconds % 60 == 0) {
-					out = StringUtils.convertCounterString(formatMinutes, minutes);
+					out = convertCounterString(formatMinutes, minutes);
 				}
 				else {
-					out = StringUtils.convertCounterString(formatMinutes, minutes) + ", " + StringUtils.convertCounterString(formatSeconds, secondsTrimmed);
+					out = convertCounterString(formatMinutes, minutes) + ", " + convertCounterString(formatSeconds, secondsTrimmed);
 				}
 			}
 
 			if(out == null && seconds < 60 * 60 * 24) {
 				// hour to a day
 				if(minutes % 60 == 0) {
-					out = StringUtils.convertCounterString(formatHours, hours);
+					out = convertCounterString(formatHours, hours);
 				}
 				else {
-					out = StringUtils.convertCounterString(formatHours, hours) + ", " + StringUtils.convertCounterString(formatMinutes, minutes);
+					out = convertCounterString(formatHours, hours) + ", " + convertCounterString(formatMinutes, minutes);
 				}
 			}
 
 			if(out == null) {
 				// days
 				if(hours % 24 == 0) {
-					out = StringUtils.convertCounterString(formatDays, days);
+					out = convertCounterString(formatDays, days);
 				}
 				else {
-					out = StringUtils.convertCounterString(formatDays, days) + ", " + StringUtils.convertCounterString(formatHours, hours);
+					out = convertCounterString(formatDays, days) + ", " + convertCounterString(formatHours, hours);
 				}
 			}
 
