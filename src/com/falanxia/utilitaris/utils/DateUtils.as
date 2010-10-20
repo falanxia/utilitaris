@@ -264,7 +264,7 @@ package com.falanxia.utilitaris.utils {
 
 						case "j" :
 							// Day of the month without leading zeros
-							out += dateToFormat.getDate().toString();
+							out += String(dateToFormat.getDate());
 							break;
 
 						case "l" :
@@ -276,7 +276,7 @@ package com.falanxia.utilitaris.utils {
 							// ISO-8601 numeric representation of the day of the week
 							t = dateToFormat.getDay();
 							if(t == 0) t = 7;
-							out += t.toString();
+							out += String(t);
 							break;
 
 						case "S" :
@@ -286,17 +286,17 @@ package com.falanxia.utilitaris.utils {
 
 						case "w" :
 							// Numeric representation of the day of the week
-							out += dateToFormat.getDay().toString();
+							out += String(dateToFormat.getDay());
 							break;
 
 						case "z" :
 							// The day of the year (starting from 0)
-							out += NumberUtils.addLeadingZero(getDayOfTheYear(dateToFormat)).toString();
+							out += String(NumberUtils.addLeadingZero(getDayOfTheYear(dateToFormat)));
 							break;
 
 						case "W" :
 							// ISO-8601 week number of year, weeks starting on Monday
-							out += NumberUtils.addLeadingZero(getWeekOfTheYear(dateToFormat)).toString();
+							out += String(NumberUtils.addLeadingZero(getWeekOfTheYear(dateToFormat)));
 							break;
 
 						case "F" :
@@ -316,12 +316,12 @@ package com.falanxia.utilitaris.utils {
 
 						case "n" :
 							// Numeric representation of a month, without leading zeros
-							out += (dateToFormat.getMonth() + 1).toString();
+							out += String((dateToFormat.getMonth() + 1));
 							break;
 
 						case "t" :
 							// Number of days in the given month
-							out += getDaysInMonth(dateToFormat.getMonth(), dateToFormat.getFullYear()).toString();
+							out += String(getDaysInMonth(dateToFormat.getMonth(), dateToFormat.getFullYear()));
 							break;
 
 						case "L" :
@@ -332,12 +332,12 @@ package com.falanxia.utilitaris.utils {
 						case "o" :
 						case "Y" :
 							// A full numeric representation of a year, 4 digits
-							out += dateToFormat.getFullYear().toString();
+							out += String(dateToFormat.getFullYear());
 							break;
 
 						case "y" :
 							// A two digit representation of a year
-							out += dateToFormat.getFullYear().toString().substr(-2);
+							out += String(dateToFormat.getFullYear()).substr(-2);
 							break;
 
 						case "a" :
@@ -366,12 +366,12 @@ package com.falanxia.utilitaris.utils {
 									t -= 12;
 								}
 							}
-							out += t.toString();
+							out += String(t);
 							break;
 
 						case "G" :
 							// 24-hour format of an hour without leading zeros
-							out += dateToFormat.getHours().toString();
+							out += String(dateToFormat.getHours());
 							break;
 
 						case "h" :
@@ -425,29 +425,23 @@ package com.falanxia.utilitaris.utils {
 
 						case "Z" :
 							// Timezone offset (GMT/UTC) in seconds.
-							out += int(getDifferenceFromUTCInSeconds(dateToFormat)).toString();
+							out += String(int(getDifferenceFromUTCInSeconds(dateToFormat)));
 							break;
 
 						case "c" :
 							// ISO 8601 date
-							out += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" +
-							       NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" +
-							       NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) +
-							       getFormattedDifferenceFromUTC(dateToFormat, ":");
+							out += dateToFormat.getFullYear() + "-" + NumberUtils.addLeadingZero(dateToFormat.getMonth() + 1) + "-" + NumberUtils.addLeadingZero(dateToFormat.getDate()) + "T" + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + getFormattedDifferenceFromUTC(dateToFormat, ":");
 							break;
 
 						case "r" :
 							// RFC 2822 formatted date
-							out += getDayAbbrAsString(dateToFormat.getDay()) + ", " + dateToFormat.getDate() + " " + getMonthAbbrAsString(dateToFormat.getMonth()) + " " +
-							       dateToFormat.getFullYear() + " " + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" +
-							       NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + " " +
-							       getFormattedDifferenceFromUTC(dateToFormat);
+							out += getDayAbbrAsString(dateToFormat.getDay()) + ", " + dateToFormat.getDate() + " " + getMonthAbbrAsString(dateToFormat.getMonth()) + " " + dateToFormat.getFullYear() + " " + NumberUtils.addLeadingZero(dateToFormat.getHours()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getMinutes()) + ":" + NumberUtils.addLeadingZero(dateToFormat.getSeconds()) + " " + getFormattedDifferenceFromUTC(dateToFormat);
 							break;
 
 						case "U" :
 							// Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
 							t = int(dateToFormat.getTime() / 1000);
-							out += t.toString();
+							out += String(t);
 							break;
 
 						default :
@@ -725,8 +719,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function getTimezone(date:Date):String {
-			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6",
-			                                "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
+			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6", "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
 			var hour:uint = int(12 + -(date.getTimezoneOffset() / 60));
 
 			if(isDaylightSavings(date)) hour--;
@@ -839,8 +832,7 @@ package com.falanxia.utilitaris.utils {
 			var s:Number = Math.floor((sec % 3600) % 60);
 
 			//noinspection NestedConditionalExpressionJS
-			return (h == 0 ? "" : (h < 10 ? "0" + h.toString() + ":" : h.toString() + ":")) + (m < 10 ? "0" + m.toString() : m.toString()) + ":" +
-			       (s < 10 ? "0" + s.toString() : s.toString());
+			return (h == 0 ? "" : (h < 10 ? "0" + String(h) + ":" : String(h) + ":")) + (m < 10 ? "0" + String(m) : String(m)) + ":" + (s < 10 ? "0" + String(s) : String(s));
 		}
 	}
 }

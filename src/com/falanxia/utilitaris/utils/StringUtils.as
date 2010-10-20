@@ -849,7 +849,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return Result String
 		 */
 		public static function convertBytesString(value:uint):String {
-			return (value <= 8192 ? (value.toString() + " B") : (ConversionUtils.bytesToKilobytes(value).toString() + " kB"));
+			return (value <= 8192 ? (String(value) + " B") : (String(ConversionUtils.bytesToKilobytes(value)) + " kB"));
 		}
 
 

@@ -550,7 +550,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function format(value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null):String {
-			var num:String = value.toString();
+			var num:String = String(value);
 			var len:uint = num.length;
 			var ml:uint = minLength;
 
@@ -646,7 +646,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function addLeadingZero(value:Number):String {
-			return (value < 10) ? "0" + value : value.toString();
+			return (value < 10) ? "0" + value : String(value);
 		}
 
 
