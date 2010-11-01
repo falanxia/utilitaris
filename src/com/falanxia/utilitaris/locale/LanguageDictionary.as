@@ -66,7 +66,7 @@ package com.falanxia.utilitaris.locale {
 		 */
 		public function parseXML(list:XMLList):void {
 			for each(var x:XML in list) {
-				dictionary[String(x.@id)] = StringUtils.trim(x.toString());
+				dictionary[String(x.@id)] = StringUtils.trim(String(x));
 			}
 		}
 

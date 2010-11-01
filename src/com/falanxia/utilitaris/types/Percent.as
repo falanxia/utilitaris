@@ -115,7 +115,7 @@ package com.falanxia.utilitaris.types {
 		 * @return String
 		 */
 		public final function toString():String {
-			return this.decimalPercentage.toString();
+			return String(this.decimalPercentage);
 		}
 
 

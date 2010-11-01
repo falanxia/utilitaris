@@ -707,7 +707,7 @@ package com.falanxia.utilitaris.utils {
 
 				for(var j:int = 0; j < indentLevel; j++) output += "   ";
 
-				output += "+  " + thisChild.name + " = " + thisChild.toString();
+				output += "+  " + thisChild.name + " = " + String(thisChild);
 
 				trace(output);
 

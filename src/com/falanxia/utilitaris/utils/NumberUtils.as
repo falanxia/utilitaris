@@ -143,6 +143,34 @@ package com.falanxia.utilitaris.utils {
 
 
 		/**
+		 * Get fast max for two numbers.
+		 * @param val1 Number A
+		 * @param val2 Number B
+		 * @return Max
+		 * @author Jackson Dunstan (http://jacksondunstan.com/articles/445)
+		 */
+		public static function fastMax2(val1:Number, val2:Number):Number {
+			if((!(val1 <= 0) && !(val1 > 0)) || (!(val2 <= 0) && !(val2 > 0))) return NaN;
+			return val1 > val2 ? val1 : val2;
+		}
+
+
+
+		/**
+		 * Get fast min for two numbers.
+		 * @param val1 Number A
+		 * @param val2 Number B
+		 * @return Min
+		 * @author Jackson Dunstan (http://jacksondunstan.com/articles/445)
+		 */
+		public static function fastMin2(val1:Number, val2:Number):Number {
+			if((!(val1 <= 0) && !(val1 > 0)) || (!(val2 <= 0) && !(val2 > 0))) return NaN;
+			return val1 < val2 ? val1 : val2;
+		}
+
+
+
+		/**
 		 * Determines if the Number is even.
 		 * @param value A Number to determine if it is divisible by 2
 		 * @return true if the Number is even
@@ -522,7 +550,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function format(value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null):String {
-			var num:String = value.toString();
+			var num:String = String(value);
 			var len:uint = num.length;
 			var ml:uint = minLength;
 
@@ -618,7 +646,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function addLeadingZero(value:Number):String {
-			return (value < 10) ? "0" + value : value.toString();
+			return (value < 10) ? "0" + value : String(value);
 		}
 
 
