@@ -80,7 +80,7 @@ package com.falanxia.utilitaris.collections {
 
 
 
-		public function getDictionary():void {
+		public function getDictionary():Dictionary {
 			return d;
 		}
 
