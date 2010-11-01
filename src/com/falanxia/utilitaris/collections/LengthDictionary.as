@@ -85,5 +85,12 @@ package com.falanxia.utilitaris.collections {
 		}
 
 
+
+		public function get(key:String):Object {
+			return d[key];
+		}
+
+
+
 	}
 }
