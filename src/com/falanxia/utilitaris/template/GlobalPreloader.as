@@ -70,9 +70,9 @@ package com.falanxia.utilitaris.template {
 			stage.align = StageAlign.TOP_LEFT;
 
 			// add event listeners
-			this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
-			stage.addEventListener(Event.RESIZE, onStageResize, false, 0, true);
-			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onLoadingError, false, 0, true);
+			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			stage.addEventListener(Event.RESIZE, onStageResize);
+			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onLoadingError);
 		}
 
 

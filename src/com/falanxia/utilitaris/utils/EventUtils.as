@@ -60,7 +60,7 @@ package com.falanxia.utilitaris.utils {
 				if(i.event == undefined) throw new Error("Event undefined");
 				if(i.method == undefined) throw new Error("Method undefined");
 
-				obj.addEventListener(i.event, i.method, false, 0, true);
+				obj.addEventListener(i.event, i.method);
 			}
 		}
 

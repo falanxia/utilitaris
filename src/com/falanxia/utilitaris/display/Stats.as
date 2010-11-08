@@ -108,10 +108,10 @@ package com.falanxia.utilitaris.display {
 			this.doubleClickEnabled = true;
 
 			// add event listeners
-			this.addEventListener(MouseEvent.CLICK, onMouseClick, false, 0, true);
-			this.addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick, false, 0, true);
-			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage, false, 0, true);
-			this.addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage, false, 0, true);
+			this.addEventListener(MouseEvent.CLICK, onMouseClick);
+			this.addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
+			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 		}
 
 
@@ -129,6 +129,7 @@ package com.falanxia.utilitaris.display {
 			this.removeEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
+			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 
 			// remove from display list
 			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText, runtimeText);
@@ -148,7 +149,7 @@ package com.falanxia.utilitaris.display {
 
 
 		private function onAddedToStage(e:Event):void {
-			this.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
+			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
