@@ -83,7 +83,7 @@ package com.falanxia.utilitaris.template {
 			stage.align = StageAlign.TOP_LEFT;
 
 			// add event listeners
-			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 			stage.addEventListener(Event.RESIZE, onStageResize);
 			root.loaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onLoadingError);
 		}
@@ -151,7 +151,7 @@ package com.falanxia.utilitaris.template {
 		 */
 		public function stopAll(keepResize:Boolean = false):void {
 			// remove event listeners
-			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, onLoadingError);
 			if(!keepResize) stage.removeEventListener(Event.RESIZE, onStageResize);
 		}

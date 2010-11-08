@@ -108,10 +108,10 @@ package com.falanxia.utilitaris.display {
 			this.doubleClickEnabled = true;
 
 			// add event listeners
-			this.addEventListener(MouseEvent.CLICK, onMouseClick);
-			this.addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
-			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
+			addEventListener(MouseEvent.CLICK, onMouseClick);
+			addEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 		}
 
 
@@ -125,11 +125,11 @@ package com.falanxia.utilitaris.display {
 			this.visible = false;
 
 			// remove event listeners
-			this.removeEventListener(MouseEvent.CLICK, onMouseClick);
-			this.removeEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
-			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
-			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			removeEventListener(MouseEvent.CLICK, onMouseClick);
+			removeEventListener(MouseEvent.DOUBLE_CLICK, onMouseDoubleclick);
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
+			removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 
 			// remove from display list
 			DisplayUtils.removeChildren(this, fpsGraphBM, msGraphBM, memGraphBM, fpsText, msText, memText, runtimeText);
@@ -149,13 +149,13 @@ package com.falanxia.utilitaris.display {
 
 
 		private function onAddedToStage(e:Event):void {
-			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
 
 		private function onRemovedFromStage(e:Event):void {
-			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
