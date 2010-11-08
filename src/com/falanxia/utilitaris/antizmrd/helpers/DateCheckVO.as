@@ -52,12 +52,12 @@ package com.falanxia.utilitaris.antizmrd.helpers {
 
 
 		public function DateCheckVO(year:Number, month:Number, day:Number, hour:Number = 0, minute:Number = 0, second:Number = 0) {
-			this._year = year;
-			this._month = month - 1;
-			this._day = day;
-			this._hour = hour;
-			this._minute = minute;
-			this._second = second;
+			_year = year;
+			_month = month - 1;
+			_day = day;
+			_hour = hour;
+			_minute = minute;
+			_second = second;
 		}
 
 
