@@ -24,6 +24,8 @@
 
 package com.falanxia.utilitaris.types {
 
+
+
 	/**
 	 * RGBA data type.
 	 *
