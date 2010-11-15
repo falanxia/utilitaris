@@ -45,22 +45,22 @@ package com.falanxia.utilitaris.utils {
 
 
 		/** Firefox */
-		public static const BROWSER_FIREFOX:String = "browserFirefox";
+		public static const BROWSER_FIREFOX:String = "locationUtils:browserFirefox";
 
 		/** Safari */
-		public static const BROWSER_SAFARI:String = "browserSafari";
+		public static const BROWSER_SAFARI:String = "locationUtils:browserSafari";
 
 		/** Internet Explorer */
-		public static const BROWSER_IE:String = "browserIE";
+		public static const BROWSER_IE:String = "locationUtils:browserIE";
 
 		/** Opera */
-		public static const BROWSER_OPERA:String = "browserOpera";
+		public static const BROWSER_OPERA:String = "locationUtils:browserOpera";
 
 		/** Undefined browser */
-		public static const BROWSER_UNDEFINED:String = "browserUndefined";
+		public static const BROWSER_UNDEFINED:String = "locationUtils:browserUndefined";
 
 		/** Standalone player */
-		public static const STANDALONE_PLAYER:String = "standalonePlayer";
+		public static const STANDALONE_PLAYER:String = "locationUtils:standalonePlayer";
 
 
 		private static const WINDOW_OPEN_FUNCTION:String = "window.open";

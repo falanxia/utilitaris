@@ -38,25 +38,25 @@ package com.falanxia.utilitaris.utils {
 
 
 		/** Invalid card */
-		public static const CARD_INVALID:String = "invalid";
+		public static const CARD_INVALID:String = "validationUtils:cardInvalid";
 
 		/** Visa card */
-		public static const CARD_VISA:String = "visa";
+		public static const CARD_VISA:String = "validationUtils:cardVisa";
 
 		/** MasterCard card */
-		public static const CARD_MASTERCARD:String = "mastercard";
+		public static const CARD_MASTERCARD:String = "validationUtils:cardMastercard";
 
 		/** Discover card */
-		public static const CARD_DISCOVER:String = "discover";
+		public static const CARD_DISCOVER:String = "validationUtils:cardDiscover";
 
 		/** Amex card */
-		public static const CARD_AMEX:String = "amex";
+		public static const CARD_AMEX:String = "validationUtils:cardAmex";
 
 		/** Diners card */
-		public static const CARD_DINERS:String = "diners";
+		public static const CARD_DINERS:String = "validationUtils:cardDiners";
 
 		/** Other card */
-		public static const CARD_OTHER:String = "other";
+		public static const CARD_OTHER:String = "validationUtils:cardOther";
 
 
 
@@ -90,9 +90,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return true if String is a state abbreviation
 		 */
 		public static function isUsaStateAbbreviation(state:String):Boolean {
-			var states:Array = new Array('ak', 'al', 'ar', 'az', 'ca', 'co', 'ct', 'dc', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi',
-			                             'mn', 'mo', 'ms', 'mt', 'nb', 'nc', 'nd', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va',
-			                             'vt', 'wa', 'wi', 'wv', 'wy');
+			var states:Array = new Array('ak', 'al', 'ar', 'az', 'ca', 'co', 'ct', 'dc', 'de', 'fl', 'ga', 'hi', 'ia', 'id', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'me', 'mi', 'mn', 'mo', 'ms', 'mt', 'nb', 'nc', 'nd', 'nh', 'nj', 'nm', 'nv', 'ny', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'va', 'vt', 'wa', 'wi', 'wv', 'wy');
 			return ArrayUtils.contains(states, state.toLowerCase()) == 1;
 		}
 
@@ -148,8 +146,7 @@ package com.falanxia.utilitaris.utils {
 					out = CARD_VISA;
 				}
 				else {
-					if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 ||
-					   cardNumber.indexOf('55') == 0 && cardNumber.length == 16) {
+					if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 || cardNumber.indexOf('55') == 0 && cardNumber.length == 16) {
 						out = CARD_MASTERCARD;
 					}
 					else {
@@ -161,9 +158,7 @@ package com.falanxia.utilitaris.utils {
 								out = CARD_AMEX;
 							}
 							else {
-								if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 ||
-								   cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 ||
-								   cardNumber.indexOf('38') == 0 && cardNumber.length == 14) {
+								if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 || cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 || cardNumber.indexOf('38') == 0 && cardNumber.length == 14) {
 									out = CARD_DINERS;
 								}
 								else {
