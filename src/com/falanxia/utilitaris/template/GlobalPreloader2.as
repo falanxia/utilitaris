@@ -130,7 +130,7 @@ package com.falanxia.utilitaris.template {
 
 		/**
 		 * Show an alert window if JS enabled. If not, just trace() the message.
-		 * @param message Message to be displayed
+		 * @param message Message to be shown
 		 */
 		public function alert(message:String):void {
 			//noinspection UnusedCatchParameterJS
@@ -139,7 +139,7 @@ package com.falanxia.utilitaris.template {
 				ExternalInterface.call("alert", message);
 			}
 			catch(err:Error) {
-				// no ExternalInterface available (e.g. app is displayed in standalone Flash Player)
+				// no ExternalInterface available (e.g. app is shown in standalone Flash Player)
 				trace(message);
 			}
 		}
