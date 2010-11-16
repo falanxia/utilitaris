@@ -58,7 +58,6 @@ package com.falanxia.utilitaris.locale {
 
 				if(currentLanguage == "") language = lang.@lang;
 			}
-
 		}
 
 
@@ -136,7 +135,8 @@ package com.falanxia.utilitaris.locale {
 		 * @return Languages list
 		 */
 		public static function get languageList():Array {
-			var out:Array = [];
+			var out:Array = [
+			];
 
 			for each(var dictionary:LanguageDictionary in dictionaries) {
 				out.push(dictionary.lang);
