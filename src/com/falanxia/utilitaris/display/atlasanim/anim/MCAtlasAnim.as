@@ -246,7 +246,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 					this.frame = limitMinFrame;
 				}
 
-				dispatchEvent(new AtlasAnimEvent(AtlasAnimEvent.FIRST_FRAME));
+				dispatchEvent(new AtlasAnimEvent(AtlasAnimEvent.ANIM_FIRST_FRAME));
 			}
 		}
 
@@ -268,7 +268,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 					this.frame = limitMaxFrame;
 				}
 
-				dispatchEvent(new AtlasAnimEvent(AtlasAnimEvent.LAST_FRAME));
+				dispatchEvent(new AtlasAnimEvent(AtlasAnimEvent.ANIM_LAST_FRAME));
 			}
 		}
 	}

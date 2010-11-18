@@ -37,8 +37,8 @@ package com.falanxia.utilitaris.display.atlasanim.events {
 	public class AtlasAnimEvent extends Event {
 
 
-		public static const LAST_FRAME:String = "atlasAnimEvent:lastFrame";
-		public static const FIRST_FRAME:String = "atlasAnimEvent:firstFrame";
+		public static const ANIM_LAST_FRAME:String = "atlasAnimEvent:animLastFrame";
+		public static const ANIM_FIRST_FRAME:String = "atlasAnimEvent:animFirstFrame";
 
 
 
