@@ -23,15 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Collision.Shapes.b2CircleDef;
-	import Box2D.Collision.Shapes.b2PolygonDef;
-	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.b2Body;
-
-	import Box2D.Dynamics.b2BodyDef;
-
-	import Box2D.Dynamics.b2World;
-
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCircleObject;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCoords;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldPolygonObject;
@@ -71,7 +62,7 @@ package com.falanxia.utilitaris.b2utils {
 		 * @param s SingletonEnforcer class, just to make sure it cant be instantiated.
 		 */
 		public function B2GeomUtils(s:Senf) {
-			if(s == null) throw new Error("B2GeomUtils is singleton, use getInstance() method...");
+			if(s == null) throw new Error("B2GeomUtils is singleton, use getInstance() method");
 		}
 
 

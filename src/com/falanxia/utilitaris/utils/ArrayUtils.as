@@ -187,7 +187,7 @@ package com.falanxia.utilitaris.utils {
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 *          trace("Removed " + ArrayUtils.removeItem(numberArray, 7) + " items.");
+		 *          trace("Removed " + ArrayUtils.removeItem(numberArray, 7) + " items");
 		 *          trace(numberArray);
 		 *      </code>
 		 */
@@ -270,7 +270,7 @@ package com.falanxia.utilitaris.utils {
 		 * @example
 		 *      <code>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 *          trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's.");
+		 *          trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's");
 		 *      </code>
 		 */
 		public static function contains(inArray:Array, item:*):uint {
