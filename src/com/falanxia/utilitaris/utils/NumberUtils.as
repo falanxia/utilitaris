@@ -327,6 +327,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return Restricted value
 		 */
 		public static function confine(value:Number, min:Number, max:Number):Number {
+			//noinspection NestedConditionalExpressionJS
 			return value < min ? min : (value > max ? max : value);
 		}
 

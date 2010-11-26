@@ -184,6 +184,7 @@ package com.falanxia.utilitaris.display {
 			];
 			t.onComplete = onMorphComplete;
 
+			//noinspection ObjectAllocationIgnored
 			new TweenMax(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
 		}
 

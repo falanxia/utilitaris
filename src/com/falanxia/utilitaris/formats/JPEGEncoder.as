@@ -661,7 +661,7 @@ package com.falanxia.utilitaris.formats {
 			const end0pos:int = 63;
 			for(; (end0pos > 0) && (DU[end0pos] == 0); end0pos--) {
 			}
-			;
+
 			//end0pos = first element in reverse order !=0
 			if(end0pos == 0) {
 				writeBits(EOB);
@@ -697,15 +697,23 @@ package com.falanxia.utilitaris.formats {
 		private function RGB2YUV(img:BitmapData, xpos:int, ypos:int):void {
 			var pos:int = 0;
 			const I8:int = 8;
+
 			for(var y:int = 0; y < I8; ++y) {
 				for(var x:int = 0; x < I8; ++x) {
 					var P:uint = img.getPixel32(xpos + x, ypos + y);
 					var R:int = (P >> 16) & 0xFF;
 					var G:int = (P >> 8) & 0xFF;
 					var B:int = (P    ) & 0xFF;
+
+					//noinspection OverlyComplexArithmeticExpressionJS
 					YDU[int(pos)] = ((( 0.29900) * R + ( 0.58700) * G + ( 0.11400) * B)) - 0x80;
+
+					//noinspection OverlyComplexArithmeticExpressionJS
 					UDU[int(pos)] = (((-0.16874) * R + (-0.33126) * G + ( 0.50000) * B));
+
+					//noinspection OverlyComplexArithmeticExpressionJS
 					VDU[int(pos)] = ((( 0.50000) * R + (-0.41869) * G + (-0.08131) * B));
+
 					++pos;
 				}
 			}

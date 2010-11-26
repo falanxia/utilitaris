@@ -168,17 +168,18 @@ package com.falanxia.utilitaris.collections {
 		public function setItemIndex(targetIndex:int, item:Object = null, itemName:String = null, itemIndex:int = -1):Boolean {
 			var o:Object;
 
-			if(item != null) {
-				var i:int = array.indexOf(o);
+			if(item == null) {
+				if(itemName == null) {
+					if(itemIndex > 0) {
+						o = getItemAt(itemIndex);
 
-				if(i < 0) return false;
+						removeFromArrayAt(itemIndex);
+						addToArrayAt(targetIndex, o);
 
-				removeFromArrayAt(i);
-				addToArrayAt(targetIndex, o);
-			}
-
-			else {
-				if(itemName != null) {
+						return true;
+					}
+				}
+				else {
 					o = dicto[itemName];
 					var j:int = array.indexOf(o);
 
@@ -189,16 +190,14 @@ package com.falanxia.utilitaris.collections {
 
 					return true;
 				}
+			}
+			else {
+				var i:int = array.indexOf(o);
 
-				else {
-					if(itemIndex > 0) {
-						o = getItemAt(itemIndex);
-						removeFromArrayAt(itemIndex);
-						addToArrayAt(targetIndex, o);
+				if(i < 0) return false;
 
-						return true;
-					}
-				}
+				removeFromArrayAt(i);
+				addToArrayAt(targetIndex, o);
 			}
 
 			return false;
