@@ -51,16 +51,20 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		public function start():void {
+		override public function start():void {
 			timer.addEventListener(TimerEvent.TIMER, onTimerTick);
 			timer.start();
+
+			super.start();
 		}
 
 
 
-		public function stop():void {
+		override public function stop():void {
 			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
 			timer.stop();
+
+			super.stop()
 		}
 
 

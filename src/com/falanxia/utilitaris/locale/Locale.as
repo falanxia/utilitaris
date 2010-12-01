@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.locale {
-	import flash.events.EventDispatcher;
+	import com.falanxia.utilitaris.locale.LanguageDictionary;
 
 
 
@@ -34,7 +34,7 @@ package com.falanxia.utilitaris.locale {
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @since 1.0
 	 */
-	public class Locale extends EventDispatcher {
+	public class Locale {
 
 
 		private static var dictionaries:Array = [
@@ -66,13 +66,28 @@ package com.falanxia.utilitaris.locale {
 		 * Parse locale Object.
 		 * @param locale Locales node in the Object
 		 */
-		public static function parseObject(locale:Object):void {
+		public static function parseObject(locale:Object, doRewriteLangDict:Boolean = true):void {
 			for(var lang:String in locale) {
-				var dictionary:LanguageDictionary = new LanguageDictionary(lang);
+
+				var dictionary:LanguageDictionary;
+				var isDictFound:Boolean;
+				if (doRewriteLangDict) {
+					 dictionary = new LanguageDictionary(lang);
+				} else {
+					var l:uint = dictionaries.length;
+					for (var i:int = 0; i < l; i++) {
+						if (LanguageDictionary(dictionaries[i]).lang == lang) {
+							dictionary = LanguageDictionary(dictionaries[i]);
+							isDictFound = true;
+							break;
+						}
+					}
+
+				}
 
 				dictionary.parseObject(locale[lang]);
 
-				dictionaries.push(dictionary);
+				if (doRewriteLangDict && !isDictFound) dictionaries.push(dictionary);
 
 				if(currentLanguage == "") language = lang;
 			}

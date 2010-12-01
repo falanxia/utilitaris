@@ -670,5 +670,24 @@ package com.falanxia.utilitaris.utils {
 		public static function isNegative(value:Number):Boolean {
 			return !isPositive(value);
 		}
+
+
+
+		public static function getNumberAsHexString(number:uint, minimumLength:uint = 1, showHexDenotation:Boolean = true):String {
+			// The string that will be output at the end of the function.
+			var string:String = number.toString(16).toUpperCase();
+
+			// While the minimumLength argument is higher than the length of the string, add a leading zero.
+			while(minimumLength > string.length) {
+				string = "0" + string;
+			}
+
+			// Return the result with a "0x" in front of the result.
+			if(showHexDenotation) {
+				string = "0x" + string;
+			}
+
+			return string;
+		}
 	}
 }

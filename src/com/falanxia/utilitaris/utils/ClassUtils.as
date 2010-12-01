@@ -166,6 +166,11 @@ package com.falanxia.utilitaris.utils {
 		public static function construct(type:Class, ...args):* {
 			var out:*;
 
+
+			var l:uint = args.length;
+
+			if (l == 0) return new type();
+
 			switch(args.length) {
 				case 0 :
 					out = new type(); break;
@@ -190,7 +195,7 @@ package com.falanxia.utilitaris.utils {
 				case 10 :
 					out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]); break;
 				default:
-					throw new Error("You have passed more arguments than this method excepts (Ten or less).");
+					throw new Error("You have passed more arguments than this method accepts (Ten or less).");
 			}
 
 			return out;

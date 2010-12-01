@@ -39,11 +39,23 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 		protected var activeAtlasAnims:Vector.<IAtlasAnim>;
 		protected var activeAtlasAnimsCount:uint;
-
+		protected var isRunning:Boolean
 
 
 		public function AbstractAtlasDirector() {
 			activeAtlasAnims = new Vector.<IAtlasAnim>();
+		}
+
+
+
+		public function start():void {
+			isRunning = true;
+		}
+
+
+
+		public function stop():void {
+			isRunning = false;
 		}
 
 
@@ -89,6 +101,12 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 			}
 			activeAtlasAnims = null;
 			activeAtlasAnimsCount = 0;
+		}
+
+
+
+		public function getIsRunning():Boolean {
+			return isRunning;
 		}
 
 

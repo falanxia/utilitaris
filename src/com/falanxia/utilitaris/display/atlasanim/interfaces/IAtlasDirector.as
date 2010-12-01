@@ -55,5 +55,8 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 		function unregisterAll():void;
 
 
+
+		function getIsRunning():Boolean;
+
 	}
 }

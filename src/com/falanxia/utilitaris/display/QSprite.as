@@ -122,7 +122,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Moves to the specified position.
-		 * @param p New position as Point
+		 * @param p New position as Po·int
 		 */
 		public function set position(p:Point):void {
 			this.x = p.x;
