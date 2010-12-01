@@ -862,10 +862,18 @@ package com.falanxia.utilitaris.utils {
 		public static function humanizeTime(seconds:uint, formatSeconds:String = "|:?=%d seconds|:1=jednu second",
 		                                    formatMinutes:String = "|:?=%d minutes|:1=%d minute", formatHours:String = "|:?=%d hours|:1=%d hour",
 		                                    formatDays:String = "|:?=%d days|:1=%d day"):String {
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var days:int = int(seconds / 86400);
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var hours:int = int((seconds - days * 86400) / 3600);
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var minutes:int = int(((seconds - days * 86400) - hours * 3600) / 60);
+
+			//noinspection OverlyComplexArithmeticExpressionJS
 			var secondsTrimmed:int = seconds - (days * 86400) - (hours * 3600) - (minutes * 60);
+
 			var out:String;
 
 			if(out == null && seconds < 60) {

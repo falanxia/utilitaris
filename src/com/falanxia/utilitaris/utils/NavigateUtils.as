@@ -64,7 +64,7 @@ package com.falanxia.utilitaris.utils {
 		 * openWindow() before calling navigateToURL.
 		 * @param request A String or an URLRequest reference to the URL you wish to open/navigate to
 		 * @param window Browser window or HTML frame in which to display the URL indicated by the request parameter
-		 * @throws ArguementTypeError if you pass a value type other than a String or URLRequest to parameter request.
+		 * @throws Error if you pass a value type other than a String or URLRequest to parameter request.
 		 */
 		//noinspection FunctionWithMultipleReturnPointsJS
 		public static function openUrl(request:*, window:String = WINDOW_SELF):void {

@@ -195,6 +195,7 @@ package com.falanxia.utilitaris.utils {
 				case 10 :
 					out = new type(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]); break;
 				default:
+
 					throw new Error("You have passed more arguments than this method accepts (Ten or less).");
 			}
 
