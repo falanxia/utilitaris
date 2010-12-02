@@ -58,5 +58,6 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 
 		function getIsRunning():Boolean;
 
+
 	}
 }

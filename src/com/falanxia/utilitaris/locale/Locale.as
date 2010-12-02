@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.locale {
-	import com.falanxia.utilitaris.locale.LanguageDictionary;
+
 
 
 
@@ -68,17 +68,20 @@ package com.falanxia.utilitaris.locale {
 		 */
 		public static function parseObject(locale:Object, doRewriteLangDict:Boolean = true):void {
 			for(var lang:String in locale) {
-
 				var dictionary:LanguageDictionary;
 				var isDictFound:Boolean;
-				if (doRewriteLangDict) {
-					 dictionary = new LanguageDictionary(lang);
-				} else {
+
+				if(doRewriteLangDict) {
+					dictionary = new LanguageDictionary(lang);
+				}
+				else {
 					var l:uint = dictionaries.length;
-					for (var i:int = 0; i < l; i++) {
-						if (LanguageDictionary(dictionaries[i]).lang == lang) {
+
+					for(var i:int = 0; i < l; i++) {
+						if(LanguageDictionary(dictionaries[i]).lang == lang) {
 							dictionary = LanguageDictionary(dictionaries[i]);
 							isDictFound = true;
+
 							break;
 						}
 					}
@@ -87,7 +90,7 @@ package com.falanxia.utilitaris.locale {
 
 				dictionary.parseObject(locale[lang]);
 
-				if (doRewriteLangDict && !isDictFound) dictionaries.push(dictionary);
+				if(doRewriteLangDict && !isDictFound) dictionaries.push(dictionary);
 
 				if(currentLanguage == "") language = lang;
 			}

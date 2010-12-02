@@ -674,6 +674,13 @@ package com.falanxia.utilitaris.utils {
 
 
 
+		/**
+		 * Get number as a hexadecimal String.
+		 * @param number A number to convert
+		 * @param minimumLength Minimal length
+		 * @param showHexDenotation Show "0x"
+		 * @return
+		 */
 		public static function getNumberAsHexString(number:uint, minimumLength:uint = 1, showHexDenotation:Boolean = true):String {
 			// The string that will be output at the end of the function.
 			var string:String = number.toString(16).toUpperCase();

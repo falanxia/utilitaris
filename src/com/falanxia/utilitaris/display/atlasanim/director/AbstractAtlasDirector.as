@@ -39,7 +39,8 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 		protected var activeAtlasAnims:Vector.<IAtlasAnim>;
 		protected var activeAtlasAnimsCount:uint;
-		protected var isRunning:Boolean
+		protected var isRunning:Boolean;
+
 
 
 		public function AbstractAtlasDirector() {
@@ -64,6 +65,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 			if(activeAtlasAnims.indexOf(atlasAnim) == -1) {
 				activeAtlasAnims.push(atlasAnim);
 				activeAtlasAnimsCount++;
+
 				return true;
 			}
 
@@ -88,6 +90,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 		public function unregisterAll():void {
 			this.activeAtlasAnims.splice(0, activeAtlasAnims.length);
+
 			activeAtlasAnimsCount = 0;
 		}
 
@@ -99,6 +102,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 					activeAtlasAnims[i].destroy();
 				}
 			}
+
 			activeAtlasAnims = null;
 			activeAtlasAnimsCount = 0;
 		}

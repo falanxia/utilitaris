@@ -46,6 +46,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 		public function TimerAtlasDirector(refreshRate:Number) {
 			super();
+
 			timer = new Timer(refreshRate);
 		}
 
@@ -71,8 +72,10 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 		override public function destroy(destroyAssociatedAnims:Boolean = true):void {
 			super.destroy(destroyAssociatedAnims);
+
 			timer.stop();
 			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
+
 			timer = null;
 		}
 
