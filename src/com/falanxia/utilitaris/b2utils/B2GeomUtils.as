@@ -233,7 +233,7 @@ package com.falanxia.utilitaris.b2utils {
 			var w3:WorldRectangleObject = new WorldRectangleObject("wall3", new WorldCoords(x, height - wallSize), width, wallSize);
 			var w4:WorldRectangleObject = new WorldRectangleObject("wall4", new WorldCoords(x, y + wallSize), wallSize, height - 2 * wallSize - y);
 
-			var v:Vector.<b2Body> = new Vector.<b2Body>;
+			var v:Vector.<b2Body> = new Vector.<b2Body>();
 			v.push(drawRectangle(w1, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
 			v.push(drawRectangle(w2, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
 			v.push(drawRectangle(w3, isSensor, density, restitution, friction, angularDamping, linearDamping, isBullet));
