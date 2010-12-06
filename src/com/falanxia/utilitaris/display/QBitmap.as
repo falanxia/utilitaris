@@ -79,14 +79,10 @@ package com.falanxia.utilitaris.display {
 			if(c.embed) {
 				if(c.embed is Bitmap) {
 					this.bitmapData = c.embed.bitmapData;
-				}
-				else {
-					if(c.embed is BitmapData) {
-						this.bitmapData = c.embed;
-					}
-					else {
-						throw new TypeError("Invalid embed object");
-					}
+				} else if(c.embed is BitmapData) {
+					this.bitmapData = c.embed;
+				} else {
+					throw new TypeError("Invalid embed object");
 				}
 			}
 

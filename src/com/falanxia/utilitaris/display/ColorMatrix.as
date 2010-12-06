@@ -87,14 +87,10 @@ package com.falanxia.utilitaris.display {
 		public function ColorMatrix(mat:Object = null) {
 			if(mat is ColorMatrix) {
 				matrix = mat.matrix.concat();
-			}
-			else {
-				if(mat is Array) {
-					matrix = mat.concat();
-				}
-				else {
-					reset();
-				}
+			} else if(mat is Array) {
+				matrix = mat.concat();
+			} else {
+				reset();
 			}
 		}
 

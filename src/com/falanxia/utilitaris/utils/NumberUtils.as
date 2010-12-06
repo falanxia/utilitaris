@@ -117,24 +117,15 @@ package com.falanxia.utilitaris.utils {
 		public static function max(val1:*, val2:*):Number {
 			var out:Number;
 
+			//noinspection IfStatementWithTooManyBranchesJS
 			if(isNaN(val1) && isNaN(val2) || val1 == null && val2 == null) {
 				out = NaN;
-			}
-
-			else {
-				if(val1 == null || val2 == null) {
-					out = (val2 == null) ? val1 : val2;
-				}
-
-				else {
-					if(isNaN(val1) || isNaN(val2)) {
-						out = (isNaN(val2)) ? val1 : val2;
-					}
-
-					else {
-						out = Math.max(val1, val2);
-					}
-				}
+			} else if(val1 == null || val2 == null) {
+				out = (val2 == null) ? val1 : val2;
+			} else if(isNaN(val1) || isNaN(val2)) {
+				out = (isNaN(val2)) ? val1 : val2;
+			} else {
+				out = Math.max(val1, val2);
 			}
 
 			return out;
@@ -379,8 +370,7 @@ package com.falanxia.utilitaris.utils {
 			// if a point didn't exist or the decimal is 0, empty the decimal
 			if(valueArray.length == 1 || valueArray[1] == "0") {
 				decimal = "";
-			}
-			else {
+			} else {
 				decimal = valueArray[1];
 			}
 

@@ -360,11 +360,8 @@ package com.falanxia.utilitaris.utils {
 							t = dateToFormat.getHours();
 							if(t == 0) {
 								t = 12;
-							}
-							else {
-								if(t > 12) {
-									t -= 12;
-								}
+							} else if(t > 12) {
+								t -= 12;
 							}
 							out += String(t);
 							break;
@@ -379,11 +376,8 @@ package com.falanxia.utilitaris.utils {
 							t = dateToFormat.getHours() + 1;
 							if(t == 0) {
 								t = 12;
-							}
-							else {
-								if(t > 12) {
-									t -= 12;
-								}
+							} else if(t > 12) {
+								t -= 12;
 							}
 							out += NumberUtils.addLeadingZero(t);
 							break;
@@ -484,16 +478,10 @@ package com.falanxia.utilitaris.utils {
 
 				if(time[2].indexOf("+") > -1) {
 					index = time[2].indexOf("+");
-				}
-				else {
-					if(time[2].indexOf("-") > -1) {
-						index = time[2].indexOf("-");
-					}
-					else {
-						if(time[2].indexOf("Z") > -1) {
-							index = time[2].indexOf("Z");
-						}
-					}
+				} else if(time[2].indexOf("-") > -1) {
+					index = time[2].indexOf("-");
+				} else if(time[2].indexOf("Z") > -1) {
+					index = time[2].indexOf("Z");
 				}
 
 				if(isNaN(index)) {

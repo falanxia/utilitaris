@@ -100,11 +100,8 @@ package com.falanxia.utilitaris.utils {
 
 			if(value > 1) {
 				v = 1;
-			}
-			else {
-				if(value < -1) {
-					v = -1;
-				}
+			} else if(value < -1) {
+				v = -1;
 			}
 
 			var percent:Number = 1 - Math.abs(v);

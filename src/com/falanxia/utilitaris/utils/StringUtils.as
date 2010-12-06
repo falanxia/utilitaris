@@ -88,8 +88,7 @@ package com.falanxia.utilitaris.utils {
 			// return the unaltered string if str or chars are null or empty
 			if(!value || !c) {
 				out = value;
-			}
-			else {
+			} else {
 				// slash unsafe characters
 				c = slashUnsafeChars(c);
 
@@ -118,8 +117,7 @@ package com.falanxia.utilitaris.utils {
 			// return the unaltered string if str or chars are null or empty
 			if(!value || !c) {
 				out = value;
-			}
-			else {
+			} else {
 				// slash unsafe characters
 				c = slashUnsafeChars(c);
 
@@ -321,8 +319,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(args[0] === true) {
 				out = out.replace(/^.|\b./g, upperCase2);
-			}
-			else {
+			} else {
 				out = out.replace(/(^\w)/, upperCase2);
 			}
 
@@ -389,10 +386,8 @@ package com.falanxia.utilitaris.utils {
 
 			if(v == t) {
 				out = 0;
-			}
-			else {
-				var d:Array = [
-				];
+			} else {
+				var d:Array = [];
 				var cost:uint;
 				var n:uint = v.length;
 				var m:uint = t.length;
@@ -400,38 +395,33 @@ package com.falanxia.utilitaris.utils {
 
 				if(n == 0) {
 					out = m;
-				}
-				else {
-					if(m == 0) {
-						out = n;
+				} else if(m == 0) {
+					out = n;
+				} else {
+					for(i = 0; i <= n; i++) {
+						d[i] = [];
 					}
-					else {
-						for(i = 0; i <= n; i++) {
-							d[i] = [
-							];
-						}
-						for(i = 0; i <= n; i++) d[i][0] = i;
-						for(j = 0; j <= m; j++) d[0][j] = j;
 
-						for(i = 1; i <= n; i++) {
-							var s_i:String = v.charAt(i - 1);
+					for(i = 0; i <= n; i++) d[i][0] = i;
+					for(j = 0; j <= m; j++) d[0][j] = j;
 
-							for(j = 1; j <= m; j++) {
-								var t_j:String = t.charAt(j - 1);
+					for(i = 1; i <= n; i++) {
+						var s_i:String = v.charAt(i - 1);
 
-								if(s_i == t_j) {
-									cost = 0;
-								}
-								else {
-									cost = 1;
-								}
+						for(j = 1; j <= m; j++) {
+							var t_j:String = t.charAt(j - 1);
 
-								d[i][j] = minimum2(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+							if(s_i == t_j) {
+								cost = 0;
+							} else {
+								cost = 1;
 							}
-						}
 
-						out = d[n][m];
+							d[i][j] = minimum2(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+						}
 					}
+
+					out = d[n][m];
 				}
 			}
 
@@ -885,8 +875,7 @@ package com.falanxia.utilitaris.utils {
 				// minute to one hour
 				if(seconds % 60 == 0) {
 					out = convertCounterString(formatMinutes, minutes);
-				}
-				else {
+				} else {
 					out = convertCounterString(formatMinutes, minutes) + ", " + convertCounterString(formatSeconds, secondsTrimmed);
 				}
 			}
@@ -895,8 +884,7 @@ package com.falanxia.utilitaris.utils {
 				// hour to a day
 				if(minutes % 60 == 0) {
 					out = convertCounterString(formatHours, hours);
-				}
-				else {
+				} else {
 					out = convertCounterString(formatHours, hours) + ", " + convertCounterString(formatMinutes, minutes);
 				}
 			}
@@ -905,8 +893,7 @@ package com.falanxia.utilitaris.utils {
 				// days
 				if(hours % 24 == 0) {
 					out = convertCounterString(formatDays, days);
-				}
-				else {
+				} else {
 					out = convertCounterString(formatDays, days) + ", " + convertCounterString(formatHours, hours);
 				}
 			}

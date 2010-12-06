@@ -223,30 +223,17 @@ package com.falanxia.utilitaris.utils {
 					browserAgent = ExternalInterface.call("function getBrowser(){return navigator.userAgent;}");
 
 					// determines brand of browser using a find index. If not found indexOf returns (-1).
+					// noinspection IfStatementWithTooManyBranchesJS
 					if(browserAgent != null && browserAgent.indexOf("Firefox") >= 0) {
 						out = BROWSER_FIREFOX;
-					}
-
-					else {
-						if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
-							out = BROWSER_SAFARI;
-						}
-
-						else {
-							if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
-								out = BROWSER_IE;
-							}
-
-							else {
-								if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
-									out = BROWSER_OPERA;
-								}
-
-								else {
-									out = BROWSER_UNDEFINED;
-								}
-							}
-						}
+					} else if(browserAgent != null && browserAgent.indexOf("Safari") >= 0) {
+						out = BROWSER_SAFARI;
+					} else if(browserAgent != null && browserAgent.indexOf("MSIE") >= 0) {
+						out = BROWSER_IE;
+					} else if(browserAgent != null && browserAgent.indexOf("Opera") >= 0) {
+						out = BROWSER_OPERA;
+					} else {
+						out = BROWSER_UNDEFINED;
 					}
 				}
 
