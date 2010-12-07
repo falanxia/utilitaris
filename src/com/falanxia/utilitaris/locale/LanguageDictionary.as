@@ -23,11 +23,7 @@
  */
 
 package com.falanxia.utilitaris.locale {
-	import com.falanxia.utilitaris.utils.ObjectUtils;
-	import com.falanxia.utilitaris.utils.ObjectUtils;
 	import com.falanxia.utilitaris.utils.StringUtils;
-
-	import de.dev_lab.logging.Logger;
 
 	import flash.utils.Dictionary;
 
@@ -68,18 +64,6 @@ package com.falanxia.utilitaris.locale {
 			for each(var x:XML in list) {
 				dictionary[String(x.@id)] = StringUtils.trim(String(x));
 			}
-		}
-
-
-
-		public function parseLocales(o:Object):void {
-			var a:Array;
-
-			Logger.fatal(ObjectUtils.inspect(o));
-			for each (var s:Object in o) {
-				Logger.warn(s);
-			}
-
 		}
 
 
