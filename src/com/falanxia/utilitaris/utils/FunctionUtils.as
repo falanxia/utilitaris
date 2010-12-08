@@ -54,6 +54,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Get a stack trace.
+		 * Works only in debug player!
 		 * @return Stack trace
 		 */
 		public static function getStackTrace():String {
