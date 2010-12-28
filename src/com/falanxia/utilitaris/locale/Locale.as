@@ -23,7 +23,7 @@
  */
 
 package com.falanxia.utilitaris.locale {
-
+	import com.falanxia.utilitaris.typogryphix.Typogryphix;
 
 
 
@@ -73,8 +73,7 @@ package com.falanxia.utilitaris.locale {
 
 				if(doRewriteLangDict) {
 					dictionary = new LanguageDictionary(lang);
-				}
-				else {
+				} else {
 					var l:uint = dictionaries.length;
 
 					for(var i:int = 0; i < l; i++) {
@@ -106,7 +105,7 @@ package com.falanxia.utilitaris.locale {
 		public static function getText(id:String):String {
 			var out:String;
 
-			if(currentDictionary != null) out = currentDictionary.getText(id);
+			if(currentDictionary != null) out = Typogryphix.please(currentDictionary.getText(id));
 
 			// locale string not found
 			if(out == null) out = "[" + id + "]";
