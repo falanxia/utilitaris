@@ -44,7 +44,13 @@ package com.falanxia.utilitaris.typogryphix {
 		 * @return Corrected text
 		 */
 		public static function please(input:String):String {
-			return StringUtils.removeExtraWhitespace(input); // TODO: More filtering :]
+			var out:String = StringUtils.removeExtraWhitespace(input);
+
+			out = out.replace(" - ", " &#8211; ");
+
+			return out;
+
+			// TODO: More filtering :]
 		}
 	}
 }
