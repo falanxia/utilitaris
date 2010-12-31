@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.types {
+	import flash.geom.Rectangle;
 
 
 
@@ -53,6 +54,27 @@ package com.falanxia.utilitaris.types {
 		public final function Size(width:Number = 0, height:Number = 0) {
 			this.width = width;
 			this.height = height;
+		}
+
+
+
+		/**
+		 * Convert Size to Rectangle.
+		 * @return Rectangle
+		 */
+		public function get rect():Rectangle {
+			return new Rectangle(0, 0, width, height);
+		}
+
+
+
+		/**
+		 * Convert Rectangle to Size
+		 * @param value Rectangle
+		 */
+		public function set rect(value:Rectangle):void {
+			width = rect.width;
+			height = rect.height;
 		}
 	}
 }
