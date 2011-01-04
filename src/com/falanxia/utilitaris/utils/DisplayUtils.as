@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -200,8 +200,7 @@ package com.falanxia.utilitaris.utils {
 				y1 = center.y;
 
 				g.moveTo(x1, y1);
-			}
-			else {
+			} else {
 				// not a full circle
 				if(a > angle2) {
 					a -= 360;
@@ -627,8 +626,7 @@ package com.falanxia.utilitaris.utils {
 				out = NumberUtils.confine(out, 0, object.parent.numChildren - 1);
 
 				object.parent.setChildIndex(object, out);
-			}
-			else {
+			} else {
 				out = -1;
 			}
 
@@ -652,8 +650,7 @@ package com.falanxia.utilitaris.utils {
 				out = NumberUtils.confine(out, 0, object.parent.numChildren - 1);
 
 				object.parent.setChildIndex(object, out);
-			}
-			else {
+			} else {
 				out = -1;
 			}
 
@@ -676,8 +673,7 @@ package com.falanxia.utilitaris.utils {
 				out = NumberUtils.confine(forward, 0, object.parent.numChildren - 1);
 
 				object.parent.setChildIndex(object, out);
-			}
-			else {
+			} else {
 				out = -1;
 			}
 
@@ -701,8 +697,7 @@ package com.falanxia.utilitaris.utils {
 				out = NumberUtils.confine(out, 0, object.parent.numChildren - 1);
 
 				object.parent.setChildIndex(object, out);
-			}
-			else {
+			} else {
 				out = -1;
 			}
 

@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -72,8 +72,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(r is String) {
 				r = new URLRequest(r);
-			}
-			else {
+			} else {
 				if(!(r is URLRequest
 				    )) {
 					throw new Error("request");
