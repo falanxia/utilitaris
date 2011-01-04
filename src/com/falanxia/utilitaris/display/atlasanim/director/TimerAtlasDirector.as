@@ -23,66 +23,59 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
+import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
 
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
+import flash.events.TimerEvent;
+import flash.utils.Timer;
 
-
-
-	/**
-	 * Timer atlas director.
-	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
-	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
-	 */
-	public class TimerAtlasDirector extends AbstractAtlasDirector implements IAtlasDirector {
+/**
+ * Timer atlas director.
+ *
+ * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+ * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+ * @since 1.0
+ */
+public class TimerAtlasDirector extends AbstractAtlasDirector implements IAtlasDirector {
 
 
-		private var timer:Timer;
+    private var timer:Timer;
 
 
+    public function TimerAtlasDirector(refreshRate:Number) {
+        super();
 
-		public function TimerAtlasDirector(refreshRate:Number) {
-			super();
-
-			timer = new Timer(refreshRate);
-		}
-
+        timer = new Timer(refreshRate);
+    }
 
 
-		override public function start():void {
-			timer.addEventListener(TimerEvent.TIMER, onTimerTick);
-			timer.start();
+    override public function start():void {
+        timer.addEventListener(TimerEvent.TIMER, onTimerTick);
+        timer.start();
 
-			super.start();
-		}
-
-
-
-		override public function stop():void {
-			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
-			timer.stop();
-
-			super.stop()
-		}
+        super.start();
+    }
 
 
+    override public function stop():void {
+        timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
+        timer.stop();
 
-		override public function destroy(destroyAssociatedAnims:Boolean = true):void {
-			super.destroy(destroyAssociatedAnims);
-
-			timer.stop();
-			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
-
-			timer = null;
-		}
+        super.stop()
+    }
 
 
+    override public function destroy(destroyAssociatedAnims:Boolean = true):void {
+        super.destroy(destroyAssociatedAnims);
 
-		private function onTimerTick(e:TimerEvent):void {
-			this.updateAnims();
-		}
-	}
+        timer.stop();
+        timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
+
+        timer = null;
+    }
+
+
+    private function onTimerTick(e:TimerEvent):void {
+        this.updateAnims();
+    }
+}
 }

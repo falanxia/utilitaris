@@ -23,102 +23,91 @@
  */
 
 package com.falanxia.utilitaris.display.atlasanim.director {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasAnim;
+import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasAnim;
+
+/**
+ * Abstract atlas director.
+ *
+ * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+ * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+ * @since 1.0
+ */
+public class AbstractAtlasDirector {
 
 
-
-	/**
-	 * Abstract atlas director.
-	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
-	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
-	 */
-	public class AbstractAtlasDirector {
+    protected var activeAtlasAnims:Vector.<IAtlasAnim>;
+    protected var activeAtlasAnimsCount:uint;
+    protected var isRunning:Boolean;
 
 
-		protected var activeAtlasAnims:Vector.<IAtlasAnim>;
-		protected var activeAtlasAnimsCount:uint;
-		protected var isRunning:Boolean;
+    public function AbstractAtlasDirector() {
+        activeAtlasAnims = new Vector.<IAtlasAnim>();
+    }
 
 
-
-		public function AbstractAtlasDirector() {
-			activeAtlasAnims = new Vector.<IAtlasAnim>();
-		}
-
+    public function start():void {
+        isRunning = true;
+    }
 
 
-		public function start():void {
-			isRunning = true;
-		}
+    public function stop():void {
+        isRunning = false;
+    }
 
 
+    public function registerAnim(atlasAnim:IAtlasAnim):Boolean {
+        if (activeAtlasAnims.indexOf(atlasAnim) == -1) {
+            activeAtlasAnims.push(atlasAnim);
+            activeAtlasAnimsCount++;
 
-		public function stop():void {
-			isRunning = false;
-		}
+            return true;
+        }
 
-
-
-		public function registerAnim(atlasAnim:IAtlasAnim):Boolean {
-			if(activeAtlasAnims.indexOf(atlasAnim) == -1) {
-				activeAtlasAnims.push(atlasAnim);
-				activeAtlasAnimsCount++;
-
-				return true;
-			}
-
-			return false;
-		}
+        return false;
+    }
 
 
+    public function unregisterAnim(atlasAnim:IAtlasAnim):Boolean {
+        var i:int = activeAtlasAnims.indexOf(atlasAnim);
 
-		public function unregisterAnim(atlasAnim:IAtlasAnim):Boolean {
-			var i:int = activeAtlasAnims.indexOf(atlasAnim);
+        if (i > -1) {
+            activeAtlasAnims.splice(i, 1);
+            activeAtlasAnimsCount--;
+            return true;
+        }
 
-			if(i > -1) {
-				activeAtlasAnims.splice(i, 1);
-				activeAtlasAnimsCount--;
-				return true;
-			}
-
-			return false;
-		}
-
+        return false;
+    }
 
 
-		public function unregisterAll():void {
-			this.activeAtlasAnims.splice(0, activeAtlasAnims.length);
+    public function unregisterAll():void {
+        this.activeAtlasAnims.splice(0, activeAtlasAnims.length);
 
-			activeAtlasAnimsCount = 0;
-		}
-
-
-
-		public function destroy(destroyAssociatedAnims:Boolean = true):void {
-			if(destroyAssociatedAnims) {
-				for(var i:int = 0; i < activeAtlasAnimsCount; i++) {
-					activeAtlasAnims[i].destroy();
-				}
-			}
-
-			activeAtlasAnims = null;
-			activeAtlasAnimsCount = 0;
-		}
+        activeAtlasAnimsCount = 0;
+    }
 
 
+    public function destroy(destroyAssociatedAnims:Boolean = true):void {
+        if (destroyAssociatedAnims) {
+            for (var i:int = 0; i < activeAtlasAnimsCount; i++) {
+                activeAtlasAnims[i].destroy();
+            }
+        }
 
-		public function getIsRunning():Boolean {
-			return isRunning;
-		}
+        activeAtlasAnims = null;
+        activeAtlasAnimsCount = 0;
+    }
 
 
+    public function getIsRunning():Boolean {
+        return isRunning;
+    }
 
-		protected function updateAnims():void {
-			for(var i:int; i < activeAtlasAnimsCount; i++) {
-				activeAtlasAnims[i].update();
-			}
-		}
-	}
+
+    protected function updateAnims():void {
+        for (var i:int; i < activeAtlasAnimsCount; i++) {
+            activeAtlasAnims[i].update();
+        }
+    }
+}
 }

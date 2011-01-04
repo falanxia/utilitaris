@@ -51,13 +51,13 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		public function start():void {
+		override public function start():void {
 			this.stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
 
-		public function stop():void {
+		override public function stop():void {
 			this.stage.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 

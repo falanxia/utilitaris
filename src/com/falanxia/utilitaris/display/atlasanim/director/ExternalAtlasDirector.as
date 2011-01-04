@@ -47,13 +47,13 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		public function start():void {
+		override public function start():void {
 			isRunning = true;
 		}
 
 
 
-		public function stop():void {
+		override public function stop():void {
 			isRunning = false;
 		}
 
