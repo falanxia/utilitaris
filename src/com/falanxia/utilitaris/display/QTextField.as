@@ -116,6 +116,7 @@ package com.falanxia.utilitaris.display {
 		 * Placeholder.
 		 */
 		public function destroy():void {
+			this.filters = null;
 		}
 
 

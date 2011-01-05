@@ -106,7 +106,10 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function destroy():void {
 			if(_embeddedSpr != null && this.contains(_embeddedSpr)) this.removeChild(_embeddedSpr);
+
 			_embeddedSpr = null;
+
+			this.filters = null;
 		}
 
 

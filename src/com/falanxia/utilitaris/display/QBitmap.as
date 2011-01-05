@@ -106,6 +106,7 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function destroy():void {
 			this.bitmapData = null;
+			this.filters = null;
 		}
 
 
