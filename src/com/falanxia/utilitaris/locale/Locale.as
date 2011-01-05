@@ -37,8 +37,7 @@ package com.falanxia.utilitaris.locale {
 	public class Locale {
 
 
-		private static var dictionaries:Array = [
-		];
+		private static var dictionaries:Array = [];
 		private static var currentLanguage:String = "";
 		private static var currentDictionary:LanguageDictionary;
 
@@ -73,7 +72,9 @@ package com.falanxia.utilitaris.locale {
 
 				if(doRewriteLangDict) {
 					dictionary = new LanguageDictionary(lang);
-				} else {
+				}
+
+				else {
 					var l:uint = dictionaries.length;
 
 					for(var i:int = 0; i < l; i++) {
@@ -84,7 +85,6 @@ package com.falanxia.utilitaris.locale {
 							break;
 						}
 					}
-
 				}
 
 				dictionary.parseObject(locale[lang]);
@@ -154,8 +154,7 @@ package com.falanxia.utilitaris.locale {
 		 * @return Languages list
 		 */
 		public static function get languageList():Array {
-			var out:Array = [
-			];
+			var out:Array = [];
 
 			for each(var dictionary:LanguageDictionary in dictionaries) {
 				out.push(dictionary.lang);

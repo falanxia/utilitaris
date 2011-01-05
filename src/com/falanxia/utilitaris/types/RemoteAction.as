@@ -56,6 +56,16 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
+		 * Destructor.
+		 */
+		public function destroy():void {
+			id = null;
+			arg = null;
+		}
+
+
+
+		/**
 		 * Get the dump.
 		 * @return Dump
 		 */
