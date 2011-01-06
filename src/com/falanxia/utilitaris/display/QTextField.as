@@ -66,8 +66,8 @@ package com.falanxia.utilitaris.display {
 		 *          <li>type - set to TextFieldType.DYNAMIC</li>
 		 *          <li>wordWrap - set to true</li>
 		 *      </ul>
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 * @example Example code:
 		 *      <code>
 		 *		    var myText:QTextField = new QTextField(x:100, y:50, width:300, embedFonts:false, text:'Lorem ipsum dolor sit amet'});
@@ -78,7 +78,7 @@ package com.falanxia.utilitaris.display {
 		 *          var myText:QTextField = new QTextField({}, this);
 		 *      </code>
 		 */
-		public function QTextField(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QTextField(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create default settings
 			var d:Object = {
 				antiAliasType:AntiAliasType.ADVANCED,
@@ -93,7 +93,7 @@ package com.falanxia.utilitaris.display {
 			};
 
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			super();
 
@@ -102,7 +102,7 @@ package com.falanxia.utilitaris.display {
 			ObjectUtils.assign(this, d);
 
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
 			if(c.size != null) this.size = c.size;

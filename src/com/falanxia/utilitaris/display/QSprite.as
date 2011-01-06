@@ -59,8 +59,8 @@ package com.falanxia.utilitaris.display {
 		 *      <ul>
 		 *          <li>embed - DisplayObject to be attached inside</li>
 		 *      </ul>
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 * @throws TypeError if embedded DisplayObject is invalid
 		 * @example Example code:
 		 *      <code>
@@ -72,9 +72,9 @@ package com.falanxia.utilitaris.display {
 		 *          var mySprite:QSprite = new QSprite({}, this);
 		 *      </code>
 		 */
-		public function QSprite(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QSprite(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			super();
 
@@ -92,7 +92,7 @@ package com.falanxia.utilitaris.display {
 			ObjectUtils.assign(this, c);
 
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
 			if(c.size != null) this.size = c.size;

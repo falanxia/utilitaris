@@ -58,8 +58,8 @@ package com.falanxia.utilitaris.display {
 		 *      </ul>
 		 * @param width Video width
 		 * @param height Video height
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 * @example Example code:
 		 *      <code>
 		 *		    var myVideo:QVideo = new QVideo(400, 300, {x:100, y:50});
@@ -70,7 +70,7 @@ package com.falanxia.utilitaris.display {
 		 *          var myVideo:QVideo = new QVideo(400, 300, {}, this);
 		 *      </code>
 		 */
-		public function QVideo(width:Number, height:Number, config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QVideo(width:Number, height:Number, displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create default settings
 			var d:Object = {
 				deblocking:5,
@@ -78,7 +78,7 @@ package com.falanxia.utilitaris.display {
 			};
 
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			try {
 				super(c.width, c.height);
@@ -93,7 +93,7 @@ package com.falanxia.utilitaris.display {
 			ObjectUtils.assign(this, d);
 
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
 			if(c.size != null) this.size = c.size;

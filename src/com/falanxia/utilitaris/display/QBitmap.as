@@ -56,8 +56,8 @@ package com.falanxia.utilitaris.display {
 		 *      <ul>
 		 *          <li>embed - Bitmap or BitmapData to be used as Bitmap source</li>
 		 *      </ul>
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 * @throws TypeError if embedded Bitmap or BitmapData is invalid
 		 * @example Example code:
 		 *      <code>
@@ -70,9 +70,9 @@ package com.falanxia.utilitaris.display {
 		 *          var myBitmap:QBitmap = new QBitmap({embed:new _bitmapTest()}, this);
 		 *      </code>
 		 */
-		public function QBitmap(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QBitmap(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			super();
 
@@ -91,7 +91,7 @@ package com.falanxia.utilitaris.display {
 			ObjectUtils.assign(this, c);
 
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
 			if(c.size != null) this.size = c.size;

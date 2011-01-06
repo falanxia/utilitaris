@@ -109,15 +109,15 @@ package com.falanxia.utilitaris.display {
 		 *          <li>isMorphWidthEnabled - width morphing flag. If not defined, defaultIsMorphWidthEnabled used instead.</li>
 		 *          <li>isMorphHeightEnabled - height morphing flag. If not defined, defaultIsMorphHeightEnabled used instead.</li>
 		 *      </ul>
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 */
-		public function MorphSprite(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function MorphSprite(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			// create parent QSprite
-			super(c, parent);
+			super(c, displayParent);
 
 			// assign values
 			morphDuration = (c.morphDuration == undefined) ? defaultMorphDuration : c.morphDuration;
@@ -157,9 +157,9 @@ package com.falanxia.utilitaris.display {
 		 *          <li>morphEase - easing Function</li>
 		 *          <li>morphDuration - duration in seconds</li>
 		 *      </ul>
-		 * @param config Config Object
+		 * @param displayConfig Config Object
 		 */
-		public function morph(config:Object):void {
+		public function morph(displayConfig:Object):void {
 			if(initialProperties == null) {
 				initialProperties = new Object();
 				initialProperties.x = this.x;
@@ -173,19 +173,19 @@ package com.falanxia.utilitaris.display {
 
 			var t:Object = new Object();
 
-			if(isMorphXEnabled && config.x != undefined) t.x = config.x;
-			if(isMorphYEnabled && config.y != undefined) t.y = config.y;
-			if(isMorphWidthEnabled && config.width != undefined) t.width = config.width;
-			if(isMorphHeightEnabled && config.height != undefined) t.height = config.height;
+			if(isMorphXEnabled && displayConfig.x != undefined) t.x = displayConfig.x;
+			if(isMorphYEnabled && displayConfig.y != undefined) t.y = displayConfig.y;
+			if(isMorphWidthEnabled && displayConfig.width != undefined) t.width = displayConfig.width;
+			if(isMorphHeightEnabled && displayConfig.height != undefined) t.height = displayConfig.height;
 
-			t.ease = (config.morphEase == undefined) ? morphEase : config.morphEase;
+			t.ease = (displayConfig.morphEase == undefined) ? morphEase : displayConfig.morphEase;
 			t.roundProps = [
 				"x", "y", "width", "height"
 			];
 			t.onComplete = onMorphComplete;
 
 			//noinspection ObjectAllocationIgnored
-			new TweenMax(this, (config.morphDuration == undefined) ? morphDuration : config.morphDuration, t);
+			new TweenMax(this, (displayConfig.morphDuration == undefined) ? morphDuration : displayConfig.morphDuration, t);
 		}
 
 

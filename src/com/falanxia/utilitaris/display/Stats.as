@@ -78,12 +78,12 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 */
-		public function Stats(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function Stats(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create parent QSprite
-			super(config, parent);
+			super(displayConfig, displayParent);
 
 			// add components
 			fpsGraphBD = new BitmapData(WIDTH, 50, false, 0x000000);
