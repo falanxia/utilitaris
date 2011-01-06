@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -151,8 +151,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(items.length == 0) {
 				out = false;
-			}
-			else {
+			} else {
 				var args:Array = items.concat();
 				args.splice(0, 0, index, 0);
 				tarArray.splice.apply(null, args);
@@ -349,8 +348,7 @@ package com.falanxia.utilitaris.utils {
 				while(i--) {
 					if(first[i] != second[i]) out = false;
 				}
-			}
-			else {
+			} else {
 				out = false;
 			}
 
@@ -448,8 +446,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(inArray.length == 0) {
 				out = 0;
-			}
-			else {
+			} else {
 				out = sum(inArray) / inArray.length;
 			}
 

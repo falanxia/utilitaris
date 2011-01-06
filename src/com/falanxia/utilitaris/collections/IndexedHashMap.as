@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -178,8 +178,7 @@ package com.falanxia.utilitaris.collections {
 
 						return true;
 					}
-				}
-				else {
+				} else {
 					o = dicto[itemName];
 					var j:int = array.indexOf(o);
 
@@ -190,8 +189,7 @@ package com.falanxia.utilitaris.collections {
 
 					return true;
 				}
-			}
-			else {
+			} else {
 				var i:int = array.indexOf(o);
 
 				if(i < 0) return false;

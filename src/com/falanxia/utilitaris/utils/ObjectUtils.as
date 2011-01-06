@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -207,8 +207,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(obj == null || delimiter == null) {
 				out = "";
-			}
-			else {
+			} else {
 				var ret:Array = [
 				];
 				for(var s:String in obj) {
@@ -300,8 +299,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(depth < 1) {
 				out = obj is String ? "\"" + obj + "\"" : String(obj);
-			}
-			else {
+			} else {
 				const classDef:XML = describeType(obj);
 				var str:String = "";
 
@@ -314,8 +312,7 @@ package com.falanxia.utilitaris.utils {
 				}
 
 				//noinspection NestedConditionalExpressionJS,NegatedConditionalExpressionJS
-				out = str == "" ? ((obj != null) ? (obj is String ? "\"" + obj + "\"" : obj + "") : "null") : ("[" + classDef.@name + "] {\n" + str +
-				                                                                                               (prefix.substr(0, prefix.length - 1)) + "}");
+				out = str == "" ? ((obj != null) ? (obj is String ? "\"" + obj + "\"" : obj + "") : "null") : ("[" + classDef.@name + "] {\n" + str + (prefix.substr(0, prefix.length - 1)) + "}");
 			}
 
 			return out;

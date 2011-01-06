@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -63,8 +63,7 @@ package com.falanxia.utilitaris.formats {
 				c = data[i];
 				c = (_encodeChars[c >>> 2] << 24) | (_encodeChars[(c & 0x03) << 4] << 16) | 61 << 8 | 61;
 				out.writeInt(c);
-			}
-			else {
+			} else {
 				if(r == 2) {
 					c = data[i++] << 8 | data[i];
 					c = (_encodeChars[c >>> 10] << 24) | (_encodeChars[c >>> 4 & 0x3f] << 16) | (_encodeChars[(c & 0x0f) << 2] << 8) | 61;

@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -189,15 +189,13 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		public function setFrameLimit(minFrame:uint, maxFrame:uint, jumpToFrame:Boolean = false):void {
 			if(minFrame > 0) {
 				this.limitMinFrame = minFrame;
-			}
-			else {
+			} else {
 				this.limitMinFrame = 0;
 			}
 
 			if(maxFrame < this.maxFrame) {
 				this.limitMaxFrame = maxFrame;
-			}
-			else {
+			} else {
 				this.limitMaxFrame = this.maxFrame;
 			}
 
@@ -210,8 +208,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			if(this.doPlayForward) {
 				frame++;
 				checkMaxFrame();
-			}
-			else {
+			} else {
 				frame--;
 				checkMinFrame();
 			}
@@ -222,8 +219,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 		protected function checkFrames():void {
 			if(this.doPlayForward) {
 				checkMaxFrame();
-			}
-			else {
+			} else {
 				checkMinFrame();
 			}
 		}
@@ -236,12 +232,10 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 					if(doYoyo) {
 						this.reverse();
 						frame = limitMinFrame + 1;
-					}
-					else {
+					} else {
 						frame = limitMaxFrame;
 					}
-				}
-				else {
+				} else {
 					this.director.unregisterAnim(this);
 					this.frame = limitMinFrame;
 				}
@@ -258,12 +252,10 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 					if(doYoyo) {
 						this.reverse();
 						this.frame = limitMaxFrame - 1;
-					}
-					else {
+					} else {
 						frame = limitMinFrame;
 					}
-				}
-				else {
+				} else {
 					this.director.unregisterAnim(this);
 					this.frame = limitMaxFrame;
 				}

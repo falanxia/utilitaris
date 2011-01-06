@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -88,8 +88,8 @@ package com.falanxia.utilitaris.utils {
 		 * @return Percent buffered
 		 * @see Percent
 		 */
-		public static function calculateBufferPercent(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint, lengthInMilliseconds:uint
-				):Percent {
+		public static function calculateBufferPercent(bytesLoaded:uint, bytesTotal:uint, startTime:uint, elapsedTime:uint,
+		                                              lengthInMilliseconds:uint):Percent {
 			var totalWait:Number = bytesTotal / (bytesLoaded / (elapsedTime - startTime)) - lengthInMilliseconds;
 			var millisecondsRemaining:uint = calculateMillisecondsUntilBuffered(bytesLoaded, bytesTotal, startTime, elapsedTime, lengthInMilliseconds);
 

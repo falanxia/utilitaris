@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -216,10 +216,10 @@ const BAD_VARIABLE_NUMBER:String = "The number of variables to be replaced and t
 /** Converts to a string*/
 const STRING_FORMATTER:String = "s";
 
-/** Outputs as a Number, can use the precision specifier: %.2sf will output a float with 2 decimal digits.*/
+/** Outputs as a Number, can use the precision specifier: %.2sf will output a float with 2 decimal digits */
 const FLOAT_FORMATER:String = "f";
 
-/** Outputs as an Integer.*/
+/** Outputs as an Integer */
 const INTEGER_FORMATER:String = "d";
 
 /** Converts to an OCTAL number */
@@ -231,34 +231,34 @@ const HEXA_FORMATER:String = "x";
 /** @private */
 const DATES_FORMATERS:String = "aAbBcDHIjmMpSUwWxXyYZ";
 
-/** Day of month, from 0 to 30 on <code>Date</code> objects.*/
+/** Day of month, from 0 to 30 on <code>Date</code> objects */
 const DATE_DAY_FORMATTER:String = "D";
 
-/** Full year, e.g. 2007 on <code>Date</code> objects.*/
+/** Full year, e.g. 2007 on <code>Date</code> objects */
 const DATE_FULLYEAR_FORMATTER:String = "Y";
 
-/** Year, e.g. 07 on <code>Date</code> objects.*/
+/** Year, e.g. 07 on <code>Date</code> objects */
 const DATE_YEAR_FORMATTER:String = "y";
 
-/** Month from 1 to 12 on <code>Date</code> objects.*/
+/** Month from 1 to 12 on <code>Date</code> objects */
 const DATE_MONTH_FORMATTER:String = "m";
 
-/** Hours (0-23) on <code>Date</code> objects.*/
+/** Hours (0-23) on <code>Date</code> objects */
 const DATE_HOUR24_FORMATTER:String = "H";
 
-/** Hours 0-12 on <code>Date</code> objects.*/
+/** Hours 0-12 on <code>Date</code> objects */
 const DATE_HOUR_FORMATTER:String = "I";
 
-/** a.m or p.m on <code>Date</code> objects.*/
+/** a.m or p.m on <code>Date</code> objects */
 const DATE_HOUR_AMPM_FORMATTER:String = "p";
 
-/** Minutes on <code>Date</code> objects.*/
+/** Minutes on <code>Date</code> objects */
 const DATE_MINUTES_FORMATTER:String = "M";
 
-/** Seconds on <code>Date</code> objects.*/
+/** Seconds on <code>Date</code> objects */
 const DATE_SECONDS_FORMATTER:String = "S";
 
-/** A string rep of a <code>Date</code> object on the current locale.*/
+/** A string rep of a <code>Date</code> object on the current locale */
 const DATE_TOLOCALE_FORMATTER:String = "c";
 
 

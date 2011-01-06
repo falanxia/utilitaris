@@ -1,7 +1,7 @@
 /*
  * Falanxia Utilitaris.
  *
- * Copyright (c) 2010 Falanxia (http://falanxia.com)
+ * Copyright (c) 2011 Falanxia (http://falanxia.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -66,8 +66,7 @@ package com.falanxia.utilitaris.template {
 		public function GlobalPreloader2(mainClassName:String, disableStart:Boolean = false) {
 			if(instance == null) {
 				_instance = this;
-			}
-			else {
+			} else {
 				throw new Error("Global preloader could be instantiated only once");
 			}
 
@@ -106,8 +105,7 @@ package com.falanxia.utilitaris.template {
 				if(mainClass === null) {
 					// main class not found
 					alert("Main class (" + mainClassName + ') not found. This is critical.');
-				}
-				else {
+				} else {
 					// main class found
 					// add it to the display list
 					try {
@@ -192,8 +190,7 @@ package com.falanxia.utilitaris.template {
 		protected function onEnterFrame(e:Event):void {
 			if(isStartDisabled) {
 				mainProgress += 0.001;
-			}
-			else {
+			} else {
 				mainProgress = 1 / (root.loaderInfo.bytesTotal / root.loaderInfo.bytesLoaded);
 
 				if(mainProgress >= 1) {
