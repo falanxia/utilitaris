@@ -223,11 +223,8 @@ package com.falanxia.utilitaris.formats {
 
 				if(t < 1) {
 					t = 1;
-				}
-				else {
-					if(t > 255) {
-						t = 255;
-					}
+				} else if(t > 255) {
+					t = 255;
 				}
 
 				YTable[ZigZag[i]] = t;
@@ -238,11 +235,8 @@ package com.falanxia.utilitaris.formats {
 
 				if(u < 1) {
 					u = 1;
-				}
-				else {
-					if(u > 255) {
-						u = 255;
-					}
+				} else if(u > 255) {
+					u = 255;
 				}
 
 				UVTable[ZigZag[i]] = u;
@@ -338,8 +332,7 @@ package com.falanxia.utilitaris.formats {
 					if(bytenew == 0xFF) {
 						byteout.writeByte(0xFF);
 						byteout.writeByte(0);
-					}
-					else {
+					} else {
 						byteout.writeByte(bytenew);
 					}
 					bytepos = 7;
@@ -651,8 +644,7 @@ package com.falanxia.utilitaris.formats {
 			//Encode DC
 			if(Diff == 0) {
 				writeBits(HTDC[0]); // Diff might be 0
-			}
-			else {
+			} else {
 				pos = int(32767 + Diff);
 				writeBits(HTDC[category[pos]]);
 				writeBits(bitcode[pos]);

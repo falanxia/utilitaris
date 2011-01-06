@@ -22,59 +22,35 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.types {
-	import flash.geom.Rectangle;
+package com.falanxia.utilitaris.typogryphix {
+	import com.falanxia.utilitaris.utils.StringUtils;
 
 
 
 	/**
-	 * Size data type.
+	 * Typogryphix.
+	 * Converts dumb text into typographically correct one.
 	 *
-	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
-	public final class Size {
-
-
-
-		/** Width */
-		public var width:Number;
-
-		/** Height */
-		public var height:Number;
+	public class Typogryphix {
 
 
 
 		/**
-		 * Constructor.
-		 * @param width Width
-		 * @param height Height
+		 * Please convert dumb text into typographically correct one.
+		 * @param input Input text
+		 * @return Corrected text
 		 */
-		public final function Size(width:Number = 0, height:Number = 0) {
-			this.width = width;
-			this.height = height;
-		}
+		public static function please(input:String):String {
+			var out:String = StringUtils.removeExtraWhitespace(input);
 
+			out = out.replace(" - ", " &#8211; ");
 
+			return out;
 
-		/**
-		 * Convert Size to Rectangle.
-		 * @return Rectangle
-		 */
-		public function get rect():Rectangle {
-			return new Rectangle(0, 0, width, height);
-		}
-
-
-
-		/**
-		 * Convert Rectangle to Size
-		 * @param value Rectangle
-		 */
-		public function set rect(value:Rectangle):void {
-			width = rect.width;
-			height = rect.height;
+			// TODO: More filtering :]
 		}
 	}
 }

@@ -65,14 +65,10 @@ package com.falanxia.utilitaris.utils {
 
 			if(source is Bitmap) {
 				o = source.bitmapData;
-			}
-			else {
-				if(source is BitmapData) {
-					o = source;
-				}
-				else {
-					throw new TypeError("Bitmap or BitmapData needed");
-				}
+			} else if(source is BitmapData) {
+				o = source;
+			} else {
+				throw new TypeError("Bitmap or BitmapData needed");
 			}
 
 			return o;

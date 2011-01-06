@@ -22,59 +22,32 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.types {
-	import flash.geom.Rectangle;
+package com.falanxia.utilitaris.enums {
 
 
 
 	/**
-	 * Size data type.
+	 * Status.
 	 *
-	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @since 1.0
 	 */
-	public final class Size {
+	public class State {
 
 
+		/** Item is available */
+		public static const AVAILABLE:String = "available";
 
-		/** Width */
-		public var width:Number;
+		/** Item is bought */
+		public static const BOUGHT:String = "bought";
 
-		/** Height */
-		public var height:Number;
+		/** Item is locked */
+		public static const LOCKED:String = "locked";
 
-
-
-		/**
-		 * Constructor.
-		 * @param width Width
-		 * @param height Height
-		 */
-		public final function Size(width:Number = 0, height:Number = 0) {
-			this.width = width;
-			this.height = height;
-		}
+		/** Item is in inventory */
+		public static const INVENTORY:String = "inventory";
 
 
-
-		/**
-		 * Convert Size to Rectangle.
-		 * @return Rectangle
-		 */
-		public function get rect():Rectangle {
-			return new Rectangle(0, 0, width, height);
-		}
-
-
-
-		/**
-		 * Convert Rectangle to Size
-		 * @param value Rectangle
-		 */
-		public function set rect(value:Rectangle):void {
-			width = rect.width;
-			height = rect.height;
-		}
 	}
 }

@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display {
+	import com.falanxia.utilitaris.types.Size;
 	import com.falanxia.utilitaris.utils.ObjectUtils;
 
 	import flash.display.Bitmap;
@@ -79,14 +80,10 @@ package com.falanxia.utilitaris.display {
 			if(c.embed) {
 				if(c.embed is Bitmap) {
 					this.bitmapData = c.embed.bitmapData;
-				}
-				else {
-					if(c.embed is BitmapData) {
-						this.bitmapData = c.embed;
-					}
-					else {
-						throw new TypeError("Invalid embed object");
-					}
+				} else if(c.embed is BitmapData) {
+					this.bitmapData = c.embed;
+				} else {
+					throw new TypeError("Invalid embed object");
 				}
 			}
 
@@ -126,11 +123,12 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Rescales to new size.
-		 * @param rect New size as Rectangle
+		 * @param size New size as Size
+		 * @see Size
 		 */
-		public function set size(rect:Rectangle):void {
-			this.width = rect.width;
-			this.height = rect.height;
+		public function set size(size:Size):void {
+			this.width = size.width;
+			this.height = size.height;
 		}
 
 
@@ -159,11 +157,12 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Get current size as Rectangle.
-		 * @return Current size as Rectangle
+		 * Get current size as Size.
+		 * @return Current size as Size
+		 * @see Size
 		 */
-		public function get size():Rectangle {
-			return new Rectangle(0, 0, this.width, this.height);
+		public function get size():Size {
+			return new Size(this.width, this.height);
 		}
 
 

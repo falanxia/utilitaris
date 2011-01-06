@@ -24,6 +24,7 @@
 
 package com.falanxia.utilitaris.display {
 	import com.falanxia.utilitaris.types.RGBA;
+	import com.falanxia.utilitaris.types.Size;
 	import com.falanxia.utilitaris.utils.DisplayUtils;
 	import com.falanxia.utilitaris.utils.StringUtils;
 
@@ -93,10 +94,10 @@ package com.falanxia.utilitaris.display {
 			msGraphBM = new QBitmap({bitmapData: msGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 			memGraphBM = new QBitmap({bitmapData: memGraphBD, y:27, alpha:0.33, blendMode:BlendMode.SCREEN});
 
-			fpsText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, size:new Rectangle(0, 0, WIDTH, 10), textColor:0xFFFF00});
-			msText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, size:new Rectangle(0, 0, WIDTH, 10), textColor:0x00FF00});
-			memText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, size:new Rectangle(0, 0, WIDTH, 10), textColor:0x00FFFF});
-			runtimeText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:75, size:new Rectangle(0, 0, WIDTH, 10), textColor:0xF0F0F0});
+			fpsText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:-3, size:new Size(WIDTH, 10), textColor:0xFFFF00});
+			msText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:5, size:new Size(WIDTH, 10), textColor:0x00FF00});
+			memText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:13, size:new Size(WIDTH, 10), textColor:0x00FFFF});
+			runtimeText = new QTextField({defaultTextFormat:textFormat, antiAliasType:AntiAliasType.NORMAL, y:75, size:new Size(WIDTH, 10), textColor:0xF0F0F0});
 
 			// draw background
 			DisplayUtils.drawRect(this, new Rectangle(0, 0, WIDTH, 27 + 63), new RGBA(0, 0, 0, 255 * 0.75));
@@ -163,8 +164,7 @@ package com.falanxia.utilitaris.display {
 		private function onMouseClick(e:MouseEvent):void {
 			if(this.mouseY > this.height * 0.35) {
 				stage.frameRate--;
-			}
-			else {
+			} else {
 				stage.frameRate++;
 			}
 

@@ -106,8 +106,7 @@ package com.falanxia.utilitaris.utils {
 
 			if(cardNumber.length < 7 || cardNumber.length > 19 || Number(cardNumber) < 1000000) {
 				out = false
-			}
-			else {
+			} else {
 				var pre:Number;
 				var sum:Number = 0;
 				var alt:Boolean = true;
@@ -116,8 +115,7 @@ package com.falanxia.utilitaris.utils {
 				while(--i > -1) {
 					if(alt) {
 						sum += Number(cardNumber.substr(i, 1));
-					}
-					else {
+					} else {
 						pre = Number(cardNumber.substr(i, 1)) * 2;
 						sum += (pre > 8) ? pre -= 9 : pre;
 					}
@@ -142,31 +140,19 @@ package com.falanxia.utilitaris.utils {
 			var out:String = CARD_INVALID;
 
 			if(isCreditCard(cardNumber)) {
+				//noinspection IfStatementWithTooManyBranchesJS
 				if(cardNumber.length == 13 || cardNumber.length == 16 && cardNumber.indexOf('4') == 0) {
 					out = CARD_VISA;
-				}
-				else {
-					if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 || cardNumber.indexOf('55') == 0 && cardNumber.length == 16) {
-						out = CARD_MASTERCARD;
-					}
-					else {
-						if(cardNumber.length == 16 && cardNumber.indexOf('6011') == 0) {
-							out = CARD_DISCOVER;
-						}
-						else {
-							if(cardNumber.indexOf('34') == 0 || cardNumber.indexOf('37') == 0 && cardNumber.length == 15) {
-								out = CARD_AMEX;
-							}
-							else {
-								if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 || cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 || cardNumber.indexOf('38') == 0 && cardNumber.length == 14) {
-									out = CARD_DINERS;
-								}
-								else {
-									out = CARD_OTHER;
-								}
-							}
-						}
-					}
+				} else if(cardNumber.indexOf('51') == 0 || cardNumber.indexOf('52') == 0 || cardNumber.indexOf('53') == 0 || cardNumber.indexOf('54') == 0 || cardNumber.indexOf('55') == 0 && cardNumber.length == 16) {
+					out = CARD_MASTERCARD;
+				} else if(cardNumber.length == 16 && cardNumber.indexOf('6011') == 0) {
+					out = CARD_DISCOVER;
+				} else if(cardNumber.indexOf('34') == 0 || cardNumber.indexOf('37') == 0 && cardNumber.length == 15) {
+					out = CARD_AMEX;
+				} else if(cardNumber.indexOf('300') == 0 || cardNumber.indexOf('301') == 0 || cardNumber.indexOf('302') == 0 || cardNumber.indexOf('303') == 0 || cardNumber.indexOf('304') == 0 || cardNumber.indexOf('305') == 0 || cardNumber.indexOf('36') == 0 || cardNumber.indexOf('38') == 0 && cardNumber.length == 14) {
+					out = CARD_DINERS;
+				} else {
+					out = CARD_OTHER;
 				}
 			}
 
