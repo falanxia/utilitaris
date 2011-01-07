@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display {
+	import com.falanxia.utilitaris.interfaces.IQ;
 	import com.falanxia.utilitaris.types.Size;
 	import com.falanxia.utilitaris.utils.ObjectUtils;
 
@@ -45,7 +46,7 @@ package com.falanxia.utilitaris.display {
 	 * @see QTextField
 	 * @see QVideo
 	 */
-	public class QSprite extends Sprite {
+	public class QSprite extends Sprite implements IQ {
 
 
 		private var _embeddedSpr:Sprite;

@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display {
+	import com.falanxia.utilitaris.interfaces.IQ;
 	import com.falanxia.utilitaris.types.Size;
 	import com.falanxia.utilitaris.utils.ObjectUtils;
 
@@ -47,7 +48,7 @@ package com.falanxia.utilitaris.display {
 	 * @see QSprite
 	 * @see QVideo
 	 */
-	public class QTextField extends TextField {
+	public class QTextField extends TextField implements IQ {
 
 
 
@@ -184,6 +185,16 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function get positionAndSize():Rectangle {
 			return new Rectangle(this.x, this.y, this.width, this.height);
+		}
+
+
+
+		/**
+		 * Get current global position as Point.
+		 * @return Current global position as Point
+		 */
+		public function get globalPosition():Point {
+			return parent.localToGlobal(new Point(this.x, this.y));
 		}
 	}
 }

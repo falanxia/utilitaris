@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display {
+	import com.falanxia.utilitaris.interfaces.IQ;
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Elastic;
 
@@ -38,7 +39,7 @@ package com.falanxia.utilitaris.display {
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @since 1.0
 	 */
-	public class MorphSprite extends QSprite {
+	public class MorphSprite extends QSprite implements IQ {
 
 
 
