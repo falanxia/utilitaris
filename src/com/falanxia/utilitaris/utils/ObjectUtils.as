@@ -106,7 +106,7 @@ package com.falanxia.utilitaris.utils {
 		public static function assign(obj:Object, params:Object):Object {
 			var out:Object = (obj);
 
-			for (var i:String in params) {
+			for(var i:String in params) {
 				//noinspection EmptyCatchBlockJS,UnusedCatchParameterJS
 				try {
 					out[i] = params[i];

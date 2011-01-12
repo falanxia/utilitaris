@@ -49,5 +49,6 @@ package com.falanxia.utilitaris.enums {
 		public static const INVENTORY:String = "inventory";
 
 
+
 	}
 }
