@@ -58,12 +58,12 @@ package com.falanxia.utilitaris.display {
 		 * @param bitmapData Source BitmapData
 		 * @param innerRect Inner Rectangle
 		 * @param outerRect Outer Rectangle
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 */
-		function ScaleBitmapSprite(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null, config:Object = null,
-		                           parent:DisplayObjectContainer = null) {
-			super(config, parent);
+		function ScaleBitmapSprite(bitmapData:BitmapData = null, innerRect:Rectangle = null, outerRect:Rectangle = null, displayConfig:Object = null,
+		                           displayParent:DisplayObjectContainer = null) {
+			super(displayConfig, displayParent);
 
 			// store parameters
 			_bitmapData = bitmapData;

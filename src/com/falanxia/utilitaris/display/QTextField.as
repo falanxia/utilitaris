@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display {
+	import com.falanxia.utilitaris.interfaces.IQ;
 	import com.falanxia.utilitaris.types.Size;
 	import com.falanxia.utilitaris.utils.ObjectUtils;
 
@@ -47,7 +48,7 @@ package com.falanxia.utilitaris.display {
 	 * @see QSprite
 	 * @see QVideo
 	 */
-	public class QTextField extends TextField {
+	public class QTextField extends TextField implements IQ {
 
 
 
@@ -66,8 +67,8 @@ package com.falanxia.utilitaris.display {
 		 *          <li>type - set to TextFieldType.DYNAMIC</li>
 		 *          <li>wordWrap - set to true</li>
 		 *      </ul>
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 * @example Example code:
 		 *      <code>
 		 *		    var myText:QTextField = new QTextField(x:100, y:50, width:300, embedFonts:false, text:'Lorem ipsum dolor sit amet'});
@@ -78,7 +79,7 @@ package com.falanxia.utilitaris.display {
 		 *          var myText:QTextField = new QTextField({}, this);
 		 *      </code>
 		 */
-		public function QTextField(config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QTextField(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create default settings
 			var d:Object = {
 				antiAliasType:AntiAliasType.ADVANCED,
@@ -93,7 +94,7 @@ package com.falanxia.utilitaris.display {
 			};
 
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			super();
 
@@ -102,7 +103,7 @@ package com.falanxia.utilitaris.display {
 			ObjectUtils.assign(this, d);
 
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
 			if(c.size != null) this.size = c.size;
@@ -184,6 +185,16 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function get positionAndSize():Rectangle {
 			return new Rectangle(this.x, this.y, this.width, this.height);
+		}
+
+
+
+		/**
+		 * Get current global position as Point.
+		 * @return Current global position as Point
+		 */
+		public function get globalPosition():Point {
+			return parent.localToGlobal(new Point(this.x, this.y));
 		}
 	}
 }

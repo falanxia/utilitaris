@@ -23,6 +23,7 @@
  */
 
 package com.falanxia.utilitaris.display {
+	import com.falanxia.utilitaris.interfaces.IQ;
 	import com.falanxia.utilitaris.types.Size;
 	import com.falanxia.utilitaris.utils.ObjectUtils;
 
@@ -44,7 +45,7 @@ package com.falanxia.utilitaris.display {
 	 * @see QSprite
 	 * @see QTextField
 	 */
-	public class QVideo extends Video {
+	public class QVideo extends Video implements IQ {
 
 
 
@@ -58,8 +59,8 @@ package com.falanxia.utilitaris.display {
 		 *      </ul>
 		 * @param width Video width
 		 * @param height Video height
-		 * @param config Config Object
-		 * @param parent Parent DisplayObjectContainer
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 * @example Example code:
 		 *      <code>
 		 *		    var myVideo:QVideo = new QVideo(400, 300, {x:100, y:50});
@@ -70,7 +71,7 @@ package com.falanxia.utilitaris.display {
 		 *          var myVideo:QVideo = new QVideo(400, 300, {}, this);
 		 *      </code>
 		 */
-		public function QVideo(width:Number, height:Number, config:Object = null, parent:DisplayObjectContainer = null) {
+		public function QVideo(width:Number, height:Number, displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create default settings
 			var d:Object = {
 				deblocking:5,
@@ -78,7 +79,7 @@ package com.falanxia.utilitaris.display {
 			};
 
 			// if config is not defined, prepare it
-			var c:Object = config == null ? new Object() : config;
+			var c:Object = displayConfig == null ? new Object() : displayConfig;
 
 			try {
 				super(c.width, c.height);
@@ -93,7 +94,7 @@ package com.falanxia.utilitaris.display {
 			ObjectUtils.assign(this, d);
 
 			// add child if requested
-			if(parent != null) parent.addChild(this);
+			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
 			if(c.size != null) this.size = c.size;
@@ -175,6 +176,16 @@ package com.falanxia.utilitaris.display {
 		 */
 		public function get positionAndSize():Rectangle {
 			return new Rectangle(this.x, this.y, this.width, this.height);
+		}
+
+
+
+		/**
+		 * Get current global position as Point.
+		 * @return Current global position as Point
+		 */
+		public function get globalPosition():Point {
+			return parent.localToGlobal(new Point(this.x, this.y));
 		}
 	}
 }

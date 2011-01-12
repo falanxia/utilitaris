@@ -26,36 +26,42 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 
 
 
-/**
- * Atlas director interface.
- *
- * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
- * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
- * @since 1.0
- */
-public interface IAtlasDirector {
+	/**
+	 * Atlas director interface.
+	 *
+	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
+	 * @since 1.0
+	 */
+	public interface IAtlasDirector {
 
 
-    function start():void;
+		function start():void;
 
 
-    function stop():void;
+
+		function stop():void;
 
 
-    function registerAnim(atlasAnim:IAtlasAnim):Boolean;
+
+		function registerAnim(atlasAnim:IAtlasAnim):Boolean;
 
 
-    function unregisterAnim(atlasAnim:IAtlasAnim):Boolean;
+
+		function unregisterAnim(atlasAnim:IAtlasAnim):Boolean;
 
 
-    function unregisterAll():void;
+
+		function unregisterAll():void;
 
 
-    function getIsRunning():Boolean;
+
+		function getIsRunning():Boolean;
 
 
-    function destroy(destroyAssociatedAnims:Boolean = true):void;
+
+		function destroy(destroyAssociatedAnims:Boolean = true):void;
 
 
-}
+	}
 }

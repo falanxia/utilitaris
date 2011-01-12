@@ -22,63 +22,87 @@
  * THE SOFTWARE.
  */
 
-package com.falanxia.utilitaris.display.atlasanim.director {
-	import com.falanxia.utilitaris.display.atlasanim.interfaces.IAtlasDirector;
+package com.falanxia.utilitaris.interfaces {
+	import com.falanxia.utilitaris.types.Size;
+
+	import flash.events.IEventDispatcher;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
 
 
 
 	/**
-	 * Global atlas anim director.
+	 * Q* interface.
 	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
-	public class GlobalAtlasAnimDirector {
+	public interface IQ extends IEventDispatcher {
 
 
-
-		public static var INSTANCE:GlobalAtlasAnimDirector;
-
-		private var director:IAtlasDirector;
+		/**
+		 * Destroys the QSprite and frees it for GC.
+		 */
+		function destroy():void;
 
 
 
 		/**
-		 * Constructor.
+		 * Moves to the specified position.
+		 * @param p New position as Point
 		 */
-		public function GlobalAtlasAnimDirector(s:SEnf) {
-			if(!s) throw new Error("GlobalAtlasAnimDirector class is a singleton; use getInstance() instead.");
-		}
+		function set position(p:Point):void;
 
 
 
-		public static function getInstance():GlobalAtlasAnimDirector {
-			if(!INSTANCE) INSTANCE = new GlobalAtlasAnimDirector(new SEnf());
-			return INSTANCE;
-		}
+		/**
+		 * Rescales to new size.
+		 * @param size New size as Size
+		 * @see Size
+		 */
+		function set size(size:Size):void;
 
 
 
-		public function init(director:IAtlasDirector):void {
-			this.director = director;
-		}
+		/**
+		 * Set position and size at once to speed up things.
+		 * @param rect Scale Rectangle
+		 */
+		function set positionAndSize(rect:Rectangle):void;
 
 
 
-		public function destroy():void {
-			director.destroy();
-			director = null;
-		}
+		/**
+		 * Get current position as Point.
+		 * @return Current position as Point
+		 */
+		function get position():Point;
 
 
 
-		public function getDirector():IAtlasDirector {
-			return director;
-		}
+		/**
+		 * Get current global position as Point.
+		 * @return Current global position as Point
+		 */
+		function get globalPosition():Point;
+
+
+
+		/**
+		 * Get current size as Size.
+		 * @return Current size as Size
+		 * @see Size
+		 */
+		function get size():Size;
+
+
+
+		/**
+		 * Get current position and size as Rectangle.
+		 * @return Current position and size as Rectangle
+		 */
+		function get positionAndSize():Rectangle;
+
+
 	}
-}
-
-
-
-class SEnf {
 }
