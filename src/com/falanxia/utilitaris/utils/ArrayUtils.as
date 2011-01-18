@@ -77,8 +77,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return All the matched elements
 		 */
 		public static function getItemsByKey(inArray:Array, key:String, match:*):Array {
-			var t:Array = [
-			];
+			var t:Array = [];
 
 			for each(var item:* in inArray) {
 				if(item[key] == match) {
@@ -118,8 +117,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return All the matched elements
 		 */
 		public static function getItemsByType(inArray:Array, type:Class):Array {
-			var t:Array = [
-			];
+			var t:Array = [];
 
 			for each(var item:* in inArray) {
 				if(item is type) {
@@ -394,8 +392,7 @@ package com.falanxia.utilitaris.utils {
 		 *      </code>
 		 */
 		public static function randomize(inArray:Array):Array {
-			var t:Array = [
-			];
+			var t:Array = [];
 			var r:Array = inArray.sort(sortRandom, Array.RETURNINDEXEDARRAY);
 			var i:int = -1;
 

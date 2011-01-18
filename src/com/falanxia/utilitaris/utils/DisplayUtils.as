@@ -431,8 +431,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return Children of the given container as an Array
 		 */
 		public static function getChildren(container:DisplayObjectContainer):Array {
-			var out:Array = [
-			];
+			var out:Array = [];
 			var numChildren:int = container.numChildren;
 
 			for(var i:int = 0; i < numChildren; ++i) {
@@ -452,8 +451,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return Array of the parents of the given DisplayObject - this includes all parents unless stopAt is non-null. If stopAt is non-null, it and its parents will not be included in the returned Array
 		 */
 		public static function getParents(obj:DisplayObject, includeSelf:Boolean = true, stopAt:DisplayObject = null):Array {
-			var out:Array = [
-			];
+			var out:Array = [];
 
 			for(var cur:DisplayObject = includeSelf ? obj : obj.parent; cur != stopAt && cur != null; cur = cur.parent) {
 				out.push(cur);
@@ -471,8 +469,7 @@ package com.falanxia.utilitaris.utils {
 		 * @return Array of filtered children
 		 */
 		public static function filterChildrenByProps(container:DisplayObjectContainer, props:Object):Array {
-			var out:Array = [
-			];
+			var out:Array = [];
 			var child:DisplayObject;
 
 			for(var i:int = 0, l:int = container.numChildren; i < l; i++) {

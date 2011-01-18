@@ -52,8 +52,7 @@ package com.falanxia.utilitaris.collections {
 			super();
 
 			dicto = new Dictionary();
-			array = [
-			];
+			array = [];
 		}
 
 

@@ -71,8 +71,7 @@ package com.falanxia.utilitaris.helpers {
 			return "";
 		}
 
-		var matches:Array = [
-		];
+		var matches:Array = [];
 		var result:Object = SUBS_RE.exec(raw);
 		var match:Match;
 		var runs:int = 0;
@@ -190,8 +189,7 @@ package com.falanxia.utilitaris.helpers {
 
 		if(matches.length == 0) return raw;
 
-		var buffer:Array = [
-		];
+		var buffer:Array = [];
 		var lastMatch:Match;
 		var previous:String = raw.substr(0, matches[0].startIndex);
 
@@ -285,8 +283,7 @@ function padString(str:String, paddingNum:int, paddingChar:String = " "):String 
 	if(paddingChar == null) return str;
 
 	var i:int;
-	var buf:Array = [
-	];
+	var buf:Array = [];
 	for(i = 0; i < Math.abs(paddingNum) - str.length; i++) buf.push(paddingChar);
 
 	if(paddingNum < 0) {

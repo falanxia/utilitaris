@@ -181,8 +181,7 @@ package com.falanxia.utilitaris.utils {
 			var out:Array;
 
 			if(obj != null) {
-				var ret:Array = [
-				];
+				var ret:Array = [];
 				for each (var prop:Object in obj) ret.push(prop);
 				out = ret;
 			}
@@ -208,8 +207,7 @@ package com.falanxia.utilitaris.utils {
 			if(obj == null || delimiter == null) {
 				out = "";
 			} else {
-				var ret:Array = [
-				];
+				var ret:Array = [];
 				for(var s:String in obj) {
 					ret.push(s + ":" + obj[s]);
 				}

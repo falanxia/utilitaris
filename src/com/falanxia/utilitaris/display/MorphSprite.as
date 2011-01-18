@@ -180,9 +180,7 @@ package com.falanxia.utilitaris.display {
 			if(isMorphHeightEnabled && displayConfig.height != undefined) t.height = displayConfig.height;
 
 			t.ease = (displayConfig.morphEase == undefined) ? morphEase : displayConfig.morphEase;
-			t.roundProps = [
-				"x", "y", "width", "height"
-			];
+			t.roundProps = ["x", "y", "width", "height"];
 			t.onComplete = onMorphComplete;
 
 			//noinspection ObjectAllocationIgnored

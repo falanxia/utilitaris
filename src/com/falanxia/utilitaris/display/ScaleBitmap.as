@@ -75,14 +75,10 @@ package com.falanxia.utilitaris.display {
 			var mat:Matrix = new Matrix();
 
 			// pre-calculate widths
-			var widths:Array = [
-				innerRect.left, innerRect.width, sw - innerRect.right
-			];
+			var widths:Array = [innerRect.left, innerRect.width, sw - innerRect.right];
 
 			// pre-calculate heights
-			var heights:Array = [
-				innerRect.top, innerRect.height, sh - innerRect.bottom
-			];
+			var heights:Array = [innerRect.top, innerRect.height, sh - innerRect.bottom];
 
 			// resized part
 			var resize:Point = new Point(drawRect.width - widths[0] - widths[2], drawRect.height - heights[0] - heights[2]);

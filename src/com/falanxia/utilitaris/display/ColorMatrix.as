@@ -472,8 +472,7 @@ package com.falanxia.utilitaris.display {
 
 
 		public function concat(mat:Array):void {
-			var temp:Array = [
-			];
+			var temp:Array = [];
 			var i:int = 0;
 			var x:int, y:int;
 
@@ -658,9 +657,7 @@ package com.falanxia.utilitaris.display {
 				preHue.rotateRed(45);
 				preHue.rotateGreen(- greenRotation);
 
-				var lum:Array = [
-					LUMA_R2, LUMA_G2, LUMA_B2, 1.0
-				];
+				var lum:Array = [LUMA_R2, LUMA_G2, LUMA_B2, 1.0];
 
 				preHue.transformVector(lum);
 

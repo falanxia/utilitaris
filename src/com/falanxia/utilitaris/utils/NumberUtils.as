@@ -446,8 +446,7 @@ package com.falanxia.utilitaris.utils {
 			var s:Number = steps + 1;
 
 			var i:uint = 0;
-			var stepsBetween:Array = [
-			];
+			var stepsBetween:Array = [];
 			var increment:Number = (end - begin) / s;
 
 			while(++i < s) {

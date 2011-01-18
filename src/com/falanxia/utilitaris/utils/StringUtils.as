@@ -282,8 +282,7 @@ package com.falanxia.utilitaris.utils {
 		 * @returns Array
 		 */
 		public static function block(value:String, length:uint, delimiter:String = "."):Array {
-			var out:Array = [
-			];
+			var out:Array = [];
 
 			if(!(value == null || !contains(value, delimiter))) {
 				var chrIndex:uint = 0;

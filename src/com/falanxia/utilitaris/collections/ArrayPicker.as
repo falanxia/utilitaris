@@ -49,11 +49,8 @@ package com.falanxia.utilitaris.collections {
 		 * Initilizes arrays.
 		 */
 		public function ArrayPicker():void {
-			poolArray = [
-			];
-
-			reservedArray = [
-			];
+			poolArray = [];
+			reservedArray = [];
 		}
 
 
@@ -67,8 +64,7 @@ package com.falanxia.utilitaris.collections {
 			poolArray = value;
 
 			if(poolArray.length > 0) {
-				reservedArray = [
-				];
+				reservedArray = [];
 			}
 		}
 
@@ -249,8 +245,7 @@ package com.falanxia.utilitaris.collections {
 		 */
 		public function returnAllToPool():void {
 			poolArray = poolArray.concat(reservedArray);
-			reservedArray = [
-			];
+			reservedArray = [];
 		}
 
 
