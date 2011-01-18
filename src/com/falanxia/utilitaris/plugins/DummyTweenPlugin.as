@@ -50,9 +50,7 @@ package com.falanxia.utilitaris.plugins {
 		public function DummyTweenPlugin() {
 			super();
 			this.propName = "dummy";
-			this.overwriteProps = [
-				"dummy"
-			];
+			this.overwriteProps = ["dummy"];
 		}
 
 

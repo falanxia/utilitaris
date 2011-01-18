@@ -208,7 +208,7 @@ package com.falanxia.utilitaris.collections {
 		 * @return Array array containing all items in collection.
 		 */
 		public function getItems():Array {
-			var a:Array = new Array();
+			var a:Array = [];
 
 			for(var i:int; i < array.length; i++) {
 				a.push(array[i].item);
@@ -274,8 +274,7 @@ package com.falanxia.utilitaris.collections {
 		private function removeFromArrayAt(index:int):Boolean {
 			if(index >= array.length) return false;
 
-			var a:Array = [
-			];
+			var a:Array = [];
 			var i:int;
 
 			for(i = 0; i < index; i++) {
@@ -300,8 +299,7 @@ package com.falanxia.utilitaris.collections {
 				return array.length - 1;
 			}
 
-			var a:Array = [
-			];
+			var a:Array = [];
 			var i:int;
 
 			for(i = 0; i < index; i++) {
