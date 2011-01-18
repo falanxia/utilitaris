@@ -46,14 +46,14 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 		/**
 		 * Constructor.
 		 */
-		public function GlobalAtlasAnimDirector(s:SEnf) {
+		public function GlobalAtlasAnimDirector(s:Senf) {
 			if(!s) throw new Error("GlobalAtlasAnimDirector class is a singleton; use getInstance() instead.");
 		}
 
 
 
 		public static function getInstance():GlobalAtlasAnimDirector {
-			if(!INSTANCE) INSTANCE = new GlobalAtlasAnimDirector(new SEnf());
+			if(!INSTANCE) INSTANCE = new GlobalAtlasAnimDirector(new Senf());
 			return INSTANCE;
 		}
 
@@ -80,5 +80,5 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-class SEnf {
+class Senf {
 }
