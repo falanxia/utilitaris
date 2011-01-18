@@ -44,11 +44,39 @@ package com.falanxia.utilitaris.logger {
 	public class TrazzlePublisher implements IPublisher {
 
 
-		private static var _trazzle:TrazzleLogger;
+		private static var instance:TrazzlePublisher;
+
+		private var _trazzle:TrazzleLogger;
 
 
 
-		public function TrazzlePublisher(stageReference:Stage, appName:String) {
+		/**
+		 * Constructor.
+		 */
+		public function TrazzlePublisher(s:Senf) {
+			if(s == null) throw new Error("TrazzlePublisher is singleton, use getInstance() method");
+		}
+
+
+
+		/**
+		 * Singleton acces method
+		 * @return Instance of the TrazzlePublisher singleton.
+		 */
+		public static function getInstance():TrazzlePublisher {
+			if(instance == null) instance = new TrazzlePublisher(new Senf());
+
+			return instance;
+		}
+
+
+
+		/**
+		 * Initialize publisher.
+		 * @param stageReference Stage reference
+		 * @param appName Application name
+		 */
+		public function init(stageReference:Stage, appName:String):void {
 			if(_trazzle == null) {
 				_trazzle = new TrazzleLogger();
 				_trazzle.setParams(stageReference, appName);
@@ -119,8 +147,13 @@ package com.falanxia.utilitaris.logger {
 		 * Get Trazzle reference.
 		 * @return Reference to Trazzle
 		 */
-		public static function get trazzle():TrazzleLogger {
+		public function get trazzle():TrazzleLogger {
 			return _trazzle;
 		}
 	}
+}
+
+
+
+class Senf {
 }

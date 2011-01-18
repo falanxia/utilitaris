@@ -41,20 +41,46 @@ package com.falanxia.utilitaris.logger {
 	public class ArrayPublisher implements IPublisher {
 
 
-		private static var dump:Array;
+		private static var instance:ArrayPublisher;
 
-		private var logTimestamp:Boolean;
 		private var timestamp:Timestamp;
 
+		private var _logTimestamp:Boolean;
+		private var _dump:Array;
 
 
-		public function ArrayPublisher(logTimestamp:Boolean = false) {
-			if(dump == null) {
-				dump = [
-				];
+
+		/**
+		 * Constructor.
+		 */
+		public function ArrayPublisher(s:Senf) {
+			if(s == null) throw new Error("ArrayPublisher is singleton, use getInstance() method");
+		}
+
+
+
+		/**
+		 * Singleton acces method
+		 * @return Instance of the ArrayPublisher singleton.
+		 */
+		public static function getInstance():ArrayPublisher {
+			if(instance == null) instance = new ArrayPublisher(new Senf());
+
+			return instance;
+		}
+
+
+
+		/**
+		 * Initialize publisher.
+		 * @param logTimestamp true to log timestamps
+		 */
+		public function init(logTimestamp:Boolean = false):void {
+			if(_dump == null) {
+				_dump = [];
 			}
 
-			this.logTimestamp = logTimestamp;
+			_logTimestamp = logTimestamp;
 
 			timestamp = new Timestamp();
 		}
@@ -67,10 +93,10 @@ package com.falanxia.utilitaris.logger {
 		 * @param object Message
 		 */
 		public function publish(logLevel:int, object:*, ...additional):void {
-			if(logTimestamp) {
-				dump[dump.length] = new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
+			if(_logTimestamp) {
+				_dump[_dump.length] = new Timestamp().unixTime + "|" + getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
 			} else {
-				dump[dump.length] = getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
+				_dump[_dump.length] = getPrefix(logLevel) + "  " + StringUtils.removeExtraWhitespace(String(object).replace("\t", "--- "));
 			}
 		}
 
@@ -80,8 +106,7 @@ package com.falanxia.utilitaris.logger {
 		 * Clears the dump String.
 		 */
 		public function clear():void {
-			dump = [
-			];
+			_dump = [];
 		}
 
 
@@ -100,20 +125,28 @@ package com.falanxia.utilitaris.logger {
 		 * Get the dump as Array of Strings
 		 * @return Dump Array of Strings
 		 */
-		public static function getDump():Array {
-			return dump;
+		public function get dump():Array {
+			return _dump;
 		}
 
 
 
-		public function getLogTimestamp():Boolean {
-			return logTimestamp;
+		/**
+		 * Get timestamp logging flag.
+		 * @return true if timestamp logging is enabled
+		 */
+		public function get logTimestamp():Boolean {
+			return _logTimestamp;
 		}
 
 
 
-		public function setLogTimestamp(logTimestamp:Boolean):void {
-			this.logTimestamp = logTimestamp;
+		/**
+		 * Set timestamp logging flag.
+		 * @param value true if timestamp logging is enabled
+		 */
+		public function set logTimestamp(value:Boolean):void {
+			_logTimestamp = value;
 		}
 
 
@@ -142,4 +175,9 @@ package com.falanxia.utilitaris.logger {
 			}
 		}
 	}
+}
+
+
+
+class Senf {
 }

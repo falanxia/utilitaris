@@ -23,15 +23,6 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Collision.Shapes.b2CircleDef;
-	import Box2D.Collision.Shapes.b2PolygonDef;
-	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.b2Body;
-
-	import Box2D.Dynamics.b2BodyDef;
-
-	import Box2D.Dynamics.b2World;
-
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCircleObject;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldCoords;
 	import com.falanxia.utilitaris.b2utils.objectdata.WorldPolygonObject;
@@ -55,7 +46,7 @@ package com.falanxia.utilitaris.b2utils {
 	public class B2GeomUtils {
 
 
-		private static var INSTANCE:B2GeomUtils;
+		private static var instance:B2GeomUtils;
 
 		public var pi:Number;
 		public var pi_deg:Number;
@@ -67,8 +58,7 @@ package com.falanxia.utilitaris.b2utils {
 
 
 		/**
-		 * Singleton (__private) constructor
-		 * @param s SingletonEnforcer class, just to make sure it cant be instantiated.
+		 * Constructor.
 		 */
 		public function B2GeomUtils(s:Senf) {
 			if(s == null) throw new Error("B2GeomUtils is singleton, use getInstance() method");
@@ -77,18 +67,19 @@ package com.falanxia.utilitaris.b2utils {
 
 
 		/**
-		 * Used to get static access to nonstatic methods
-		 * @return B2GeomUtils singleton instance
+		 * Singleton acces method
+		 * @return Instance of the B2GeomUtils singleton.
 		 */
 		public static function getInstance():B2GeomUtils {
-			if(INSTANCE == null) INSTANCE = new B2GeomUtils(new Senf());
-			return INSTANCE;
+			if(instance == null) instance = new B2GeomUtils(new Senf());
+
+			return instance;
 		}
 
 
 
 		public function destroy():void {
-			INSTANCE = null;
+			instance = null;
 			world = null;
 		}
 

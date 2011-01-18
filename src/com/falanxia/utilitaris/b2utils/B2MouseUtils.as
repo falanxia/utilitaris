@@ -23,11 +23,11 @@
  */
 
 package com.falanxia.utilitaris.b2utils {
-	import Box2D.Collision.Shapes.b2Shape;
-	import Box2D.Collision.b2AABB;
-	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.b2Body;
-	import Box2D.Dynamics.b2World;
+
+
+
+
+
 
 
 
@@ -41,7 +41,7 @@ package com.falanxia.utilitaris.b2utils {
 	public class B2MouseUtils {
 
 
-		private static var INSTANCE:B2MouseUtils;
+		private static var instance:B2MouseUtils;
 
 		private var world:b2World;
 		private var ratio:Number;
@@ -52,28 +52,26 @@ package com.falanxia.utilitaris.b2utils {
 		 * Constructor.
 		 */
 		public function B2MouseUtils(s:Senf) {
-
-			if(s == null) throw new Error("B2MouseUtils is singleton, use getInstance()");
-
+			if(s == null) throw new Error("B2MouseUtils is singleton, use getInstance() method");
 		}
 
 
 
+		/**
+		 * Singleton acces method
+		 * @return Instance of the B2MouseUtils singleton.
+		 */
 		public static function getInstance():B2MouseUtils {
+			if(instance == null) instance = new B2MouseUtils(new Senf());
 
-			if(INSTANCE == null) INSTANCE = new B2MouseUtils(new Senf());
-
-			return INSTANCE;
-
+			return instance;
 		}
 
 
 
 		public function init(world:b2World, ratio:Number):void {
-
 			this.world = world;
 			this.ratio = ratio;
-
 		}
 
 
@@ -82,7 +80,7 @@ package com.falanxia.utilitaris.b2utils {
 		 * Destructor.
 		 */
 		public function destroy():void {
-			INSTANCE = null;
+			instance = null;
 			world = null;
 		}
 
@@ -97,17 +95,15 @@ package com.falanxia.utilitaris.b2utils {
 		 * @return first b2body found at cursor position
 		 */
 		public function getBodyAtMouse(mouseX:Number, mouseY:Number, maxCount:int = 10, includeStatic:Boolean = false):b2Body {
-
 			var mouseXWorldPhys:Number = mouseX / ratio;
 			var mouseYWorldPhys:Number = mouseY / ratio;
 			var mouseCoords:b2Vec2 = new b2Vec2(mouseXWorldPhys, mouseYWorldPhys);
-
 			var aabb:b2AABB = new b2AABB();
+
 			aabb.lowerBound.Set(mouseXWorldPhys - 0.001, mouseYWorldPhys - 0.001);
 			aabb.upperBound.Set(mouseXWorldPhys + 0.001, mouseYWorldPhys + 0.001);
 
-			var shapes:Array = [
-			];
+			var shapes:Array = [];
 			var count:int = world.Query(aabb, shapes, maxCount);
 			var body:b2Body;
 

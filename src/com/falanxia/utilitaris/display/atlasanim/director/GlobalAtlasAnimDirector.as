@@ -37,7 +37,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		public static var INSTANCE:GlobalAtlasAnimDirector;
+		private static var instance:GlobalAtlasAnimDirector;
 
 		private var director:IAtlasDirector;
 
@@ -47,14 +47,19 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 		 * Constructor.
 		 */
 		public function GlobalAtlasAnimDirector(s:Senf) {
-			if(!s) throw new Error("GlobalAtlasAnimDirector class is a singleton; use getInstance() instead.");
+			if(s == null) throw new Error("GlobalAtlasAnimDirector is singleton, use getInstance() method");
 		}
 
 
 
+		/**
+		 * Singleton acces method
+		 * @return Instance of the GlobalAtlasAnimDirector singleton.
+		 */
 		public static function getInstance():GlobalAtlasAnimDirector {
-			if(!INSTANCE) INSTANCE = new GlobalAtlasAnimDirector(new Senf());
-			return INSTANCE;
+			if(instance == null) instance = new GlobalAtlasAnimDirector(new Senf());
+
+			return instance;
 		}
 
 

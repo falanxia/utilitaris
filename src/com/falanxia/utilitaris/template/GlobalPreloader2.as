@@ -90,6 +90,16 @@ package com.falanxia.utilitaris.template {
 
 
 		/**
+		 * Get instance of the GlobalPreloader2
+		 * @return Instance of the GlobalPreloader2
+		 */
+		public static function get instance():GlobalPreloader2 {
+			return _instance;
+		}
+
+
+
+		/**
 		 * Destructor.
 		 */
 		public function initAppMain():void {
@@ -152,16 +162,6 @@ package com.falanxia.utilitaris.template {
 			removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 			root.loaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, onLoadingError);
 			if(!keepResize) stage.removeEventListener(Event.RESIZE, onStageResize);
-		}
-
-
-
-		/**
-		 * Get instance of the GlobalPreloader2
-		 * @return Instance of the GlobalPreloader2
-		 */
-		public static function get instance():GlobalPreloader2 {
-			return _instance;
 		}
 
 

@@ -37,9 +37,33 @@ package com.falanxia.utilitaris.locale {
 	public class Locale {
 
 
-		private static var dictionaries:Array = [];
-		private static var currentLanguage:String = "";
-		private static var currentDictionary:LanguageDictionary;
+		private static var instance:Locale;
+
+		private var dictionaries:Array = [];
+		private var currentDictionary:LanguageDictionary;
+
+		private var _currentLanguage:String = "";
+
+
+
+		/**
+		 * Constructor.
+		 */
+		public function Locale(s:Senf) {
+			if(s == null) throw new Error("Locale is singleton, use getInstance() method");
+		}
+
+
+
+		/**
+		 * Singleton acces method
+		 * @return Instance of the Locale singleton.
+		 */
+		public static function getInstance():Locale {
+			if(instance == null) instance = new Locale(new Senf());
+
+			return instance;
+		}
 
 
 
@@ -47,7 +71,7 @@ package com.falanxia.utilitaris.locale {
 		 * Parse locale XML.
 		 * @param locale Locales node in the XML
 		 */
-		public static function parseXML(locale:XMLList):void {
+		public function parseXML(locale:XMLList):void {
 			for each(var lang:XML in locale.locale) {
 				var dictionary:LanguageDictionary = new LanguageDictionary(lang.@lang);
 
@@ -55,7 +79,7 @@ package com.falanxia.utilitaris.locale {
 
 				dictionaries.push(dictionary);
 
-				if(currentLanguage == "") language = lang.@lang;
+				if(_currentLanguage == "") this.currentLanguage = lang.@lang;
 			}
 		}
 
@@ -65,7 +89,7 @@ package com.falanxia.utilitaris.locale {
 		 * Parse locale Object.
 		 * @param locale Locales node in the Object
 		 */
-		public static function parseObject(locale:Object, doRewriteLangDict:Boolean = true):void {
+		public function parseObject(locale:Object, doRewriteLangDict:Boolean = true):void {
 			for(var lang:String in locale) {
 				var dictionary:LanguageDictionary;
 				var isDictFound:Boolean;
@@ -91,7 +115,7 @@ package com.falanxia.utilitaris.locale {
 
 				if(doRewriteLangDict && !isDictFound) dictionaries.push(dictionary);
 
-				if(currentLanguage == "") language = lang;
+				if(currentLanguage == "") this.currentLanguage = lang;
 			}
 		}
 
@@ -102,7 +126,7 @@ package com.falanxia.utilitaris.locale {
 		 * @param id Text ID
 		 * @return Text if found, null if not
 		 */
-		public static function getText(id:String):String {
+		public function getText(id:String):String {
 			var out:String;
 
 			if(currentDictionary != null) {
@@ -122,7 +146,7 @@ package com.falanxia.utilitaris.locale {
 		 * @param value Language (like "en")
 		 * @throws Error if language not found in currently active dictionaries
 		 */
-		public static function set language(value:String):void {
+		public function set currentLanguage(value:String):void {
 			var f:LanguageDictionary;
 
 			for each(var dictionary:LanguageDictionary in dictionaries) {
@@ -133,7 +157,7 @@ package com.falanxia.utilitaris.locale {
 				throw new Error("Language " + value + " not found in currently active dictionaries");
 			}
 
-			currentLanguage = value;
+			_currentLanguage = value;
 			currentDictionary = f;
 		}
 
@@ -143,8 +167,8 @@ package com.falanxia.utilitaris.locale {
 		 * Get current language.
 		 * @return Current language (like "en")
 		 */
-		public static function get language():String {
-			return currentLanguage;
+		public function get currentLanguage():String {
+			return _currentLanguage;
 		}
 
 
@@ -153,7 +177,7 @@ package com.falanxia.utilitaris.locale {
 		 * Get languages list.
 		 * @return Languages list
 		 */
-		public static function get languageList():Array {
+		public function get languageList():Array {
 			var out:Array = [];
 
 			for each(var dictionary:LanguageDictionary in dictionaries) {
@@ -163,4 +187,9 @@ package com.falanxia.utilitaris.locale {
 			return out;
 		}
 	}
+}
+
+
+
+class Senf {
 }

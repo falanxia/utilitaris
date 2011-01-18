@@ -34,6 +34,6 @@ package com.falanxia.utilitaris.locale {
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 */
 	public function T(id:String):String {
-		return Locale.getText(id);
+		return Locale.getInstance().getText(id);
 	}
 }
