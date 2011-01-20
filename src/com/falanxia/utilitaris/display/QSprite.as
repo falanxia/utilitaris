@@ -96,8 +96,11 @@ package com.falanxia.utilitaris.display {
 			if(displayParent != null) displayParent.addChild(this);
 
 			// set position and size if needed
+			if(c.width != null) this.width = c.width;
+			if(c.height != null) this.height = c.height;
 			if(c.size != null) this.size = c.size;
 			if(c.position != null) this.position = c.position;
+			if(c.positionAndSize != null) this.positionAndSize = c.positionAndSize;
 		}
 
 
