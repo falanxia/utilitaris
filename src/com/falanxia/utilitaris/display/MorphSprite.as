@@ -37,7 +37,7 @@ package com.falanxia.utilitaris.display {
 	 * You can animate position and size of any extending Class.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 */
 	public class MorphSprite extends QSprite implements IQ {
 

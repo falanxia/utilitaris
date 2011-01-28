@@ -37,7 +37,7 @@ package com.falanxia.utilitaris.logger {
 	 * The String publisher outputs the Log to a Trazzle.
 	 * See more info about Trazzle here: http://www.nesium.com/products/trazzle
 	 *
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class TrazzlePublisher implements IPublisher {

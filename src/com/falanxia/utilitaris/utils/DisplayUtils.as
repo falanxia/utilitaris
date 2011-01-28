@@ -43,7 +43,7 @@ package com.falanxia.utilitaris.utils {
 	 * Align utilities.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 * @author Jackson Dunstan (<a href="http://jacksondunstan.com/articles/519">http://jacksondunstan.com/articles/519</a>)
 	 * @author VitaLee (<a href="http://meet.berovbros.com">meet.berovbros.com</a>)
 	 * @author Karl Knocking

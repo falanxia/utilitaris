@@ -35,7 +35,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	/**
 	 * Atlas animation.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Jakub Schimer / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class MCAtlasAnim extends AbstractMultiAtlasAnim implements IAtlasAnim, IMovieClipAnim {

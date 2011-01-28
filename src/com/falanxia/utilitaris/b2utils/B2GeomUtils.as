@@ -36,7 +36,7 @@ package com.falanxia.utilitaris.b2utils {
 	 * B2GeomUtils class simplifies objects creation in b2World, basicly by converting box2d center-oriented object creation to (flash) top-left corner oriented.
 	 * CAUTION: use getInstance() to get static acces to nonstatic methods, after that you'll need to call init(), pass reference to your b2world and set the pixel_to_meter ratio.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Jakub Schimer / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class B2GeomUtils {

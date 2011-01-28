@@ -33,7 +33,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	/**
 	 * Random atlas animation.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <kuba@falanxia.com>
+	 * @author Jakub Schimer / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class RandomAtlasAnim extends AbstractMultiAtlasAnim implements IAtlasAnim {

@@ -34,7 +34,7 @@ package com.falanxia.utilitaris.utils {
 	 * @author Jackson Dunstan (<a href="http://jacksondunstan.com/articles/509">http://jacksondunstan.com/articles/509</a>)
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 */
 	public class ObjectUtils {
 

@@ -47,7 +47,7 @@ package com.falanxia.utilitaris.display {
 	 * Original by <a href="http://www.mrdoob.com">Mr.doob</a>
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 */
 	public class Stats extends QSprite {
 

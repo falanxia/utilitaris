@@ -35,7 +35,7 @@ package com.falanxia.utilitaris.display {
 	 * Scalable Bitmap.
 	 *
 	 * @author Didier Brun (<a href="http://www.bytearray.org">bytearray.org</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class ScaleBitmap {

@@ -30,7 +30,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	/**
 	 * External atlas director.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Jakub Schimer / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class ExternalAtlasDirector extends AbstractAtlasDirector implements IAtlasDirector {

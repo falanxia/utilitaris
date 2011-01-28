@@ -35,7 +35,7 @@ package com.falanxia.utilitaris.types {
 	 * @author Aaron Clinger
 	 * @author Mike Creighton
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 */
 	public final class Percent {
 

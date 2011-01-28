@@ -31,7 +31,7 @@ package com.falanxia.utilitaris.typogryphix {
 	 * Typogryphix.
 	 * Converts dumb text into typographically correct one.
 	 *
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class Typogryphix {

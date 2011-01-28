@@ -30,7 +30,7 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	/**
 	 * Global atlas anim director.
 	 *
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
+	 * @author Vaclav Vancura / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public class GlobalAtlasAnimDirector {

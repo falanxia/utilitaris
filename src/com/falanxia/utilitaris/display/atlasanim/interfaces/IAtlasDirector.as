@@ -29,7 +29,7 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 	/**
 	 * Atlas director interface.
 	 *
-	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
+	 * @author Jakub Schimer / Falanxia a.s.
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 */
 	public interface IAtlasDirector {
