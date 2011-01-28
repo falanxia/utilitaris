@@ -37,7 +37,6 @@ package com.falanxia.utilitaris.display {
 	 * @author Didier Brun (<a href="http://www.bytearray.org">bytearray.org</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class ScaleBitmap {
 

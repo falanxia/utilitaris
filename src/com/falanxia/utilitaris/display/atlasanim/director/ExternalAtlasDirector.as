@@ -32,7 +32,6 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class ExternalAtlasDirector extends AbstractAtlasDirector implements IAtlasDirector {
 
@@ -41,24 +40,36 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Constructor.
+		 */
 		public function ExternalAtlasDirector() {
 			super();
 		}
 
 
 
+		/**
+		 * Start the timer.
+		 */
 		override public function start():void {
 			isRunning = true;
 		}
 
 
 
+		/**
+		 * Stop the timer.
+		 */
 		override public function stop():void {
 			isRunning = false;
 		}
 
 
 
+		/**
+		 * Update animations.
+		 */
 		public function update():void {
 			if(isRunning) {
 				this.updateAnims();

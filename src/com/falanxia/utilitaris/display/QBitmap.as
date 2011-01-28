@@ -37,11 +37,11 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Quick Bitmap.
+	 *
 	 * Quick creation of Bitmap with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 * @see QSprite
 	 * @see QTextField
 	 * @see QVideo
@@ -53,23 +53,23 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Constructor.
 		 * All parameters from the config Object are parsed and applied to the newly created Bitmap.
-		 * @usageNote Additionally these parameters are added:
+		 * Additionally these parameters are added:
 		 *      <ul>
 		 *          <li>embed - Bitmap or BitmapData to be used as Bitmap source</li>
 		 *      </ul>
-		 * @param displayConfig Config Object
-		 * @param displayParent Parent DisplayObjectContainer
-		 * @throws TypeError if embedded Bitmap or BitmapData is invalid
-		 * @example Example code:
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          [Embed(source="bitmap-test.png")] private static var _bitmapTest:Class;
 		 *		    var myBitmap:QBitmap = new QBitmap({embed:new _bitmapTest(), x:100, y:50, alpha:.5});
 		 *		    addChild(myBitmap);
-		 *      </code>
-		 * @example Another example directly adding new QBitmap to this DisplayObjectContainer:
-		 *      <code>
+		 *      </pre>
+		 * Another example directly adding new QBitmap to this DisplayObjectContainer:
+		 *      <pre>
 		 *          var myBitmap:QBitmap = new QBitmap({embed:new _bitmapTest()}, this);
-		 *      </code>
+		 *      </pre>
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
+		 * @throws TypeError if embedded Bitmap or BitmapData is invalid
 		 */
 		public function QBitmap(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
@@ -105,8 +105,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the QBitmap instance and frees it for GC.
-		 * Placeholder.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			this.bitmapData = null;

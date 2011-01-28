@@ -35,7 +35,6 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class FramerateAtlasDirector extends AbstractAtlasDirector implements IAtlasDirector {
 
@@ -44,6 +43,10 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Constructor.
+		 * @param stage Stage reference
+		 */
 		public function FramerateAtlasDirector(stage:Stage) {
 			super();
 			this.stage = stage;
@@ -51,22 +54,32 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Destructor.
+		 * @param destroyAssociatedAnims true to destroy all associated animations
+		 */
+		override public function destroy(destroyAssociatedAnims:Boolean = true):void {
+			super.destroy(destroyAssociatedAnims);
+			this.stage.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			stage = null;
+		}
+
+
+
+		/**
+		 * Start the timer.
+		 */
 		override public function start():void {
 			this.stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 
 
 
+		/**
+		 * Stop the timer.
+		 */
 		override public function stop():void {
 			this.stage.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-		}
-
-
-
-		override public function destroy(destroyAssociatedAnims:Boolean = true):void {
-			super.destroy(destroyAssociatedAnims);
-			this.stage.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-			stage = null;
 		}
 
 

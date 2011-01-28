@@ -29,8 +29,9 @@ package com.falanxia.utilitaris.formats {
 
 
 	/**
-	 * JPEG Encoder
-	 * Original by ByteArray (http://www.bytearray.org/?p=775)
+	 * JPEG Encoder.
+	 *
+	 * Original by <a href="http://www.bytearray.org/?p=775">ByteArray</a>
 	 */
 	public final class JPEGEncoder {
 

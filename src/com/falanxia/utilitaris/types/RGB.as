@@ -31,7 +31,6 @@ package com.falanxia.utilitaris.types {
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public final class RGB {
 
@@ -64,15 +63,15 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Sets a 24-bit RGB color24 value.
-		 * @param color 24-bit RGB color24 value.
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGB:RGB = new RGB();
 		 *          myRGB.color24 = 0xFF00FF;
 		 *          trace("Red = " + myRGB.r);
 		 *          trace("Green = " + myRGB.g);
 		 *          trace("Blue = " + myRGB.b);
-		 *      </code>
+		 *      </pre>
+		 * @param color 24-bit RGB color24 value.
 		 */
 		public final function set color24(color:uint):void {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -89,13 +88,13 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Converts to a 24-bit RGB color24 value.
-		 * @return Hexidecimal color24 as a String
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGBA:RGBA = new RGBA(128, 255, 0, 255);
 		 *          var color24:uint = myRGBA.color24;
 		 *          trace(color24);
-		 *      </code>
+		 *      </pre>
+		 * @return Hexidecimal color24 as a String
 		 */
 		public final function get color24():uint {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -106,13 +105,13 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Get a hexidecimal String representation.
-		 * @return Hexidecimal color24 as a String
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGB:RGB = new RGB(255, 0, 255);
 		 *          var hexColor:String = myRGB.hexString;
 		 *          trace(hexColor); // traces FF00FF
-		 *      </code>
+		 *      </pre>
+		 * @return Hexidecimal color24 as a String
 		 */
 		public final function get hexString():String {
 			var rr:String = this.r.toString(16);

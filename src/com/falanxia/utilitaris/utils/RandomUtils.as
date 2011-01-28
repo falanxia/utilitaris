@@ -31,7 +31,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Grant Skinner (<a href="http://gskinner.com">gskinner.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class RandomUtils {
 
@@ -60,17 +59,17 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns a float Number between min-max exclusive.
+		 * Example code:
+		 *      <pre>
+		 *          RandomUtils.float(50); // returns a number between 0-50 exclusive
+		 *      </pre>
+		 * Another example code:
+		 *      <pre>
+		 *          RandomUtils.float(20,50); // returns a number between 20-50 exclusive
+		 *      </pre>
 		 * @param min Minimal value
 		 * @param max Maximal value
 		 * @return Float Number between min-max exclusive.
-		 * @example
-		 *      <code>
-		 *          RandomUtils.float(50); // returns a number between 0-50 exclusive
-		 *      </code>
-		 * @example
-		 *      <code>
-		 *          RandomUtils.float(20,50); // returns a number between 20-50 exclusive
-		 *      </code>
 		 */
 		public static function randomFloat(min:Number, max:Number = NaN):Number {
 			var a:Number = min;
@@ -88,17 +87,17 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns a int Number between min-max exclusive.
+		 * Example code:
+		 *      <pre>
+		 *          RandomUtils.integer(50); // returns an integer between 0-49 inclusive
+		 *      </pre>
+		 * Another example code:
+		 *      <pre>
+		 *          RandomUtils.integer(20,50); // returns an integer between 20-49 inclusive
+		 *      </pre>
 		 * @param min Minimal value
 		 * @param max Maximal value
 		 * @return int Number between min-max exclusive.
-		 * @example
-		 *      <code>
-		 *          RandomUtils.integer(50); // returns an integer between 0-49 inclusive
-		 *      </code>
-		 * @example
-		 *      <code>
-		 *          RandomUtils.integer(20,50); // returns an integer between 20-49 inclusive
-		 *      </code>
 		 */
 		public static function randomInteger(min:Number, max:Number = NaN):int {
 			if(isNaN(max)) {
@@ -113,16 +112,16 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns a Boolean.
+		 * Example code:
+		 *      <pre>
+		 *          RandomUtils.boolean(); // returns true or false (50% chance of true)
+		 *      </pre>
+		 * Another example code:
+		 *      <pre>
+		 *          RandomUtils.boolean(0.8); // returns true or false (80% chance of true)
+		 *      </pre>
 		 * @param chance Chance Number (0-1)
 		 * @return Float Number between min-max exclusive.
-		 * @example
-		 *      <code>
-		 *          RandomUtils.boolean(); // returns true or false (50% chance of true)
-		 *      </code>
-		 * @example
-		 *      <code>
-		 *          RandomUtils.boolean(0.8); // returns true or false (80% chance of true)
-		 *      </code>
 		 */
 		public static function randomBoolean(chance:Number = 0.5):Boolean {
 			return (random() < chance);
@@ -132,16 +131,16 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns an int: -1 or 1.
+		 * Example code:
+		 *      <pre>
+		 *          RandomUtils.sign(); // returns 1 or -1 (50% chance of 1)
+		 *      </pre>
+		 * Another example code:
+		 *      <pre>
+		 *          RandomUtils.sign(0.8); // returns 1 or -1 (80% chance of 1)
+		 *      </pre>
 		 * @param chance Chance Number (0-1)
 		 * @return int: -1 or 1.
-		 * @example
-		 *      <code>
-		 *          RandomUtils.sign(); // returns 1 or -1 (50% chance of 1)
-		 *      </code>
-		 * @example
-		 *      <code>
-		 *          RandomUtils.sign(0.8); // returns 1 or -1 (80% chance of 1)
-		 *      </code>
 		 */
 		public static function randomSign(chance:Number = 0.5):int {
 			return (random() < chance) ? 1 : -1;
@@ -151,16 +150,16 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Returns a random bit.
+		 * Example code:
+		 *      <pre>
+		 *          RandomUtils.bit(); // returns 1 or 0 (50% chance of 1)
+		 *      </pre>
+		 * Another example code:
+		 *      <pre>
+		 *          RandomUtils.bit(0.8); // returns 1 or 0 (80% chance of 1)
+		 *      </pre>
 		 * @param chance Chance Number (0-1)
 		 * @return Returns a random bit: 0 or 1
-		 * @example
-		 *      <code>
-		 *          RandomUtils.bit(); // returns 1 or 0 (50% chance of 1)
-		 *      </code>
-		 * @example
-		 *      <code>
-		 *          RandomUtils.bit(0.8); // returns 1 or 0 (80% chance of 1)
-		 *      </code>
 		 */
 		public static function randomBit(chance:Number = 0.5):int {
 			return (random() < chance) ? 1 : 0;

@@ -38,7 +38,6 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class AbstractMultiAtlasAnim extends Sprite {
 
@@ -55,6 +54,15 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Constructor.
+		 * @param width Animation width
+		 * @param height Animation height
+		 * @param atlases Atlas list
+		 * @param atlasesLengths Atlas frame count
+		 * @param atlasDirector IAtlasDirector reference
+		 * @see IAtlasDirector
+		 */
 		public function AbstractMultiAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array,
 		                                       atlasDirector:IAtlasDirector) {
 			this.frameWidth = width;
@@ -64,6 +72,7 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 			this.director = atlasDirector;
 
 			maxFrame += atlasesLengths[0];
+
 			for(var i:int = 1; i < atlasesLengths.length; i++) {
 				maxFrame += atlasesLengths[i] + 1;
 			}
@@ -73,9 +82,13 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Destructor.
+		 */
 		public function destroy():void {
-			canvas = null;
 			canvasBD.dispose();
+
+			canvas = null;
 			canvasBD = null;
 			director = null;
 			atlases = null;
@@ -84,9 +97,11 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Initialize.
+		 */
 		protected function init():void {
 			canvasBD = new BitmapData(frameWidth, frameHeight, true, 0x00000000);
-			//canvasBD = new BitmapData(frameWidth, frameHeight, false, 0xff0000);
 			canvas = new Bitmap(canvasBD);
 
 			addChild(canvas);
@@ -94,11 +109,11 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * FIXME Too complex, could be simplified
+		 */
 		protected function drawFrame(frameNum:uint):void {
 			var atlas:BitmapData = atlases[0];
-
-			//FIXME Too complex, cud be simplified
-
 			var n:int = atlasesLengths[0];
 			var i:int;
 

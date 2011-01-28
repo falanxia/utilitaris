@@ -39,11 +39,11 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Quick TextField.
+	 *
 	 * Quick creation of TextField with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 * @see QBitmap
 	 * @see QSprite
 	 * @see QVideo
@@ -55,7 +55,7 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Constructor.
 		 * All parameters from the config Object are parsed and applied to the newly created TextField.
-		 * @usageNote Additionally these set to non-default settings to make common tasks easier (if not overridden by the config parameter)
+		 * Additionally these set to non-default settings to make common tasks easier (if not overridden by the config parameter)
 		 *      <ul>
 		 *          <li>antiAliasType - set to AntiAliasType.ADVANCED</li>
 		 *          <li>condenseWhite - set to true</li>
@@ -67,17 +67,17 @@ package com.falanxia.utilitaris.display {
 		 *          <li>type - set to TextFieldType.DYNAMIC</li>
 		 *          <li>wordWrap - set to true</li>
 		 *      </ul>
-		 * @param displayConfig Config Object
-		 * @param displayParent Parent DisplayObjectContainer
-		 * @example Example code:
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *		    var myText:QTextField = new QTextField(x:100, y:50, width:300, embedFonts:false, text:'Lorem ipsum dolor sit amet'});
 		 *		    addChild(myText);
-		 *      </code>
-		 * @example Another example directly adding new QTextField to this DisplayObjectContainer:
-		 *      <code>
+		 *      </pre>
+		 * Another example directly adding new QTextField to this DisplayObjectContainer:
+		 *      <pre>
 		 *          var myText:QTextField = new QTextField({}, this);
-		 *      </code>
+		 *      </pre>
+		 * @param displayConfig Config Object
+		 * @param displayParent Parent DisplayObjectContainer
 		 */
 		public function QTextField(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create default settings
@@ -116,8 +116,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the QTextField instance and frees it for GC.
-		 * Placeholder.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			this.filters = null;

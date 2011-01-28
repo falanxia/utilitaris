@@ -31,7 +31,6 @@ package com.falanxia.utilitaris.types {
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public final class RGBA {
 
@@ -69,16 +68,16 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Sets a 32-bit RGBA color24 value.
-		 * @param color 32-bit RGBA color24 value.
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGBA:RGBA = new RGBA();
 		 *          myRGBA.color32 = 0xFF00FFFF;
 		 *          trace("Red = " + myRGBA.r);
 		 *          trace("Green = " + myRGBA.g);
 		 *          trace("Blue = " + myRGBA.b);
 		 *          trace("Alpha = " + myRGBA.a);
-		 *      </code>
+		 *      </pre>
+		 * @param color 32-bit RGBA color24 value.
 		 */
 		public final function set color32(color:uint):void {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -98,13 +97,13 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Converts to a 32-bit RGBA color24 value.
-		 * @return Hexidecimal color24 as a String
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGBA:RGBA = new RGBA(128, 255, 0, 255);
 		 *          var color32:uint = myRGBA.color32;
 		 *          trace(color32);
-		 *      </code>
+		 *      </pre>
+		 * @return Hexidecimal color24 as a String
 		 */
 		public final function get color32():uint {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -115,13 +114,13 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Converts to a 24-bit RGB color24 value.
-		 * @return Hexidecimal color24 as a String
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGBA:RGBA = new RGBA(128, 255, 0, 255);
 		 *          var color24:uint = myRGBA.color24;
 		 *          trace(color24);
-		 *      </code>
+		 *      </pre>
+		 * @return Hexidecimal color24 as a String
 		 */
 		public final function get color24():uint {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -142,13 +141,13 @@ package com.falanxia.utilitaris.types {
 
 		/**
 		 * Get a hexidecimal String representation.
-		 * @return Hexidecimal color24 as a String
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myRGBA:RGBA = new RGBA(128, 0, 255, 255);
 		 *          var hexColor:String = myRGBA.hexString;
 		 *          trace(hexColor); // traces 80FF00FF
-		 *      </code>
+		 *      </pre>
+		 * @return Hexidecimal color24 as a String
 		 */
 		public final function get hexString():String {
 			var aa:String = this.a.toString(16);

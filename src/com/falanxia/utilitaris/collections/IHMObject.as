@@ -27,11 +27,11 @@ package com.falanxia.utilitaris.collections {
 
 	/**
 	 * IMHOObject.
+	 *
 	 * For internal use in IndexedHashMap only.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	internal final class IHMObject {
 

@@ -30,10 +30,9 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * ColorMatrix class 2.1
-	 * Original: Mario Klingemann (http://www.quasimondo.com)
-	 * Released under MIT License (X11) (http://www.opensource.org/licenses/mit-license.php)
+	 * Original: Mario Klingemann (<a href="http://www.quasimondo.com">www.quasimondo.com</a>)
+	 * Released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License (X11)</a>
 	 * @author Mario Klingemann (<a href="http://www.quasimondo.com">www.quasimondo.com</a>)
-	 * @since 1.0
 	 */
 	public class ColorMatrix {
 
@@ -255,13 +254,8 @@ package com.falanxia.utilitaris.display {
 			var b:Number;
 			var inv_amount:Number;
 
-			//noinspection NonShortCircuitBooleanExpressionJS
 			r = (((rgb >> 16) & 0xFF) / 0xFF);
-
-			//noinspection NonShortCircuitBooleanExpressionJS
 			g = (((rgb >> 8) & 0xFF) / 0xFF);
-
-			//noinspection NonShortCircuitBooleanExpressionJS
 			b = ((rgb & 0xFF) / 0xFF);
 
 			inv_amount = (1 - amount);
@@ -301,7 +295,6 @@ package com.falanxia.utilitaris.display {
 				af = (1 / af);
 			}
 
-			//noinspection NonShortCircuitBooleanExpressionJS
 			concat([
 				       (((r & 1) == 1)) ? rf : 0, (((r & 2) == 2)) ? rf : 0, (((r & 4) == 4)) ? rf : 0, (((r & 8) == 8)) ? rf : 0, 0,
 				       (((g & 1) == 1)) ? gf : 0,
@@ -478,7 +471,6 @@ package com.falanxia.utilitaris.display {
 
 			for(y = 0; y < 4; y++) {
 				for(x = 0; x < 5; x++) {
-					//noinspection OverlyComplexArithmeticExpressionJS
 					temp[ int(i + x) ] = Number(mat[i]) * Number(matrix[x]) + Number(mat[int(i + 1)]) * Number(matrix[int(x + 5)]) + Number(mat[int(i + 2)]) * Number(matrix[int(x + 10)]) + Number(mat[int(i + 3)]) * Number(matrix[int(x + 15)]) + (x == 4 ? Number(mat[int(i + 4)]) : 0);
 				}
 
@@ -532,51 +524,35 @@ package com.falanxia.utilitaris.display {
 		public function applyColorDeficiency(type:String):void {
 			switch(type) {
 				case 'Protanopia':
-					concat([
-						       0.567,0.433,0,0,0, 0.558,0.442,0,0,0, 0,0.242,0.758,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.567,0.433,0,0,0, 0.558,0.442,0,0,0, 0,0.242,0.758,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Protanomaly':
-					concat([
-						       0.817,0.183,0,0,0, 0.333,0.667,0,0,0, 0,0.125,0.875,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.817,0.183,0,0,0, 0.333,0.667,0,0,0, 0,0.125,0.875,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Deuteranopia':
-					concat([
-						       0.625,0.375,0,0,0, 0.7,0.3,0,0,0, 0,0.3,0.7,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.625,0.375,0,0,0, 0.7,0.3,0,0,0, 0,0.3,0.7,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Deuteranomaly':
-					concat([
-						       0.8,0.2,0,0,0, 0.258,0.742,0,0,0, 0,0.142,0.858,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.8,0.2,0,0,0, 0.258,0.742,0,0,0, 0,0.142,0.858,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Tritanopia':
-					concat([
-						       0.95,0.05,0,0,0, 0,0.433,0.567,0,0, 0,0.475,0.525,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.95,0.05,0,0,0, 0,0.433,0.567,0,0, 0,0.475,0.525,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Tritanomaly':
-					concat([
-						       0.967,0.033,0,0,0, 0,0.733,0.267,0,0, 0,0.183,0.817,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.967,0.033,0,0,0, 0,0.733,0.267,0,0, 0,0.183,0.817,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Achromatopsia':
-					concat([
-						       0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0.299,0.587,0.114,0,0, 0,0,0,1,0]);
 					break;
 
 				case 'Achromatomaly':
-					concat([
-						       0.618,0.320,0.062,0,0, 0.163,0.775,0.062,0,0, 0.163,0.320,0.516,0,0, 0,0,0,1,0
-					       ]);
+					concat([0.618,0.320,0.062,0,0, 0.163,0.775,0.062,0,0, 0.163,0.320,0.516,0,0, 0,0,0,1,0]);
 					break;
 
 				default:
@@ -586,28 +562,13 @@ package com.falanxia.utilitaris.display {
 
 
 		public function applyMatrix(rgba:uint):uint {
-			//noinspection NonShortCircuitBooleanExpressionJS
 			var a:Number = ( rgba >>> 24 ) & 0xff;
-
-			//noinspection NonShortCircuitBooleanExpressionJS
 			var r:Number = ( rgba >>> 16 ) & 0xff;
-
-			//noinspection NonShortCircuitBooleanExpressionJS
 			var g:Number = ( rgba >>> 8 ) & 0xff;
-
-			//noinspection NonShortCircuitBooleanExpressionJS
 			var b:Number = rgba & 0xff;
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var r2:int = 0.5 + r * matrix[0] + g * matrix[1] + b * matrix[2] + a * matrix[3] + matrix[4];
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var g2:int = 0.5 + r * matrix[5] + g * matrix[6] + b * matrix[7] + a * matrix[8] + matrix[9];
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var b2:int = 0.5 + r * matrix[10] + g * matrix[11] + b * matrix[12] + a * matrix[13] + matrix[14];
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var a2:int = 0.5 + r * matrix[15] + g * matrix[16] + b * matrix[17] + a * matrix[18] + matrix[19];
 
 			if(a2 < 0) a2 = 0;
@@ -619,7 +580,6 @@ package com.falanxia.utilitaris.display {
 			if(b2 < 0) b2 = 0;
 			if(b2 > 255) b2 = 255;
 
-			//noinspection NonShortCircuitBooleanExpressionJS
 			return a2 << 24 | r2 << 16 | g2 << 8 | b2;
 		}
 
@@ -628,16 +588,9 @@ package com.falanxia.utilitaris.display {
 		public function transformVector(values:Array):void {
 			if(values.length != 4) return;
 
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var r:Number = values[0] * matrix[0] + values[1] * matrix[1] + values[2] * matrix[2] + values[3] * matrix[3] + matrix[4];
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var g:Number = values[0] * matrix[5] + values[1] * matrix[6] + values[2] * matrix[7] + values[3] * matrix[8] + matrix[9];
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var b:Number = values[0] * matrix[10] + values[1] * matrix[11] + values[2] * matrix[12] + values[3] * matrix[13] + matrix[14];
-
-			//noinspection OverlyComplexArithmeticExpressionJS
 			var a:Number = values[0] * matrix[15] + values[1] * matrix[16] + values[2] * matrix[17] + values[3] * matrix[18] + matrix[19];
 
 			values[0] = r;

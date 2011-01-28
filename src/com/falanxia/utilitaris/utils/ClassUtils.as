@@ -38,7 +38,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class ClassUtils {
 
@@ -154,14 +153,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Dynamically constructs a Class.
+		 * Example code:
+		 *      <pre>
+		 *          var bData:* = ClassUtils.construct(BitmapData, 200, 200);
+		 *          trace(bData is BitmapData, bData.width);
+		 *      </pre>
 		 * @param type Class to create
 		 * @param args Up to ten arguments to the constructor
 		 * @return Dynamically created instance of the Class specified by type parameter
-		 * @example
-		 *      <code>
-		 *          var bData:* = ClassUtils.construct(BitmapData, 200, 200);
-		 *          trace(bData is BitmapData, bData.width);
-		 *      </code>
 		 */
 		public static function construct(type:Class, ...args):* {
 			var out:*;

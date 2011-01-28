@@ -32,16 +32,24 @@ package com.falanxia.utilitaris.display.atlasanim.events {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class AtlasAnimEvent extends Event {
 
 
+		/** Last frame */
 		public static const ANIM_LAST_FRAME:String = "atlasAnimEvent:animLastFrame";
+
+		/** First frame */
 		public static const ANIM_FIRST_FRAME:String = "atlasAnimEvent:animFirstFrame";
 
 
 
+		/**
+		 * Constructor.
+		 * @param type Event type
+		 * @param bubbles Bubbling flag
+		 * @param cancelable Cancelable flag
+		 */
 		public function AtlasAnimEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false) {
 			super(type, bubbles, cancelable);
 		}

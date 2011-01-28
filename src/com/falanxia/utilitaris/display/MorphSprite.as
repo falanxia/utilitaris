@@ -33,11 +33,11 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Morphable Sprite.
+	 *
 	 * You can animate position and size of any extending Class.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class MorphSprite extends QSprite implements IQ {
 
@@ -99,7 +99,7 @@ package com.falanxia.utilitaris.display {
 
 		/**
 		 * Constructor.
-		 * @usageNote Possible config contents:
+		 * Possible config contents:
 		 *      <ul>
 		 *          <li>morphDuration - Morphing duration in seconds. If not defined, defaultMorphDuration used instead.</li>
 		 *          <li>morphEase - Morphing transition Function. If not defined, defaultMorphEase used instead.</li>
@@ -134,7 +134,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the MorphSprite instance and frees it for GC.
+		 * Destructor.
 		 */
 		public override function destroy():void {
 			super.destroy();
@@ -149,7 +149,7 @@ package com.falanxia.utilitaris.display {
 		 * Animate state change.
 		 * Timing is taken from morphDuration, transition from morphEase.
 		 * Follows status flags (MorphSprite#isMorphXEnabled, MorphSprite#isMorphYEnabled, MorphSprite#isMorphWidthEnabled and MorphSprite#isMorphHeightEnabled).
-		 * @usageNote Possible config contents:
+		 * Possible config contents:
 		 *      <ul>
 		 *          <li>x - New x position</li>
 		 *          <li>y - New y position</li>
@@ -183,7 +183,6 @@ package com.falanxia.utilitaris.display {
 			t.roundProps = ["x", "y", "width", "height"];
 			t.onComplete = onMorphComplete;
 
-			//noinspection ObjectAllocationIgnored
 			new TweenMax(this, (displayConfig.morphDuration == undefined) ? morphDuration : displayConfig.morphDuration, t);
 		}
 

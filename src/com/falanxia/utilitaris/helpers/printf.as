@@ -27,11 +27,8 @@ package com.falanxia.utilitaris.helpers {
 
 	/**
 	 * Creates a string with variable substitutions. Very similiar to printf, specially python's printf
-	 * @param raw The String to be substituted
-	 * @param rest The objects to be substitued, can be positional or by properties inside the object (in wich case only one object can be passed)
-	 * @return Formated and substitued String
-	 * @example
-	 *      <code>
+	 * Example code:
+	 *      <pre>
 	 *          // objects are substitued in the other they appear
 	 *          printf("This is an %s lybrary for creating %s", "Actioscript 3.0", "strings");
 	 *          // outputs: "This is an Actioscript 3.0 lybrary for creating strings";
@@ -48,12 +45,14 @@ package com.falanxia.utilitaris.helpers {
 	 *          // you can also use date parts:
 	 *          var date : Date = new Date();
 	 *          printf("Today is %d/%m/%Y", date, date, date)
-	 *      </code>
-	 * @implementationNote Original <a href="http://code.google.com/p/printf-as3">http://code.google.com/p/printf-as3</a>
+	 *      </pre>
+	 * Original <a href="http://code.google.com/p/printf-as3">http://code.google.com/p/printf-as3</a>
+	 * @param raw The String to be substituted
+	 * @param rest The objects to be substitued, can be positional or by properties inside the object (in wich case only one object can be passed)
+	 * @return Formated and substitued String
 	 * @author Arthur Debert (<a href="http://www.stimuli.com.br">www.stimuli.com.br</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura(<a href="http://vaclav.vancura.org">vaclav.vancura.org</a>, <a href="http://twitter.com/vancura">@vancura</a>)
-	 * @since 1.0
 	 */
 	public function printf(raw:String, ...rest):String {
 		/**
@@ -229,34 +228,34 @@ const HEXA_FORMATER:String = "x";
 /** @private */
 const DATES_FORMATERS:String = "aAbBcDHIjmMpSUwWxXyYZ";
 
-/** Day of month, from 0 to 30 on <code>Date</code> objects */
+/** Day of month, from 0 to 30 on <pre>Date</pre> objects */
 const DATE_DAY_FORMATTER:String = "D";
 
-/** Full year, e.g. 2007 on <code>Date</code> objects */
+/** Full year, e.g. 2007 on <pre>Date</pre> objects */
 const DATE_FULLYEAR_FORMATTER:String = "Y";
 
-/** Year, e.g. 07 on <code>Date</code> objects */
+/** Year, e.g. 07 on <pre>Date</pre> objects */
 const DATE_YEAR_FORMATTER:String = "y";
 
-/** Month from 1 to 12 on <code>Date</code> objects */
+/** Month from 1 to 12 on <pre>Date</pre> objects */
 const DATE_MONTH_FORMATTER:String = "m";
 
-/** Hours (0-23) on <code>Date</code> objects */
+/** Hours (0-23) on <pre>Date</pre> objects */
 const DATE_HOUR24_FORMATTER:String = "H";
 
-/** Hours 0-12 on <code>Date</code> objects */
+/** Hours 0-12 on <pre>Date</pre> objects */
 const DATE_HOUR_FORMATTER:String = "I";
 
-/** a.m or p.m on <code>Date</code> objects */
+/** a.m or p.m on <pre>Date</pre> objects */
 const DATE_HOUR_AMPM_FORMATTER:String = "p";
 
-/** Minutes on <code>Date</code> objects */
+/** Minutes on <pre>Date</pre> objects */
 const DATE_MINUTES_FORMATTER:String = "M";
 
-/** Seconds on <code>Date</code> objects */
+/** Seconds on <pre>Date</pre> objects */
 const DATE_SECONDS_FORMATTER:String = "S";
 
-/** A string rep of a <code>Date</code> object on the current locale */
+/** A string rep of a <pre>Date</pre> object on the current locale */
 const DATE_TOLOCALE_FORMATTER:String = "c";
 
 

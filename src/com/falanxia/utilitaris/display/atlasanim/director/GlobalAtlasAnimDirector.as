@@ -64,12 +64,9 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
-		public function init(director:IAtlasDirector):void {
-			this.director = director;
-		}
-
-
-
+		/**
+		 * Destructor.
+		 */
 		public function destroy():void {
 			director.destroy();
 			director = null;
@@ -77,6 +74,22 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Initialize
+		 * @param director Atlas director
+		 * @see IAtlasDirector
+		 */
+		public function init(director:IAtlasDirector):void {
+			this.director = director;
+		}
+
+
+
+		/**
+		 * Get the director.
+		 * @return Director
+		 * @see IAtlasDirector
+		 */
 		public function getDirector():IAtlasDirector {
 			return director;
 		}

@@ -39,7 +39,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Philipp Kyeck (<a href="http://apdevblog.com">apdevblog.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class LocationUtils {
 
@@ -80,12 +79,12 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the SWF is being served on the internet.
+		 * Example code:
+		 *      <pre>
+		 *          trace(LocationUtils.isWeb(_root));
+		 *      </pre>
 		 * @param location DisplayObject to get location of
 		 * @return true if SWF is being served on the internet
-		 * @example
-		 *      <code>
-		 *          trace(LocationUtils.isWeb(_root));
-		 *      </code>
 		 */
 		public static function isWeb(location:DisplayObject):Boolean {
 			return location.loaderInfo.url.substr(0, 4) == "http";
@@ -95,18 +94,18 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Detects if MovieClip's embed location matches passed domain.
+		 * Check for domain:
+		 *      <pre>
+		 *          trace(LocationUtils.isDomain(_root, "google.com"));
+		 *          trace(LocationUtils.isDomain(_root, "bbc.co.uk"));
+		 *      </pre>
+		 * You can even check for subdomains:
+		 *      <pre>
+		 *          trace(LocationUtils.isDomain(_root, "subdomain.aaronclinger.com"))
+		 *      </pre>
 		 * @param location MovieClip to compare location of
 		 * @param domain Web domain
 		 * @return true if file's embed location matched passed domain
-		 * @example Check for domain:
-		 *      <code>
-		 *          trace(LocationUtils.isDomain(_root, "google.com"));
-		 *          trace(LocationUtils.isDomain(_root, "bbc.co.uk"));
-		 *      </code>
-		 * @example You can even check for subdomains:
-		 *      <code>
-		 *          trace(LocationUtils.isDomain(_root, "subdomain.aaronclinger.com"))
-		 *      </code>
 		 */
 		public static function isDomain(location:DisplayObject, domain:String):Boolean {
 			return getDomain(location).slice(-domain.length) == domain;
@@ -116,13 +115,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Detects MovieClip's domain location.
+		 * Function does not return folder path or file name. The method also treats "www" and sans "www" as the same; if "www" is present method does not return it.
+		 * Example code:
+		 *      <pre>
+		 *          trace(LocationUtils.getDomain(_root));
+		 *      </pre>
 		 * @param location MovieClip to get location of
 		 * @return Full domain (including sub-domains) of MovieClip's location
-		 * @example
-		 *      <code>
-		 *          trace(LocationUtils.getDomain(_root));
-		 *      </code>
-		 * @usageNote Function does not return folder path or file name. The method also treats "www" and sans "www" as the same; if "www" is present method does not return it.
 		 */
 		public static function getDomain(location:DisplayObject):String {
 			var baseUrl:String = location.loaderInfo.url.split("://")[1].split("/")[0];
@@ -175,8 +174,8 @@ package com.falanxia.utilitaris.utils {
 		 * Open a new browser window and prevent browser from blocking it.
 		 * Based on script by Sergey Kovalyov (http://skovalyov.blogspot.com/2007/01/how-to-prevent-pop-up-blocking-in.html)
 		 * Based on script by Jason the Saj (http://thesaj.wordpress.com/2008/02/12/the-nightmare-that-is-_blank-part-ii-help)
-		 * @implementationNote Original: http://apdevblog.com/problems-using-navigatetourl
-		 * @implementationNote You also have to set the wmode inside your containing html file to "opaque" and the allowScriptAccess to "always".
+		 * Original: http://apdevblog.com/problems-using-navigatetourl
+		 * You also have to set the wmode inside your containing html file to "opaque" and the allowScriptAccess to "always".
 		 * @param url url to be opened
 		 * @param window Window target
 		 * @param features Additional features for window.open function

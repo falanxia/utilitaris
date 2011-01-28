@@ -33,7 +33,6 @@ package com.falanxia.utilitaris.collections {
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public final class IndexedHashMap extends Object {
 
@@ -46,7 +45,7 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Inits the IndexedHashmap.
+		 * Constructor.
 		 */
 		public function IndexedHashMap() {
 			super();
@@ -156,8 +155,7 @@ package com.falanxia.utilitaris.collections {
 
 		/**
 		 * Moves the item specified by item reference,item name or item index to selected index.
-		 * Priority is: item | itemName | itemIndex. If targetIndex >= than collection length, it pushes it at the
-		 * end of the collection.
+		 * Priority is: item | itemName | itemIndex. If targetIndex >= than collection length, it pushes it at the end of the collection
 		 * @param targetIndex target index we want item to be moved to
 		 * @param item specify if we want reference item by item reference
 		 * @param itemName specify if we want reference item by name
@@ -188,7 +186,9 @@ package com.falanxia.utilitaris.collections {
 
 					return true;
 				}
-			} else {
+			}
+
+			else {
 				var i:int = array.indexOf(o);
 
 				if(i < 0) return false;
@@ -204,7 +204,7 @@ package com.falanxia.utilitaris.collections {
 
 		/**
 		 * Returns all items in collection.
-		 * @return Array array containing all items in collection.
+		 * @return Array array containing all items in collection
 		 */
 		public function getItems():Array {
 			var a:Array = [];

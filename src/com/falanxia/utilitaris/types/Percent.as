@@ -30,13 +30,12 @@ package com.falanxia.utilitaris.types {
 	 * Percent data type.
 	 * Creates a standardized way of describing and storing percentages. You can store and receive percentages in two
 	 * different formats; regular percentage or as an decimal percentage. If percent is 37.5% a regular percentage would
-	 * be expressed as <code>37.5</code> while the decimal percentage will be expressed <code>0.375</code>.
+	 * be expressed as <pre>37.5</pre> while the decimal percentage will be expressed <pre>0.375</pre>.
 	 *
 	 * @author Aaron Clinger
 	 * @author Mike Creighton
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public final class Percent {
 
@@ -48,7 +47,7 @@ package com.falanxia.utilitaris.types {
 		/**
 		 * Creates a new Percent.
 		 * @param percentage Percent formated at a percentage or an decimal percentage.
-		 * @param isDecimalPercentage Indicates if the parameter <code>percentage</code> is a decimal percentage <code>true</code>, or regular percentage <code>false</code>.
+		 * @param isDecimalPercentage Indicates if the parameter <pre>percentage</pre> is a decimal percentage <pre>true</pre>, or regular percentage <pre>false</pre>.
 		 */
 		public final function Percent(percentage:Number = 0, isDecimalPercentage:Boolean = false) {
 			if(isDecimalPercentage) {
@@ -61,9 +60,9 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Determines if the percent specified in the <code>percent</code> parameter is equal to this percent object.
+		 * Determines if the percent specified in the <pre>percent</pre> parameter is equal to this percent object.
 		 * @param percent A Percent object.
-		 * @return Returns <code>true</code> if percents are identical; otherwise <code>false</code>.
+		 * @return Returns <pre>true</pre> if percents are identical; otherwise <pre>false</pre>.
 		 */
 		public final function equals(percent:Percent):Boolean {
 			return this.decimalPercentage == percent.decimalPercentage;
@@ -120,7 +119,7 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Get percent expressed as a regular percentage. 37.5% would be expressed as <code>37.5</code>.
+		 * Get percent expressed as a regular percentage. 37.5% would be expressed as <pre>37.5</pre>.
 		 * @return Percentage
 		 */
 		public final function get percentage():Number {
@@ -130,7 +129,7 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Set percent expressed as a regular percentage. 37.5% would be expressed as <code>37.5</code>.
+		 * Set percent expressed as a regular percentage. 37.5% would be expressed as <pre>37.5</pre>.
 		 * @param percent Percentage
 		 */
 		public final function set percentage(percent:Number):void {
@@ -140,7 +139,7 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Get percent expressed as a decimal percentage. 37.5% would be expressed as <code>0.375</code>.
+		 * Get percent expressed as a decimal percentage. 37.5% would be expressed as <pre>0.375</pre>.
 		 * @return Percentage
 		 */
 		public final function get decimalPercentage():Number {
@@ -150,7 +149,7 @@ package com.falanxia.utilitaris.types {
 
 
 		/**
-		 * Set percent expressed as a decimal percentage. 37.5% would be expressed as <code>0.375</code>.
+		 * Set percent expressed as a decimal percentage. 37.5% would be expressed as <pre>0.375</pre>.
 		 * @param percent
 		 */
 		public final function set decimalPercentage(percent:Number):void {

@@ -32,7 +32,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class DateUtils {
 
@@ -51,6 +50,7 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Formats a Date object for display. Acts almost identically to the PHP date() function.
+		 * You can prevent a recognized character in the format string from being expanded by escaping it with a preceding ^.
 		 * <table border="1">
 		 *      <tr>
 		 *          <th style="width:150px;">Format character</th>
@@ -228,13 +228,12 @@ package com.falanxia.utilitaris.utils {
 		 *          <td>Example: 1171479314</td>
 		 *      </tr>
 		 *  </table>
+		 * Example code:
+		 *      <pre>
+		 *          trace(DateUtils.formatDate(new Date(), "l ^t^h^e dS ^of F Y h:i:s A"));
+		 *      </pre>
 		 * @param dateToFormat Date object you wish to format
 		 * @param formatString Format of the outputted date String. See the format characters options above.
-		 * @usageNote You can prevent a recognized character in the format string from being expanded by escaping it with a preceding ^.
-		 * @example
-		 *      <code>
-		 *          trace(DateUtils.formatDate(new Date(), "l ^t^h^e dS ^of F Y h:i:s A"));
-		 *      </code>
 		 */
 		public static function formatDate(dateToFormat:Date, formatString:String):String {
 			var out:String = "";
@@ -451,13 +450,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts W3C ISO 8601 date String into a Date object.
+		 * Example code:
+		 *      <pre>
+		 *          trace(DateUtils.iso8601ToDate("1994-11-05T08:15:30-05:00").toString());
+		 *      </pre>
 		 * @param iso8601 Valid ISO 8601 formatted String
 		 * @return Date object of the specified date and time of the ISO 8601 String in universal time
 		 * @see <a href="http://www.w3.org/TR/NOTE-datetime">W3C ISO 8601 specification</a>
-		 * @example
-		 *      <code>
-		 *          trace(DateUtils.iso8601ToDate("1994-11-05T08:15:30-05:00").toString());
-		 *      </code>
 		 */
 		public static function iso8601ToDate(iso8601:String):Date {
 			var parts:Array = iso8601.toUpperCase().split("T");
@@ -516,13 +515,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts the month Number into the full month name.
-		 * @param month Month Number (0 for January, 1 for February, and so on)
-		 * @return Full textual representation of a month, such as January or March
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myDate:Date = new Date(2000, 0, 1);
 		 *          trace(getMonthAsString(myDate.getMonth())); // Traces January
-		 *      </code>
+		 *      </pre>
+		 * @param month Month Number (0 for January, 1 for February, and so on)
+		 * @return Full textual representation of a month, such as January or March
 		 */
 		public static function getMonthAsString(month:Number):String {
 			var monthNamesFull:Array = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
@@ -534,13 +533,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts the month Number into the month abbreviation.
-		 * @param month Month Number (0 for January, 1 for February, and so on)
-		 * @return Short textual representation of a month, three letters
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myDate:Date = new Date(2000, 0, 1);
 		 *          trace(getMonthAbbrAsString(myDate.getMonth())); // Traces Jan
-		 *      </code>
+		 *      </pre>
+		 * @param month Month Number (0 for January, 1 for February, and so on)
+		 * @return Short textual representation of a month, three letters
 		 */
 		public static function getMonthAbbrAsString(month:Number):String {
 			return getMonthAsString(month).substr(0, 3);
@@ -550,13 +549,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts the day of the week Number into the full day name.
-		 * @param day int representing the day of the week (0 for Sunday, 1 for Monday, and so on)
-		 * @return Full textual representation of the day of the week
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myDate:Date = new Date(2000, 0, 1);
 		 *          trace(getDayAsString(myDate.getDay())); // Traces Saturday
-		 *      </code>
+		 *      </pre>
+		 * @param day int representing the day of the week (0 for Sunday, 1 for Monday, and so on)
+		 * @return Full textual representation of the day of the week
 		 */
 		public static function getDayAsString(day:Number):String {
 			var dayNamesFull:Array = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -568,13 +567,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Converts the day of the week Number into the day abbreviation.
-		 * @param day int representing the day of the week (0 for Sunday, 1 for Monday, and so on)
-		 * @return Textual representation of a day, three letters
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myDate:Date = new Date(2000, 0, 1);
 		 *          trace(getDayAbbrAsString(myDate.getDay())); // Traces Sat
-		 *      </code>
+		 *      </pre>
+		 * @param day int representing the day of the week (0 for Sunday, 1 for Monday, and so on)
+		 * @return Textual representation of a day, three letters
 		 */
 		public static function getDayAbbrAsString(day:Number):String {
 			return getDayAsString(day).substr(0, 3);
@@ -584,14 +583,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Finds the Number of days in the given month.
+		 * Example code:
+		 *      <pre>
+		 *          var myDate:Date = new Date(2000, 0, 1);
+		 *          trace(getDaysInMonth(myDate.getFullYear(), myDate.getMonth())); // Traces 31
+		 *      </pre>
 		 * @param year Full year
 		 * @param month Month Number (0 for January, 1 for February, and so on)
 		 * @return Number of days in the month; 28 through 31
-		 * @example
-		 *      <code>
-		 *          var myDate:Date = new Date(2000, 0, 1);
-		 *          trace(getDaysInMonth(myDate.getFullYear(), myDate.getMonth())); // Traces 31
-		 *      </code>
 		 */
 		public static function getDaysInMonth(year:Number, month:Number):uint {
 			var m:Number = month;
@@ -603,12 +602,12 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if time is Ante meridiem or Post meridiem.
+		 * Example code:
+		 *      <pre>
+		 *          trace(getMeridiem(17)); // Traces PM
+		 *      </pre>
 		 * @param hours Hour to find the meridiem of (an int from 0 to 23)
 		 * @return Either "AM" or "PM"
-		 * @example
-		 *      <code>
-		 *          trace(getMeridiem(17)); // Traces PM
-		 *      </code>
 		 */
 		public static function getMeridiem(hours:Number):String {
 			return (hours < 12) ? "AM" : "PM";
@@ -618,13 +617,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines the difference between two Dates.
+		 * Example code:
+		 *      <pre>
+		 *          trace(ConversionUtil.millisecondsToDays(getTimeBetween(new Date(2007, 0, 1), new Date(2007, 0, 11)))); // Traces 10
+		 *      </pre>
 		 * @param startDate Starting Date
 		 * @param endDate Ending Date
 		 * @return Difference in milliseconds between the two Dates
-		 * @example
-		 *      <code>
-		 *          trace(ConversionUtil.millisecondsToDays(getTimeBetween(new Date(2007, 0, 1), new Date(2007, 0, 11)))); // Traces 10
-		 *      </code>
 		 */
 		public static function getTimeBetween(startDate:Date, endDate:Date):Number {
 			return endDate.getTime() - startDate.getTime();
@@ -634,14 +633,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines the time remaining until a certain Date.
+		 * Example code:
+		 *      <pre>
+		 *          var countdown:Object = getCountdownUntil(new Date(2006, 11, 31, 21, 36), new Date(2007, 0, 1));
+		 *          trace("There are " + countdown.hours + " hours and " + countdown.minutes + " minutes until the new year!");
+		 *      </pre>
 		 * @param startDate Starting Date
 		 * @param endDate Ending Date
 		 * @return Object with the properties days, hours, minutes, seconds and milliseconds defined as Numbers
-		 * @example
-		 *      <code>
-		 *          var countdown:Object = getCountdownUntil(new Date(2006, 11, 31, 21, 36), new Date(2007, 0, 1));
-		 *          trace("There are " + countdown.hours + " hours and " + countdown.minutes + " minutes until the new year!");
-		 *      </code>
 		 */
 		public static function getCountdownUntil(startDate:Date, endDate:Date):Object {
 			var daysUntil:Number = ConversionUtils.millisecondsToDays(getTimeBetween(startDate, endDate));
@@ -699,12 +698,12 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines the time zone of the user from a Date object.
+		 * Example code:
+		 *      <pre>
+		 *          trace(getTimezone(new Date()));
+		 *      </pre>
 		 * @param date Date object to find the time zone of
 		 * @return Time zone abbreviation
-		 * @example
-		 *      <code>
-		 *          trace(getTimezone(new Date()));
-		 *      </code>
 		 */
 		public static function getTimezone(date:Date):String {
 			var timeZones:Array = new Array("IDLW", "NT", "HST", "AKST", "PST", "MST", "CST", "EST", "AST", "ADT", "AT", "WAT", "GMT", "CET", "EET", "MSK", "ZP4", "ZP5", "ZP6", "WAST", "WST", "JST", "AEST", "AEDT", "NZST");
@@ -719,13 +718,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if year is a leap year or a common year.
-		 * @param year Full year
-		 * @return true if year is a leap year
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myDate:Date = new Date(2000, 0, 1);
 		 *          trace(isLeapYear(myDate.getFullYear())); // traces true
-		 *      </code>
+		 *      </pre>
+		 * @param year Full year
+		 * @return true if year is a leap year
 		 */
 		public static function isLeapYear(year:Number):Boolean {
 			return getDaysInMonth(year, 1) == 29;

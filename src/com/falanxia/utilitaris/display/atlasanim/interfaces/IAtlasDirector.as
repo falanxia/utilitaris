@@ -31,35 +31,64 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public interface IAtlasDirector {
 
 
+
+		/**
+		 * Start the timer.
+		 */
 		function start():void;
 
 
 
+		/**
+		 * Stop the timer.
+		 */
 		function stop():void;
 
 
 
+		/**
+		 * Register the animation.
+		 * @param atlasAnim Atlas animation
+		 * @return true if the animation was successfully registered
+		 * @see IAtlasAnim
+		 */
 		function registerAnim(atlasAnim:IAtlasAnim):Boolean;
 
 
 
+		/**
+		 * Unregister the animation.
+		 * @param atlasAnim Atlas animation
+		 * @return true if the animation was successfully unregistered.
+		 * @see IAtlasAnim
+		 */
 		function unregisterAnim(atlasAnim:IAtlasAnim):Boolean;
 
 
 
+		/**
+		 * Unregister all animations.
+		 */
 		function unregisterAll():void;
 
 
 
+		/**
+		 * Get running flag.
+		 * @return true if animation is running
+		 */
 		function getIsRunning():Boolean;
 
 
 
+		/**
+		 * Destructor.
+		 * @param destroyAssociatedAnims Destroy all associated animations
+		 */
 		function destroy(destroyAssociatedAnims:Boolean = true):void;
 
 

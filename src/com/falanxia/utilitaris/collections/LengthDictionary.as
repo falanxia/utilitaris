@@ -42,19 +42,40 @@ package com.falanxia.utilitaris.collections {
 
 
 
+		/**
+		 * Constructor.
+		 * @param allowOverwrite true to allow overwriting
+		 */
 		public function LengthDictionary(allowOverwrite:Boolean = true) {
 			this.allowOverwrite = allowOverwrite;
+
 			d = new Dictionary();
 		}
 
 
 
+		/**
+		 * Destructor.
+		 */
+		public function destroy():void {
+			d = null;
+		}
+
+
+
+		/**
+		 * Add an item.
+		 * @param key Key
+		 * @param item Item
+		 */
 		public function add(key:String, item:Object):void {
 			if(d[key]) {
 				if(allowOverwrite) {
 					d[key] = item;
 				}
-			} else {
+			}
+
+			else {
 				d[key] = item;
 				itemCount++;
 			}
@@ -62,6 +83,10 @@ package com.falanxia.utilitaris.collections {
 
 
 
+		/**
+		 * Remove the item.
+		 * @param key Key
+		 */
 		public function remove(key:String):void {
 			if(d[key]) {
 				delete d[key];
@@ -71,36 +96,51 @@ package com.falanxia.utilitaris.collections {
 
 
 
-		public function destroy():void {
-			d = null;
+		/**
+		 * Set overwrite flag.
+		 * @param value true to enable overwriting
+		 */
+		public function setOverwrite(value:Boolean):void {
+			this.allowOverwrite = value;
 		}
 
 
 
-		public function setOverwrite(b:Boolean):void {
-			this.allowOverwrite = b;
-		}
-
-
-
+		/**
+		 * Get overwrite flag.
+		 * @return true if overwriting is enabled
+		 */
 		public function getOverwrite():Boolean {
 			return allowOverwrite;
 		}
 
 
 
+		/**
+		 * Get count of items stored in the dictionary.
+		 * @return Count
+		 */
 		public function getLength():uint {
 			return itemCount;
 		}
 
 
 
+		/**
+		 * Get the dictionary.
+		 * @return Dictionary
+		 */
 		public function getDictionary():Dictionary {
 			return d;
 		}
 
 
 
+		/**
+		 * Get an object stored in the dictionary via its key.
+		 * @param key Key
+		 * @return Object
+		 */
 		public function get(key:String):Object {
 			return d[key];
 		}

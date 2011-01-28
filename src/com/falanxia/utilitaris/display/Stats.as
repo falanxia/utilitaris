@@ -44,10 +44,10 @@ package com.falanxia.utilitaris.display {
 	/**
 	 * Hi-ReS! Stats.
 	 *
-	 * @implementationNote Original by <a href="http://www.mrdoob.com">Mr.doob</a>
+	 * Original by <a href="http://www.mrdoob.com">Mr.doob</a>
+	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class Stats extends QSprite {
 
@@ -118,8 +118,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the QBitmap instance and frees it for GC.
-		 * Placeholder.
+		 * Destructor.
 		 */
 		override public function destroy():void {
 			// set visual properties

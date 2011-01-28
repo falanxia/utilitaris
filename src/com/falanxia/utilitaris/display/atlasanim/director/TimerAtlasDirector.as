@@ -35,7 +35,6 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class TimerAtlasDirector extends AbstractAtlasDirector implements IAtlasDirector {
 
@@ -44,6 +43,10 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Constructor.
+		 * @param refreshRate Refresh rate in msec
+		 */
 		public function TimerAtlasDirector(refreshRate:Number) {
 			super();
 
@@ -52,6 +55,24 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Destructor.
+		 * @param destroyAssociatedAnims true to destroy all associated animations
+		 */
+		override public function destroy(destroyAssociatedAnims:Boolean = true):void {
+			super.destroy(destroyAssociatedAnims);
+
+			timer.stop();
+			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
+
+			timer = null;
+		}
+
+
+
+		/**
+		 * Start the timer.
+		 */
 		override public function start():void {
 			timer.addEventListener(TimerEvent.TIMER, onTimerTick);
 			timer.start();
@@ -61,22 +82,14 @@ package com.falanxia.utilitaris.display.atlasanim.director {
 
 
 
+		/**
+		 * Stop the timer.
+		 */
 		override public function stop():void {
 			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
 			timer.stop();
 
 			super.stop()
-		}
-
-
-
-		override public function destroy(destroyAssociatedAnims:Boolean = true):void {
-			super.destroy(destroyAssociatedAnims);
-
-			timer.stop();
-			timer.removeEventListener(TimerEvent.TIMER, onTimerTick);
-
-			timer = null;
 		}
 
 

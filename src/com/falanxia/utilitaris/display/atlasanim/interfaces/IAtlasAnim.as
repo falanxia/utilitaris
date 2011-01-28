@@ -30,15 +30,21 @@ package com.falanxia.utilitaris.display.atlasanim.interfaces {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public interface IAtlasAnim {
 
 
+
+		/**
+		 * Update the atlas animation.
+		 */
 		function update():void;
 
 
 
+		/**
+		 * Destructor.
+		 */
 		function destroy():void;
 
 

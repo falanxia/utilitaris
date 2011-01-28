@@ -36,7 +36,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Five3D (<a href="http://five3d.mathieu-badimon.com">five3d.mathieu-badimon.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 * @see RGB
 	 * @see RGBA
 	 */
@@ -57,12 +56,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Interpolates (tints) between two colors.
-		 * @param begin Start color24
-		 * @param end End color24
-		 * @param amount Level of interpolation between begin and end colors
-		 * @return New interpolated color24
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var myColor:ColorTransform = new ColorTransform();
 		 *          myColor.color24 = 0xFF0000;
 		 *          var box:Sprite = new Sprite();
@@ -71,7 +66,11 @@ package com.falanxia.utilitaris.utils {
 		 *          box.graphics.endFill();
 		 *          box.transform.colorTransform = ColorUtils.interpolateColor(new ColorTransform(), myColor, new Percent(0.5));
 		 *          this.addChild(box);
-		 *      </code>
+		 *      </pre>
+		 * @param begin Start color24
+		 * @param end End color24
+		 * @param amount Level of interpolation between begin and end colors
+		 * @return New interpolated color24
 		 */
 		public static function interpolateColor(begin:ColorTransform, end:ColorTransform, amount:Percent):ColorTransform {
 			var interpolation:ColorTransform = new ColorTransform();

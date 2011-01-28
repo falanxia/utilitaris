@@ -33,23 +33,24 @@ package com.falanxia.utilitaris.b2utils {
 	/**
 	 * B2GeomUtils.
 	 *
-	 * B2GeomUtils class simplifies objects creation in b2World, basicly by converting box2d center-oriented object
-	 * creation to (flash) top-left corner oriented.
-	 *
-	 * CAUTION: use getInstance() to get static acces to nonstatic methods, after that you'll need to call init(),
-	 * pass reference to your b2world and set the pixel_to_meter ratio.
+	 * B2GeomUtils class simplifies objects creation in b2World, basicly by converting box2d center-oriented object creation to (flash) top-left corner oriented.
+	 * CAUTION: use getInstance() to get static acces to nonstatic methods, after that you'll need to call init(), pass reference to your b2world and set the pixel_to_meter ratio.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class B2GeomUtils {
 
 
 		private static var instance:B2GeomUtils;
 
+		/** PI */
 		public var pi:Number;
+
+		/** Pi in degrees */
 		public var pi_deg:Number;
+
+		/** Pi in radians */
 		public var pi_rad:Number;
 
 		private var world:b2World;
@@ -78,6 +79,9 @@ package com.falanxia.utilitaris.b2utils {
 
 
 
+		/**
+		 * Destructor.
+		 */
 		public function destroy():void {
 			instance = null;
 			world = null;
@@ -150,8 +154,6 @@ package com.falanxia.utilitaris.b2utils {
 
 		/**
 		 * Creates circle in the b2world, using flash manner
-		 * @param coords defines center of the circle
-		 * @param radius defines radius of the circle
 		 * @param isSensor defines if the body is used as sensor (no collision)
 		 * @param density
 		 * @param restitution

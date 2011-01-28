@@ -28,11 +28,10 @@ package com.falanxia.utilitaris.b2utils {
 
 
 	/**
-	 * B2Utils
+	 * B2Utils.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class B2Utils {
 
@@ -46,6 +45,14 @@ package com.falanxia.utilitaris.b2utils {
 
 
 
+		/**
+		 * Set debug draw mode.
+		 * @param world World reference
+		 * @param debugDrawContainer Debug draw container
+		 * @param debugScale Debug scale
+		 * @return b2DebugDraw reference
+		 * @see b2DebugDraw
+		 */
 		public static function setDebugDraw(world:b2World, debugDrawContainer:Sprite, debugScale:Number):b2DebugDraw {
 			var debugDraw:b2DebugDraw = new b2DebugDraw();
 

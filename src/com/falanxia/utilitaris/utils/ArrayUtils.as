@@ -31,7 +31,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class ArrayUtils {
 
@@ -132,17 +131,17 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Modifies original Array by adding all the elements from another Array at a specified position.
-		 * @param tarArray Array to add elements to
-		 * @param items Array of elements to add
-		 * @param index Position where the elements should be added
-		 * @return true if the Array was changed as a result of the call
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var alphabet:Array = new Array("a", "d", "e");
 		 *          var parts:Array = new Array("b", "c");
 		 *          ArrayUtils.addItemsAt(alphabet, parts, 1);
 		 *          trace(alphabet);
-		 *      </code>
+		 *      </pre>
+		 * @param tarArray Array to add elements to
+		 * @param items Array of elements to add
+		 * @param index Position where the elements should be added
+		 * @return true if the Array was changed as a result of the call
 		 */
 		public static function addItemsAt(tarArray:Array, items:Array, index:int = 0x7FFFFFFF):Boolean {
 			var out:Boolean = true;
@@ -162,13 +161,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Creates new Array composed of only the non-identical elements of passed Array.
-		 * @param inArray Array to remove equivalent items
-		 * @return New Array composed of only unique elements
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 4, 4, 4, 5);
 		 *          trace(ArrayUtils.removeDuplicates(numberArray));
-		 *      </code>
+		 *      </pre>
+		 * @param inArray Array to remove equivalent items
+		 * @return New Array composed of only unique elements
 		 */
 		public static function removeDuplicates(inArray:Array):Array {
 			return inArray.filter(removeDuplicatesFilter);
@@ -178,15 +177,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Modifies original Array by removing all items that are identical to the specified item.
-		 * @param tarArray Array to remove passed item
-		 * @param item Element to remove
-		 * @return Amount of removed elements that matched item, if none found returns 0
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
 		 *          trace("Removed " + ArrayUtils.removeItem(numberArray, 7) + " items");
 		 *          trace(numberArray);
-		 *      </code>
+		 *      </pre>
+		 * @param tarArray Array to remove passed item
+		 * @param item Element to remove
+		 * @return Amount of removed elements that matched item, if none found returns 0
 		 */
 		public static function removeItem(tarArray:Array, item:*):uint {
 			var i:int = tarArray.indexOf(item);
@@ -205,15 +204,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Removes only the specified items in an Array.
-		 * @param tarArray Array to remove specified items from
-		 * @param items Array of elements to remove
-		 * @return true if the Array was changed as a result of the call
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
 		 *          ArrayUtils.removeItems(numberArray, new Array(1, 3, 7, 5));
 		 *          trace(numberArray);
-		 *      </code>
+		 *      </pre>
+		 * @param tarArray Array to remove specified items from
+		 * @param items Array of elements to remove
+		 * @return true if the Array was changed as a result of the call
 		 */
 		public static function removeItems(tarArray:Array, items:Array):Boolean {
 			var removed:Boolean = false;
@@ -233,15 +232,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Retains only the specified items in an Array.
-		 * @param tarArray Array to remove non specified items from
-		 * @param items Array of elements to keep
-		 * @return true if the Array was changed as a result of the call
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
 		 *          ArrayUtils.retainItems(numberArray, new Array(2, 4));
 		 *          trace(numberArray);
-		 *      </code>
+		 *      </pre>
+		 * @param tarArray Array to remove non specified items from
+		 * @param items Array of elements to keep
+		 * @return true if the Array was changed as a result of the call
 		 */
 		public static function retainItems(tarArray:Array, items:Array):Boolean {
 			var removed:Boolean = false;
@@ -261,14 +260,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Finds out how many instances of item Array contains.
+		 * Example code:
+		 *      <pre>
+		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
+		 *          trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's");
+		 *      </pre>
 		 * @param inArray Array to search for item in
 		 * @param item Object to find
 		 * @return Amount of item's found; if none were found returns 0
-		 * @example
-		 *      <code>
-		 *          var numberArray:Array = new Array(1, 2, 3, 7, 7, 7, 4, 5);
-		 *          trace("numberArray contains " + ArrayUtils.contains(numberArray, 7) + " 7's");
-		 *      </code>
 		 */
 		public static function contains(inArray:Array, item:*):uint {
 			var i:int = inArray.indexOf(item, 0);
@@ -286,14 +285,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if Array contains all items.
+		 * Example code:
+		 *      <pre>
+		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
+		 *          trace(ArrayUtils.containsAll(numberArray, new Array(1, 3, 5)));
+		 *      </pre>
 		 * @param inArray Array to search for items in
 		 * @param items Array of elements to search for
 		 * @return true if inArray contains all elements of items
-		 * @example
-		 *      <code>
-		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
-		 *          trace(ArrayUtils.containsAll(numberArray, new Array(1, 3, 5)));
-		 *      </code>
 		 */
 		public static function containsAll(inArray:Array, items:Array):Boolean {
 			var out:Boolean = true;
@@ -310,14 +309,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if Array inArray contains any element of Array items.
+		 * Example code:
+		 *      <pre>
+		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
+		 *          trace(ArrayUtils.containsAny(numberArray, new Array(9, 3, 6)));
+		 *      </pre>
 		 * @param inArray Array to search for items in
 		 * @param items Array of elements to search for
 		 * @return true if inArray contains any element of items
-		 * @example
-		 *      <code>
-		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5);
-		 *          trace(ArrayUtils.containsAny(numberArray, new Array(9, 3, 6)));
-		 *      </code>
 		 */
 		public static function containsAny(inArray:Array, items:Array):Boolean {
 			var out:Boolean;
@@ -357,16 +356,16 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Compares two Arrays and finds the first index where they differ.
+		 * Example code:
+		 *      <pre>
+		 *          var color24:Array = new Array("Red", "Blue", "Green", "Indigo", "Violet");
+		 *          var colorsAlt:Array = new Array("Red", "Blue", "Green", "Violet");
+		 *          trace(ArrayUtils.getIndexOfDifference(color24, colorsAlt)); // traces 3
+		 *      </pre>
 		 * @param first First Array to compare to the second
 		 * @param second Second Array to compare to the first
 		 * @param fromIndex Location in the Arrays from which to start searching for a difference
 		 * @return First position/index where the Arrays differ; if Arrays are identical returns -1
-		 * @example
-		 *      <code>
-		 *          var color24:Array = new Array("Red", "Blue", "Green", "Indigo", "Violet");
-		 *          var colorsAlt:Array = new Array("Red", "Blue", "Green", "Violet");
-		 *          trace(ArrayUtils.getIndexOfDifference(color24, colorsAlt)); // traces 3
-		 *      </code>
 		 */
 		public static function getIndexOfDifference(first:Array, second:Array, fromIndex:uint = 0):int {
 			var out:int = -1;
@@ -383,13 +382,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Creates new Array composed of passed Array's items in a random order.
-		 * @param inArray Array to create copy of, and randomize
-		 * @return New Array composed of passed Array's items in a random order
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		 *          trace(ArrayUtils.randomize(numberArray));
-		 *      </code>
+		 *      </pre>
+		 * @param inArray Array to create copy of, and randomize
+		 * @return New Array composed of passed Array's items in a random order
 		 */
 		public static function randomize(inArray:Array):Array {
 			var t:Array = [];
@@ -407,13 +406,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Adds all items in inArray and returns the value.
-		 * @param inArray Array composed only of numbers
-		 * @return Total of all numbers in inArray added
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(2, 3);
 		 *          trace("Total is: " + ArrayUtils.sum(numberArray));
-		 *      </code>
+		 *      </pre>
+		 * @param inArray Array composed only of numbers
+		 * @return Total of all numbers in inArray added
 		 */
 		public static function sum(inArray:Array):Number {
 			var t:Number = 0;
@@ -430,13 +429,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Averages the values in inArray.
-		 * @param inArray Array composed only of numbers
-		 * @return Average of all numbers in the inArray
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(2, 3, 8, 3);
 		 *          trace("Average is: " + ArrayUtils.average(numberArray));
-		 *      </code>
+		 *      </pre>
+		 * @param inArray Array composed only of numbers
+		 * @return Average of all numbers in the inArray
 		 */
 		public static function average(inArray:Array):Number {
 			var out:Number;
@@ -454,13 +453,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Finds the lowest value in inArray.
-		 * @param inArray Array composed only of numbers
-		 * @return Lowest value in inArray
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(2, 1, 5, 4, 3);
 		 *          trace("The lowest value is: " + ArrayUtils.getLowestValue(numberArray));
-		 *      </code>
+		 *      </pre>
+		 * @param inArray Array composed only of numbers
+		 * @return Lowest value in inArray
 		 */
 		public static function getLowestValue(inArray:Array):Number {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -471,13 +470,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Finds the highest value in inArray.
-		 * @param inArray Array composed only of numbers
-		 * @return Highest value in inArray
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var numberArray:Array = new Array(2, 1, 5, 4, 3);
 		 *          trace("The highest value is: " + ArrayUtils.getHighestValue(numberArray));
-		 *      </code>
+		 *      </pre>
+		 * @param inArray Array composed only of numbers
+		 * @return Highest value in inArray
 		 */
 		public static function getHighestValue(inArray:Array):Number {
 			//noinspection NonShortCircuitBooleanExpressionJS

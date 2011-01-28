@@ -31,15 +31,24 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 	/**
-	 * Random atlas anim.
+	 * Random atlas animation.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <kuba@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class RandomAtlasAnim extends AbstractMultiAtlasAnim implements IAtlasAnim {
 
 
+
+		/**
+		 * Constructor.
+		 * @param width Animation width
+		 * @param height Animation height
+		 * @param atlases Atlas list
+		 * @param atlasesLengths Atlas frame count
+		 * @param atlasDirector IAtlasDirector reference
+		 * @see IAtlasDirector
+		 */
 		public function RandomAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array,
 		                                atlasDirector:IAtlasDirector) {
 			super(width, height, atlases, atlasesLengths, atlasDirector);
@@ -47,6 +56,9 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Update the animation.
+		 */
 		public function update():void {
 			this.drawFrame(Math.round(Math.random() * maxFrame));
 		}

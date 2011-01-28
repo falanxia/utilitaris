@@ -35,7 +35,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Aaron Clinger and Jon Adams / Casalib (<a href="http://casalib.org">casalib.org</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class ObjectUtils {
 
@@ -252,10 +251,8 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if Object contains no value(s).
-		 * @param obj Object to derimine if empty
-		 * @return true if object is empty
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var testNumber:Number;
 		 *          var testArray:Array = [];
 		 *          var testString:String = "";
@@ -264,7 +261,9 @@ package com.falanxia.utilitaris.utils {
 		 *          trace(ObjectUtils.isEmpty(testArray));  // traces "true"
 		 *          trace(ObjectUtils.isEmpty(testString)); // traces "true"
 		 *          trace(ObjectUtils.isEmpty(testObject)); // traces "true"
-		 *      </code>
+		 *      </pre>
+		 * @param obj Object to derimine if empty
+		 * @return true if object is empty
 		 */
 		public static function isEmpty(obj:*):Boolean {
 			var out:Boolean;

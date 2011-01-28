@@ -35,7 +35,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Nemo design (<a href="http://nemodesign.com">nemodesign.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class NumberUtils {
 
@@ -54,15 +53,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the two values are equal, with the option to define the precision.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.isEqual(3.042, 3, 0)); // traces false
+		 *          trace(NumberUtils.isEqual(3.042, 3, 0.5)); // traces true
+		 *      </pre>
 		 * @param val1 A value to compare
 		 * @param val2 A value to compare
 		 * @param precision Maximum amount the two values can differ and still be considered equal
 		 * @return true if the values are equal
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.isEqual(3.042, 3, 0)); // traces false
-		 *          trace(NumberUtils.isEqual(3.042, 3, 0.5)); // traces true
-		 *      </code>
 		 */
 		public static function isEqual(val1:Number, val2:Number, precision:Number = 0):Boolean {
 			return Math.abs(val1 - val2) <= Math.abs(precision);
@@ -73,15 +72,15 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Evaluates val1 and val2 and returns the smaller value. Unlike Math.min this method
 		 * will return the defined value if the other value is null or not a Number.
-		 * @param val1 A value to compare
-		 * @param val2 A value to compare
-		 * @return Smallest value, or the value out of the two that is defined and valid
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.min(5, null)); // traces 5
 		 *          trace(NumberUtils.min(5, "CASA")); // traces 5
 		 *          trace(NumberUtils.min(5, 13)); // traces 5
-		 *      </code>
+		 *      </pre>
+		 * @param val1 A value to compare
+		 * @param val2 A value to compare
+		 * @return Smallest value, or the value out of the two that is defined and valid
 		 */
 		public static function min(val1:*, val2:*):Number {
 			if(isNaN(val1) && isNaN(val2) || val1 == null && val2 == null) {
@@ -104,15 +103,15 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Evaluates val1 and val2 and returns the larger value. Unlike Math.max this method
 		 * will return the defined value if the other value is null or not a number.
-		 * @param val1 A value to compare
-		 * @param val2 A value to compare
-		 * @return Largest value, or the value out of the two that is defined and valid
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.max(-5, null)); // traces -5
 		 *          trace(NumberUtils.max(-5, "CASA")); // traces -5
 		 *          trace(NumberUtils.max(-5, -13)); // traces -5
-		 *      </code>
+		 *      </pre>
+		 * @param val1 A value to compare
+		 * @param val2 A value to compare
+		 * @return Largest value, or the value out of the two that is defined and valid
 		 */
 		public static function max(val1:*, val2:*):Number {
 			var out:Number;
@@ -163,13 +162,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the Number is even.
-		 * @param value A Number to determine if it is divisible by 2
-		 * @return true if the Number is even
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.isEven(7)); // traces false
 		 *          trace(NumberUtils.isEven(12)); // traces true
-		 *      </code>
+		 *      </pre>
+		 * @param value A Number to determine if it is divisible by 2
+		 * @return true if the Number is even
 		 */
 		public static function isEven(value:Number):Boolean {
 			//noinspection NonShortCircuitBooleanExpressionJS
@@ -180,13 +179,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the Number is odd.
-		 * @param value A Number to determine if it is not divisible by 2
-		 * @return true if the Number is odd
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.isOdd(7)); // traces true
 		 *          trace(NumberUtils.isOdd(12)); // traces false
-		 *      </code>
+		 *      </pre>
+		 * @param value A Number to determine if it is not divisible by 2
+		 * @return true if the Number is odd
 		 */
 		public static function isOdd(value:Number):Boolean {
 			return !isEven(value);
@@ -196,13 +195,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the Number is an int.
-		 * @param value A Number to determine if it contains no decimal values
-		 * @return true if the Number is an int
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.isInteger(13)); // traces true
 		 *          trace(NumberUtils.isInteger(1.2345)); // traces false
-		 *      </code>
+		 *      </pre>
+		 * @param value A Number to determine if it contains no decimal values
+		 * @return true if the Number is an int
 		 */
 		public static function isInteger(value:Number):Boolean {
 			return (value % 1) == 0;
@@ -212,13 +211,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the Number is prime.
-		 * @param value A Number to determine if it is only divisible by 1 and itself.
-		 * @return true if the Number is prime
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.isPrime(13)); // traces true
 		 *          trace(NumberUtils.isPrime(4)); // traces false
-		 *      </code>
+		 *      </pre>
+		 * @param value A Number to determine if it is only divisible by 1 and itself.
+		 * @return true if the Number is prime
 		 */
 		public static function isPrime(value:Number):Boolean {
 			if(value == 1 || value == 2) {
@@ -244,14 +243,14 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Rounds a Number's decimal value to a specific place.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.roundToPlace(3.14159, 2)); // traces 3.14
+		 *          trace(NumberUtils.roundToPlace(3.14159, 3)); // traces 3.142
+		 *      </pre>
 		 * @param value Number to round
 		 * @param place Decimal place to round
 		 * @return value rounded to the defined place
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.roundToPlace(3.14159, 2)); // traces 3.14
-		 *          trace(NumberUtils.roundToPlace(3.14159, 3)); // traces 3.142
-		 *      </code>
 		 */
 		public static function roundDecimalToPlace(value:Number, place:uint):Number {
 			var p:Number = Math.pow(10, place);
@@ -264,16 +263,16 @@ package com.falanxia.utilitaris.utils {
 		/**
 		 * Determines if index is included within the collection length otherwise the index loops to the
 		 * beginning or end of the range and continues.
-		 * @param index Index to loop if needed
-		 * @param length Total elements in the collection
-		 * @return Valid zero-based index
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var colors:Array = new Array("Red", "Green", "Blue");
 		 *          trace(colors[NumberUtils.loopIndex(2, colors.length)]); // traces Blue
 		 *          trace(colors[NumberUtils.loopIndex(4, colors.length)]); // traces Green
 		 *          trace(colors[NumberUtils.loopIndex(-6, colors.length)]); // traces Red
-		 *      </code>
+		 *      </pre>
+		 * @param index Index to loop if needed
+		 * @param length Total elements in the collection
+		 * @return Valid zero-based index
 		 */
 		public static function loopIndex(index:int, length:uint):uint {
 			var i:int = index;
@@ -293,16 +292,16 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines if the Number is included within a range.
+		 * Range values do not need to be in order.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.isBetween(3, 0, 5)); // traces true
+		 *          trace(NumberUtils.isBetween(7, 0, 5)); // traces false
+		 *      </pre>
 		 * @param value Number to determine if it is included in the range
 		 * @param firstValue First value of the range
 		 * @param secondValue Second value of the range
 		 * @return true if the number falls within the range
-		 * @usageNote Range values do not need to be in order
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.isBetween(3, 0, 5)); // traces true
-		 *          trace(NumberUtils.isBetween(7, 0, 5)); // traces false
-		 *      </code>
 		 */
 		public static function isBetween(value:Number, firstValue:Number, secondValue:Number):Boolean {
 			return !(value < Math.min(firstValue, secondValue) || value > Math.max(firstValue, secondValue));
@@ -329,16 +328,16 @@ package com.falanxia.utilitaris.utils {
 		 * If the number of digits in the integer of value is less than beforePoint, the remaining
 		 * digits are filled with zeros. If the number of digits in the decimal of value is less than
 		 * afterPoint, the remaning digits are filled with zeros.
+		 * Example code:
+		 *      <pre>
+		 *          NumberUtils.pad(.824, 0, 5); // returns ".82400"
+		 *          NumberUtils.pad(9, 3, 2); // returns "009.00"
+		 *          NumberUtils.pad(2835.3, 4, 2); // returns "2835.30"
+		 *      </pre>
 		 * @param value Number to pad
 		 * @param beforePoint Number of digits to pad before the point
 		 * @param afterPoint Number of digits to pad after the point
 		 * @return value padded as a String
-		 * @example
-		 *      <code>
-		 *          NumberUtils.pad(.824, 0, 5); // returns ".82400"
-		 *          NumberUtils.pad(9, 3, 2); // returns "009.00"
-		 *          NumberUtils.pad(2835.3, 4, 2); // returns "2835.30"
-		 *      </code>
 		 */
 		public static function pad(value:Number, beforePoint:uint, afterPoint:uint = 0):String {
 			// separate the integer from the decimal
@@ -432,15 +431,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Creates evenly spaced numerical increments between two Numbers.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.createStepsBetween(0, 5, 4)); // traces 1,2,3,4
+		 *          trace(NumberUtils.createStepsBetween(1, 3, 3)); // traces 1.5,2,2.5
+		 *      </pre>
 		 * @param begin Starting value
 		 * @param end Ending value
 		 * @param steps Number of increments between the begin and end
 		 * @return Array composed of the increments between the begin and end
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.createStepsBetween(0, 5, 4)); // traces 1,2,3,4
-		 *          trace(NumberUtils.createStepsBetween(1, 3, 3)); // traces 1.5,2,2.5
-		 *      </code>
 		 */
 		public static function createStepsBetween(begin:Number, end:Number, steps:Number):Array {
 			var s:Number = steps + 1;
@@ -460,13 +459,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines a value between two specified values.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.interpolate(new Percent(0.5), 0, 10)); // traces 5
+		 *      </pre>
 		 * @param amount Level of interpolation between the two values. If 0%, minimum value is returned; if 100%, maximum value is returned
 		 * @param minimum Lower value
 		 * @param maximum Upper value
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.interpolate(new Percent(0.5), 0, 10)); // traces 5
-		 *      </code>
 		 */
 		public static function interpolate(amount:Percent, minimum:Number, maximum:Number):Number {
 			return minimum + (maximum - minimum) * amount.decimalPercentage;
@@ -476,13 +475,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Determines a Percent of a value in a given range.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.normalize(8, 4, 20).decimalPercentage); // traces 0.25
+		 *      </pre>
 		 * @param value Value to be converted
 		 * @param minimum Lower value of the range
 		 * @param maximum Upper value of the range
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.normalize(8, 4, 20).decimalPercentage); // traces 0.25
-		 *      </code>
 		 * @see Percent
 		 */
 		public static function normalize(value:Number, minimum:Number, maximum:Number):Percent {
@@ -493,15 +492,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Maps a Number from one coordinate space to another.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.map(0.75, 0, 1, 0, 100)); // traces 75
+		 *      </pre>
 		 * @param value Number from the input coordinate space to map to the output coordinate space
 		 * @param min1 Starting value of the input coordinate space
 		 * @param max1 Ending value of the input coordinate space
 		 * @param min2 Starting value of the output coordinate space
 		 * @param max2 Ending value of the output coordinate space
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.map(0.75, 0, 1, 0, 100)); // traces 75
-		 *      </code>
 		 */
 		public static function map(value:Number, min1:Number, max1:Number, min2:Number, max2:Number):Number {
 			//noinspection OverlyComplexArithmeticExpressionJS
@@ -529,15 +528,15 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Formats a Number.
+		 * Example code:
+		 *      <pre>
+		 *          trace(NumberUtils.format(1234567, 8, ",")); // traces 01,234,567
+		 *      </pre>
 		 * @param value Number you wish to format
 		 * @param minLength Minimum length of the Number
 		 * @param thouDelim Character used to seperate thousands
 		 * @param fillChar Leading character used to make the Number the minimum length
 		 * @return Formated Number as a String
-		 * @example
-		 *      <code>
-		 *          trace(NumberUtils.format(1234567, 8, ",")); // traces 01,234,567
-		 *      </code>
 		 */
 		public static function format(value:Number, minLength:uint, thouDelim:String = null, fillChar:String = null):String {
 			var num:String = String(value);
@@ -579,12 +578,12 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Finds the English ordinal suffix for the number given.
+		 * Example code:
+		 *      <pre>
+		 *          trace(32 + NumberUtils.getOrdinalSuffix(32)); // traces 32nd
+		 *      </pre>
 		 * @param value Number to find the ordinal suffix of
 		 * @return Suffix for the Number, 2 characters
-		 * @example
-		 *      <code>
-		 *          trace(32 + NumberUtils.getOrdinalSuffix(32)); // traces 32nd
-		 *      </code>
 		 */
 		public static function getOrdinalSuffix(value:int):String {
 			var out:String;
@@ -627,13 +626,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Adds a leading zero for Numbers less than ten.
-		 * @param value Number to add leading zero
-		 * @return Number as a String; if the Number was less than ten the Number will have a leading zero
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          trace(NumberUtils.addLeadingZero(7)); // traces 07
 		 *          trace(NumberUtils.addLeadingZero(11)); // traces 11
-		 *      </code>
+		 *      </pre>
+		 * @param value Number to add leading zero
+		 * @return Number as a String; if the Number was less than ten the Number will have a leading zero
 		 */
 		public static function addLeadingZero(value:Number):String {
 			return (value < 10) ? "0" + value : String(value);

@@ -27,12 +27,11 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 	/**
-	 * World Polygon Object.
+	 * World polygon object.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class WorldPolygonObject extends WorldObject {
 
@@ -57,7 +56,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 		/**
-		 * Destroys the WorldPolygonObject and frees it for GC.
+		 * Destructor.
 		 */
 		override public function destroy():void {
 			if(vertices == null) return;

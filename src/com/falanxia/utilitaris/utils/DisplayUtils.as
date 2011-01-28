@@ -49,7 +49,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Karl Knocking
 	 * @author Matt W (<a href="http://blog.nobien.net">blog.nobien.net</a>)
 	 * @author Jonnie Hallman / Destroytoday (<a href="http://destroytoday.com">destroytoday.com</a>)
-	 * @since 1.0
 	 * @see RGBA
 	 */
 	public final class DisplayUtils {

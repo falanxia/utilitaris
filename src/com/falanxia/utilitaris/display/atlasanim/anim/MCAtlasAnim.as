@@ -37,7 +37,6 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class MCAtlasAnim extends AbstractMultiAtlasAnim implements IAtlasAnim, IMovieClipAnim {
 
@@ -50,6 +49,15 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Constructor.
+		 * @param width Animation width
+		 * @param height Animation height
+		 * @param atlases Atlas list
+		 * @param atlasesLengths Atlas frame count
+		 * @param atlasDirector IAtlasDirector reference
+		 * @see IAtlasDirector
+		 */
 		public function MCAtlasAnim(width:Number, height:Number, atlases:Vector.<BitmapData>, atlasesLengths:Array, atlasDirector:IAtlasDirector) {
 			super(width, height, atlases, atlasesLengths, atlasDirector);
 
@@ -64,6 +72,20 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Destructor.
+		 */
+		override public function destroy():void {
+			director.unregisterAnim(this);
+
+			super.destroy();
+		}
+
+
+
+		/**
+		 * Update the animation.
+		 */
 		public function update():void {
 			increaseFrames();
 			this.drawFrame(frame);
@@ -71,6 +93,11 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Play the animation.
+		 * @param dontWaitForDirector true to skip waiting for the director.
+		 * @see IAtlasDirector
+		 */
 		public function play(dontWaitForDirector:Boolean = false):void {
 			if(dontWaitForDirector) {
 				this.update();
@@ -84,12 +111,19 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Stop the animation.
+		 */
 		public function stop():void {
 			director.unregisterAnim(this);
 		}
 
 
 
+		/**
+		 * Go to a frame and play.
+		 * @param frame Frame to jump to
+		 */
 		public function gotoAndPlay(frame:uint):void {
 			this.frame = frame;
 			checkFrames();
@@ -98,6 +132,10 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Go to a frame and stop.
+		 * @param frame Frame to jump to
+		 */
 		public function gotoAndStop(frame:uint):void {
 			director.unregisterAnim(this);
 			this.frame = frame;
@@ -107,6 +145,9 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Jump to the next frame.
+		 */
 		public function nextFrame():void {
 			this.frame++;
 			checkFrames();
@@ -115,6 +156,9 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Jump to the previous frame.
+		 */
 		public function prevFrame():void {
 			this.frame--;
 			checkFrames();
@@ -123,12 +167,20 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
+		/**
+		 * Reverse animation playback.
+		 */
 		public function reverse():void {
 			this.doPlayForward = !this.doPlayForward;
 		}
 
 
 
+		/**
+		 * Go to a frame and stop.
+		 * @param frame Frame to jump to
+		 * TODO: Check and compare with gotoAndStop()
+		 */
 		public function goto(frame:uint):void {
 			this.frame = frame;
 			checkFrames();
@@ -137,55 +189,82 @@ package com.falanxia.utilitaris.display.atlasanim.anim {
 
 
 
-		override public function destroy():void {
-			director.unregisterAnim(this);
-			super.destroy();
-		}
-
-
-
+		/**
+		 * Set yoyo playback mode.
+		 * @param doYoyo true for yoyo
+		 */
 		public function setYoyo(doYoyo:Boolean):void {
 			this.doYoyo = doYoyo;
 		}
 
 
 
+		/**
+		 * Get yoyo playback mode.
+		 * @return true for yoyo
+		 */
 		public function getYoyo():Boolean {
 			return doYoyo;
 		}
 
 
 
+		/**
+		 * Set playback direction
+		 * @param doPlayForward true to play forward
+		 */
 		public function setDirection(doPlayForward:Boolean):void {
 			this.doPlayForward = doPlayForward;
 		}
 
 
 
+		/**
+		 * Get playback direction
+		 * @return true for forward playback
+		 */
 		public function getDirection():Boolean {
 			return this.doPlayForward;
 		}
 
 
 
+		/**
+		 * Get repeat playback mode.
+		 * @return true for repeat mode
+		 */
 		public function getRepeat():Boolean {
 			return this.repeat;
 		}
 
 
 
+		/**
+		 * Set repeat playback mode.
+		 * @param repeat true for repeat mode
+		 */
 		public function setRepeat(repeat:Boolean):void {
 			this.repeat = repeat;
 		}
 
 
 
+		/**
+		 * Get frame number.
+		 * @return Frame number
+		 */
 		public function getFrameNum():uint {
 			return maxFrame + 1;
 		}
 
 
 
+		/**
+		 * Set frame limits.
+		 * @param minFrame Low frame
+		 * @param maxFrame High frame
+		 * @param jumpToFrame true to jump to frame if cropped
+		 */
 		public function setFrameLimit(minFrame:uint, maxFrame:uint, jumpToFrame:Boolean = false):void {
 			if(minFrame > 0) {
 				this.limitMinFrame = minFrame;

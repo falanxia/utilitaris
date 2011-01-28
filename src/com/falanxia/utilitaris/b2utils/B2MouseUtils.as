@@ -26,17 +26,11 @@ package com.falanxia.utilitaris.b2utils {
 
 
 
-
-
-
-
-
 	/**
 	 * B2MouseUtils.
 	 *
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class B2MouseUtils {
 
@@ -69,13 +63,6 @@ package com.falanxia.utilitaris.b2utils {
 
 
 
-		public function init(world:b2World, ratio:Number):void {
-			this.world = world;
-			this.ratio = ratio;
-		}
-
-
-
 		/**
 		 * Destructor.
 		 */
@@ -87,11 +74,23 @@ package com.falanxia.utilitaris.b2utils {
 
 
 		/**
+		 * Initialize.
+		 * @param world World reference
+		 * @param ratio Ratio
+		 */
+		public function init(world:b2World, ratio:Number):void {
+			this.world = world;
+			this.ratio = ratio;
+		}
+
+
+
+		/**
 		 * Returns the first b2Body found under the mouse cursor.
 		 * @param mouseX mouseX coord (in pixels)
 		 * @param mouseY mouseY coord (in pixels)
-		 * @param maxCount maximum number of objects (bodies) to querry the world (more than 10 shudn't overleap anyway..)
-		 * @param includeStatic set to true if we want to include static bodies to query.
+		 * @param maxCount maximum number of objects (bodies) to querry the world (more than 10 shudn't overleap anyway)
+		 * @param includeStatic set to true if we want to include static bodies to query
 		 * @return first b2body found at cursor position
 		 */
 		public function getBodyAtMouse(mouseX:Number, mouseY:Number, maxCount:int = 10, includeStatic:Boolean = false):b2Body {

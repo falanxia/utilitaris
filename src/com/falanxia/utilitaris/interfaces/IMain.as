@@ -31,7 +31,6 @@ package com.falanxia.utilitaris.interfaces {
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public interface IMain {
 
@@ -49,5 +48,7 @@ package com.falanxia.utilitaris.interfaces {
 		 * @param flashVars Application FlashVars
 		 */
 		function set flashVars(flashVars:Object):void;
+
+
 	}
 }

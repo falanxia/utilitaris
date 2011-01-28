@@ -32,7 +32,6 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class WorldObject {
 
@@ -58,7 +57,7 @@ package com.falanxia.utilitaris.b2utils.objectdata {
 
 
 		/**
-		 * Destroys the WorldObject and frees it for GC.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			position = null;

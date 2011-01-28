@@ -27,6 +27,8 @@ package com.falanxia.utilitaris.collections {
 
 
 	/**
+	 * Array picker.
+	 *
 	 * Array picker class lets you declare array of items you want to use (poolArray) and ensures that item that is
 	 * acutally in use cannot be used again (is moved to reservedArray) until its flagged as unused (returned to
 	 * poolArray); BEWARE: For better performance and flexibility, ArrayPicker breaks encapsulation in methods getPool() and
@@ -35,7 +37,6 @@ package com.falanxia.utilitaris.collections {
 	 * @author Jakub Schimer @ Falanxia a.s. <jakub.schimer@falanxia.com>
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public final class ArrayPicker extends Object {
 
@@ -46,7 +47,7 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Initilizes arrays.
+		 * Constructor.
 		 */
 		public function ArrayPicker():void {
 			poolArray = [];
@@ -56,8 +57,7 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Sets Array of items we want to work with, if poolArray is already set, we rewrite it and empty
-		 * reservedArray.
+		 * Sets Array of items we want to work with, if poolArray is already set, we rewrite it and empty reservedArray.
 		 * @param value Array of items
 		 */
 		public function init(value:Array):void {
@@ -71,7 +71,7 @@ package com.falanxia.utilitaris.collections {
 
 
 		/**
-		 * Destroys the ArrayPicker and frees it for GC.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			poolArray = null;

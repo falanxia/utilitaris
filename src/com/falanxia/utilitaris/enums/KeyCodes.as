@@ -29,10 +29,10 @@ package com.falanxia.utilitaris.enums {
 	/**
 	 * Key codes.
 	 *
-	 * @implementationNote Original by <a href="http://github.com/iainlobb/Gamepad/blob/master/com/cheezeworld/utils/KeyCode.as">http://github.com/iainlobb/Gamepad/blob/master/com/cheezeworld/utils/KeyCode.as</a>
+	 * Original by <a href="http://github.com/iainlobb/Gamepad/blob/master/com/cheezeworld/utils/KeyCode.as">http://github.com/iainlobb/Gamepad/blob/master/com/cheezeworld/utils/KeyCode.as</a>
+	 *
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @since 1.0
 	 */
 	public class KeyCodes {
 

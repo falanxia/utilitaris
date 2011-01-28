@@ -36,11 +36,11 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Quick Video.
+	 *
 	 * Quick creation of Video with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 * @see QBitmap
 	 * @see QSprite
 	 * @see QTextField
@@ -52,24 +52,24 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Constructor.
 		 * All parameters from the config Object are parsed and applied to the newly created Video.
-		 * @usageNote Additionally these set to non-default settings to make common tasks easier (if not overridden by the config parameter)
+		 * Additionally these set to non-default settings to make common tasks easier (if not overridden by the config parameter)
 		 *      <ul>
 		 *          <li>deblocking - set to 5</li>
 		 *          <li>smoothing - set to true</li>
 		 *      </ul>
+		 * Example code:
+		 *      <pre>
+		 *		    var myVideo:QVideo = new QVideo(400, 300, {x:100, y:50});
+		 *		    addChild(myVideo);
+		 *      </pre>
+		 * Another example directly adding new QVideo to this DisplayObjectContainer:
+		 *      <pre>
+		 *          var myVideo:QVideo = new QVideo(400, 300, {}, this);
+		 *      </pre>
 		 * @param width Video width
 		 * @param height Video height
 		 * @param displayConfig Config Object
 		 * @param displayParent Parent DisplayObjectContainer
-		 * @example Example code:
-		 *      <code>
-		 *		    var myVideo:QVideo = new QVideo(400, 300, {x:100, y:50});
-		 *		    addChild(myVideo);
-		 *      </code>
-		 * @example Another example directly adding new QVideo to this DisplayObjectContainer:
-		 *      <code>
-		 *          var myVideo:QVideo = new QVideo(400, 300, {}, this);
-		 *      </code>
 		 */
 		public function QVideo(width:Number, height:Number, displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// create default settings
@@ -107,8 +107,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the QVideo instance and frees it for GC.
-		 * Placeholder.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			this.filters = null;

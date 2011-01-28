@@ -37,11 +37,11 @@ package com.falanxia.utilitaris.display {
 
 	/**
 	 * Quick Sprite.
+	 *
 	 * Quick creation of Sprite with initial settings.
 	 *
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
-	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
+	 * @author Vaclav Vancura @ Falanxia a.s>
 	 * @see QBitmap
 	 * @see QTextField
 	 * @see QVideo
@@ -56,22 +56,22 @@ package com.falanxia.utilitaris.display {
 		/**
 		 * Constructor.
 		 * All parameters from the config Object are parsed and applied to the newly created Sprite.
-		 * @usageNote Additionally these parameters are added:
+		 * Additionally these parameters are added:
 		 *      <ul>
 		 *          <li>embed - DisplayObject to be attached inside</li>
 		 *      </ul>
+		 * Example code:
+		 *      <pre>
+		 *		    var mySprite:QSprite = new QSprite(x:100, y:50, alpha:.5, rotation:10});
+		 *		    addChild(mySprite);
+		 *      </pre>
+		 * Another example directly adding new QSprite to this DisplayObjectContainer:
+		 *      <pre>
+		 *          var mySprite:QSprite = new QSprite({}, this);
+		 *      </pre>
 		 * @param displayConfig Config Object
 		 * @param displayParent Parent DisplayObjectContainer
 		 * @throws TypeError if embedded DisplayObject is invalid
-		 * @example Example code:
-		 *      <code>
-		 *		    var mySprite:QSprite = new QSprite(x:100, y:50, alpha:.5, rotation:10});
-		 *		    addChild(mySprite);
-		 *      </code>
-		 * @example Another example directly adding new QSprite to this DisplayObjectContainer:
-		 *      <code>
-		 *          var mySprite:QSprite = new QSprite({}, this);
-		 *      </code>
 		 */
 		public function QSprite(displayConfig:Object = null, displayParent:DisplayObjectContainer = null) {
 			// if config is not defined, prepare it
@@ -106,7 +106,7 @@ package com.falanxia.utilitaris.display {
 
 
 		/**
-		 * Destroys the QSprite and frees it for GC.
+		 * Destructor.
 		 */
 		public function destroy():void {
 			if(_embeddedSpr != null && this.contains(_embeddedSpr)) this.removeChild(_embeddedSpr);

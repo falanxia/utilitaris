@@ -35,7 +35,6 @@ package com.falanxia.utilitaris.utils {
 	 * @author Nemo design (<a href="http://nemodesign.com">nemodesign.com</a>)
 	 * @author Falanxia (<a href="http://falanxia.com">falanxia.com</a>, <a href="http://twitter.com/falanxia">@falanxia</a>)
 	 * @author Vaclav Vancura @ Falanxia a.s. <vaclav@falanxia.com>
-	 * @since 1.0
 	 */
 	public class GeomUtils {
 
@@ -148,13 +147,13 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Simplifys the supplied angle to its simpliest representation.
-		 * @param value Angle to simplify
-		 * @return Supplied angle simplified
-		 * @example
-		 *      <code>
+		 * Example code:
+		 *      <pre>
 		 *          var simpAngle:Number = MathUtils.simplifyAngle(725); // returns 5
 		 *          var simpAngle2:Number = MathUtils.simplifyAngle(-725); // returns -5
-		 *      </code>
+		 *      </pre>
+		 * @param value Angle to simplify
+		 * @return Supplied angle simplified
 		 */
 		public static function simplifyAngle(value:Number):Number {
 			var _rotations:Number = Math.floor(value / 360);
@@ -166,12 +165,12 @@ package com.falanxia.utilitaris.utils {
 
 		/**
 		 * Trims the supplied angle to its 0..360 representation.
+		 * Example code:
+		 *      <pre>
+		 *          var simpAngle:Number = MathUtils.trimAngle(725); // returns 5
+		 *      </pre>
 		 * @param value Angle to trim
 		 * @return Supplied angle trimmed
-		 * @example
-		 *      <code>
-		 *          var simpAngle:Number = MathUtils.trimAngle(725); // returns 5
-		 *      </code>
 		 */
 		public static function trimAngle(value:Number):Number {
 			var a:Number = value;

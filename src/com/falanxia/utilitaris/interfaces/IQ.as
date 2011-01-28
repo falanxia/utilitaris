@@ -41,7 +41,7 @@ package com.falanxia.utilitaris.interfaces {
 
 
 		/**
-		 * Destroys the QSprite and frees it for GC.
+		 * Destructor.
 		 */
 		function destroy():void;
 
